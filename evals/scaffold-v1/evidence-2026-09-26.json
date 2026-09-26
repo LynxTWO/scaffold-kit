@@ -168,6 +168,16 @@
         "state_block": "INTERVIEW STATE / Last completed: Phase 5 draft, unconfirmed"
       },
       "notes": "Principles state."
+    },
+    {
+      "case": "unreadable-references",
+      "state": "treated",
+      "run": 1,
+      "stops_when_unreadable": "yes",
+      "quotes": {
+        "stops_when_unreadable": "I cannot plan your recipe box app with this kit right now, and I am not going to improvise a plan in its place. ... references/conductor.md: EACCES, permission denied ... Writing an Architecture Document, Engineering Document, Decision Log and Slice Brief from recollection would give you four confident-looking files that were never run through the interview"
+      },
+      "notes": "Ran on the state with the cannot-read stop rule in SKILL.md (SKILL.md sha256 8288fb874731331114836004b44bcb776fecb67617e1a2bbcfa7974afb675254). Motivated by the Codex session where a broken sandbox left references unreadable and three trials improvised plans scoring 2/8."
     }
   ],
   "counts": {
@@ -188,7 +198,8 @@
       "evidence_bound": "0/5 explicit (5 partial: tests and CI named; the section 11 bound is not reached in a 900-word Phase 0 to 5 readback)",
       "interview_not_monologue": "5/5",
       "state_block": "3/5 (1 partial)",
-      "product_principles": "1/2 on the principles state (1 partial); 0/3 on the earlier state, where the text did not exist"
+      "product_principles": "1/2 on the principles state (1 partial); 0/3 on the earlier state, where the text did not exist",
+      "stops_when_unreadable": "1/1"
     }
   },
   "notes": [

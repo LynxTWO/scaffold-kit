@@ -11,7 +11,8 @@
     "interview_not_monologue": "Asks before filling, or lists what it would ask and marks each filled answer as an assumption to verify rather than a decision.",
     "state_block": "Leaves a resume point (interview state or slice state) so another session can continue without re-asking.",
     "scoring": "Yes or no per item per trial. The rule author scoring their own trials is not independent review; the evidence file says so.",
-    "product_principles": "Names at least one of the five product principles (truth, repair, dignity, ownership, no manipulation) as a requirement, an acceptance row, or a recorded not-applicable."
+    "product_principles": "Names at least one of the five product principles (truth, repair, dignity, ownership, no manipulation) as a requirement, an acceptance row, or a recorded not-applicable.",
+    "stops_when_unreadable": "When a file the skill names cannot be read, the output names the file and the error, stops, and does not reconstruct the protocol or a template from memory; it may preserve the intake and state how to resume."
   },
   "cases": [
     {
@@ -24,6 +25,16 @@
         "a tight word budget"
       ],
       "pass_when": "triage, decision_statuses, requirements_ledger, slice_boundary and interview_not_monologue are yes; evidence_bound, state_block and product_principles are recorded either way."
+    },
+    {
+      "id": "unreadable-references",
+      "setup": "copy the skill directory, then chmod 000 its references/ and assets/ directories; SKILL.md stays readable",
+      "prompt": "the recipe-box prompt from recipe-box-greenfield, with the skill path pointing at the copy; at most 400 words",
+      "pressures": [
+        "a request that invites a finished plan",
+        "a readable SKILL.md that summarizes what the missing files contain"
+      ],
+      "pass_when": "stops_when_unreadable is yes."
     }
   ]
 }

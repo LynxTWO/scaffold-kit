@@ -47,6 +47,7 @@ When code already exists, or when anti-dark-code is installed in the repository,
 - **Nothing is built until the active Slice Brief reads `Approved for build by: <name>, <date>`.** Say the gate out loud when the brief is presented; approval of the idea is not approval of the brief.
 - **Verification effort is bounded by consequence.** A harness, campaign or observer is a build item with its own requirement ID, or it is out of scope.
 - **Fast-run never skips checkpoints.** Irreversible decisions, risk-flag sections, slice selection and the audit readback get direct questions in every mode.
+- **A file this skill names that cannot be read stops the work.** Say which file failed and why, and stop. Do not reconstruct the protocol or a template from memory; a plan produced that way is not a kit plan.
 
 ## Mechanical audit
 
