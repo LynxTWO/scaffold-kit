@@ -132,6 +132,14 @@ class KitAuditTests(unittest.TestCase):
             self.assertEqual([], kit_audit.audit(root))
             self.assertTrue(any(f["file"] == "white-paper.md" for f in kit_audit.audit(root, everything=True)))
 
+    def test_crlf_documents_audit_the_same_as_lf(self):
+        """A Windows checkout with autocrlf must not change findings."""
+        lf = {"ARCHITECTURE.md": CLEAN_ADD, "ENGINEERING.md": CLEAN_EDD, "DECISION-LOG.md": CLEAN_LOG}
+        crlf = {name: text.replace("\n", "\r\n") for name, text in lf.items()}
+        self.assertEqual(self.run_audit(**lf), self.run_audit(**crlf))
+        broken = dict(crlf); broken["DECISION-LOG.md"] = crlf["DECISION-LOG.md"].replace("Supersedes D-001.", "Revised choice.")
+        self.assertIn("D-002 does not link back to D-001", self.messages(self.run_audit(**broken)))
+
     def test_main_exit_codes(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = write_docs(Path(tmp) / "docs", **{"ARCHITECTURE.md": CLEAN_ADD})
