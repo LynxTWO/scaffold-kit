@@ -8,7 +8,7 @@ Date: 2026-09-26. Status: In progress on branch `v0.4`.
 - **Name `scaffold-kit`**, permanent once installed. Searches for "plan broadly" find it through the description's first sentence, the manifest keywords (`plan-broadly`, `build-narrowly`) and the repository topics; an alias skill would spend catalog budget for nothing.
 - **License FSL-1.1-MIT**, same licensor and text as anti-dark-code. Repository stays private until v0.4 is verified.
 - **Layout `skills/scaffold-kit/` from the first commit**, so Claude Code plugins, the Agent Plugins standard (Codex, Cursor, Copilot CLI) and `gh skill publish` all discover it without a later migration. Numeric filename prefixes dropped; the README maps old to new.
-- **Codex marketplace file deferred.** `.agents/plugins/marketplace.json`'s entry schema was not verified against the Codex documentation during this pass; `.claude-plugin/marketplace.json` is also read by Codex per its plugin docs, so nothing is lost.
+- **Codex marketplace file added after verification.** `.agents/plugins/marketplace.json` follows the documented shape and a published cross-host plugin; `.codex-plugin/plugin.json` is the legacy fallback the docs name. Headless Codex confirmed project-skill discovery; the plugin install route is left to an owner-run Codex session (`design/codex-verification-2026-09-26.md`).
 
 ## Source of the changes
 
@@ -29,7 +29,7 @@ The second field run is the six-week slice-by-slice build under v0.3 that produc
 
 ## Follow-ups
 
-- Verify the Codex marketplace entry schema, then add `.agents/plugins/marketplace.json`.
+- Run the Codex verification brief in an owner session (persistent marketplace route, ChatGPT desktop if used).
 - Run `skills-ref validate` (agentskills reference validator) and `gh skill publish --dry-run` once the tools are installed here.
 - Update the vendored copy in the consuming repository through its own pull request.
 - Flip the repository public and tag `v0.4.0` after the owner's review.
