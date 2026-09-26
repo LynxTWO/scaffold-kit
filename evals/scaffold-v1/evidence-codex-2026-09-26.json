@@ -1,0 +1,48 @@
+{
+  "set": "scaffold-v1",
+  "date": "2026-09-26",
+  "host": "Codex CLI 0.155.0-alpha.16.3, the binary bundled with the OpenAI VS Code extension on the authoring workstation (Linux), run headless with `codex exec --sandbox read-only` in a throwaway git directory. One host, one version; not the IDE chat or ChatGPT desktop surfaces.",
+  "scorer": "the skill author; not independent review",
+  "checks": [
+    {
+      "id": "project-skill-discovery",
+      "setup": "copy of skills/scaffold-kit at <tmp>/.agents/skills/scaffold-kit; no plugin, no marketplace",
+      "prompt": "Do not read or open any files. From your skill listing only, answer in two lines: (1) the names of all skills available to you; (2) for the one named scaffold-kit, the first sentence of its description verbatim.",
+      "observed": {
+        "skills_listed": [
+          "imagegen",
+          "openai-docs",
+          "plugin-creator",
+          "skill-creator",
+          "skill-installer",
+          "scaffold-kit",
+          "anti-dark-code"
+        ],
+        "description_first_sentence": "Use when starting a software project, scaffolding planning documents for an existing codebase, choosing or writing the next slice brief, or recording a design decision with a status and a revisit trigger."
+      },
+      "result": "pass",
+      "tokens_reported": 4247,
+      "notes": "anti-dark-code came from the user-level ~/.agents/skills symlink. The run printed \"error building bubblewrap command: mountinfo path is not absolute\" from the sandbox helper and continued; unrelated to skill discovery."
+    },
+    {
+      "id": "plugin-via-session-overrides",
+      "setup": "empty git directory, no .agents/skills; `codex exec -c marketplaces.lynxtwo.source_type=\"local\" -c marketplaces.lynxtwo.source=\"<repo>\" -c plugins.\"scaffold-kit@lynxtwo\".enabled=true`",
+      "prompt": "Do not read or open any files. From your skill and plugin listing only: (1) all skills available; (2) whether a plugin named scaffold-kit is installed or enabled, and from which marketplace.",
+      "observed": {
+        "skills_listed": [
+          "imagegen",
+          "openai-docs",
+          "plugin-creator",
+          "skill-creator",
+          "skill-installer",
+          "anti-dark-code"
+        ],
+        "plugin": "NONE",
+        "marketplace": "NONE"
+      },
+      "result": "not established",
+      "tokens_reported": 6362,
+      "notes": "Session-only config overrides did not make the marketplace or plugin visible on this version. Consistent with plugins being resolved from a cache populated by `codex plugin marketplace add`, a persistent step this run deliberately did not take. The marketplace file shape is not disproved by this; the persistent route is check 5 of design/codex-verification-2026-09-26.md."
+    }
+  ]
+}
