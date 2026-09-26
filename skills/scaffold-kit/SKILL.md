@@ -2,7 +2,7 @@
 name: scaffold-kit
 description: Use when starting a software project, scaffolding planning documents for an existing codebase, choosing or writing the next slice brief, or recording a design decision with a status and a revisit trigger. Plan broadly, build narrowly, test reality, expand deliberately. A structured interview produces an Architecture Document, an Engineering Document, a Decision Log and one active Slice Brief that bounds what an AI agent may build. Works for apps, services, CLIs, libraries, data systems, games, automations and sites at any experience level. Pairs with anti-dark-code for mapping existing code and for verification.
 license: FSL-1.1-MIT. LICENSE.md has complete terms
-compatibility: Instructions only. The optional audit script needs Python 3.10 or newer and no packages.
+compatibility: Instructions only. The optional audit script needs Python 3.9 or newer and no packages.
 ---
 
 # Scaffold Kit
