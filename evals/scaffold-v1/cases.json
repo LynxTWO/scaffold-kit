@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "purpose": "Behavioral trials for the scaffold-kit skill: does an agent asked to plan a project produce the kit's distinctive outputs, or a generic planning pack?",
+  "method": "Give a fresh agent the case prompt, with the skill path inserted at <SKILL_PATH> for treated trials and the sentence 'You have no special planning skill loaded; use your own judgment.' for baseline trials. The agent cannot run tools or ask live questions. Score the written output against the rubric, yes or no per item, quoting the sentence that earned a yes. At least three trials per state.",
+  "rubric": {
+    "triage": "States a project type, scale tier and risk flags (or says which it inferred) before planning.",
+    "decision_statuses": "Records significant choices with a status from the vocabulary, options considered with a tradeoff each, and a revisit trigger.",
+    "requirements_ledger": "Separates confirmed requirements, assumptions with a verification plan, and open questions with what they block.",
+    "slice_boundary": "Names one first slice with observable acceptance criteria, an out-of-scope table saying where each excluded item connects later, and labeled stubs with a payback trigger.",
+    "evidence_bound": "States the evidence standard (an agent's summary is a claim) and bounds verification effort by consequence, or requires a requirement ID for any harness.",
+    "interview_not_monologue": "Asks before filling, or lists what it would ask and marks each filled answer as an assumption to verify rather than a decision.",
+    "state_block": "Leaves a resume point (interview state or slice state) so another session can continue without re-asking.",
+    "scoring": "Yes or no per item per trial. The rule author scoring their own trials is not independent review; the evidence file says so.",
+    "product_principles": "Names at least one of the five product principles (truth, repair, dignity, ownership, no manipulation) as a requirement, an acceptance row, or a recorded not-applicable."
+  },
+  "cases": [
+    {
+      "id": "recipe-box-greenfield",
+      "prompt_baseline": "You are an AI assistant helping someone plan a software project so that AI coding agents can build it later without wrecking it. You have no special planning skill loaded; use your own judgment. The person writes:\n\n\"I want to build a recipe box app for my family: iOS and web, recipes sync between our devices, photos, a shared grocery list. Maybe later a paid 'premium' tier for other families. I've built a couple of small things in Python and JavaScript. I have weekends, not months, and near-zero budget. Plan it out for me so an AI agent can build it without making a mess. Produce whatever planning documents you think are needed.\"\n\nYou cannot run tools or ask the person follow-up questions in real time; if you would normally ask, write the questions you would ask and state what you assumed in their absence. Produce the planning output you would actually hand over, at most 700 words. Do not explain your reasoning outside the output.",
+      "prompt_treated": "You are an AI assistant helping someone plan a software project so that AI coding agents can build it later without wrecking it. First read the planning skill at <SKILL_PATH> and follow it, loading the references and templates it names as you reach each phase. The person writes:\n\n\"I want to build a recipe box app for my family: iOS and web, recipes sync between our devices, photos, a shared grocery list. Maybe later a paid 'premium' tier for other families. I've built a couple of small things in Python and JavaScript. I have weekends, not months, and near-zero budget. Plan it out for me so an AI agent can build it without making a mess. Produce whatever planning documents you think are needed.\"\n\nYou cannot run tools other than reading files, and you cannot ask the person follow-up questions in real time; if the skill would have you ask, write the questions you would ask and state what you assumed in their absence. Produce the planning output you would actually hand over at this point, at most 900 words. Do not explain your reasoning outside the output.",
+      "pressures": [
+        "a request that invites a finished plan",
+        "no live interviewee",
+        "a tight word budget"
+      ],
+      "pass_when": "triage, decision_statuses, requirements_ledger, slice_boundary and interview_not_monologue are yes; evidence_bound, state_block and product_principles are recorded either way."
+    }
+  ]
+}

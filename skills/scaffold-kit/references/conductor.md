@@ -81,7 +81,7 @@ Budget posture:      [near zero | modest | funded]
 
 **Risk flag override.** Any risk flag pulls Security, Privacy, and Permissions sections to T3 depth regardless of tier. A weekend project that stores health data is not a weekend project in those three sections. The human may instead schedule full depth to a named trigger, for example before the first third-party data arrives, recorded as Deferred with a hard gate. Full depth now is the default; the scheduled form is an explicit choice.
 
-**Starting point rule.** Greenfield proceeds straight to Phase 2. Existing code gets mapped before it gets scaffolded: establish what actually exists (modules, data, trust boundaries, unknowns) using whatever mapping method the team has, then backfill the Architecture Document from that map. Reality-derived entries enter as Confirmed, aspirations as Proposed. The interview then covers only the gaps. Scaffolding an unmapped codebase produces confident fiction.
+**Starting point rule.** Greenfield proceeds straight to Phase 2. Existing code gets mapped before it gets scaffolded: establish what actually exists (modules, data, trust boundaries, unknowns), then backfill the Architecture Document from that map. Reality-derived entries enter as Confirmed, aspirations as Proposed. The interview then covers only the gaps. Scaffolding an unmapped codebase produces confident fiction. When anti-dark-code is available, [working with anti-dark-code](working-with-anti-dark-code.md) names the map artifacts and where each one lands.
 
 **Run mode.** Full interview works section by section as described below. Fast-run is for humans who want speed: you fill each section with your recommended defaults, present the filled defaults in section batches for veto, and convert a batch to Confirmed (delegated) only on the human's explicit continue. Silence is never consent. Four things get direct questions in every mode: irreversible-class decisions, risk-flag-forced sections, slice selection, and the audit readback. Fast-run trades discussion for review; it never trades away the checkpoints.
 
@@ -123,6 +123,8 @@ Then interview for the first slice using `05-TEMPLATE-SLICE-BRIEF.md`. Decisions
 
 The slice must run end to end, be production quality inside its own boundary, and touch the real architecture seams rather than bypassing them. Shortcuts outside the boundary are allowed only as labeled stubs with a log entry. For multi-week slices, use the build-order table so spikes close before dependent milestones and the riskiest proof lands first.
 
+**The build gate.** When the brief is presented, say the gate out loud: nothing is implemented until the brief's status reads Approved for build with a name and a date. Approval of the idea, of the architecture, or of an earlier slice is not approval of this brief. A brief that grows during the build reopens the gate.
+
 ### Phase 6: Audit pass
 
 Before declaring the documents done, verify each item and show the results:
@@ -135,6 +137,7 @@ Before declaring the documents done, verify each item and show the results:
 - [ ] Each document opens with its one-page overview, and the overview fits on one page.
 - [ ] Hygiene scan passes: no banned punctuation, no banned phrases, no invented answers.
 - [ ] Version stamps and dates are set. First release is v0.1 Draft.
+- [ ] Mechanical audit passed: `python3 scripts/kit_audit.py --docs docs` reports zero findings, output attached.
 
 Report the checklist with evidence, not with a claim that it passed.
 
@@ -180,7 +183,7 @@ Any AI resuming the work reads the state block, the Triage Card, and the Decisio
 
 **Materialization.** Write the documents to files at each phase boundary and at any pause. Chat is a workspace; files are the record.
 
-**Running lean.** If the context window is tight, load this Conductor plus only the active template, and rely on the state block and the Decision Log for continuity. Nothing in the protocol requires holding every document at once.
+**Running lean.** Load this Conductor plus only the active template, and rely on the state block and the Decision Log for continuity. Nothing in the protocol requires holding every document at once. The skill's `SKILL.md` lists which template each phase loads.
 
 ## Question etiquette
 
@@ -219,6 +222,7 @@ These rules apply to every document this protocol produces and to the interview 
 - No inflated verbs where a plain one works: use "shows" not "showcases," "uses" not "leverages," "look at" not "delve into."
 - Jargon gets a plain definition on first use in guided mode.
 - Say "we do not know yet" when that is the truth. Precision about uncertainty is a feature.
+- No real personal data, secrets, keys or credentials in any document, example or interview transcript. Placeholders only, even when the real value is at hand.
 
 ## Failure modes to refuse
 
@@ -228,3 +232,6 @@ These rules apply to every document this protocol produces and to the interview 
 - Quietly upgrading the project's scope. Scope changes go through the Decision Log with the human's confirmation.
 - Advancing to a new slice while the last one still owes evidence.
 - Treating fast-run as permission to skip checkpoints. Irreversible decisions and risk-flag sections get direct questions in every mode.
+- Continuing a verification effort because of what it has already cost. Sunk time is a reason to reopen the decision, not to run it again.
+- Building a harness, campaign or observer that no requirement names. It is a build item; it gets an ID or it is out of scope.
+- Calling a slice "too obvious" to need a brief, or a brief "approved" because the idea was. The gate is the brief's status line.

@@ -1,0 +1,213 @@
+{
+  "set": "scaffold-v1",
+  "date": "2026-09-26",
+  "model": "claude-fable-5-1 (subagents inherited the parent model)",
+  "host": "Claude Code general-purpose subagents, one fresh context per trial. Baseline trials ran in a working directory whose project instruction file (a CLAUDE.md with agent conventions) was in context; several baseline outputs reproduce its rules (cost lines, PR size limits, migration rules). Treated trials read the skill from the v0.4 branch working tree.",
+  "scorer": "the skill author; not independent review",
+  "skill_state_treated": {
+    "branch": "v0.4",
+    "sha256": {
+      "SKILL.md": "a178ae1bc166c221d95bf8ebcfffab346b46ef7a69c082e8def486e621dc4f26",
+      "references/conductor.md": "ba55782af372462473e054dbc5dd209b61c9a01f5ef1670ca2add752a5801cec",
+      "references/working-with-anti-dark-code.md": "00a3a735e2898a44b2d99aa10b89c44503c02e6d3d41d690a692677886278862",
+      "assets/templates/ARCHITECTURE.md": "4f2386ac40430eea72bb1b672afd4522df46287734591ad14ea3f55977278742",
+      "assets/templates/ENGINEERING.md": "87932f0f753718f28f29e490adb6685b5b52e4d0f1fe15a603980eef62674fdd",
+      "assets/templates/DECISION-LOG.md": "cfb50a2ec1b65eb4b1092acc6d34072a9cad1958ae0b5172dc8f4db2030bff79",
+      "assets/templates/SLICE-BRIEF.md": "4cba756af7669a8a031a7f3590b71e4884a13864dcd61a0cfe17cd2eaec61d89"
+    }
+  },
+  "trials": [
+    {
+      "case": "recipe-box-greenfield",
+      "state": "baseline",
+      "run": 1,
+      "triage": "no",
+      "decision_statuses": "no",
+      "requirements_ledger": "no",
+      "slice_boundary": "partial",
+      "evidence_bound": "partial",
+      "interview_not_monologue": "partial",
+      "state_block": "no",
+      "quotes": {
+        "slice_boundary": "M0 Scaffold ... M6 (later, optional). Cut line (slips first, in this order): Android, push notifications...",
+        "evidence_bound": "\"Done\" means npm test passes and the output is pasted in the PR.",
+        "interview_not_monologue": "Questions I would ask (and what I assumed)"
+      },
+      "notes": "Milestones with acceptance lines and a cut line, but no out-of-scope connection points, no stubs with triggers, no statuses, no tier or risk flags, no verification bound."
+    },
+    {
+      "case": "recipe-box-greenfield",
+      "state": "baseline",
+      "run": 2,
+      "triage": "no",
+      "decision_statuses": "no",
+      "requirements_ledger": "no",
+      "slice_boundary": "partial",
+      "evidence_bound": "partial",
+      "interview_not_monologue": "partial",
+      "state_block": "no",
+      "quotes": {
+        "slice_boundary": "Deferred, in return order: ... Premium is a plan column on households and nothing else.",
+        "evidence_bound": "The agent's claim is not evidence; your screen is."
+      },
+      "notes": "Evidence standard sentence copied from the host CLAUDE.md. Stubs implied (plan column) with no log entry or payback trigger."
+    },
+    {
+      "case": "recipe-box-greenfield",
+      "state": "baseline",
+      "run": 3,
+      "triage": "no",
+      "decision_statuses": "partial",
+      "requirements_ledger": "no",
+      "slice_boundary": "partial",
+      "evidence_bound": "no",
+      "interview_not_monologue": "partial",
+      "state_block": "no",
+      "quotes": {
+        "decision_statuses": "D-1 Expo over separate iOS + web apps. One codebase; you have weekends."
+      },
+      "notes": "A DECISIONS.md with five entries and one-line reasons; no statuses, no options considered, no revisit triggers."
+    },
+    {
+      "case": "recipe-box-greenfield",
+      "state": "treated",
+      "run": 1,
+      "triage": "yes",
+      "decision_statuses": "yes",
+      "requirements_ledger": "yes",
+      "slice_boundary": "yes",
+      "evidence_bound": "partial",
+      "interview_not_monologue": "yes",
+      "state_block": "partial",
+      "product_principles": "no",
+      "quotes": {
+        "triage": "App, greenfield, fast-run, T2 (real family data, expected to live), solo, built some things, guided depth. Risk flag: personal data ... pulls Security, Privacy and Permissions to T3 depth.",
+        "decision_statuses": "D-005 No offline in slice one | Deferred; a member complains in the kitchen",
+        "requirements_ledger": "Assumed: A-001 the family types recipes rather than importing (verify after four weekends). Open: Q-001 payment provider",
+        "slice_boundary": "Out of scope: grocery list (SLICE-002), premium, URL import ... D-008 Invite code shown on screen, not emailed | Proposed stub",
+        "interview_not_monologue": "every item below is Proposed until you reply \"continue\" or correct it",
+        "gate": "Build gate, said out loud: nothing is implemented until this brief reads \"Approved for build by\""
+      },
+      "notes": "Ran on the pre-principles state. No INTERVIEW STATE block; a resume line (\"Proposed until you reply\") only."
+    },
+    {
+      "case": "recipe-box-greenfield",
+      "state": "treated",
+      "run": 2,
+      "triage": "yes",
+      "decision_statuses": "yes",
+      "requirements_ledger": "yes",
+      "slice_boundary": "yes",
+      "evidence_bound": "partial",
+      "interview_not_monologue": "yes",
+      "state_block": "yes",
+      "product_principles": "no",
+      "quotes": {
+        "triage": "Scale tier: T2 (real family data, expected to live) ... Risk flags: personal data (emails, photos); minors unknown",
+        "decision_statuses": "Data region | Irreversible-class | Open ... Premium | Seam only ... | Deferred",
+        "interview_not_monologue": "Fast-run defaults for veto (silence is not consent; each row becomes D-001 onward)",
+        "state_block": "INTERVIEW STATE / Last completed: Phase 1 Triage (inferred); Phase 2 and 3 defaults drafted for veto",
+        "slice_boundary": "S-004 unlisted input: a 20 MB photo is rejected before upload. Gates assigned when tests exist."
+      },
+      "notes": "Pre-principles state. Irreversible-class items left Open rather than defaulted. A two-hour spike time-boxed."
+    },
+    {
+      "case": "recipe-box-greenfield",
+      "state": "treated",
+      "run": 3,
+      "triage": "yes",
+      "decision_statuses": "yes",
+      "requirements_ledger": "yes",
+      "slice_boundary": "yes",
+      "evidence_bound": "partial",
+      "interview_not_monologue": "yes",
+      "state_block": "yes",
+      "product_principles": "no",
+      "quotes": {
+        "decision_statuses": "D-001 One TypeScript codebase on Expo ... Alternatives: PWA only ...; Swift plus separate web ... | Proposed",
+        "requirements_ledger": "Q-005 Premium tier: a payment provider is irreversible class, so no default. Confirm deferral.",
+        "slice_boundary": "Growth tally: photos ... stayed in because the claim dies without them; grocery list moved to slice two.",
+        "state_block": "INTERVIEW STATE ... Unknowns: U-001 to U-006 mirror the Q-IDs"
+      },
+      "notes": "Pre-principles state."
+    },
+    {
+      "case": "recipe-box-greenfield",
+      "state": "treated",
+      "run": 4,
+      "triage": "yes",
+      "decision_statuses": "yes",
+      "requirements_ledger": "yes",
+      "slice_boundary": "yes",
+      "evidence_bound": "partial",
+      "interview_not_monologue": "yes",
+      "state_block": "no",
+      "product_principles": "partial",
+      "quotes": {
+        "triage": "Risk flags: personal data, user-generated content; minors if children get accounts (ask)",
+        "product_principles": "S-003 a failed photo upload keeps the recipe and shows a plain retry message ... an owner deletes the household and all its data",
+        "interview_not_monologue": "All Proposed until you reply \"continue\"; silence is not consent."
+      },
+      "notes": "Principles state. Repair and ownership obligations appear as requirements and acceptance rows without naming the principles. No state block; a \"Next step\" paragraph."
+    },
+    {
+      "case": "recipe-box-greenfield",
+      "state": "treated",
+      "run": 5,
+      "triage": "yes",
+      "decision_statuses": "yes",
+      "requirements_ledger": "yes",
+      "slice_boundary": "yes",
+      "evidence_bound": "partial",
+      "interview_not_monologue": "yes",
+      "state_block": "yes",
+      "product_principles": "yes",
+      "quotes": {
+        "product_principles": "Product principles (EDD 4.4). Truth: \"saving\" versus \"saved.\" Repair: edit, delete with 30-second undo. Dignity: email only. Ownership: recipes name who added them; members can delete their account and data. Manipulation: not applicable until D-009.",
+        "slice_boundary": "S-004: unlisted input; a 25 MB photo or non-image file is refused with a plain message.",
+        "state_block": "INTERVIEW STATE / Last completed: Phase 5 draft, unconfirmed"
+      },
+      "notes": "Principles state."
+    }
+  ],
+  "counts": {
+    "baseline": {
+      "triage": "0/3",
+      "decision_statuses": "0/3 (1 partial)",
+      "requirements_ledger": "0/3",
+      "slice_boundary": "0/3 (3 partial)",
+      "evidence_bound": "0/3 (2 partial)",
+      "interview_not_monologue": "0/3 (3 partial, prompted by the instruction to list questions)",
+      "state_block": "0/3"
+    },
+    "treated": {
+      "triage": "5/5",
+      "decision_statuses": "5/5",
+      "requirements_ledger": "5/5",
+      "slice_boundary": "5/5",
+      "evidence_bound": "0/5 explicit (5 partial: tests and CI named; the section 11 bound is not reached in a 900-word Phase 0 to 5 readback)",
+      "interview_not_monologue": "5/5",
+      "state_block": "3/5 (1 partial)",
+      "product_principles": "1/2 on the principles state (1 partial); 0/3 on the earlier state, where the text did not exist"
+    }
+  },
+  "notes": [
+    "Trials 1 to 3 ran on the pre-principles state; trials 4 and 5 on the principles state. Both states are hashed above.",
+    "evidence_bound never surfaced explicitly: the readbacks stop at Phase 5 within the word cap, and the bound lives in EDD section 11. A Phase 6 trial would test it.",
+    "Baseline trials ran with a project instruction file in context, so their partial scores on evidence and slice boundary overstate an uninstructed agent.",
+    "Counts and quotes only; no rate is claimed from five trials."
+  ],
+  "skill_state_treated_principles": {
+    "branch": "v0.4",
+    "note": "after EDD 4.4 product principles, slice principle rows and the no-real-data hygiene line were added; trials 4 and 5 ran on this state",
+    "sha256": {
+      "SKILL.md": "a178ae1bc166c221d95bf8ebcfffab346b46ef7a69c082e8def486e621dc4f26",
+      "references/conductor.md": "5fc3150464383190c0ec53c1a9b66b6e67b34934138f22755cc580bbe850a933",
+      "references/working-with-anti-dark-code.md": "6a721311b8969669dbd7d07d9bd4c03e705a3ff624932d180f68991580cbd4c2",
+      "assets/templates/ARCHITECTURE.md": "4f2386ac40430eea72bb1b672afd4522df46287734591ad14ea3f55977278742",
+      "assets/templates/ENGINEERING.md": "c512b5d39e3f9491e022ba44e466b9c0850340fba33d06f61ccd7e3aff0fd07a",
+      "assets/templates/DECISION-LOG.md": "cfb50a2ec1b65eb4b1092acc6d34072a9cad1958ae0b5172dc8f4db2030bff79",
+      "assets/templates/SLICE-BRIEF.md": "b06d686341c80dcb6df6fa1d038119564ade05cce6ef40383aba4b28190d6f5f"
+    }
+  }
+}

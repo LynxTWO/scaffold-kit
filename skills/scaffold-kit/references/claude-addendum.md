@@ -1,6 +1,6 @@
 # Claude Addendum
 
-Optional. The rest of the kit is agent-agnostic. This file wires it into Claude Code specifically. Feature details change; current documentation lives at https://docs.claude.com/en/docs/claude-code/overview
+Optional. The rest of the kit is agent-agnostic. This file wires it into Claude Code specifically. Feature details change; current documentation lives at https://code.claude.com/docs/en/overview
 
 ## Where the documents live
 
@@ -36,6 +36,9 @@ Standing rules:
 - Do not build on decisions marked Open or Proposed. Ask.
 - Stop and ask before: schema changes, new dependencies, deletions,
   anything touching secrets, any deploy.
+- Unattended agents never touch: auth, sessions, secrets, migrations,
+  RLS or access policies, CI workflows, billing, retention or deletion
+  of user data. A founder or owner drives those in an interactive session.
 - Verification means tests, logs, diffs, and observed behavior.
   Your summary of your own work is a claim, not evidence.
 - If reality contradicts the documents, stop and surface it.
@@ -55,14 +58,9 @@ Adjust the stop list to match EDD section 12 for the project. When the expansion
 
 EDD section 12 defines modes with narrow permissions. In Claude Code, that maps to its permission system: approve tool actions deliberately, keep the allowlist narrow, and widen it per mode rather than globally. Discovery sessions need read access. Implementation sessions add write access inside the slice paths. Nothing gets a standing approval for schema changes, deletions, or deploys.
 
-## Packaging the Conductor as a skill or command
+## The kit as a skill
 
-If you run this kit often, package it so it triggers by name:
-
-- A custom skill whose SKILL.md wraps the Conductor protocol and points at the templates, so "scaffold this project" starts the interview the same way every time.
-- Or a custom slash command that loads the Conductor and templates into context.
-
-Either way, the templates stay the single source of truth. The skill or command is a loader, not a fork.
+This repository is the skill: `skills/scaffold-kit/SKILL.md` is the loader, `references/conductor.md` is the protocol, and `assets/templates/` holds the templates. Install it where your host reads skills (`.agents/skills/scaffold-kit/` for Codex, Cursor, Copilot and Gemini; `.claude/skills/scaffold-kit/` for Claude Code), or add the repository as a plugin marketplace. The templates stay the single source of truth; the skill is a loader, not a fork.
 
 ## Verification hooks
 
@@ -78,7 +76,7 @@ Mechanical checks catch drift that polite intentions miss.
 
 This kit assumes a fresh start. When code already exists, map it first, then scaffold:
 
-1. Run a codebase-mapping pass (for example an anti-dark-code style audit) to establish what is actually there: modules, trust boundaries, unknowns.
+1. Run a codebase-mapping pass (anti-dark-code's Understand card when it is installed; see [working with anti-dark-code](working-with-anti-dark-code.md)) to establish what is actually there: modules, trust boundaries, unknowns.
 2. Backfill ARCHITECTURE.md from the map, marking reality-derived entries as Confirmed and aspirations as Proposed.
 3. Run the Conductor for the gaps, then proceed slice by slice as usual.
 
