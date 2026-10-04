@@ -1,6 +1,16 @@
 # [PROJECT NAME] Slice Brief: SLICE-[NNN] [slice name]
 
-Version: 0.1 Draft. Date: [date]. Status: [Proposed | Approved for build | Done with evidence].
+Version: 0.1 Draft. Date: [date]. Status: [Proposed | Approved for build | In progress | Done with evidence].
+
+```
+SLICE STATE
+Milestone:        [M-n in progress, or none]
+Blocked by:       [decision IDs, spikes, external gates, or none]
+Evidence so far:  [links to ledgers, runs, packets]
+Last audit:       [date]
+```
+
+The state block is the slice's resume point, the same way the Conductor's INTERVIEW STATE block is the interview's. Update it at every checkpoint; do not invent status tokens elsewhere.
 Companion documents: ARCHITECTURE.md, ENGINEERING.md, DECISION-LOG.md.
 
 One narrow, production-quality section, small enough to test and structured so the next pieces connect without smashing the existing architecture apart. This document is the agent's build boundary: if it is not in here, it does not get built. The first slice (SLICE-001) proves the central idea. Every later slice uses this same template through the Conductor's expansion loop, and exactly one slice is active at a time, named in ADD section 15.
@@ -69,10 +79,15 @@ Per the ADD module map: [list modules the slice builds, and the interfaces it ex
 
 [Each one observable. These are the finish line, agreed before building starts.]
 
-| ID | Criterion | Verified by |
-|---|---|---|
-| S-001 | [given, when, then] | [test or scripted check] |
-| S-002 | [error path: given a failure at step N, the user sees ...] | [test] |
+| ID | Criterion | Verified by | Gate |
+|---|---|---|---|
+| S-001 | [given, when, then] | [test or scripted check] | [CI check name, anti-dark-code capability ID or exact gate] |
+| S-002 | [error path: given a failure at step N, the user sees ...] | [test] | [gate] |
+| S-003 | [unlisted input: an input the brief never mentions that the slice must still survive, with the expected behavior] | [test] | [gate] |
+
+The Gate column is what binds a pull request's checks to these IDs. A row with an empty Gate is a criterion nobody can prove mechanically; say so or fill it.
+
+For a slice with users, the relevant obligations from EDD section 4.4 appear here as rows: truthful status, a recoverable mistake, a dignified refusal, an ownership or correction path, an honest default. A principle that does not apply to this slice is named as such in one line.
 
 ## 9. Verification evidence required
 
@@ -82,6 +97,7 @@ Per EDD section 11. Before this slice is called done, the following exist and ar
 - [ ] The core walkthrough executed against a clean environment, result recorded.
 - [ ] Error paths exercised, at minimum: [the top two failures from ADD section 13].
 - [ ] EDD section 17 per-change checklist satisfied for every change in the slice.
+- [ ] Verification effort stayed inside EDD section 11's bound: any harness, campaign or observer built for this slice has its own requirement ID, and none of them is the slice.
 
 An agent's statement that the slice works is a claim. This list is the evidence.
 
@@ -90,6 +106,7 @@ An agent's statement that the slice works is a claim. This list is the evidence.
 - **Boundary:** only the modules in section 6, only the data in section 7.
 - **Stop and ask before:** schema changes beyond section 7, new dependencies, deletions, deploys. Per EDD section 12.
 - **Mode separation:** discovery, then implementation, then verification. No single prompt spans all three.
+- **Step-level planning:** the brief is the boundary, not the plan. Implementation planning for a milestone may use a step-level planner (for example a writing-plans skill); the plan cites the S-IDs it satisfies and stays inside sections 6 and 7.
 - **Conflicts:** if reality contradicts these documents, stop and surface it. Update through the Decision Log, then continue.
 
 ## 11. Slice definition of done
@@ -105,4 +122,4 @@ An agent's statement that the slice works is a claim. This list is the evidence.
 
 ---
 
-*Approved for build by: [name], [date]. Until then, this brief is a proposal. When section 11 closes with evidence, mark the status Done and update ADD section 15 before opening the next brief.*
+*Approved for build by: [name], [date]. Until then, this brief is a proposal, and no implementation starts: approval of the idea is not approval of the brief. When section 11 closes with evidence, mark the status Done and update ADD section 15 before opening the next brief.*

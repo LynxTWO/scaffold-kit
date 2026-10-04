@@ -12,6 +12,7 @@ The documents state what is true. This log preserves why, what else was consider
 3. Stubs and shortcuts are decisions. Log them with their payback trigger.
 4. An agent proposing work that conflicts with a logged decision must surface the conflict, not code around it.
 5. Review pass: at every document audit, scan for entries whose Revisit trigger has fired.
+6. Evidence stays out of entries. Receipts, hashes, run output and review packets live in a ledger or evidence file; an entry links them in one line. Keep an entry under forty lines. The index is the one-page view and must stay readable on its own.
 
 ## Index
 

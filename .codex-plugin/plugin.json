@@ -1,0 +1,11 @@
+{
+  "name": "scaffold-kit",
+  "description": "Plan broadly, build narrowly, test reality, expand deliberately. A planning interview that produces an Architecture Document, an Engineering Document, a Decision Log and one active Slice Brief that bounds what an AI agent may build.",
+  "version": "0.4.0",
+  "author": {
+    "name": "Daniel Boyd (LynxTWO)"
+  },
+  "license": "FSL-1.1-MIT",
+  "repository": "https://github.com/LynxTWO/scaffold-kit",
+  "keywords": ["plan-broadly", "build-narrowly", "scaffold", "planning", "decision-log", "slice-brief"]
+}

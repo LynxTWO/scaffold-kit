@@ -1,0 +1,21 @@
+{
+  "name": "lynxtwo",
+  "description": "Skills by LynxTWO: planning documents that bound what an AI agent may build.",
+  "owner": {
+    "name": "Daniel Boyd (LynxTWO)"
+  },
+  "plugins": [
+    {
+      "name": "scaffold-kit",
+      "source": "./",
+      "description": "Plan broadly, build narrowly, test reality, expand deliberately: planning documents that bound what an AI agent may build.",
+      "keywords": [
+        "plan-broadly",
+        "scaffold",
+        "planning",
+        "decision-log",
+        "slice-brief"
+      ]
+    }
+  ]
+}

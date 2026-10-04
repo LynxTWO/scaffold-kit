@@ -73,11 +73,26 @@ This document is the rules for placing pieces: requirements, data, security, sta
 
 **Ledger rules.** Every requirement has an acceptance test stated as an observable condition. Assumptions never silently become requirements: they get verified and promoted, or corrected. Open questions must close before anything they block gets built.
 
+### 4.4 Product principles
+
+For any product with users, walk these five before closing the ledger. Each yields a Confirmed requirement, an Assumed one with a verification plan, or a recorded not-applicable with its reason. They are review obligations, not features.
+
+| Principle | The obligation, when relevant |
+|---|---|
+| Make truth easier | Status matches the authoritative state; prices, limits and consequences appear before decisions; uncertain automated results are described accurately. |
+| Make repair normal | People can correct mistakes, keep drafts, retry safely, undo where appropriate, recover access and appeal consequential errors. |
+| Make dignity default | Core interactions support relevant input and access needs; only needed data is collected; refusal and enforcement use neutral language. |
+| Make ownership unavoidable | Whose data, work or opportunities are affected is identified, as is who owns system errors; correction, retrieval, deletion and review of automated decisions exist where appropriate. |
+| Make manipulation unnecessary | Defaults, rewards, recommendations and exit paths support informed choices; optional collection respects refusal; costs and cancellation are clear; no fabricated urgency. |
+
+When anti-dark-code is installed, its product-principles reference carries the full obligations and counterexamples; cite it rather than restating it.
+
 > **Interview guide. Delete after filling.**
 > *Ask:* walk each feature area of the core loop. For each: is this known, believed, or unknown? What would prove it?
 > *If a product context companion exists:* mine its validation thresholds and pricing hypotheses into Assumed requirements with verification plans.
 > *Open questions:* when the evidence is a build experiment, schedule it as a spike per the Conductor: time box, success test, closed before dependent work.
 > *Format for acceptance tests:* given a starting state, when the user acts, then the observable result. Plain sentences are fine.
+> *Principles:* ask which of the five in 4.4 this product touches; a T1 tool with no accounts may mark most not-applicable in one line.
 > *Tier:* all tiers. This section never collapses. At T1 it may be short, never absent.
 
 ## 5. Data Model
@@ -197,6 +212,10 @@ Deletion rule: [what happens when this is deleted, cascades and orphans]
 
 **The standard.** A claim of "working" requires at least one of: a passing automated test, a log line showing the behavior, a diff plus observed output, or a reproducible manual script with its result recorded. An agent's summary of its own work is a claim, not evidence.
 
+**The bound.** Verification effort is bounded by the consequence of the requirement it proves. A harness, campaign, observer or custody layer is a build item: it needs its own requirement ID in section 4 and a stated consequence, or it is out of scope. A verification effort whose own ledger stays at zero after repeated attempts is a decision to reopen, not a milestone to push through. When anti-dark-code is installed, its need trace and consequence class govern that decision.
+
+**Two vocabularies.** Decision statuses (Confirmed, Proposed, Assumed, Open, Deferred, Superseded) describe choices. Evidence for a claim uses a separate confidence vocabulary (verified, inferred, unknown, per anti-dark-code when installed) with a locator. A Confirmed decision is not a verified claim.
+
 **Test types by tier.**
 - **T1:** automated tests on the core loop and on anything that has already broken once. A written manual test script for the rest.
 - **T2:** unit tests on logic, integration tests on module seams, a smoke test that runs the core loop end to end, all wired into CI.
@@ -277,7 +296,7 @@ Deletion rule: [what happens when this is deleted, cascades and orphans]
 |---|---|---|---|---|
 | U-001 | [assumption or risk] | [what breaks] | [how we find out or soften it] | [Open | Watching | Closed] |
 
-**Rule.** Every Assumed decision and every Open question from any document appears here. This table is reviewed at every document audit.
+**Rule.** Every Assumed decision and every Open question from any document appears here. This table is reviewed at every document audit. When anti-dark-code has mapped the repository, its unknowns entries and coverage ledger rows land here as `U-` rows; one unknown lives in one place.
 
 > **Interview guide. Delete after filling.**
 > *Why:* recorded unknowns are a plan. Hidden unknowns are a countdown.
