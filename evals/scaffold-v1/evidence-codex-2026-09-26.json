@@ -66,7 +66,7 @@
       "pr_comment": "https://github.com/LynxTWO/scaffold-kit/pull/1#issuecomment-5848636858",
       "host": {
         "surface": "Codex CLI launched from an owner-driven Codex IDE session on Linux",
-        "binary": "/home/daniel-boyd/.vscode/extensions/openai.chatgpt-26.917.62051-linux-x64/bin/linux-x86_64/codex",
+        "binary": "<LOCAL_PATH>",
         "version": "codex-cli 0.155.0-alpha.16.3",
         "model": "gpt-6-astra",
         "reasoning_effort": "xhigh",
@@ -74,7 +74,7 @@
         "model_context_window": 258400,
         "context_window_source": "token_count events in the newly created trial sessions only",
         "sandbox": "read-only, selected at initial invocation for all exec checks; never changed to rescue a result",
-        "project_instructions": "Fresh git directories under /tmp; no AGENTS.md or CLAUDE.md, and no ancestor /tmp/AGENTS.md or /AGENTS.md. No 1st-downs files or instructions were copied. No user AGENTS.md or AGENTS.override.md existed in CODEX_HOME.",
+        "project_instructions": "Fresh git directories under /tmp; no AGENTS.md or CLAUDE.md, and no ancestor /tmp/AGENTS.md or /AGENTS.md. No <UNRELATED_PROJECT> files or instructions were copied. No user AGENTS.md or AGENTS.override.md existed in CODEX_HOME.",
         "normal_skill_catalog_preserved": true,
         "confounds": [
           "Every model-issued shell command failed before execution with error building bubblewrap command: mountinfo path is not absolute. The CLI process itself still exited 0.",
@@ -446,10 +446,10 @@
         "check1-version": {
           "name": "check1-version",
           "argv": [
-            "/home/daniel-boyd/.vscode/extensions/openai.chatgpt-26.917.62051-linux-x64/bin/linux-x86_64/codex",
+            "<LOCAL_PATH>",
             "--version"
           ],
-          "command": "/home/daniel-boyd/.vscode/extensions/openai.chatgpt-26.917.62051-linux-x64/bin/linux-x86_64/codex --version",
+          "command": "<LOCAL_PATH> --version",
           "cwd": "/tmp/scaffold-codex-20260926-q98w89gg",
           "started_at": "2026-09-26T18:22:00.846611+00:00",
           "finished_at": "2026-09-26T18:22:00.858037+00:00",
@@ -461,7 +461,7 @@
         "check2-discovery": {
           "name": "check2-discovery",
           "argv": [
-            "/home/daniel-boyd/.vscode/extensions/openai.chatgpt-26.917.62051-linux-x64/bin/linux-x86_64/codex",
+            "<LOCAL_PATH>",
             "exec",
             "--sandbox",
             "read-only",
@@ -472,7 +472,7 @@
             "/tmp/scaffold-codex-20260926-q98w89gg/check2-discovery.md",
             "-"
           ],
-          "command": "/home/daniel-boyd/.vscode/extensions/openai.chatgpt-26.917.62051-linux-x64/bin/linux-x86_64/codex exec --sandbox read-only --json --color never -o /tmp/scaffold-codex-20260926-q98w89gg/check2-discovery.md -",
+          "command": "<LOCAL_PATH> exec --sandbox read-only --json --color never -o /tmp/scaffold-codex-20260926-q98w89gg/check2-discovery.md -",
           "cwd": "/tmp/scaffold-codex-20260926-q98w89gg/project",
           "started_at": "2026-09-26T18:19:59.659050+00:00",
           "finished_at": "2026-09-26T18:20:31.831784+00:00",
@@ -481,12 +481,12 @@
           "stderr": "",
           "prompt": "Do not read or open any files. From your skill listing only, answer in two lines: (1) the names of all skills available to you; (2) for the one named scaffold-kit, the first sentence of its description verbatim.",
           "messages": [
-            "I\u2019ll use only the skill listing for the answer.\n"
+            "I’ll use only the skill listing for the answer.\n"
           ],
           "tools": [
             {
               "type": "command_execution",
-              "command": "/bin/bash -lc '/usr/bin/python3 -B /home/daniel-boyd/.local/share/anti-dark-code/runtimes/ccc46b145ffd0f91/anti-dark-code/scripts/adc_usage_review.py submit --directory /home/daniel-boyd/.local/state/anti-dark-code/usage --ticket <redacted-task-review-ticket> --reviewer agent-self-review --used no --expected no --invocation implicit --quality unknown --basis unknown --task-class other --had-failed-attempt no'",
+              "command": "/bin/bash -lc '/usr/bin/python3 -B <LOCAL_PATH> submit --directory <LOCAL_PATH> --ticket <redacted-task-review-ticket> --reviewer agent-self-review --used no --expected no --invocation implicit --quality unknown --basis unknown --task-class other --had-failed-attempt no'",
               "exit_code": 1,
               "output": "error building bubblewrap command: mountinfo path is not absolute\n"
             }
@@ -509,7 +509,7 @@
         "check2-relative": {
           "name": "check2-relative",
           "argv": [
-            "/home/daniel-boyd/.vscode/extensions/openai.chatgpt-26.917.62051-linux-x64/bin/linux-x86_64/codex",
+            "<LOCAL_PATH>",
             "exec",
             "--sandbox",
             "read-only",
@@ -520,7 +520,7 @@
             "/tmp/scaffold-codex-20260926-q98w89gg/check2-relative.md",
             "-"
           ],
-          "command": "/home/daniel-boyd/.vscode/extensions/openai.chatgpt-26.917.62051-linux-x64/bin/linux-x86_64/codex exec --sandbox read-only --json --color never -o /tmp/scaffold-codex-20260926-q98w89gg/check2-relative.md -",
+          "command": "<LOCAL_PATH> exec --sandbox read-only --json --color never -o /tmp/scaffold-codex-20260926-q98w89gg/check2-relative.md -",
           "cwd": "/tmp/scaffold-codex-20260926-q98w89gg/project",
           "started_at": "2026-09-26T18:20:12.443700+00:00",
           "finished_at": "2026-09-26T18:20:38.594242+00:00",
@@ -529,7 +529,7 @@
           "stderr": "",
           "prompt": "Use $scaffold-kit. Read only its SKILL.md and answer: which template does Phase 3 load?",
           "messages": [
-            "I\u2019m using scaffold-kit and will read only its `SKILL.md` to check Phase 3.\n"
+            "I’m using scaffold-kit and will read only its `SKILL.md` to check Phase 3.\n"
           ],
           "tools": [
             {
@@ -540,7 +540,7 @@
             },
             {
               "type": "command_execution",
-              "command": "/bin/bash -lc '/usr/bin/python3 -B /home/daniel-boyd/.local/share/anti-dark-code/runtimes/ccc46b145ffd0f91/anti-dark-code/scripts/adc_usage_review.py submit --directory /home/daniel-boyd/.local/state/anti-dark-code/usage --ticket <redacted-task-review-ticket> --reviewer agent-self-review --used no --expected no --invocation implicit --quality passed --basis observed-result --task-class other --had-failed-attempt yes'",
+              "command": "/bin/bash -lc '/usr/bin/python3 -B <LOCAL_PATH> submit --directory <LOCAL_PATH> --ticket <redacted-task-review-ticket> --reviewer agent-self-review --used no --expected no --invocation implicit --quality passed --basis observed-result --task-class other --had-failed-attempt yes'",
               "exit_code": 1,
               "output": "error building bubblewrap command: mountinfo path is not absolute\n"
             }
@@ -563,7 +563,7 @@
         "check3-trial1": {
           "name": "check3-trial1",
           "argv": [
-            "/home/daniel-boyd/.vscode/extensions/openai.chatgpt-26.917.62051-linux-x64/bin/linux-x86_64/codex",
+            "<LOCAL_PATH>",
             "exec",
             "--sandbox",
             "read-only",
@@ -574,7 +574,7 @@
             "/tmp/scaffold-codex-20260926-q98w89gg/check3-trial1.md",
             "-"
           ],
-          "command": "/home/daniel-boyd/.vscode/extensions/openai.chatgpt-26.917.62051-linux-x64/bin/linux-x86_64/codex exec --sandbox read-only --json --color never -o /tmp/scaffold-codex-20260926-q98w89gg/check3-trial1.md -",
+          "command": "<LOCAL_PATH> exec --sandbox read-only --json --color never -o /tmp/scaffold-codex-20260926-q98w89gg/check3-trial1.md -",
           "cwd": "/tmp/scaffold-codex-20260926-q98w89gg/project",
           "started_at": "2026-09-26T18:20:37.649284+00:00",
           "finished_at": "2026-09-26T18:22:26.305717+00:00",
@@ -583,8 +583,8 @@
           "stderr": "",
           "prompt": "$scaffold-kit\n\nYou are an AI assistant helping someone plan a software project so that AI coding agents can build it later without wrecking it. First read the planning skill at /tmp/scaffold-codex-20260926-q98w89gg/project/.agents/skills/scaffold-kit/SKILL.md and follow it, loading the references and templates it names as you reach each phase. The person writes:\n\n\"I want to build a recipe box app for my family: iOS and web, recipes sync between our devices, photos, a shared grocery list. Maybe later a paid 'premium' tier for other families. I've built a couple of small things in Python and JavaScript. I have weekends, not months, and near-zero budget. Plan it out for me so an AI agent can build it without making a mess. Produce whatever planning documents you think are needed.\"\n\nYou cannot run tools other than reading files, and you cannot ask the person follow-up questions in real time; if the skill would have you ask, write the questions you would ask and state what you assumed in their absence. Produce the planning output you would actually hand over at this point, at most 900 words. Do not explain your reasoning outside the output.",
           "messages": [
-            "I\u2019m using scaffold-kit to prepare draft planning documents, with unanswered questions and assumptions marked.\n",
-            "File reads are failing because of a sandbox error, so I can\u2019t load the Conductor or templates. I\u2019ll use the skill text you supplied to produce a provisional handover and mark those checks as incomplete.\n"
+            "I’m using scaffold-kit to prepare draft planning documents, with unanswered questions and assumptions marked.\n",
+            "File reads are failing because of a sandbox error, so I can’t load the Conductor or templates. I’ll use the skill text you supplied to produce a provisional handover and mark those checks as incomplete.\n"
           ],
           "tools": [
             {
@@ -601,7 +601,7 @@
             },
             {
               "type": "command_execution",
-              "command": "/bin/bash -c '/usr/bin/python3 -B /home/daniel-boyd/.local/share/anti-dark-code/runtimes/ccc46b145ffd0f91/anti-dark-code/scripts/adc_usage_review.py submit --directory /home/daniel-boyd/.local/state/anti-dark-code/usage --ticket <redacted-task-review-ticket> --reviewer agent-self-review --used no --expected no --invocation implicit --quality unknown --basis unknown --task-class other --had-failed-attempt yes'",
+              "command": "/bin/bash -c '/usr/bin/python3 -B <LOCAL_PATH> submit --directory <LOCAL_PATH> --ticket <redacted-task-review-ticket> --reviewer agent-self-review --used no --expected no --invocation implicit --quality unknown --basis unknown --task-class other --had-failed-attempt yes'",
               "exit_code": 1,
               "output": "error building bubblewrap command: mountinfo path is not absolute\n"
             }
@@ -613,7 +613,7 @@
             "output_tokens": 2908,
             "reasoning_output_tokens": 1123
           },
-          "output": "Draft handover, 26 September 2026. No files were written. File reads failed with a sandbox error; this follows the supplied skill text, but the Conductor, templates and mechanical audit remain unchecked. All proposed choices need review.\n\n**Questions for the next planning session**\n\nThese are recorded questions, not requests for an immediate reply:\n\n- Must \u201ciOS\u201d mean an App Store app? Assumption: an iPhone browser pilot is acceptable; native delivery remains unresolved.\n- How many people, and who may edit? Assumption: one household, up to eight invited adults, equal recipe access.\n- Must shopping work without reception? Assumption: online use first; offline writes deferred.\n- What spending and hosting region are acceptable? Assumption: target $0 recurring; no paid services or region selection authorized.\n- Is saving and sharing text recipes the best first slice? Assumption: yes.\n- What export, retention and deletion behavior do you expect? Assumption: preserve data, provide recovery, defer destructive features.\n- Does the audit readback below expose any unacceptable omissions? No acceptance assumed.\n\n**`docs/ARCHITECTURE.md`**\n\nState: draft interview; owner: project creator; next checkpoint: resolve assumptions and approve one slice.\n\nPurpose: a private family recipe collection, eventually including photos and a shared grocery list. Success for the pilot: two family members can save and retrieve the same recipe across devices without developer assistance.\n\nProposed architecture: one responsive web application using React and TypeScript, with a managed authentication/database service. Supabase is a candidate, subject to current cost, limits and region checks. Avoid a custom Python server initially.\n\nModules: identity/household membership, recipes, later photos and groceries. Keep provider calls behind small data-access modules; no generic plugin framework.\n\nFlow: authenticated browser \u2192 data-access module \u2192 database authorization checks \u2192 household records. The server enforces membership; filtering the interface is insufficient.\n\nUse household identifiers now because sharing requires ownership boundaries. Future photo objects inherit those boundaries. Grocery items remain separate from recipe ingredients because families also buy unrelated items.\n\nBuild boundary: text recipe creation and retrieval with authenticated household sharing. Photos, groceries, native iOS delivery and premium remain future slices. No payment integration or speculative subscription framework.\n\n**`docs/ENGINEERING.md`**\n\nState: draft; assumptions above apply.\n\n| ID | Requirement | Delivery |\n|---|---|---|\n| R1 | Access on desktop web and iPhone | Browser pilot; native unresolved |\n| R2 | Persist and share family recipes | Slice 001 |\n| R3 | Recipe photos | Later slice |\n| R4 | Shared grocery list | Later slice |\n| R5 | Household privacy and authentication | Slice 001 |\n| R6 | Premium for other families | Deferred |\n| R7 | Recover recipe data and contain costs | Slice 001 |\n\nInitial model: household; membership linking authenticated user to household; recipe with UUID, household ID, creator ID, title, ingredient text, method text and creation timestamp. Ingredients remain text; automatic quantity conversion is deferred.\n\nAccounts and membership are provisioned manually for the pilot. Clients cannot grant themselves membership. Deny anonymous and foreign-household access at the database boundary. Keep privileged credentials out of browser bundles. Render recipe content as text; validate required fields and length limits on the server.\n\nInitial synchronization means retrieval after refresh or returning to the app. Display loading, empty, saved and failed states. Preserve entered text on failure; never announce success before persistence. Reuse a submission UUID when retrying to avoid duplicates.\n\nUse version control, reviewed migrations, pinned dependencies and a documented setup. Log operation failures without recipe contents or credentials. Document export and restoration, and verify a round trip using disposable data.\n\nDefinition of done: slice evidence passes, setup works from a clean checkout, assumptions are updated, and no unauthorized scope appears.\n\n**`docs/DECISION-LOG.md`**\n\nAll entries are proposed or deferred, not accepted.\n\n| Decision | Status | Options, recommendation and revisit trigger |\n|---|---|---|\n| D1 Delivery | Proposed | Browser pilot versus native plus web. Start browser-first for weekend capacity; revisit if installation or native capabilities are essential. |\n| D2 Backend | Proposed | Managed service versus custom server. Prefer managed; revisit after pricing, region and recovery checks. |\n| D3 Sync | Proposed | Refresh-based versus realtime/offline. Start refresh-based; revisit during grocery-list planning. |\n| D4 Ownership | Proposed | Household membership versus shared login. Use individual accounts and household ownership; revisit roles when invitations are added. |\n| D5 Premium | Deferred | Subscription provider and entitlements await demonstrated demand. |\n| D6 Irreversible choices | Deferred | Region, payments, public API contracts and deletion require explicit human confirmation before implementation. |\n\n**`docs/SLICE-001-shared-text-recipes.md`**\n\nState: proposed; estimated target: two weekends, reassessed after setup.\n\nOutcome: two preprovisioned household members can create, list and read text recipes on iPhone and desktop.\n\nIncludes R1\u2019s browser pilot, R2, R5 and R7. Excludes editing, deletion, photos, groceries, offline writes, realtime subscriptions, native packaging and billing.\n\nAcceptance evidence:\n\n1. Save on iPhone; retrieve identical content on desktop after refresh.\n2. Sign out and back in; recipes persist.\n3. Anonymous and foreign-household reads and writes fail, including direct requests.\n4. Failed submission retains text; retry produces one recipe.\n5. Export and restore disposable recipes successfully.\n6. Record automated authorization/retry results and a short real-device walkthrough.\n\nBefore provisioning, resolve provider limits and region. Stop and replan if the time or spending boundary cannot hold.\n\n**Audit readback**\n\nScope is bounded, but assumptions, native delivery and infrastructure approval remain open. Automated audit and local review recording remain pending.\n\nThe [skill\u2019s build gate](/tmp/scaffold-codex-20260926-q98w89gg/project/.agents/skills/scaffold-kit/SKILL.md) requires: `Approved for build by: <name>, <date>`. That field is unset; this draft authorizes no build.",
+          "output": "Draft handover, 26 September 2026. No files were written. File reads failed with a sandbox error; this follows the supplied skill text, but the Conductor, templates and mechanical audit remain unchecked. All proposed choices need review.\n\n**Questions for the next planning session**\n\nThese are recorded questions, not requests for an immediate reply:\n\n- Must “iOS” mean an App Store app? Assumption: an iPhone browser pilot is acceptable; native delivery remains unresolved.\n- How many people, and who may edit? Assumption: one household, up to eight invited adults, equal recipe access.\n- Must shopping work without reception? Assumption: online use first; offline writes deferred.\n- What spending and hosting region are acceptable? Assumption: target $0 recurring; no paid services or region selection authorized.\n- Is saving and sharing text recipes the best first slice? Assumption: yes.\n- What export, retention and deletion behavior do you expect? Assumption: preserve data, provide recovery, defer destructive features.\n- Does the audit readback below expose any unacceptable omissions? No acceptance assumed.\n\n**`docs/ARCHITECTURE.md`**\n\nState: draft interview; owner: project creator; next checkpoint: resolve assumptions and approve one slice.\n\nPurpose: a private family recipe collection, eventually including photos and a shared grocery list. Success for the pilot: two family members can save and retrieve the same recipe across devices without developer assistance.\n\nProposed architecture: one responsive web application using React and TypeScript, with a managed authentication/database service. Supabase is a candidate, subject to current cost, limits and region checks. Avoid a custom Python server initially.\n\nModules: identity/household membership, recipes, later photos and groceries. Keep provider calls behind small data-access modules; no generic plugin framework.\n\nFlow: authenticated browser → data-access module → database authorization checks → household records. The server enforces membership; filtering the interface is insufficient.\n\nUse household identifiers now because sharing requires ownership boundaries. Future photo objects inherit those boundaries. Grocery items remain separate from recipe ingredients because families also buy unrelated items.\n\nBuild boundary: text recipe creation and retrieval with authenticated household sharing. Photos, groceries, native iOS delivery and premium remain future slices. No payment integration or speculative subscription framework.\n\n**`docs/ENGINEERING.md`**\n\nState: draft; assumptions above apply.\n\n| ID | Requirement | Delivery |\n|---|---|---|\n| R1 | Access on desktop web and iPhone | Browser pilot; native unresolved |\n| R2 | Persist and share family recipes | Slice 001 |\n| R3 | Recipe photos | Later slice |\n| R4 | Shared grocery list | Later slice |\n| R5 | Household privacy and authentication | Slice 001 |\n| R6 | Premium for other families | Deferred |\n| R7 | Recover recipe data and contain costs | Slice 001 |\n\nInitial model: household; membership linking authenticated user to household; recipe with UUID, household ID, creator ID, title, ingredient text, method text and creation timestamp. Ingredients remain text; automatic quantity conversion is deferred.\n\nAccounts and membership are provisioned manually for the pilot. Clients cannot grant themselves membership. Deny anonymous and foreign-household access at the database boundary. Keep privileged credentials out of browser bundles. Render recipe content as text; validate required fields and length limits on the server.\n\nInitial synchronization means retrieval after refresh or returning to the app. Display loading, empty, saved and failed states. Preserve entered text on failure; never announce success before persistence. Reuse a submission UUID when retrying to avoid duplicates.\n\nUse version control, reviewed migrations, pinned dependencies and a documented setup. Log operation failures without recipe contents or credentials. Document export and restoration, and verify a round trip using disposable data.\n\nDefinition of done: slice evidence passes, setup works from a clean checkout, assumptions are updated, and no unauthorized scope appears.\n\n**`docs/DECISION-LOG.md`**\n\nAll entries are proposed or deferred, not accepted.\n\n| Decision | Status | Options, recommendation and revisit trigger |\n|---|---|---|\n| D1 Delivery | Proposed | Browser pilot versus native plus web. Start browser-first for weekend capacity; revisit if installation or native capabilities are essential. |\n| D2 Backend | Proposed | Managed service versus custom server. Prefer managed; revisit after pricing, region and recovery checks. |\n| D3 Sync | Proposed | Refresh-based versus realtime/offline. Start refresh-based; revisit during grocery-list planning. |\n| D4 Ownership | Proposed | Household membership versus shared login. Use individual accounts and household ownership; revisit roles when invitations are added. |\n| D5 Premium | Deferred | Subscription provider and entitlements await demonstrated demand. |\n| D6 Irreversible choices | Deferred | Region, payments, public API contracts and deletion require explicit human confirmation before implementation. |\n\n**`docs/SLICE-001-shared-text-recipes.md`**\n\nState: proposed; estimated target: two weekends, reassessed after setup.\n\nOutcome: two preprovisioned household members can create, list and read text recipes on iPhone and desktop.\n\nIncludes R1’s browser pilot, R2, R5 and R7. Excludes editing, deletion, photos, groceries, offline writes, realtime subscriptions, native packaging and billing.\n\nAcceptance evidence:\n\n1. Save on iPhone; retrieve identical content on desktop after refresh.\n2. Sign out and back in; recipes persist.\n3. Anonymous and foreign-household reads and writes fail, including direct requests.\n4. Failed submission retains text; retry produces one recipe.\n5. Export and restore disposable recipes successfully.\n6. Record automated authorization/retry results and a short real-device walkthrough.\n\nBefore provisioning, resolve provider limits and region. Stop and replan if the time or spending boundary cannot hold.\n\n**Audit readback**\n\nScope is bounded, but assumptions, native delivery and infrastructure approval remain open. Automated audit and local review recording remain pending.\n\nThe [skill’s build gate](/tmp/scaffold-codex-20260926-q98w89gg/project/.agents/skills/scaffold-kit/SKILL.md) requires: `Approved for build by: <name>, <date>`. That field is unset; this draft authorizes no build.",
           "output_sha256": "6485739c31c05f0a4d31980217d235ef24f43df1258ea75b3dfc32fbf6f0551b",
           "shell_commands_succeeded": 0,
           "shell_commands_failed": 3,
@@ -624,7 +624,7 @@
         "check3-trial2": {
           "name": "check3-trial2",
           "argv": [
-            "/home/daniel-boyd/.vscode/extensions/openai.chatgpt-26.917.62051-linux-x64/bin/linux-x86_64/codex",
+            "<LOCAL_PATH>",
             "exec",
             "--sandbox",
             "read-only",
@@ -635,17 +635,17 @@
             "/tmp/scaffold-codex-20260926-q98w89gg/check3-trial2.md",
             "-"
           ],
-          "command": "/home/daniel-boyd/.vscode/extensions/openai.chatgpt-26.917.62051-linux-x64/bin/linux-x86_64/codex exec --sandbox read-only --json --color never -o /tmp/scaffold-codex-20260926-q98w89gg/check3-trial2.md -",
+          "command": "<LOCAL_PATH> exec --sandbox read-only --json --color never -o /tmp/scaffold-codex-20260926-q98w89gg/check3-trial2.md -",
           "cwd": "/tmp/scaffold-codex-20260926-q98w89gg/project",
           "started_at": "2026-09-26T18:22:26.306945+00:00",
           "finished_at": "2026-09-26T18:24:07.969582+00:00",
           "exit_code": 0,
           "elapsed_seconds": 101.663,
-          "stderr": "2026-09-26T18:24:06.466669Z  WARN codex_core::tasks: failed to flush rollout after emitting terminal turn event: thread 01a0def4-4924-7aa0-a984-706ac718edb2 not found\n",
+          "stderr": "2026-09-26T18:24:06.466669Z  WARN codex_core::tasks: failed to flush rollout after emitting terminal turn event: thread <CHILD_ID_1> not found\n",
           "prompt": "$scaffold-kit\n\nYou are an AI assistant helping someone plan a software project so that AI coding agents can build it later without wrecking it. First read the planning skill at /tmp/scaffold-codex-20260926-q98w89gg/project/.agents/skills/scaffold-kit/SKILL.md and follow it, loading the references and templates it names as you reach each phase. The person writes:\n\n\"I want to build a recipe box app for my family: iOS and web, recipes sync between our devices, photos, a shared grocery list. Maybe later a paid 'premium' tier for other families. I've built a couple of small things in Python and JavaScript. I have weekends, not months, and near-zero budget. Plan it out for me so an AI agent can build it without making a mess. Produce whatever planning documents you think are needed.\"\n\nYou cannot run tools other than reading files, and you cannot ask the person follow-up questions in real time; if the skill would have you ask, write the questions you would ask and state what you assumed in their absence. Produce the planning output you would actually hand over at this point, at most 900 words. Do not explain your reasoning outside the output.",
           "messages": [
-            "I\u2019m using the scaffold-kit skill to prepare the planning handoff, with unanswered questions and assumptions marked explicitly.\n",
-            "The file reader failed before opening the Conductor or templates. I\u2019ll provide a provisional handoff from the skill text you supplied, and mark the template review and audit as pending.\n"
+            "I’m using the scaffold-kit skill to prepare the planning handoff, with unanswered questions and assumptions marked explicitly.\n",
+            "The file reader failed before opening the Conductor or templates. I’ll provide a provisional handoff from the skill text you supplied, and mark the template review and audit as pending.\n"
           ],
           "tools": [
             {
@@ -668,7 +668,7 @@
             },
             {
               "type": "command_execution",
-              "command": "/bin/bash -c '/usr/bin/python3 -B /home/daniel-boyd/.local/share/anti-dark-code/runtimes/ccc46b145ffd0f91/anti-dark-code/scripts/adc_usage_review.py submit --directory /home/daniel-boyd/.local/state/anti-dark-code/usage --ticket <redacted-task-review-ticket> --reviewer agent-self-review --used no --expected no --invocation implicit --quality unknown --basis unknown --task-class other --had-failed-attempt yes'",
+              "command": "/bin/bash -c '/usr/bin/python3 -B <LOCAL_PATH> submit --directory <LOCAL_PATH> --ticket <redacted-task-review-ticket> --reviewer agent-self-review --used no --expected no --invocation implicit --quality unknown --basis unknown --task-class other --had-failed-attempt yes'",
               "exit_code": 1,
               "output": "error building bubblewrap command: mountinfo path is not absolute\n"
             }
@@ -680,7 +680,7 @@
             "output_tokens": 2804,
             "reasoning_output_tokens": 981
           },
-          "output": "Provisional planning handoff, 2026-09-26. These are proposed contents for four documents under `docs/`; no files were saved. Local file access failed, so the Conductor and templates remain unread. This draft follows the supplied skill text but needs template review and audit.\n\n**Questions and assumptions**\n\nThese are the questions I would ask; assumptions are proposals, not accepted defaults.\n\n| Question | Assumption pending your answer |\n|---|---|\n| Must \u201ciOS\u201d mean an App Store app? | An iPhone-friendly website is acceptable initially. Native distribution stays unresolved. |\n| Who uses it, and must it work offline? | One household, up to eight individually signed-in members; internet required. |\n| What matters first: recipes, photos, or groceries? | Saving a recipe and seeing it on another device comes first. |\n| What spending and maintenance are acceptable? | Target $0 recurring cost; no paid commitments without approval. |\n| Where may family data be stored? | Unresolved; confirm region before provisioning cloud resources. |\n| Are permanent deletion, public sharing, or payments needed now? | All deferred; their policies and providers require explicit decisions. |\n| Does the first-slice boundary below match your priority? | Proposed only; no build approval inferred. |\n\n**`docs/ARCHITECTURE.md`**\n\nState: interview incomplete. Owner: project creator.\n\nPurpose: a private family recipe collection with shared groceries. Success means family members can reliably retrieve saved recipes across devices.\n\nProposed architecture: one responsive TypeScript/React application, one managed authentication/database service, and private photo storage when needed. Provider and hosting selection remain pending cost and region checks. No separate Python service initially.\n\nModules and responsibilities:\n\n- Identity and household membership: establish who can access each household.\n- Recipes: validate, save, list, and display recipe content.\n- Photos, later: authorize uploads and retrieval.\n- Groceries, later: maintain a household list with independently editable items.\n\nData flow: authenticated browser \u2192 recipe service \u2192 database authorization \u2192 household-scoped records. Clients never receive administrative credentials.\n\nInternal interfaces: create recipe, list household recipes, retrieve recipe. Keep provider access behind a small module; public APIs are deferred.\n\nSynchronization initially means server persistence plus refresh when opening or returning to the app and a manual refresh control. Live collaboration and offline writes are separate decisions.\n\nExtension points: household identifiers support future isolation; photo and grocery modules attach through recipe/household identifiers. No billing framework or speculative plugin system.\n\nCurrent build boundary: Slice 001 only. Native iOS, editing, photos, groceries, and premium remain outside it.\n\n**`docs/ENGINEERING.md`**\n\nState: interview incomplete. Requirements trace to the request unless marked assumed.\n\n| ID | Requirement | Allocation |\n|---|---|---|\n| R1 | Web and iPhone access | Slice 001 browser access; native interpretation pending |\n| R2 | Save recipes and retrieve them across devices | Slice 001 |\n| R3 | Private household access, assumed | Slice 001 |\n| R4 | Recipe photos | Later slice |\n| R5 | Shared grocery list | Later slice |\n| R6 | Premium for other families | Deferred possibility |\n| R7 | Honest save/error state and recoverable data, assumed | Slice 001 |\n\nInitial model: Household; Membership(user ID, household ID); Recipe(UUID, household ID, title, ingredients text, instructions text, creator, server timestamp). Memberships are manually provisioned initially. No shared passwords.\n\nAuthorization must enforce membership in the backend on every read/write. Users cannot grant themselves membership. Validate required fields and lengths server-side; render recipe text safely. Keep secrets outside source control; logs exclude recipe contents, credentials, and session tokens.\n\nFailed saves retain entered text and show failure. Reuse a submission UUID on retry to prevent duplicate recipes. Offline submission shows an explicit error. Future editing must define conflict handling before implementation.\n\nStandards: small modules, typed boundaries, committed dependency lockfile, documented environment setup, versioned migrations, and no unrelated refactoring.\n\nDefinition of done: acceptance evidence, successful build/type checks, authorization checks, and documented deployment, export, and restore procedures. Test fixture export/restore before storing irreplaceable family recipes. No separate verification platform.\n\n**`docs/DECISION-LOG.md`**\n\nAll entries are **Proposed**, awaiting confirmation.\n\n| ID | Choice and alternatives | Reason / reopen when |\n|---|---|---|\n| D1 | Responsive web first; alternative native/shared native app | Limits initial workload; reopen if App Store delivery is essential |\n| D2 | Managed backend; alternative self-hosted server | Limits operations; reopen after pricing, quotas, and region review |\n| D3 | Online refresh; alternatives realtime/offline synchronization | Bounds complexity; reopen after household use exposes a need |\n| D4 | Household scope from day one; defer subscriptions | Protects access boundaries; reopen when another family actually needs onboarding |\n| D5 | Create/read first; editing and deletion later | Keeps one demonstrable path; reopen after Slice 001 evidence |\n\nRegion, payment provider, destructive retention rules, and public API contracts are unresolved, not implicitly approved.\n\n**`docs/SLICE-001-shared-recipes.md`**\n\nState: proposed. Approved for build by: **pending**.\n\nOutcome: two provisioned household members use separate browsers, including an iPhone, to save and retrieve a recipe.\n\nAcceptance evidence:\n\n1. Member A saves a recipe; member B refreshes and sees identical content.\n2. Reload preserves saved data.\n3. Anonymous access and another household\u2019s direct read/write requests fail.\n4. A failed request preserves input; retry creates one record.\n5. Fixture export and restore preserve recipe content.\n\nRequired evidence: focused automated authorization/persistence checks and a recorded manual two-device walkthrough. Aim for one or two weekends; reduce scope explicitly if this proves unrealistic.\n\nBuild blockers: approve assumptions, select provider/region, verify budget, and approve this brief.\n\nAudit readback: requirement allocation and exclusions are explicit; template review and mechanical audit are pending. Audit was not run. Local task-review recording also failed and remains pending.\n\nThe [skill](/tmp/scaffold-codex-20260926-q98w89gg/project/.agents/skills/scaffold-kit/SKILL.md) requires: \u201cNothing is built until the active Slice Brief reads `Approved for build by: <name>, <date>`.\u201d This draft is not build authorization.",
+          "output": "Provisional planning handoff, 2026-09-26. These are proposed contents for four documents under `docs/`; no files were saved. Local file access failed, so the Conductor and templates remain unread. This draft follows the supplied skill text but needs template review and audit.\n\n**Questions and assumptions**\n\nThese are the questions I would ask; assumptions are proposals, not accepted defaults.\n\n| Question | Assumption pending your answer |\n|---|---|\n| Must “iOS” mean an App Store app? | An iPhone-friendly website is acceptable initially. Native distribution stays unresolved. |\n| Who uses it, and must it work offline? | One household, up to eight individually signed-in members; internet required. |\n| What matters first: recipes, photos, or groceries? | Saving a recipe and seeing it on another device comes first. |\n| What spending and maintenance are acceptable? | Target $0 recurring cost; no paid commitments without approval. |\n| Where may family data be stored? | Unresolved; confirm region before provisioning cloud resources. |\n| Are permanent deletion, public sharing, or payments needed now? | All deferred; their policies and providers require explicit decisions. |\n| Does the first-slice boundary below match your priority? | Proposed only; no build approval inferred. |\n\n**`docs/ARCHITECTURE.md`**\n\nState: interview incomplete. Owner: project creator.\n\nPurpose: a private family recipe collection with shared groceries. Success means family members can reliably retrieve saved recipes across devices.\n\nProposed architecture: one responsive TypeScript/React application, one managed authentication/database service, and private photo storage when needed. Provider and hosting selection remain pending cost and region checks. No separate Python service initially.\n\nModules and responsibilities:\n\n- Identity and household membership: establish who can access each household.\n- Recipes: validate, save, list, and display recipe content.\n- Photos, later: authorize uploads and retrieval.\n- Groceries, later: maintain a household list with independently editable items.\n\nData flow: authenticated browser → recipe service → database authorization → household-scoped records. Clients never receive administrative credentials.\n\nInternal interfaces: create recipe, list household recipes, retrieve recipe. Keep provider access behind a small module; public APIs are deferred.\n\nSynchronization initially means server persistence plus refresh when opening or returning to the app and a manual refresh control. Live collaboration and offline writes are separate decisions.\n\nExtension points: household identifiers support future isolation; photo and grocery modules attach through recipe/household identifiers. No billing framework or speculative plugin system.\n\nCurrent build boundary: Slice 001 only. Native iOS, editing, photos, groceries, and premium remain outside it.\n\n**`docs/ENGINEERING.md`**\n\nState: interview incomplete. Requirements trace to the request unless marked assumed.\n\n| ID | Requirement | Allocation |\n|---|---|---|\n| R1 | Web and iPhone access | Slice 001 browser access; native interpretation pending |\n| R2 | Save recipes and retrieve them across devices | Slice 001 |\n| R3 | Private household access, assumed | Slice 001 |\n| R4 | Recipe photos | Later slice |\n| R5 | Shared grocery list | Later slice |\n| R6 | Premium for other families | Deferred possibility |\n| R7 | Honest save/error state and recoverable data, assumed | Slice 001 |\n\nInitial model: Household; Membership(user ID, household ID); Recipe(UUID, household ID, title, ingredients text, instructions text, creator, server timestamp). Memberships are manually provisioned initially. No shared passwords.\n\nAuthorization must enforce membership in the backend on every read/write. Users cannot grant themselves membership. Validate required fields and lengths server-side; render recipe text safely. Keep secrets outside source control; logs exclude recipe contents, credentials, and session tokens.\n\nFailed saves retain entered text and show failure. Reuse a submission UUID on retry to prevent duplicate recipes. Offline submission shows an explicit error. Future editing must define conflict handling before implementation.\n\nStandards: small modules, typed boundaries, committed dependency lockfile, documented environment setup, versioned migrations, and no unrelated refactoring.\n\nDefinition of done: acceptance evidence, successful build/type checks, authorization checks, and documented deployment, export, and restore procedures. Test fixture export/restore before storing irreplaceable family recipes. No separate verification platform.\n\n**`docs/DECISION-LOG.md`**\n\nAll entries are **Proposed**, awaiting confirmation.\n\n| ID | Choice and alternatives | Reason / reopen when |\n|---|---|---|\n| D1 | Responsive web first; alternative native/shared native app | Limits initial workload; reopen if App Store delivery is essential |\n| D2 | Managed backend; alternative self-hosted server | Limits operations; reopen after pricing, quotas, and region review |\n| D3 | Online refresh; alternatives realtime/offline synchronization | Bounds complexity; reopen after household use exposes a need |\n| D4 | Household scope from day one; defer subscriptions | Protects access boundaries; reopen when another family actually needs onboarding |\n| D5 | Create/read first; editing and deletion later | Keeps one demonstrable path; reopen after Slice 001 evidence |\n\nRegion, payment provider, destructive retention rules, and public API contracts are unresolved, not implicitly approved.\n\n**`docs/SLICE-001-shared-recipes.md`**\n\nState: proposed. Approved for build by: **pending**.\n\nOutcome: two provisioned household members use separate browsers, including an iPhone, to save and retrieve a recipe.\n\nAcceptance evidence:\n\n1. Member A saves a recipe; member B refreshes and sees identical content.\n2. Reload preserves saved data.\n3. Anonymous access and another household’s direct read/write requests fail.\n4. A failed request preserves input; retry creates one record.\n5. Fixture export and restore preserve recipe content.\n\nRequired evidence: focused automated authorization/persistence checks and a recorded manual two-device walkthrough. Aim for one or two weekends; reduce scope explicitly if this proves unrealistic.\n\nBuild blockers: approve assumptions, select provider/region, verify budget, and approve this brief.\n\nAudit readback: requirement allocation and exclusions are explicit; template review and mechanical audit are pending. Audit was not run. Local task-review recording also failed and remains pending.\n\nThe [skill](/tmp/scaffold-codex-20260926-q98w89gg/project/.agents/skills/scaffold-kit/SKILL.md) requires: “Nothing is built until the active Slice Brief reads `Approved for build by: <name>, <date>`.” This draft is not build authorization.",
           "output_sha256": "dc3fa6ebf5005373d6a6b41c500067e9cfb03bfb392392d57fca8a96a4b41a5b",
           "shell_commands_succeeded": 0,
           "shell_commands_failed": 4,
@@ -691,7 +691,7 @@
         "check3-trial3": {
           "name": "check3-trial3",
           "argv": [
-            "/home/daniel-boyd/.vscode/extensions/openai.chatgpt-26.917.62051-linux-x64/bin/linux-x86_64/codex",
+            "<LOCAL_PATH>",
             "exec",
             "--sandbox",
             "read-only",
@@ -702,17 +702,17 @@
             "/tmp/scaffold-codex-20260926-q98w89gg/check3-trial3.md",
             "-"
           ],
-          "command": "/home/daniel-boyd/.vscode/extensions/openai.chatgpt-26.917.62051-linux-x64/bin/linux-x86_64/codex exec --sandbox read-only --json --color never -o /tmp/scaffold-codex-20260926-q98w89gg/check3-trial3.md -",
+          "command": "<LOCAL_PATH> exec --sandbox read-only --json --color never -o /tmp/scaffold-codex-20260926-q98w89gg/check3-trial3.md -",
           "cwd": "/tmp/scaffold-codex-20260926-q98w89gg/project",
           "started_at": "2026-09-26T18:24:07.970074+00:00",
           "finished_at": "2026-09-26T18:25:53.972776+00:00",
           "exit_code": 0,
           "elapsed_seconds": 106.003,
-          "stderr": "2026-09-26T18:25:52.437900Z  WARN codex_core::tasks: failed to flush rollout after emitting terminal turn event: thread 01a0def5-d648-7cb1-a5f2-2172bbea4aba not found\n",
+          "stderr": "2026-09-26T18:25:52.437900Z  WARN codex_core::tasks: failed to flush rollout after emitting terminal turn event: thread <CHILD_ID_2> not found\n",
           "prompt": "$scaffold-kit\n\nYou are an AI assistant helping someone plan a software project so that AI coding agents can build it later without wrecking it. First read the planning skill at /tmp/scaffold-codex-20260926-q98w89gg/project/.agents/skills/scaffold-kit/SKILL.md and follow it, loading the references and templates it names as you reach each phase. The person writes:\n\n\"I want to build a recipe box app for my family: iOS and web, recipes sync between our devices, photos, a shared grocery list. Maybe later a paid 'premium' tier for other families. I've built a couple of small things in Python and JavaScript. I have weekends, not months, and near-zero budget. Plan it out for me so an AI agent can build it without making a mess. Produce whatever planning documents you think are needed.\"\n\nYou cannot run tools other than reading files, and you cannot ask the person follow-up questions in real time; if the skill would have you ask, write the questions you would ask and state what you assumed in their absence. Produce the planning output you would actually hand over at this point, at most 900 words. Do not explain your reasoning outside the output.",
           "messages": [
-            "I\u2019m using scaffold-kit to prepare the four planning documents, with unanswered questions and assumptions marked explicitly.\n",
-            "Local file reads are failing, so I can use the skill text you supplied but cannot load its Conductor or templates. I\u2019ll provide a provisional handoff with that limitation recorded and the build approval left blank.\n"
+            "I’m using scaffold-kit to prepare the four planning documents, with unanswered questions and assumptions marked explicitly.\n",
+            "Local file reads are failing, so I can use the skill text you supplied but cannot load its Conductor or templates. I’ll provide a provisional handoff with that limitation recorded and the build approval left blank.\n"
           ],
           "tools": [
             {
@@ -729,7 +729,7 @@
             },
             {
               "type": "command_execution",
-              "command": "/bin/bash -c '/usr/bin/python3 -B /home/daniel-boyd/.local/share/anti-dark-code/runtimes/ccc46b145ffd0f91/anti-dark-code/scripts/adc_usage_review.py submit --directory /home/daniel-boyd/.local/state/anti-dark-code/usage --ticket <redacted-task-review-ticket> --reviewer agent-self-review --used no --expected no --invocation implicit --quality unknown --basis unknown --task-class other --had-failed-attempt yes'",
+              "command": "/bin/bash -c '/usr/bin/python3 -B <LOCAL_PATH> submit --directory <LOCAL_PATH> --ticket <redacted-task-review-ticket> --reviewer agent-self-review --used no --expected no --invocation implicit --quality unknown --basis unknown --task-class other --had-failed-attempt yes'",
               "exit_code": 1,
               "output": "error building bubblewrap command: mountinfo path is not absolute\n"
             }
@@ -741,7 +741,7 @@
             "output_tokens": 2895,
             "reasoning_output_tokens": 1096
           },
-          "output": "**Planning handoff: provisional, awaiting owner review.** These are proposed contents for four files under `docs/`; nothing was saved. Local file reads failed, so the supplied skill text informed this draft, but its Conductor and templates remain unread. Mechanical audit was not run. All technical choices below are assumptions, not accepted decisions.\n\n**Questions for later review**\n\n1. Does \u201ciOS\u201d require an App Store app, or would an iPhone website installed on the home screen suffice?\n2. Must the grocery list work without internet?\n3. Who may join, invite others, edit recipes, or remove content? Will children have accounts?\n4. What monthly spending ceiling and hosting region are acceptable?\n5. Is creating a recipe on one device and reading it on another the right first milestone?\n6. Are the assumptions, privacy controls, deferred features, and incomplete audit acceptable for further planning?\n\nWorking assumptions: one family, individual accounts, equal editing rights, online use, home-screen web app initially, no paid services without approval. Native distribution, offline shopping, residency, and deletion policy remain unresolved.\n\n**`docs/ARCHITECTURE.md` \u2014 State: draft interview**\n\nPurpose: privately collect family recipes and coordinate shopping across phones and computers. Constraints: weekend development, near-zero budget, modest Python/JavaScript experience.\n\nProposed structure:\n\n- One responsive web application, provisionally React and TypeScript.\n- Managed authentication, PostgreSQL, and private photo storage, provisionally Supabase. Provider suitability, current costs, and limits require verification before commitment.\n- Modules: identity/family access, recipes, photos, groceries. Keep these in one repository and deployment.\n- Data flow: signed-in browser \u2192 authenticated data operations \u2192 database membership checks \u2192 family records. Photo access follows the same membership boundary.\n- Internal recipe operations: create, list, read; later edit. Keep provider calls in a small data module. No public API commitment.\n\nThe database is authoritative. Initially, saving waits for server confirmation; other devices fetch changes on refresh. Automatic updates and offline writes are deferred.\n\nFuture connections: photos reference recipes; grocery items belong to a family and may reference a recipe. Premium is a later product decision, with no billing code or subscription schema now.\n\nCurrent build boundary: authenticated recipe creation and retrieval across devices. Other modules are planned only.\n\n**`docs/ENGINEERING.md` \u2014 State: draft interview**\n\nRequirements ledger:\n\n| ID | Requirement | Boundary |\n|---|---|---|\n| R1 | iPhone and desktop access | Slice 001; native iOS unresolved |\n| R2 | Private family access | Slice 001 |\n| R3 | Create, list, read synced recipes | Slice 001 |\n| R4 | Recipe photos | Later slice |\n| R5 | Shared grocery list | Later slice |\n| R6 | Honest save/error states | Slice 001 |\n| R7 | Focused verification | Slice 001 |\n| R8 | Export and recovery | Before irreplaceable family data |\n| R9 | Premium for other families | Deferred investigation |\n\nInitial model: Family; Membership linking authenticated user to family; Recipe with UUID, family ID, title, ingredient text, method text, author, and timestamps. Require title, ingredients, and method. Later models: Photo and GroceryItem, each scoped to family.\n\nDatabase rules enforce membership on every read and write. Users cannot grant themselves membership. Administrative credentials never enter browser code. Logs exclude recipe contents, photos, passwords, and tokens.\n\nUse client-generated recipe IDs so retrying an uncertain save cannot duplicate a recipe. Failed saves retain the form and explain retry. Do not claim offline persistence.\n\nUse versioned migrations, pinned dependencies, documented environment variables, and small module boundaries. No destructive migrations or deletion features in this slice.\n\nDefinition of done: R1\u2013R3 and R6\u2013R7 pass; setup is reproducible; no secrets committed; limitations documented. Use synthetic recipes until residency and recovery are settled.\n\n**`docs/DECISION-LOG.md` \u2014 State: draft interview**\n\n| ID | Status | Choice, alternatives, revisit trigger |\n|---|---|---|\n| D1 | Proposed | Home-screen web app over separate native/web clients; revisit if App Store distribution or device capabilities are essential. |\n| D2 | Proposed | Managed backend over custom Python server; revisit after checking costs, account requirements, export, and operations burden. |\n| D3 | Proposed | Online saves and refresh over offline synchronization; revisit if grocery-store connectivity makes this unusable. |\n| D4 | Proposed | Separate accounts with manually provisioned family membership over shared credentials; revisit before inviting another family. |\n| D5 | Deferred | Premium and payment provider; reopen only after family usage demonstrates value and someone commits to paying. |\n| D6 | Needs confirmation | Hosting region, deletion policy, and public API contracts; no irreversible commitment without explicit owner confirmation. |\n\n**`docs/SLICE-001-shared-recipes.md` \u2014 State: proposed, not approved**\n\nOutcome: two pre-provisioned family members can share a text recipe between iPhone and desktop.\n\nIncludes sign-in/out, membership enforcement, recipe form, list/detail views, responsive layout, loading/error states, and focused tests.\n\nExcludes editing, deletion, photos, grocery lists, invitations, offline mode, native packaging, billing, and generic verification infrastructure.\n\nAcceptance evidence:\n\n- Member A creates a recipe; member B retrieves identical content after refresh.\n- Refresh preserves a confirmed save; retry creates no duplicate.\n- Signed-out and different-family users cannot read or create family recipes, including direct requests.\n- A failed save preserves entered text and shows no success message.\n- Record automated results and a manual iPhone/desktop walkthrough.\n\nBudget: one weekend checkpoint. If incomplete, revise the brief before expanding scope.\n\nApproval remains blank. [Scaffold-kit](/tmp/scaffold-codex-20260926-q98w89gg/project/.agents/skills/scaffold-kit/SKILL.md) requires: \u201cNothing is built until the active Slice Brief reads `Approved for build by: <name>, <date>`.\u201d\n\nAudit status: template conformance and mechanical audit remain pending. Local usage-review recording also failed and remains pending.",
+          "output": "**Planning handoff: provisional, awaiting owner review.** These are proposed contents for four files under `docs/`; nothing was saved. Local file reads failed, so the supplied skill text informed this draft, but its Conductor and templates remain unread. Mechanical audit was not run. All technical choices below are assumptions, not accepted decisions.\n\n**Questions for later review**\n\n1. Does “iOS” require an App Store app, or would an iPhone website installed on the home screen suffice?\n2. Must the grocery list work without internet?\n3. Who may join, invite others, edit recipes, or remove content? Will children have accounts?\n4. What monthly spending ceiling and hosting region are acceptable?\n5. Is creating a recipe on one device and reading it on another the right first milestone?\n6. Are the assumptions, privacy controls, deferred features, and incomplete audit acceptable for further planning?\n\nWorking assumptions: one family, individual accounts, equal editing rights, online use, home-screen web app initially, no paid services without approval. Native distribution, offline shopping, residency, and deletion policy remain unresolved.\n\n**`docs/ARCHITECTURE.md` — State: draft interview**\n\nPurpose: privately collect family recipes and coordinate shopping across phones and computers. Constraints: weekend development, near-zero budget, modest Python/JavaScript experience.\n\nProposed structure:\n\n- One responsive web application, provisionally React and TypeScript.\n- Managed authentication, PostgreSQL, and private photo storage, provisionally Supabase. Provider suitability, current costs, and limits require verification before commitment.\n- Modules: identity/family access, recipes, photos, groceries. Keep these in one repository and deployment.\n- Data flow: signed-in browser → authenticated data operations → database membership checks → family records. Photo access follows the same membership boundary.\n- Internal recipe operations: create, list, read; later edit. Keep provider calls in a small data module. No public API commitment.\n\nThe database is authoritative. Initially, saving waits for server confirmation; other devices fetch changes on refresh. Automatic updates and offline writes are deferred.\n\nFuture connections: photos reference recipes; grocery items belong to a family and may reference a recipe. Premium is a later product decision, with no billing code or subscription schema now.\n\nCurrent build boundary: authenticated recipe creation and retrieval across devices. Other modules are planned only.\n\n**`docs/ENGINEERING.md` — State: draft interview**\n\nRequirements ledger:\n\n| ID | Requirement | Boundary |\n|---|---|---|\n| R1 | iPhone and desktop access | Slice 001; native iOS unresolved |\n| R2 | Private family access | Slice 001 |\n| R3 | Create, list, read synced recipes | Slice 001 |\n| R4 | Recipe photos | Later slice |\n| R5 | Shared grocery list | Later slice |\n| R6 | Honest save/error states | Slice 001 |\n| R7 | Focused verification | Slice 001 |\n| R8 | Export and recovery | Before irreplaceable family data |\n| R9 | Premium for other families | Deferred investigation |\n\nInitial model: Family; Membership linking authenticated user to family; Recipe with UUID, family ID, title, ingredient text, method text, author, and timestamps. Require title, ingredients, and method. Later models: Photo and GroceryItem, each scoped to family.\n\nDatabase rules enforce membership on every read and write. Users cannot grant themselves membership. Administrative credentials never enter browser code. Logs exclude recipe contents, photos, passwords, and tokens.\n\nUse client-generated recipe IDs so retrying an uncertain save cannot duplicate a recipe. Failed saves retain the form and explain retry. Do not claim offline persistence.\n\nUse versioned migrations, pinned dependencies, documented environment variables, and small module boundaries. No destructive migrations or deletion features in this slice.\n\nDefinition of done: R1–R3 and R6–R7 pass; setup is reproducible; no secrets committed; limitations documented. Use synthetic recipes until residency and recovery are settled.\n\n**`docs/DECISION-LOG.md` — State: draft interview**\n\n| ID | Status | Choice, alternatives, revisit trigger |\n|---|---|---|\n| D1 | Proposed | Home-screen web app over separate native/web clients; revisit if App Store distribution or device capabilities are essential. |\n| D2 | Proposed | Managed backend over custom Python server; revisit after checking costs, account requirements, export, and operations burden. |\n| D3 | Proposed | Online saves and refresh over offline synchronization; revisit if grocery-store connectivity makes this unusable. |\n| D4 | Proposed | Separate accounts with manually provisioned family membership over shared credentials; revisit before inviting another family. |\n| D5 | Deferred | Premium and payment provider; reopen only after family usage demonstrates value and someone commits to paying. |\n| D6 | Needs confirmation | Hosting region, deletion policy, and public API contracts; no irreversible commitment without explicit owner confirmation. |\n\n**`docs/SLICE-001-shared-recipes.md` — State: proposed, not approved**\n\nOutcome: two pre-provisioned family members can share a text recipe between iPhone and desktop.\n\nIncludes sign-in/out, membership enforcement, recipe form, list/detail views, responsive layout, loading/error states, and focused tests.\n\nExcludes editing, deletion, photos, grocery lists, invitations, offline mode, native packaging, billing, and generic verification infrastructure.\n\nAcceptance evidence:\n\n- Member A creates a recipe; member B retrieves identical content after refresh.\n- Refresh preserves a confirmed save; retry creates no duplicate.\n- Signed-out and different-family users cannot read or create family recipes, including direct requests.\n- A failed save preserves entered text and shows no success message.\n- Record automated results and a manual iPhone/desktop walkthrough.\n\nBudget: one weekend checkpoint. If incomplete, revise the brief before expanding scope.\n\nApproval remains blank. [Scaffold-kit](/tmp/scaffold-codex-20260926-q98w89gg/project/.agents/skills/scaffold-kit/SKILL.md) requires: “Nothing is built until the active Slice Brief reads `Approved for build by: <name>, <date>`.”\n\nAudit status: template conformance and mechanical audit remain pending. Local usage-review recording also failed and remains pending.",
           "output_sha256": "85412f2aeaebbda49277c76913bbe214da0a77b05c9ec7424e1d9a466ad5dbc4",
           "shell_commands_succeeded": 0,
           "shell_commands_failed": 3,
@@ -752,7 +752,7 @@
         "check4-session": {
           "name": "check4-session",
           "argv": [
-            "/home/daniel-boyd/.vscode/extensions/openai.chatgpt-26.917.62051-linux-x64/bin/linux-x86_64/codex",
+            "<LOCAL_PATH>",
             "exec",
             "--sandbox",
             "read-only",
@@ -764,26 +764,26 @@
             "-c",
             "marketplaces.lynxtwo.source_type=\"local\"",
             "-c",
-            "marketplaces.lynxtwo.source=\"/home/daniel-boyd/DEV/skills in development/scaffold-kit\"",
+            "marketplaces.lynxtwo.source=\"<LOCAL_PATH> in development/scaffold-kit\"",
             "-c",
             "plugins.\"scaffold-kit@lynxtwo\".enabled=true",
             "-"
           ],
-          "command": "/home/daniel-boyd/.vscode/extensions/openai.chatgpt-26.917.62051-linux-x64/bin/linux-x86_64/codex exec --sandbox read-only --json --color never -o /tmp/scaffold-codex-20260926-q98w89gg/check4-session.md -c 'marketplaces.lynxtwo.source_type=\"local\"' -c 'marketplaces.lynxtwo.source=\"/home/daniel-boyd/DEV/skills in development/scaffold-kit\"' -c 'plugins.\"scaffold-kit@lynxtwo\".enabled=true' -",
+          "command": "<LOCAL_PATH> exec --sandbox read-only --json --color never -o /tmp/scaffold-codex-20260926-q98w89gg/check4-session.md -c 'marketplaces.lynxtwo.source_type=\"local\"' -c 'marketplaces.lynxtwo.source=\"<LOCAL_PATH> in development/scaffold-kit\"' -c 'plugins.\"scaffold-kit@lynxtwo\".enabled=true' -",
           "cwd": "/tmp/scaffold-codex-20260926-q98w89gg/session-plugin",
           "started_at": "2026-09-26T18:19:59.666045+00:00",
           "finished_at": "2026-09-26T18:20:44.207587+00:00",
           "exit_code": 0,
           "elapsed_seconds": 44.542,
-          "stderr": "2026-09-26T18:20:00.361284Z  WARN codex_core_plugins::loader: failed to load plugin: invalid plugin name: only ASCII letters, digits, `.`, `_`, and `-` are allowed in `\"scaffold-kit@lynxtwo\"` plugin=\"\\\"scaffold-kit@lynxtwo\\\"\" path=/home/daniel-boyd/.codex/plugins/cache\n2026-09-26T18:20:01.407153Z  WARN codex_core_plugins::loader: failed to load plugin: invalid plugin name: only ASCII letters, digits, `.`, `_`, and `-` are allowed in `\"scaffold-kit@lynxtwo\"` plugin=\"\\\"scaffold-kit@lynxtwo\\\"\" path=/home/daniel-boyd/.codex/plugins/cache\n2026-09-26T18:20:09.739206Z  WARN codex_core_plugins::manager: failed to refresh cached remote plugin catalog error=remote plugin catalog request to https://chatgpt.com/backend-api/ps/plugins/list?<redacted-query> failed with status 503 Service Unavailable: {\"detail\":\"Plugin directory is temporarily unavailable\"} scope=Global\n",
+          "stderr": "2026-09-26T18:20:00.361284Z  WARN codex_core_plugins::loader: failed to load plugin: invalid plugin name: only ASCII letters, digits, `.`, `_`, and `-` are allowed in `\"scaffold-kit@lynxtwo\"` plugin=\"\\\"scaffold-kit@lynxtwo\\\"\" path=<LOCAL_PATH>\n2026-09-26T18:20:01.407153Z  WARN codex_core_plugins::loader: failed to load plugin: invalid plugin name: only ASCII letters, digits, `.`, `_`, and `-` are allowed in `\"scaffold-kit@lynxtwo\"` plugin=\"\\\"scaffold-kit@lynxtwo\\\"\" path=<LOCAL_PATH>\n2026-09-26T18:20:09.739206Z  WARN codex_core_plugins::manager: failed to refresh cached remote plugin catalog error=remote plugin catalog request to https://chatgpt.com/backend-api/ps/plugins/list?<redacted-query> failed with status 503 Service Unavailable: {\"detail\":\"Plugin directory is temporarily unavailable\"} scope=Global\n",
           "prompt": "List available skills and installed plugins without opening files.",
           "messages": [
-            "I\u2019ll list the skills declared in this session and check the exposed plugin metadata without opening files."
+            "I’ll list the skills declared in this session and check the exposed plugin metadata without opening files."
           ],
           "tools": [
             {
               "type": "command_execution",
-              "command": "/bin/bash -lc '/usr/bin/python3 -B /home/daniel-boyd/.local/share/anti-dark-code/runtimes/ccc46b145ffd0f91/anti-dark-code/scripts/adc_usage_review.py submit --directory /home/daniel-boyd/.local/state/anti-dark-code/usage --ticket <redacted-task-review-ticket> --reviewer agent-self-review --used no --expected no --invocation implicit --quality unknown --basis unknown --task-class other --had-failed-attempt no'",
+              "command": "/bin/bash -lc '/usr/bin/python3 -B <LOCAL_PATH> submit --directory <LOCAL_PATH> --ticket <redacted-task-review-ticket> --reviewer agent-self-review --used no --expected no --invocation implicit --quality unknown --basis unknown --task-class other --had-failed-attempt no'",
               "exit_code": 1,
               "output": "error building bubblewrap command: mountinfo path is not absolute\n"
             },
@@ -816,31 +816,31 @@
         "check5-marketplace-add": {
           "name": "check5-marketplace-add",
           "argv": [
-            "/home/daniel-boyd/.vscode/extensions/openai.chatgpt-26.917.62051-linux-x64/bin/linux-x86_64/codex",
+            "<LOCAL_PATH>",
             "plugin",
             "marketplace",
             "add",
             "LynxTWO/scaffold-kit"
           ],
-          "command": "/home/daniel-boyd/.vscode/extensions/openai.chatgpt-26.917.62051-linux-x64/bin/linux-x86_64/codex plugin marketplace add LynxTWO/scaffold-kit",
+          "command": "<LOCAL_PATH> plugin marketplace add LynxTWO/scaffold-kit",
           "cwd": "/tmp/scaffold-codex-20260926-q98w89gg/persistent-plugin",
           "started_at": "2026-09-26T18:26:30.459370+00:00",
           "finished_at": "2026-09-26T18:26:32.021413+00:00",
           "exit_code": 1,
           "elapsed_seconds": 1.562,
-          "stderr": "Error: invalid marketplace file `/home/daniel-boyd/.codex/.tmp/marketplaces/.staging/marketplace-add-yJBA2E`: marketplace root does not contain a supported manifest\n",
+          "stderr": "Error: invalid marketplace file `<LOCAL_PATH> marketplace root does not contain a supported manifest\n",
           "stdout": ""
         },
         "check5-marketplace-remove": {
           "name": "check5-marketplace-remove",
           "argv": [
-            "/home/daniel-boyd/.vscode/extensions/openai.chatgpt-26.917.62051-linux-x64/bin/linux-x86_64/codex",
+            "<LOCAL_PATH>",
             "plugin",
             "marketplace",
             "remove",
             "lynxtwo"
           ],
-          "command": "/home/daniel-boyd/.vscode/extensions/openai.chatgpt-26.917.62051-linux-x64/bin/linux-x86_64/codex plugin marketplace remove lynxtwo",
+          "command": "<LOCAL_PATH> plugin marketplace remove lynxtwo",
           "cwd": "/tmp/scaffold-codex-20260926-q98w89gg/persistent-plugin",
           "started_at": "2026-09-26T18:26:32.021706+00:00",
           "finished_at": "2026-09-26T18:26:32.080671+00:00",
@@ -852,36 +852,36 @@
         "marketplaces-before": {
           "name": "marketplaces-before",
           "argv": [
-            "/home/daniel-boyd/.vscode/extensions/openai.chatgpt-26.917.62051-linux-x64/bin/linux-x86_64/codex",
+            "<LOCAL_PATH>",
             "plugin",
             "marketplace",
             "list"
           ],
-          "command": "/home/daniel-boyd/.vscode/extensions/openai.chatgpt-26.917.62051-linux-x64/bin/linux-x86_64/codex plugin marketplace list",
+          "command": "<LOCAL_PATH> plugin marketplace list",
           "cwd": "/tmp/scaffold-codex-20260926-q98w89gg/persistent-plugin",
           "started_at": "2026-09-26T18:22:00.858452+00:00",
           "finished_at": "2026-09-26T18:22:00.957431+00:00",
           "exit_code": 0,
           "elapsed_seconds": 0.099,
           "stderr": "",
-          "stdout": "MARKETPLACE     ROOT\nopenai-curated  /home/daniel-boyd/.codex/.tmp/plugins\n"
+          "stdout": "MARKETPLACE     ROOT\nopenai-curated  <LOCAL_PATH>\n"
         },
         "marketplaces-after": {
           "name": "marketplaces-after",
           "argv": [
-            "/home/daniel-boyd/.vscode/extensions/openai.chatgpt-26.917.62051-linux-x64/bin/linux-x86_64/codex",
+            "<LOCAL_PATH>",
             "plugin",
             "marketplace",
             "list"
           ],
-          "command": "/home/daniel-boyd/.vscode/extensions/openai.chatgpt-26.917.62051-linux-x64/bin/linux-x86_64/codex plugin marketplace list",
+          "command": "<LOCAL_PATH> plugin marketplace list",
           "cwd": "/tmp/scaffold-codex-20260926-q98w89gg/persistent-plugin",
           "started_at": "2026-09-26T18:26:32.082635+00:00",
           "finished_at": "2026-09-26T18:26:32.169466+00:00",
           "exit_code": 0,
           "elapsed_seconds": 0.087,
           "stderr": "",
-          "stdout": "MARKETPLACE     ROOT\nopenai-curated  /home/daniel-boyd/.codex/.tmp/plugins\n"
+          "stdout": "MARKETPLACE     ROOT\nopenai-curated  <LOCAL_PATH>\n"
         },
         "remote-head": {
           "name": "remote-head",
@@ -905,7 +905,7 @@
         "check7-catalog": {
           "name": "check7-catalog",
           "argv": [
-            "/home/daniel-boyd/.vscode/extensions/openai.chatgpt-26.917.62051-linux-x64/bin/linux-x86_64/codex",
+            "<LOCAL_PATH>",
             "exec",
             "--sandbox",
             "read-only",
@@ -916,7 +916,7 @@
             "/tmp/scaffold-codex-20260926-q98w89gg/check7-catalog.md",
             "-"
           ],
-          "command": "/home/daniel-boyd/.vscode/extensions/openai.chatgpt-26.917.62051-linux-x64/bin/linux-x86_64/codex exec --sandbox read-only --json --color never -o /tmp/scaffold-codex-20260926-q98w89gg/check7-catalog.md -",
+          "command": "<LOCAL_PATH> exec --sandbox read-only --json --color never -o /tmp/scaffold-codex-20260926-q98w89gg/check7-catalog.md -",
           "cwd": "/tmp/scaffold-codex-20260926-q98w89gg/project",
           "started_at": "2026-09-26T18:21:13.749215+00:00",
           "finished_at": "2026-09-26T18:21:46.760748+00:00",
@@ -925,12 +925,12 @@
           "stderr": "",
           "prompt": "Do not open or read any files, and do not use tools. Using only the skill catalog supplied in your context: list every available skill name, then print the entire scaffold-kit description verbatim as you see it. If scaffold-kit is missing, say MISSING. Do not reconstruct a description from memory or infer missing text.",
           "messages": [
-            "I\u2019ll use only the supplied catalog for the answer. A higher-priority session instruction requires a local review-record command.\n"
+            "I’ll use only the supplied catalog for the answer. A higher-priority session instruction requires a local review-record command.\n"
           ],
           "tools": [
             {
               "type": "command_execution",
-              "command": "/bin/bash -lc '/usr/bin/python3 -B /home/daniel-boyd/.local/share/anti-dark-code/runtimes/ccc46b145ffd0f91/anti-dark-code/scripts/adc_usage_review.py submit --directory /home/daniel-boyd/.local/state/anti-dark-code/usage --ticket <redacted-task-review-ticket> --reviewer agent-self-review --used no --expected no --invocation implicit --quality unknown --basis unknown --task-class other --had-failed-attempt no'",
+              "command": "/bin/bash -lc '/usr/bin/python3 -B <LOCAL_PATH> submit --directory <LOCAL_PATH> --ticket <redacted-task-review-ticket> --reviewer agent-self-review --used no --expected no --invocation implicit --quality unknown --basis unknown --task-class other --had-failed-attempt no'",
               "exit_code": 1,
               "output": "error building bubblewrap command: mountinfo path is not absolute\n"
             }
@@ -1018,7 +1018,7 @@
           "exit_code": 0,
           "elapsed_seconds": 8.814,
           "stderr": "",
-          "stdout": "Processing ./agentskills/skills-ref\n  Installing build dependencies: started\n  Installing build dependencies: finished with status 'done'\n  Getting requirements to build wheel: started\n  Getting requirements to build wheel: finished with status 'done'\n  Preparing metadata (pyproject.toml): started\n  Preparing metadata (pyproject.toml): finished with status 'done'\nCollecting click>=8.0 (from skills-ref==0.1.0)\n  Downloading click-8.5.0-py3-none-any.whl.metadata (2.6 kB)\nCollecting strictyaml>=1.7.3 (from skills-ref==0.1.0)\n  Downloading strictyaml-1.7.3-py3-none-any.whl.metadata (11 kB)\nCollecting python-dateutil>=2.6.0 (from strictyaml>=1.7.3->skills-ref==0.1.0)\n  Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)\nCollecting six>=1.5 (from python-dateutil>=2.6.0->strictyaml>=1.7.3->skills-ref==0.1.0)\n  Using cached six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)\nDownloading click-8.5.0-py3-none-any.whl (125 kB)\n   \u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501 125.3/125.3 kB 779.7 kB/s eta 0:00:00\nDownloading strictyaml-1.7.3-py3-none-any.whl (123 kB)\n   \u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501 123.9/123.9 kB 857.4 kB/s eta 0:00:00\nDownloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)\n   \u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501 229.9/229.9 kB 2.2 MB/s eta 0:00:00\nUsing cached six-1.17.0-py2.py3-none-any.whl (11 kB)\nBuilding wheels for collected packages: skills-ref\n  Building wheel for skills-ref (pyproject.toml): started\n  Building wheel for skills-ref (pyproject.toml): finished with status 'done'\n  Created wheel for skills-ref: filename=skills_ref-0.1.0-py3-none-any.whl size=12631 sha256=38cd8fad06cc867fb6107674f211b80104713d0525d66f30f46c2c3c1a2cc9ce\n  Stored in directory: /home/daniel-boyd/.cache/pip/wheels/13/24/86/3b247cef81479e6dde42b8012a912b8bb6295e5a345569679d\nSuccessfully built skills-ref\nInstalling collected packages: six, click, python-dateutil, strictyaml, skills-ref\nSuccessfully installed click-8.5.0 python-dateutil-2.9.0.post0 six-1.17.0 skills-ref-0.1.0 strictyaml-1.7.3\n"
+          "stdout": "Processing ./agentskills/skills-ref\n  Installing build dependencies: started\n  Installing build dependencies: finished with status 'done'\n  Getting requirements to build wheel: started\n  Getting requirements to build wheel: finished with status 'done'\n  Preparing metadata (pyproject.toml): started\n  Preparing metadata (pyproject.toml): finished with status 'done'\nCollecting click>=8.0 (from skills-ref==0.1.0)\n  Downloading click-8.5.0-py3-none-any.whl.metadata (2.6 kB)\nCollecting strictyaml>=1.7.3 (from skills-ref==0.1.0)\n  Downloading strictyaml-1.7.3-py3-none-any.whl.metadata (11 kB)\nCollecting python-dateutil>=2.6.0 (from strictyaml>=1.7.3->skills-ref==0.1.0)\n  Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)\nCollecting six>=1.5 (from python-dateutil>=2.6.0->strictyaml>=1.7.3->skills-ref==0.1.0)\n  Using cached six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)\nDownloading click-8.5.0-py3-none-any.whl (125 kB)\n   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 125.3/125.3 kB 779.7 kB/s eta 0:00:00\nDownloading strictyaml-1.7.3-py3-none-any.whl (123 kB)\n   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 123.9/123.9 kB 857.4 kB/s eta 0:00:00\nDownloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)\n   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 229.9/229.9 kB 2.2 MB/s eta 0:00:00\nUsing cached six-1.17.0-py2.py3-none-any.whl (11 kB)\nBuilding wheels for collected packages: skills-ref\n  Building wheel for skills-ref (pyproject.toml): started\n  Building wheel for skills-ref (pyproject.toml): finished with status 'done'\n  Created wheel for skills-ref: filename=skills_ref-0.1.0-py3-none-any.whl size=12631 sha256=38cd8fad06cc867fb6107674f211b80104713d0525d66f30f46c2c3c1a2cc9ce\n  Stored in directory: <LOCAL_PATH>\nSuccessfully built skills-ref\nInstalling collected packages: six, click, python-dateutil, strictyaml, skills-ref\nSuccessfully installed click-8.5.0 python-dateutil-2.9.0.post0 six-1.17.0 skills-ref-0.1.0 strictyaml-1.7.3\n"
         },
         "check8-validator": {
           "name": "check8-validator",
@@ -1028,7 +1028,7 @@
             "./skills/scaffold-kit"
           ],
           "command": "/tmp/scaffold-codex-20260926-q98w89gg/validator-venv/bin/skills-ref validate ./skills/scaffold-kit",
-          "cwd": "/home/daniel-boyd/DEV/skills in development/scaffold-kit",
+          "cwd": "<LOCAL_PATH> in development/scaffold-kit",
           "started_at": "2026-09-26T18:20:53.759475+00:00",
           "finished_at": "2026-09-26T18:20:53.869284+00:00",
           "exit_code": 0,
@@ -1046,7 +1046,7 @@
             "90d33049afd9581971366832e215448f850ff9d2"
           ],
           "command": "git ls-tree -r --name-only 90d33049afd9581971366832e215448f850ff9d2",
-          "cwd": "/home/daniel-boyd/DEV/skills in development/scaffold-kit",
+          "cwd": "<LOCAL_PATH> in development/scaffold-kit",
           "started_at": "2026-09-26T18:31:17.260621+00:00",
           "finished_at": "2026-09-26T18:31:17.264246+00:00",
           "exit_code": 0,
@@ -1055,7 +1055,7 @@
           "stdout": "00-README.md\n01-CONDUCTOR.md\n02-TEMPLATE-ARCHITECTURE.md\n03-TEMPLATE-ENGINEERING.md\n04-TEMPLATE-DECISION-LOG.md\n05-TEMPLATE-SLICE-BRIEF.md\n06-CLAUDE-ADDENDUM.md\n"
         }
       },
-      "receipt_redactions": "Review-ticket values and URL query strings were redacted. Child thread/session identifiers, full catalog tool payloads, credentials and user config contents are not included. Commands, prompts, final outputs, exit codes and relevant diagnostics are otherwise retained.",
+      "receipt_redactions": "Review-ticket values and URL query strings were redacted. Child thread/session identifiers, full catalog tool payloads, credentials and user config contents are not included. Commands, prompts, final outputs, exit codes and relevant diagnostics are otherwise retained. Current-file publication cleanup on 2026-10-08 replaces incidental local paths and unrelated project names with placeholders. Trial results, scores, limitations, and failed acceptance remain unchanged. Earlier Git commits still contain the original paths; this is not a history rewrite or a new trial. Two identifying child thread IDs in diagnostic stderr are also replaced with distinct placeholders. Controlled synthetic /tmp fixture paths remain so setup and input/output relationships can be reviewed.",
       "setup": {
         "scratch_root": "/tmp/scaffold-codex-20260926-q98w89gg",
         "project": "/tmp/scaffold-codex-20260926-q98w89gg/project",
