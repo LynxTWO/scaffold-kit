@@ -10,6 +10,21 @@ The model behind it:
 
 You do not build the whole product first. You design the whole puzzle, then build one valuable, production-quality section of it, with clean places for future pieces to connect. Then you repeat, one slice at a time.
 
+## Start here: plan an AI coding project
+
+Scaffold Kit turns a project description into four planning documents: architecture, engineering rules, decisions, and one active slice brief. It writes documents first. Product code starts only after the owner approves the slice brief.
+
+Read the [overview and starter example](https://lynxtwo.github.io/scaffold-kit/), or use the files directly:
+
+1. Review this source and the [FSL-1.1-MIT license](LICENSE.md). Version 0.4 is a draft, not a claim of universal host compatibility.
+2. Give your assistant [the Conductor](skills/scaffold-kit/references/conductor.md) and load each of the [four templates](skills/scaffold-kit/assets/templates/) as its phase starts. Rough project descriptions are welcome.
+3. Ask: “Use Scaffold Kit 0.4 to plan a small reading-list app. Start with triage and questions. Write planning documents only; do not build product code.”
+4. Review the decisions, assumptions, and first slice. Build only after the active brief records your approval.
+
+This reading-list prompt is an illustrative starter, not an evaluation result. For existing code, [Anti-Dark-Code](https://github.com/LynxTWO/anti-dark-code-skill) provides codebase mapping and verification evidence; Scaffold Kit turns that evidence into planning decisions and a build boundary.
+
+Installation depends on your host's current discovery rules. The [Codex verification record](design/codex-verification-2026-09-26.md) includes failed file-resolution and discovery checks; packaging is not acceptance on every host. The manual file workflow avoids assuming a plugin has loaded.
+
 ## Revision note: v0.4 (Draft)
 
 Version 0.4 applies the findings from a second field run, a real two-founder product built slice by slice under v0.3 for six weeks, and packages the kit as an agent skill. Two lessons from the run: the kit bounded scope but never bounded verification effort, so a proof campaign that served no requirement ran for days inside a slice; and the Decision Log grew past nine hundred lines because receipts and run output were pasted into entries. Changes: a verification bound and a two-vocabulary rule in the Engineering Document; a Gate column and an unlisted-inputs row in the slice brief's acceptance table; a SLICE STATE block; a rule that evidence lives in ledgers and entries link it; a spoken build gate; three new failure modes to refuse; a brownfield procedure that names the map artifacts anti-dark-code produces; a stdlib audit script that mechanizes the Phase 6 checklist; and the layout below, which every skill host can load. Templates lost their numeric prefixes; the mapping is in the table.
@@ -44,7 +59,7 @@ One convention rides alongside the files: prior research and business planning (
 
 As a skill: install `skills/scaffold-kit/` where your host reads skills (`.agents/skills/scaffold-kit/` for Codex, Cursor, Copilot and Gemini; `.claude/skills/scaffold-kit/` for Claude Code), or add this repository as a plugin marketplace in Claude Code (`claude plugin marketplace add LynxTWO/scaffold-kit`, then `claude plugin install scaffold-kit@lynxtwo`). Then describe what you want to build in a paragraph. Rough is fine. The interview exists to sharpen it.
 
-By hand: give your AI `skills/scaffold-kit/references/conductor.md` and the four templates under `skills/scaffold-kit/assets/templates/`, then describe the project. Answer the questions, or choose fast-run at triage and review filled defaults in batches instead. The AI fills out the Architecture Document, the Engineering Document, the Decision Log, and the first Slice Brief. Then it builds only that slice.
+By hand: give your AI `skills/scaffold-kit/references/conductor.md` and the four templates under `skills/scaffold-kit/assets/templates/`, then describe the project. Answer the questions, or choose fast-run at triage and review filled defaults in batches instead. The AI fills out the Architecture Document, the Engineering Document, the Decision Log, and the first Slice Brief. After the owner approves the active Slice Brief, implementation can build only that slice.
 
 Time expectations: a T1 project interview usually fits in one sitting. T2 takes a few sessions. T3 takes longer, and should. The Conductor's state block makes pausing and resuming safe.
 

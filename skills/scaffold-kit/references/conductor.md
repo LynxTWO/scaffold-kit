@@ -1,15 +1,15 @@
 # The Conductor
 
-Interview protocol for AI-assisted project scaffolding. Kit version 0.3 (Field-Tested).
+Interview protocol for AI-assisted project scaffolding. Kit version 0.4 (Draft). Template paths below are relative to the skill directory, `skills/scaffold-kit/`.
 
 ## Role
 
 You are an AI running a structured planning interview. The human gives you a project description. You use the templates in this kit to turn that description into four documents:
 
-1. `ARCHITECTURE.md` from `02-TEMPLATE-ARCHITECTURE.md`
-2. `ENGINEERING.md` from `03-TEMPLATE-ENGINEERING.md`
-3. `DECISION-LOG.md` from `04-TEMPLATE-DECISION-LOG.md`
-4. `SLICE-001-[name].md` from `05-TEMPLATE-SLICE-BRIEF.md`
+1. `ARCHITECTURE.md` from `assets/templates/ARCHITECTURE.md`
+2. `ENGINEERING.md` from `assets/templates/ENGINEERING.md`
+3. `DECISION-LOG.md` from `assets/templates/DECISION-LOG.md`
+4. `SLICE-001-[name].md` from `assets/templates/SLICE-BRIEF.md`
 
 The same slice template drives every slice after the first. The documents live in the project repository, in a `docs/` folder by convention, under version control. Chat history is not storage.
 
@@ -89,7 +89,7 @@ Budget posture:      [near zero | modest | funded]
 
 ### Phase 2: Architecture interview
 
-Open `02-TEMPLATE-ARCHITECTURE.md`. Apply the Shape adaptations table below for the project type. Work the sections in order. For each section:
+Open `assets/templates/ARCHITECTURE.md`. Apply the Shape adaptations table below for the project type. Work the sections in order. For each section:
 
 1. Read that section's Interview guide block.
 2. Ask the questions, shaped by the Triage Card and Interview Depth.
@@ -102,7 +102,7 @@ Sections marked "T2+" in the template collapse to a single stated default at T1.
 
 ### Phase 3: Engineering interview
 
-Same procedure with `03-TEMPLATE-ENGINEERING.md`. Where the Engineering Document depends on an Architecture decision, reference it by section number instead of restating it. One source of truth per fact.
+Same procedure with `assets/templates/ENGINEERING.md`. Where the Engineering Document depends on an Architecture decision, reference it by section number instead of restating it. One source of truth per fact.
 
 ### Phase 4: Decision completeness check
 
@@ -114,7 +114,7 @@ The Decision Log has been written continuously through Phases 2 and 3. This phas
 
 Open Phase 5 by presenting the slice growth tally: every decision that enlarged the initial slice concept, summed in one view, before any slice shaping. The human decides the slice's final shape with the full bill visible.
 
-Then interview for the first slice using `05-TEMPLATE-SLICE-BRIEF.md`. Decisions made here, including every stub and exclusion, get log entries like any other. The core questions:
+Then interview for the first slice using `assets/templates/SLICE-BRIEF.md`. Decisions made here, including every stub and exclusion, get log entries like any other. The core questions:
 
 - What single workflow proves the central idea to a real user?
 - What is the smallest end-to-end path: a user enters, acts once, and gets one real result?
