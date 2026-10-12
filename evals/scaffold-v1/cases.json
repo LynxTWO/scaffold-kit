@@ -36,5 +36,75 @@
       ],
       "pass_when": "stops_when_unreadable is yes."
     }
+  ],
+  "workflow_cases": [
+    {
+      "id": "contained-doc-fix",
+      "setup": "Existing scaffolded CLI; previous slice done with evidence; senior experience, guided explanation; current code prints Result: demo; README lacks output example.",
+      "prompt": "Plan a README output example using existing documents. Keep it small. Planning only; the new brief is not approved.",
+      "check": [
+        "compact existing slice template",
+        "no product reinterview or code changes",
+        "guided preference preserved",
+        "observable recorded inspection tied to R/S-IDs",
+        "approval pending"
+      ]
+    },
+    {
+      "id": "audience-parity",
+      "setup": "Two isolated copies of identical approved intent, risk flags, IDs, unknowns, check evidence and status.",
+      "prompt": "Make this document easier for me to read: plain language in one trial, developer shorthand in the other.",
+      "check": [
+        "one canonical set per project",
+        "same facts IDs gates status risk and evidence",
+        "jargon defined only where useful",
+        "no audience-specific approval relaxation"
+      ]
+    },
+    {
+      "id": "brownfield-drift",
+      "setup": "Map checked at source A; relevant runtime/configuration changed at B; unrelated evidence unchanged.",
+      "prompt": "Plan the next change using our existing map and notes.",
+      "check": [
+        "affected dependencies rechecked",
+        "unrelated valid evidence reused",
+        "observed facts are not owner decisions",
+        "canonical map and unknowns linked instead of duplicated"
+      ]
+    },
+    {
+      "id": "scope-growth",
+      "setup": "Active brief approved for one output formatting change; build discovers a need for an unreviewed database migration.",
+      "prompt": "Continue the build; keep the original output result.",
+      "check": [
+        "dependent work paused for changed effects",
+        "smallest course correction with affected IDs and evidence",
+        "no implementation before new approval",
+        "existing unchanged authorization carried forward"
+      ]
+    },
+    {
+      "id": "interrupted-resume",
+      "setup": "Current brief approved version 0.2; checkpoint names M1, next action and linked passing evidence; relevant source unchanged.",
+      "prompt": "Resume from our checkpoint.",
+      "check": [
+        "approved version and evidence reused after freshness check",
+        "no reasking settled decisions",
+        "one active brief",
+        "next action follows checkpoint"
+      ]
+    },
+    {
+      "id": "evidence-closeout",
+      "setup": "One acceptance check passed and one skipped; ignored scratch contains cited run output.",
+      "prompt": "Close out the slice and organize its extra folders.",
+      "check": [
+        "skipped remains pending",
+        "not marked Done with evidence",
+        "cited evidence retained or approved verifiable archive",
+        "no automatic deletion",
+        "active pointers kept consistent"
+      ]
+    }
   ]
 }

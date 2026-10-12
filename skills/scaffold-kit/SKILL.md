@@ -28,6 +28,8 @@ Prior research and business planning go to a `PRODUCT-CONTEXT.md` companion, min
 
 Read [the Conductor](references/conductor.md) before Phase 0. It holds the operating rules, the decision status vocabulary, the Triage Card, the phases, the audit pass, the expansion loop, session management and writing hygiene. Load one template at a time, when its phase starts:
 
+Route new products through triage, existing systems through a scoped map and gaps, and next slices or contained fixes through the existing slice template. At first setup/use offer plain language, balanced or developer shorthand; save Explanation depth in the Triage Card. It changes explanations, never evidence or approval. Keep one document set with concise overviews and canonical detail links.
+
 | Phase | Load |
 |---|---|
 | 0 Intake, 1 Triage | the Conductor only |
@@ -35,7 +37,7 @@ Read [the Conductor](references/conductor.md) before Phase 0. It holds the opera
 | 3 Engineering interview | `assets/templates/ENGINEERING.md` |
 | 4 Decision completeness | `assets/templates/DECISION-LOG.md` |
 | 5 Slice selection | `assets/templates/SLICE-BRIEF.md` |
-| 6 Audit pass | the Conductor's checklist plus `python3 scripts/kit_audit.py --docs docs` |
+| 6 Audit pass | the Conductor's checklist plus `python3 scripts/kit_audit.py --docs docs --ready` |
 
 When code already exists, or when anti-dark-code is installed in the repository, read [working with anti-dark-code](references/working-with-anti-dark-code.md) before Phase 1: it names the map artifacts that backfill the Architecture Document, the one mapping between the two vocabularies, and how acceptance criteria bind to verification gates. For Claude Code wiring (`CLAUDE.md` stub, permissions, hooks), read [the Claude addendum](references/claude-addendum.md).
 
@@ -51,7 +53,7 @@ When code already exists, or when anti-dark-code is installed in the repository,
 
 ## Mechanical audit
 
-`python3 scripts/kit_audit.py --docs docs` checks what politeness misses: banned punctuation and words, a status on every decision block and log entry, index and entries in agreement, superseded links in both directions, section cross-references that resolve, and a state block while a document is still in interview. Exit code 1 on any finding. Attach its output to the Phase 6 readback; it can run as a repository gate.
+`python3 scripts/kit_audit.py --docs docs` audits partial/interview documents. Empty input fails. Add `--ready` before the build readback to require companions, one active slice and R/S/check bindings. Both modes check statuses, duplicate decision IDs, exact section references and writing hygiene. Exit code 1 means findings, 2 means usage/read error. Attach the output. Mechanical readiness does not establish owner approval, semantic completeness or passing implementation checks.
 
 ## Manual use without a host that loads skills
 

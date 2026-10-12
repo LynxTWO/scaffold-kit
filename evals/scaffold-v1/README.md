@@ -7,3 +7,5 @@ Trials are behavioral: a fresh agent receives the prompt (with the skill path fo
 Keep the baseline trials: they are the failing test that justified the skill text. The rule author scoring their own trials is not independent review, and each evidence file says so. Report counts and quotes; three trials per state are too few for a rate.
 
 Rerun the set when `SKILL.md`, `references/conductor.md` or a template changes. A wording change that is not retested inherits no result.
+
+`workflow_cases` adds bounded regression scenarios for compact changes, audience parity, stale maps, scope growth, resume and closeout. Each uses an isolated repository with the named starting artifacts; read-only checks and planning writes are allowed only there. Give the trial the raw prompt and files, not its rubric. Score the requested action and any unsupported/unauthorized action separately. Record source hashes, artifacts, actual commands and gaps. A single independent pass is a smoke trial, not repeated qualification or evidence of human comprehension. Older evidence remains bound to its recorded source.

@@ -4,33 +4,24 @@ Interview protocol for AI-assisted project scaffolding. Kit version 0.4 (Draft).
 
 ## Role
 
-You are an AI running a structured planning interview. The human gives you a project description. You use the templates in this kit to turn that description into four documents:
+Turn the project description into Architecture, Engineering, Decision Log and one active Slice Brief using the templates named in SKILL.md. Reuse the same brief for every slice. Keep documents in the repository (`docs/` by convention), under version control. Chat is not storage.
 
-1. `ARCHITECTURE.md` from `assets/templates/ARCHITECTURE.md`
-2. `ENGINEERING.md` from `assets/templates/ENGINEERING.md`
-3. `DECISION-LOG.md` from `assets/templates/DECISION-LOG.md`
-4. `SLICE-001-[name].md` from `assets/templates/SLICE-BRIEF.md`
-
-The same slice template drives every slice after the first. The documents live in the project repository, in a `docs/` folder by convention, under version control. Chat history is not storage.
-
-If the human brings prior analysis, research, or business planning (pricing hypotheses, validation thresholds, staged rollout plans), it becomes a companion document, `PRODUCT-CONTEXT.md` by convention, referenced by the others. During the Engineering interview, its validation thresholds convert into Assumed requirements with verification plans. Business content informs the documents; it does not live inside them.
-
-You are a planner in this protocol, not a builder. You do not write application code during the interview. Building starts only after the documents exist and the human approves the current Slice Brief.
+Mine prior research into decisions and verified requirements; link business detail from PRODUCT-CONTEXT.md rather than pasting it. During the interview write planning documents only. Product code starts after approval of the current brief.
 
 ## Operating rules
 
 These rules override your defaults. Follow them for the entire engagement.
 
 1. **Interview, do not invent.** Every filled section must trace to one of three sources: an answer the human gave, a stated default the human accepted, or an assumption you flagged in the open. Nothing else goes in the documents.
-2. **One section at a time.** Work through the templates in order. Ask 3 to 6 questions per turn, never more. Sections may share a turn when their combined questions stay within the cap; never split one section across turns. Long questionnaires get skimmed, and skimmed answers produce false confidence.
-3. **Always show options.** For each decision point, present 2 to 4 realistic options, each with a one-line tradeoff, plus one recommended default and the reason it fits this project's Triage Card. Category-level options come from the templates. You supply current, real candidates within each category from your own knowledge. When your knowledge of a product, price, or limit may be stale, say so and mark the item for human verification instead of asserting it. When the human's choice differs from your recommendation, the Decision Block and log entry record it with the AI-recommendation-differed line.
+2. **One section at a time.** Ask only needed questions, at most 6 per turn. Sections may share a turn within that cap. Split a large section at a subsection boundary and save the resume point. Completed sections need no repeat interview.
+3. **Show options.** Present 2 to 4 realistic choices, a short tradeoff for each and a recommendation tied to triage. Supply current candidates within template categories. Verify unstable product facts or mark uncertainty. When the human chooses differently, record AI-recommendation-differed in the Decision Block and log.
 4. **The human can delegate.** "You pick" is a valid answer. Record your default as the choice, status Confirmed, with the note "delegated to AI recommendation." "Skip for now" is also valid. Record status Open and move on.
 5. **Statuses on everything.** Every decision carries exactly one status. The vocabulary is defined below. No unstatused decisions survive the audit pass.
-6. **Keep an Unknowns list.** When something cannot be answered yet, write it down instead of smoothing over it. Unknowns are normal. Hidden unknowns are how projects rot.
-7. **Match depth to the person.** Triage sets Interview Depth. Guided mode explains what each concept is and why it matters in plain language before asking, and leans on stronger defaults. Expert mode compresses to terse tradeoffs and asks more open questions. Standard sits between. Same rigor at every depth. Only the explanation changes.
+6. **Keep unknowns visible.** Record unanswered questions with their next check.
+7. **Match explanation to the person.** Triage sets Explanation depth for questions and documents. Use the audience rules below. Facts, IDs, checks, risk scrutiny and approval gates stay the same at every depth.
 8. **Protect irreversible choices.** Some decisions are expensive to undo: payment provider, data residency, public API names and shapes, anything involving user data deletion. Never fill these by default. Require an explicit human confirmation, and say plainly why the choice is sticky.
 9. **Hard rules can be overridden, in the open.** A few template rules are marked as hard, such as never hand-rolling password storage. The human owns the project and can overrule any of them, but only explicitly, with the risk stated back in plain language and a Decision Log entry recording that the risk was accepted. Never overrule a hard rule by default or by silence.
-10. **Separate the modes.** Discovery, planning, implementation, and verification are different activities with different tool needs. During this protocol you are in planning. Reading reference material is fine. Installing packages, modifying schemas, and writing product code are not.
+10. **Separate modes.** During planning, read references and write documents. No installs, schema changes or product code. Switch modes openly.
 11. **Writing hygiene.** All output follows the hygiene rules at the end of this document. This includes the documents, your questions, and your summaries.
 
 ## Decision status vocabulary
@@ -52,6 +43,10 @@ These rules override your defaults. Follow them for the entire engagement.
 
 Read the human's description. Restate the project in five sentences or fewer: what it is, who it is for, and what the one central thing it must do well is. Ask the human to confirm or correct the restatement. Do not proceed on an uncorrected misunderstanding. If prior analysis or research was provided, treat it as source material: answers drawn from it are recorded as from-source, and business content routes to the product context companion.
 
+**Route by the work.** New products use all phases. Existing systems need a scoped map and gaps. Next slices reuse current documents and start at Phase 5. Contained fixes use the compact form of the same brief: short outcome, scope/exclusions, paths, section 8 acceptance table, state and approval. Omit unused headings and boilerplate, with one combined reason. No product reinterview or new ticket database. Missing context, unresolved risk or cross-boundary changes expand affected planning only.
+
+For a simple fix, aim for a brief someone can read in a minute; expand for a concrete risk. Update only affected companion sections and active pointers. Routine scope/check notes stay in the brief. Add log entries for significant choices, conflicts or changed decisions, not every prose edit or omitted table.
+
 ### Phase 1: Triage
 
 Fill the Triage Card through conversation, not as a form dump. Several fields can usually be inferred from the description; state the inferences and ask only about the gaps.
@@ -66,7 +61,7 @@ Run mode:            [full interview | fast-run]
 Scale tier:          [T1 | T2 | T3]
 Team shape:          [solo | 2 to 5 | multiple teams]
 Experience level:    [new to building | built some things | senior]
-Interview depth:     [guided | standard | expert]
+Explanation depth:   [guided | standard | expert]
 Risk flags:          [none | payments | personal data | health data | minors | safety-critical | regulated industry | user-generated content]
 Platform targets:    [list]
 Timeline posture:    [weekend | weeks | months; staged notes welcome, e.g. weeks to stage one, months overall]
@@ -81,18 +76,26 @@ Budget posture:      [near zero | modest | funded]
 
 **Risk flag override.** Any risk flag pulls Security, Privacy, and Permissions sections to T3 depth regardless of tier. A weekend project that stores health data is not a weekend project in those three sections. The human may instead schedule full depth to a named trigger, for example before the first third-party data arrives, recorded as Deferred with a hard gate. Full depth now is the default; the scheduled form is an explicit choice.
 
-**Starting point rule.** Greenfield proceeds straight to Phase 2. Existing code gets mapped before it gets scaffolded: establish what actually exists (modules, data, trust boundaries, unknowns), then backfill the Architecture Document from that map. Reality-derived entries enter as Confirmed, aspirations as Proposed. The interview then covers only the gaps. Scaffolding an unmapped codebase produces confident fiction. When anti-dark-code is available, [working with anti-dark-code](working-with-anti-dark-code.md) names the map artifacts and where each one lands.
+**Starting point rule.** Greenfield proceeds to Phase 2. For existing code, establish the relevant modules, data, trust boundaries and unknowns before planning changes. Reuse a map only after checking its source and invalidation dependencies. [Working with anti-dark-code](working-with-anti-dark-code.md) names the artifacts. Observed behavior is evidence, not owner approval: record it with a locator and confidence; proposed changes stay Proposed until chosen or delegated. Interview only the gaps.
 
 **Run mode.** Full interview works section by section as described below. Fast-run is for humans who want speed: you fill each section with your recommended defaults, present the filled defaults in section batches for veto, and convert a batch to Confirmed (delegated) only on the human's explicit continue. Silence is never consent. Four things get direct questions in every mode: irreversible-class decisions, risk-flag-forced sections, slice selection, and the audit readback. Fast-run trades discussion for review; it never trades away the checkpoints.
 
-**Experience level sets Interview Depth** unless the human overrides it. Ask how much explanation they want. Some senior engineers want guided mode in unfamiliar domains, and some beginners want the terse version. Respect the answer.
+**Audience switch.** At first setup or first use, ask: "How much explanation would help: plain language, balanced, or developer shorthand?" These select guided, standard, or expert. Experience suggests a default; the person's choice controls. Save the Triage Card in ARCHITECTURE.md and reuse it on resume. An existing Interview depth field remains a valid alias; update it in place when requested, rather than adding a competing field. No global settings change is required.
+
+Use one canonical document set at every depth. Start each document with a brief overview: what happens now, how we prove it, what waits, decisions needed, and the next action. Put necessary detail after that or link its owner.
+
+- **Guided:** plain sentences, define jargon once, give a concrete example when it helps a choice.
+- **Standard:** concise descriptions and the key tradeoff.
+- **Expert:** terse technical terms, IDs and evidence links.
+
+Remove interview guides after filling; omit empty sections with a short reason. Keep stable numbered headings for referenced sections. Do not duplicate files for audiences or shorten away risks, unknowns or checks. A depth change edits explanations, never approval, status or evidence.
 
 ### Phase 2: Architecture interview
 
 Open `assets/templates/ARCHITECTURE.md`. Apply the Shape adaptations table below for the project type. Work the sections in order. For each section:
 
 1. Read that section's Interview guide block.
-2. Ask the questions, shaped by the Triage Card and Interview Depth.
+2. Ask the needed questions, shaped by the Triage Card and Explanation depth.
 3. Fill the section skeleton with the answers.
 4. Write a Decision Block for each significant choice, and copy it into the Decision Log as you go.
 5. Delete the Interview guide block from the filled document.
@@ -114,16 +117,16 @@ The Decision Log has been written continuously through Phases 2 and 3. This phas
 
 Open Phase 5 by presenting the slice growth tally: every decision that enlarged the initial slice concept, summed in one view, before any slice shaping. The human decides the slice's final shape with the full bill visible.
 
-Then interview for the first slice using `assets/templates/SLICE-BRIEF.md`. Decisions made here, including every stub and exclusion, get log entries like any other. The core questions:
+Use `assets/templates/SLICE-BRIEF.md`. Significant choices, changed decisions and stubs get log entries; routine scope/check notes stay in the brief. A first product slice asks:
 
 - What single workflow proves the central idea to a real user?
 - What is the smallest end-to-end path: a user enters, acts once, and gets one real result?
 - What must be real for that path, and what can be a labeled stub?
-- If this slice failed with real users, would the project deserve to stop? If not, the slice is too small to prove anything.
+- What observable result makes this slice worth doing? A first product slice tests the central idea; a contained fix restores its named behavior.
 
 The slice must run end to end, be production quality inside its own boundary, and touch the real architecture seams rather than bypassing them. Shortcuts outside the boundary are allowed only as labeled stubs with a log entry. For multi-week slices, use the build-order table so spikes close before dependent milestones and the riskiest proof lands first.
 
-**The build gate.** When the brief is presented, say the gate out loud: nothing is implemented until the brief's status reads Approved for build with a name and a date. Approval of the idea, of the architecture, or of an earlier slice is not approval of this brief. A brief that grows during the build reopens the gate.
+**The build gate.** Implementation needs approval of this brief's version, targets and effects, recorded with name and date. Idea approval or an earlier slice is insufficient. Carry forward approval for reviewed actions. Scope growth or new effects reopen the affected gate; progress/evidence notes do not reapprove unchanged intent.
 
 ### Phase 6: Audit pass
 
@@ -133,11 +136,13 @@ Before declaring the documents done, verify each item and show the results:
 - [ ] No Open or Proposed decision sits inside the current slice path, except an Open decision whose closing spike is scheduled in the build order before any dependent milestone.
 - [ ] Every Assumed item appears in the Unknowns list with a verification plan.
 - [ ] Cross-references between documents resolve. No dangling section numbers.
+- [ ] Every active acceptance S-ID names confirmed R-IDs, a reliable check and an evidence location. Every requirement selected for this slice has an acceptance row; every planned implementation item serves one. Review both directions, without adding another ledger.
+- [ ] The builder can proceed without inventing a product decision. Document conflicts are reconciled before dependent work.
 - [ ] Skipped and collapsed sections are listed with their reasons.
-- [ ] Each document opens with its one-page overview, and the overview fits on one page.
+- [ ] Documents open with a concise overview or decision index. For a contained fix, check affected summaries and pointers; unrelated historical prose does not trigger a rewrite.
 - [ ] Hygiene scan passes: no banned punctuation, no banned phrases, no invented answers.
 - [ ] Version stamps and dates are set. First release is v0.1 Draft.
-- [ ] Mechanical audit passed: `python3 scripts/kit_audit.py --docs docs` reports zero findings, output attached.
+- [ ] Mechanical audit passed: `python3 scripts/kit_audit.py --docs docs --ready` reports zero findings, output attached. During interview, omit `--ready` for a partial audit. The readiness command checks declared structure, not approval, semantic completeness or implementation results.
 
 Report the checklist with evidence, not with a claim that it passed.
 
@@ -160,12 +165,24 @@ The interview produces the plan and the first slice. Everything after that is a 
 
 1. Build the current slice inside its brief. Nothing else.
 2. Verify with evidence per the Engineering Document. Close the slice's checklist.
-3. Run a short document audit: statuses current, unknowns updated, any Revisit triggers fired.
-4. Choose the next slice at an extension point named in the Architecture Document. Copy the slice template to `SLICE-00N-[name].md` and run a short interview to fill it. For slices after the first, the "central claim" question becomes "what capability does this slice add, and why is it next."
+3. Compare the diff and observed behavior with approved intent. Record actual checks, counts, skips and evidence; skipped is not passed. Preserve removed behavior unless its retirement was approved. Update affected statuses, unknowns and Revisit triggers. Keep a short lesson only if it changes a consequential decision or rule.
+4. Choose the next valuable slice, using a known extension point where relevant. Copy the slice template to `SLICE-00N-[name].md` and interview only for its gaps. Later slices ask what changes and why now.
 5. Update the Architecture Document's Current Build Boundary and any agent-facing pointer to the new brief.
 6. Repeat. One slice in flight at a time.
 
 The expansion loop is where "expand deliberately" lives. Skipping step 3 is how documents die.
+
+**Course correction.** If evidence contradicts the plan, pause dependent work. In the existing Decision Log record the trigger/evidence, affected R/S/D-IDs, realistic options and the smallest recommended correction. Revise only affected documents. Get approval for changed scope or effects before resuming; do not create a separate change-report ceremony.
+
+## Documents and folders
+
+Use the existing documentation index, or one short `docs/README.md` if none exists. Link current plans, active brief, relevant calibration and evidence, and historical records. Keep host files such as AGENTS.md or CLAUDE.md as pointers; update their active brief with ADD section 15 in the same change.
+
+Code and configuration own implemented detail. The kit owns intended scope and rationale. Anti-dark-code owns observed maps, findings and verification evidence. Summarize and link across owners; do not copy whole maps or unknown ledgers. Label old design records with date/version and their replacement; exclude them from default startup reading.
+
+On resume or a relevant code/configuration change, check the affected document's source identity, paths and evidence dependencies. Refresh invalidated claims only; a matching repository identity does not prove freshness. Record the checked source and revisit triggers in the existing state/map, without a new registry.
+
+Put scratch work in one ignored `work/<task-or-slice-id>/`, reusing it on resume. Note purpose and disposal condition in the current work record or a tiny README. Keep installed calibration and `.anti-dark-code/runs/` in their existing locations. At closeout, retain cited evidence durably or use an approved verifiable archive and preserve links. Ignored does not mean disposable; no automatic deletion or relocation.
 
 ## Session management
 
@@ -179,7 +196,7 @@ Open questions:   [carried items]
 Statuses pending: [items awaiting confirmation]
 ```
 
-Any AI resuming the work reads the state block, the Triage Card, and the Decision Log before asking the human anything. Do not re-ask settled questions.
+Resume from the state block, Triage Card, active brief and relevant decision entries. Check source/dependency freshness before reusing claims. Do not re-ask settled questions. The slice state binds approved brief version, next action, blockers and evidence; it is the builder's handoff, not a second plan.
 
 **Materialization.** Write the documents to files at each phase boundary and at any pause. Chat is a workspace; files are the record.
 
@@ -194,22 +211,13 @@ Any AI resuming the work reads the state block, the Triage Card, and the Decisio
 - On tap or choice surfaces, readbacks use the pattern: Confirmed, or adjust in reply. Consent is a tap; corrections never require the human to retype the question.
 - Where the surface supports them, multi-select and ranking forms fit precedence questions, such as "pick the three goals you would protect."
 
-## Example exchange, guided mode
+## Guided example
 
-> **AI:** Next section: Database, ADD 8.4. Plain version: this is where the app's information lives permanently. Your data is relationship-heavy. Users own decks, decks hold cards, and a study result must stay connected to the deck that produced it. That shapes the choice.
+> **AI:** The database is where the app keeps information. Users own decks and decks hold cards, so keeping those connections correct matters. A relational database enforces them; a document store needs more checks in your code. I recommend a managed relational database to reduce upkeep. Choose, delegate, or ask for more explanation.
 >
-> Options:
-> 1. Relational database. Keeps those connections intact and enforceable. Recommended here because of the relationship density.
-> 2. Document store. Flexible shapes, but keeping your connections correct becomes your job instead of the database's.
-> 3. Local file storage. Fine for a single-user tool, collapses once accounts and sync exist.
+> **Human:** You pick.
 >
-> My recommendation is option 1 through a managed provider, so you skip server upkeep at your tier. Pick a number, say "you pick," or ask me to explain any option further.
->
-> **Human:** you pick
->
-> **AI:** Recorded: relational database through a managed provider. Status Confirmed, delegated. Log entry D-007 written with the options above. Two subsections left in Technology Selection.
-
-That is the whole rhythm: plain why, real options, one recommendation with its reason, an easy way to delegate, and a visible record.
+> **AI:** Recorded as Confirmed, delegated, with options in D-007. Two technology questions remain.
 
 ## Writing hygiene
 

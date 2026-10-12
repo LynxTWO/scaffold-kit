@@ -3,7 +3,7 @@
 Version: 0.1 Draft. Date: [date]. Authors: [names]. Status: In interview.
 Companion documents: ENGINEERING.md, DECISION-LOG.md, and the slice briefs (SLICE-001 onward).
 
-This document is the puzzle: what the system is, what its major pieces are, how they connect, and where future pieces will attach. The Engineering Document holds the rules for placing pieces. Where the two conflict, this document's guardrails control.
+This document describes the system and its boundaries. Engineering describes how to build and verify it. Reconcile conflicts through DECISION-LOG.md before dependent work. Neither document silently overrides the other.
 
 **How this template works.** Blocks that begin with "Interview guide" are instructions to the AI running the Conductor protocol. They are not part of the final document. The AI asks, fills the skeleton, records Decision Blocks, then deletes the guide. Placeholders in [brackets] get replaced or removed.
 
@@ -29,7 +29,7 @@ REVISIT WHEN: [the trigger that reopens this]
 - **What it is:** [two sentences]
 - **Who it is for:** [primary user, secondary users]
 - **The core loop:** [user enters, does what, gets what value]
-- **Major pieces:** [module names only, 5 to 9 of them]
+- **Major pieces:** [only the responsibilities needed for this product]
 - **Current slice:** [one line naming it, detail lives in the current slice brief]
 - **What this is not:** [two or three explicit exclusions]
 
@@ -84,7 +84,7 @@ DECISION: Product shape and platforms
 > **Interview guide. Delete after filling.**
 > *Why:* this table is the map an agent consults before touching anything. Vague module boundaries are how agents smash the puzzle apart.
 > *Ask:* walk the core loop and name each system it passes through. Then name the supporting systems: auth, notifications, admin, analytics.
-> *Options:* typical counts are 5 to 9 modules at T1 and T2. More than 12 at any tier is a smell. Fewer than 4 for a real product usually means hidden coupling.
+> *Options:* use the fewest boundaries justified by current responsibilities, data ownership and known change pressures. A logical module need not be a folder, package or service. One codebase is enough until a concrete need justifies more.
 > *Tier:* all tiers. This section never collapses.
 
 ## 5. Interfaces and Contracts
@@ -218,8 +218,8 @@ DECISION: Hosting and build pipeline
 
 > **Interview guide. Delete after filling.**
 > *Why:* this section is the entire reason planning broadly works. You are not predicting every future button. You are deciding where future pieces are likely to connect.
-> *Ask:* if this succeeds, what do you add in the next three expansions? For each: which module does it touch, and what seam should exist so adding it does not smash the puzzle apart?
-> *Tier:* all tiers. Even a prototype should know its next three moves.
+> *Ask:* which known change pressures matter now? For each, name a clean boundary and what stays unbuilt. If none are known, say so; do not invent future features or abstractions.
+> *Tier:* all tiers. No minimum number of future moves.
 
 ## 11. Scale and Performance Posture (T2+)
 
@@ -267,7 +267,7 @@ DECISION: Performance targets
 
 ## 15. Current Build Boundary
 
-- **Current slice:** [SLICE-NNN and its one-line description, matching the active slice brief]
+- **Current slice:** [SLICE-NNN-name.md] [one-line description, matching the active brief]
 - **Modules the slice touches:** [list]
 - **Modules the slice stubs:** [list, each stub labeled in the Decision Log]
 - **Everything else:** designed above, deliberately unbuilt.

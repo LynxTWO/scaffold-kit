@@ -1,5 +1,15 @@
 # Changelog
 
+## Unreleased improvements to 0.4
+
+- Extend the existing depth choice to documents: guided/plain language, standard/balanced, expert/developer shorthand. Reuse one project choice and canonical document set, with unchanged evidence and approval gates.
+- Route next slices and contained fixes through a compact existing brief. Bind handoffs to approved intent, source, next action and evidence; reconcile conflicts and scope changes explicitly.
+- Add `kit_audit.py --ready` for companions, one current slice and R/S/check bindings. Reject empty input, duplicate decision IDs, status disagreement, missing exact subsections and invalid slice status. Keep partial audits for interviews.
+- Remove module-count floors and required speculative expansions. Require proportionate recorded checks rather than automated tests for trivial prose changes.
+- Clarify canonical unknowns, freshness, document indexes, historical records, scratch folders and cited evidence retention. Fix the old Claude Conductor path and use `Done with evidence` consistently.
+
+These are source changes, not a published release or a consumer installation.
+
 ## 0.4.0 (Draft)
 
 - Package the kit as an agent skill under `skills/scaffold-kit/`: `SKILL.md` entry, the Conductor and Claude addendum under `references/`, the four templates under `assets/templates/` without numeric prefixes, a Claude Code plugin manifest and single-entry marketplace, and an Agent Plugins manifest.

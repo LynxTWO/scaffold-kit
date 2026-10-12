@@ -21,6 +21,8 @@ Read the [overview and starter example](https://lynxtwo.github.io/scaffold-kit/)
 3. Ask: “Use Scaffold Kit 0.4 to plan a small reading-list app. Start with triage and questions. Write planning documents only; do not build product code.”
 4. Review the decisions, assumptions, and first slice. Build only after the active brief records your approval.
 
+At first setup/use, choose **plain language**, **balanced**, or **developer shorthand**. The choice is saved as Explanation depth in the project's Triage Card. It changes questions and document wording; IDs, risk checks and approval stay the same. Documents start with a short overview and link to their detailed evidence. Existing projects reuse their current plans; a contained fix needs only a compact slice brief and affected updates.
+
 This reading-list prompt is an illustrative starter, not an evaluation result. For existing code, [Anti-Dark-Code](https://github.com/LynxTWO/anti-dark-code-skill) provides codebase mapping and verification evidence; Scaffold Kit turns that evidence into planning decisions and a build boundary.
 
 Installation depends on your host's current discovery rules. The [Codex verification record](design/codex-verification-2026-09-26.md) includes failed file-resolution and discovery checks; packaging is not acceptance on every host. The manual file workflow avoids assuming a plugin has loaded.
@@ -108,7 +110,7 @@ Documents produced by this kit start at v0.1 Draft. When a document survives a f
 
 ## Tests and audit
 
-`python3 -m unittest discover -s skills/scaffold-kit/tests` exercises the audit script. `python3 skills/scaffold-kit/scripts/kit_audit.py --docs <your docs dir>` audits a filled document set. `evals/` holds the behavioral trial set and its evidence.
+`python3 -m unittest discover -s skills/scaffold-kit/tests` exercises the audit script. `python3 skills/scaffold-kit/scripts/kit_audit.py --docs <your docs dir>` audits partial/interview documents; add `--ready` for companions, one active slice and requirement/check bindings before the build readback. Readiness is a structural check, not owner approval or proof that the build works. `evals/` holds behavioral trial prompts and evidence.
 
 ## License
 
