@@ -1,6 +1,6 @@
 # The Scaffold Kit
 
-Version 0.4 (Draft). October 14, 2026.
+Version 0.4.1 (Preview candidate). October 14, 2026.
 
 ![Scaffold Kit](assets/brand/scaffold-kit.png)
 
@@ -64,6 +64,8 @@ One convention rides alongside the files: prior research and business planning (
 As a Claude Code plugin: `claude plugin marketplace add LynxTWO/scaffold-kit`, then `claude plugin install scaffold-kit@lynxtwo`. In a local session, invoke `/scaffold-kit:scaffold-kit` and describe your project.
 
 As a Codex plugin: clone this repository, run `codex plugin marketplace add /absolute/path/to/scaffold-kit`, then `codex plugin add scaffold-kit@lynxtwo`. In a new local chat, select Scaffold Kit through `@` or ask Codex to use it by name.
+
+Preview releases use a separate `lynxtwo-preview` marketplace supplied with the preview bundle. Install them only by opting into that catalog; a version suffix alone does not select a channel. Keep one active copy of each plugin. To return to stable, remove the preview copy and reinstall from the stable catalog. This candidate is prepared locally and has not been published.
 
 As a standalone skill: install only `skills/scaffold-kit/` where your host reads skills (`.agents/skills/scaffold-kit/` for Codex, Cursor, Copilot and Gemini; `.claude/skills/scaffold-kit/` for Claude Code). Choose either the plugin or standalone installation to avoid duplicate discovery. Rough project descriptions are welcome.
 
