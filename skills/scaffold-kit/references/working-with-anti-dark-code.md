@@ -4,20 +4,20 @@ Load when code already exists, or when the repository carries an installed anti-
 
 ## Brownfield: map first, then scaffold
 
-Scaffolding an unmapped codebase produces confident fiction. Before Phase 2, run anti-dark-code's Understand card on the repository and backfill from its artifacts:
+Scaffolding an unmapped codebase produces confident fiction. Before Phase 2, run anti-dark-code's Understand card on the relevant scope and backfill from its artifacts:
 
 | anti-dark-code artifact | Fills |
 |---|---|
 | system map (modules, entry points, trust and data boundaries, owners) | concise pointers in ADD sections 4, 2 and 9; the observed map stays canonical |
-| coverage ledger (examined, deferred, excluded, blocked surfaces) | EDD section 16 rows for every surface not examined |
-| unknowns entries | linked summaries in EDD section 16, retaining stable `U-` identifiers |
-| verification plan and gate records (`calibration/`) | EDD section 11 verification ledger, section 14 CI gates |
+| coverage ledger (examined, deferred, excluded, blocked surfaces) | a linked EDD section 16 summary of unexamined surfaces that matter to the plan; the ledger stays canonical |
+| unknowns entries | EDD section 16 summaries with Scaffold-owned `U-` IDs, linked to ADC entries by title |
+| verification plan and gate records (`calibration/`) | links from EDD sections 11 and 14; the gate records stay canonical |
 
 Check the map's source identity and affected dependencies before reuse; matching repository identity is not freshness. Record observed facts with confidence and evidence. Confirmed describes an owner choice, not the mere existence of code. Proposed changes stay Proposed until chosen or delegated. Interview only the gaps.
 
-EDD risk rows and ADC unknowns have different fields and status vocabularies. Choose one canonical record per unknown; the other document holds a short summary and link. Preserve stored status and fields, without migration or synchronized duplicate ledgers.
+EDD risk rows and ADC unknowns have different fields and status vocabularies. Choose one canonical record per unknown; the other document holds a short summary and link. Preserve stored status and fields, without migration or synchronized duplicate ledgers. Scaffold slices bound build increments; ADC slices group code for coverage passes. Their statuses stay separate.
 
-Reuse the Triage Card's Explanation depth (or existing Interview depth) for both tools. ADC owns evidence; the kit owns intended scope and rationale. Keep calibration and run artifacts in ADC's canonical paths. Link them from the existing documentation index rather than copying them into a new kit folder.
+Reuse the Triage Card's Explanation depth (or existing Interview depth) for both tools. If only anti-dark-code's calibration README records a depth, use it at triage, save it in the Triage Card and leave a pointer in calibration, so one choice remains. ADC owns evidence; the kit owns intended scope and rationale. Keep calibration and run artifacts in ADC's canonical paths. Link them from the existing documentation index rather than copying them into a new kit folder.
 
 ## One mapping between the vocabularies
 

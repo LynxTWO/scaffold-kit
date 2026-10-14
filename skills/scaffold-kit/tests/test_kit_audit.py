@@ -135,6 +135,21 @@ class KitAuditTests(unittest.TestCase):
     def test_clean_readiness_can_use_recorded_manual_check(self):
         self.assertEqual([], self.run_ready())
 
+    def test_acceptance_table_header_compatibility(self):
+        for header in ("Verified by", "How to check", "How it will be checked"):
+            with self.subTest(header=header):
+                text = CLEAN_SLICE.replace("Verified by", header)
+                files = ready_docs()
+                files["SLICE-001-demo.md"] = text
+                self.assertEqual([], self.run_ready(files))
+                for placeholder in ("[test]", "TODO", ""):
+                    files["SLICE-001-demo.md"] = text.replace("Run demo with example input", placeholder)
+                    self.assertEqual(["S-001 How it will be checked is empty or a placeholder"],
+                                     self.messages(self.run_ready(files)), placeholder)
+                files["SLICE-001-demo.md"] = text.replace(" | manual:", " | extra | manual:")
+                self.assertEqual(["S-001 needs ID, Requirement, Criterion, How it will be checked, Gate columns"],
+                                 self.messages(self.run_ready(files)))
+
     def test_ready_rejects_interview_and_missing_active_file(self):
         files = ready_docs()
         files["ENGINEERING.md"] = READY_EDD.replace("Audited.", "In interview.") + "\nINTERVIEW STATE\n"
@@ -149,25 +164,280 @@ class KitAuditTests(unittest.TestCase):
             files["ARCHITECTURE.md"] = READY_ADD.replace("SLICE-001-demo.md", pointer)
             self.assertTrue(any("must name one Current slice" in m for m in self.messages(self.run_ready(files))))
 
+    def test_ready_accepts_linked_or_described_pointer(self):
+        for pointer in ("[SLICE-001-demo.md](SLICE-001-demo.md)", "[`SLICE-001-demo.md`](./SLICE-001-demo.md)",
+                        "SLICE-001-demo.md: print the result", "`SLICE-001-demo.md`."):
+            files = ready_docs()
+            files["ARCHITECTURE.md"] = READY_ADD.replace("SLICE-001-demo.md", pointer)
+            self.assertEqual([], self.run_ready(files), pointer)
+        for pointer in ("[SLICE-001-demo.md](SLICE-002-other.md)", "SLICE-001-demo.md.bak", "[SLICE-NNN-name.md] [description]"):
+            files = ready_docs()
+            files["ARCHITECTURE.md"] = READY_ADD.replace("SLICE-001-demo.md", pointer)
+            self.assertTrue(any("must name one Current slice" in m for m in self.messages(self.run_ready(files))), pointer)
+
     def test_ready_rejects_another_active_or_completed_current_slice(self):
         files = ready_docs()
         files["SLICE-002-other.md"] = CLEAN_SLICE.replace("Proposed.", "In progress.")
         self.assertIn("another slice is active", self.messages(self.run_ready(files)))
+        for done in ("Done with evidence.", "Done."):
+            files = ready_docs()
+            files["SLICE-001-demo.md"] = CLEAN_SLICE.replace("Proposed.", done)
+            self.assertIn("completed slice cannot be the current build boundary", self.messages(self.run_ready(files)))
+
+    def test_ready_approved_status_needs_a_named_approver(self):
+        for status in ("Approved for build.", "In progress."):
+            for footer in ("", "\n*Approved for build by: [name], [date], brief version [version].*\n",
+                           "\nApproved for build by: pending.\n", "\n```\nApproved for build by: Sam, 2026-10-12\n```\n"):
+                files = ready_docs()
+                files["SLICE-001-demo.md"] = CLEAN_SLICE.replace("Proposed.", status) + footer
+                self.assertTrue(any("needs 'Approved for build by:'" in m for m in self.messages(self.run_ready(files))), footer)
+            files["SLICE-001-demo.md"] = CLEAN_SLICE.replace("Proposed.", status) + "\n*Approved for build by: Sam Owner, 2026-10-12, brief version 0.1.*\n"
+            self.assertEqual([], self.run_ready(files))
+
+    def test_approval_value_is_read_from_its_own_line(self):
+        rejected = (
+            "Approved for build by: TODO", "Approved for build by: N/A", "Approved for build by: not approved",
+            "Approved for build by: Not yet approved, 2026-10-12", "Approved for build by: pending, 2026-10-12",
+            "Approved for build by:\n\n## Next action\nReview scope.", "Approved for build by: Sam Owner",
+            "Approved for build by: 2026-10-12", "Approved for build by: N/A, 2026-10-12",
+            "Approved for build by: <name>, <date>", "Approved for build by: Sam Owner, [date]",
+            "Nothing is built until this reads `Approved for build by: Sam Owner, 2026-10-12`.",
+        )
+        accepted = (
+            "*Approved for build by: Sam Owner, 2026-10-12, brief version 0.1.*",
+            "**Approved for build by:** Sam Owner, 12 October 2026",
+            "Approved for build by: Sam Owner on Oct 12, 2026",
+            "Approved for build by: Noah Na, 10/12/2026\r",
+            "*Approved for build by: Dan, 2026-10-01. Until then, this brief is a proposal, and no implementation starts.*",
+        )
+        for line in rejected + accepted:
+            self.assertEqual(line in accepted, kit_audit.approval_recorded("Version: 0.1\n\n" + line + "\n"), line)
         files = ready_docs()
-        files["SLICE-001-demo.md"] = CLEAN_SLICE.replace("Proposed.", "Done with evidence.")
-        self.assertIn("completed slice cannot be the current build boundary", self.messages(self.run_ready(files)))
+        files["SLICE-001-demo.md"] = CLEAN_SLICE.replace("Proposed.", "In progress.") + "\nApproved for build by: TODO\n"
+        self.assertTrue(any("followed by a name and date" in m for m in self.messages(self.run_ready(files))))
+        files = ready_docs()
+        files["SLICE-000-old.md"] = CLEAN_SLICE.replace("Proposed.", "Done.")
+        self.assertEqual([], self.run_ready(files))
+
+    def test_approval_must_name_the_current_brief_version(self):
+        approved = CLEAN_SLICE.replace("Proposed.", "Approved for build.")
+        footer = "\n*Approved for build by: Sam Owner, 2026-10-12, brief version 0.1.*\n"
+        files = ready_docs()
+        files["SLICE-001-demo.md"] = approved.replace("Version: 0.1", "Version: 0.2") + footer
+        self.assertIn("approval names brief version 0.1 but the brief is version 0.2", self.messages(self.run_ready(files)))
+        for text in (approved + footer, approved + "\nApproved for build by: Sam Owner, 2026-10-12\n"):
+            files["SLICE-001-demo.md"] = text
+            self.assertEqual([], self.run_ready(files))
 
     def test_slice_status_vocabulary(self):
-        for status in ("Proposed", "Approved for build", "In progress", "Done with evidence"):
+        # "Done" is the earlier 0.4 footer's wording, so historical briefs stay valid.
+        for status in ("Proposed", "Approved for build", "In progress", "Done with evidence", "Done"):
             self.assertEqual([], self.run_audit(**{"SLICE-001-demo.md": CLEAN_SLICE.replace("Proposed", status)}))
         self.assertTrue(any("invalid slice status" in m for m in self.messages(self.run_audit(**{
-            "SLICE-001-demo.md": CLEAN_SLICE.replace("Proposed", "Done")}))))
+            "SLICE-001-demo.md": CLEAN_SLICE.replace("Proposed", "Finished")}))))
+
+    def test_guided_check_inspects_generated_prose_not_setting(self):
+        # Excerpts from the failing generated version brief, with guided already set.
+        docs = ready_docs()
+        docs["ARCHITECTURE.md"] += "\nExplanation depth: guided\n\n## 4. Modules\n"
+        docs["SLICE-001-demo.md"] = docs["SLICE-001-demo.md"].replace("record stdout", "record printed text")
+        docs["SLICE-001-demo.md"] += "\n# Demo CLI\nUse the one-script seam in ADD 4. EDD 11 bounds verification.\n"
+        for ready in (False, True):
+            with tempfile.TemporaryDirectory() as tmp:
+                root = write_docs(Path(tmp), **docs)
+                errors = [f for f in kit_audit.audit(root, ready=ready) if f["check"] == "guided-label"]
+                self.assertEqual(3, len(errors))
+        docs["SLICE-001-demo.md"] += "\nArchitecture Document ([ADD](ARCHITECTURE.md)); [EDD](ENGINEERING.md), the Engineering Document; command-line tool (CLI).\n"
+        self.assertEqual([], self.run_ready(docs))
+
+    def test_guided_labels_preserve_alias_expert_and_history(self):
+        docs = ready_docs()
+        docs["SLICE-001-demo.md"] = docs["SLICE-001-demo.md"].replace("record stdout", "record printed text")
+        docs["SLICE-001-demo.md"] += "\nDemo CLI; ADD 4; EDD 11.\n"
+        for setting, status, count in (("Interview depth: guided", "Proposed", 3),
+                                       ("Explanation depth: expert", "Proposed", 0),
+                                       ("Explanation depth: guided", "Done with evidence", 0)):
+            docs["ARCHITECTURE.md"] = READY_ADD + "\n" + setting + "\n"
+            docs["SLICE-001-demo.md"] = docs["SLICE-001-demo.md"].replace("Proposed", status)
+            self.assertEqual(count, len(kit_audit.check_guided_labels(docs)))
+
+    def test_guided_label_markdown_boundaries(self):
+        docs = ready_docs()
+        docs["ARCHITECTURE.md"] += "\nExplanation depth: guided\n"
+        for prose, expected in (("Architecture Document\n(ADD); command-line tool\n(CLI).", 0),
+                                ("Read [Plan][plan].\n\n[plan]: notes/ADD.md", 0),
+                                ("Reengineering EDD is in scope.", 1)):
+            docs["SLICE-001-demo.md"] = CLEAN_SLICE.replace("record stdout", "record printed text") + "\n" + prose
+            self.assertEqual(expected, len(kit_audit.check_guided_labels(docs)), prose)
+
+    def test_guided_check_rejects_observed_action_jargon(self):
+        docs = ready_docs()
+        docs["ARCHITECTURE.md"] += "\nExplanation depth: guided\n"
+        # Actual included-work excerpts from round18 and round19 generated briefs.
+        docs["SLICE-001-demo.md"] = CLEAN_SLICE.replace("record stdout", "record printed text") + (
+            "\nPlan argument dispatch and version lookup; preserve result rendering.\n"
+            "\nThen add the version branch and its confirmed version source.\n"
+            "\nCompare stdout, stderr and exit code to baseline.\n")
+        self.assertEqual(6, len(kit_audit.check_guided_labels(docs)))
+        docs["SLICE-001-demo.md"] += (
+            "\nDispatch handles arguments; rendering prints result text.\n"
+            "\nThe version branch is the path that handles the version request.\n"
+            "\nPrinted text is stdout; error text is stderr.\n"
+            "\nExit code is the success or failure number.\n")
+        self.assertEqual([], kit_audit.check_guided_labels(docs))
+        for prose in ("Dispatch means handling command arguments.",
+                      "Dispatch means handling the command-line arguments.",
+                      "Rendering means printing the result text.",
+                      "Dispatch means handling arguments.",
+                      "Rendering means preparing output.",
+                      "Rendering means formatting output.",
+                      "Printed text is STDOUT; error text is STDERR.",
+                      "stdout is the text printed by the command.",
+                      "stderr is the text printed for errors."):
+            docs["SLICE-001-demo.md"] = CLEAN_SLICE.replace("record stdout", "record printed text") + "\n" + prose
+            self.assertEqual([], kit_audit.check_guided_labels(docs), prose)
+        docs["SLICE-001-demo.md"] = CLEAN_SLICE.replace("record stdout", "record printed text") + (
+            "\nAdd the version request; preserve ordinary result output.\n"
+            "\nCompare printed text, error text and exit code.\n")
+        self.assertEqual(1, len(kit_audit.check_guided_labels(docs)))
+        docs["SLICE-001-demo.md"] += "\nExit code is the success or failure number.\n"
+        self.assertEqual([], kit_audit.check_guided_labels(docs))
+
+    def test_guided_check_rejects_observed_remaining_terms(self):
+        docs = ready_docs()
+        docs["ARCHITECTURE.md"] += "\nExplanation depth: guided\n"
+        base = CLEAN_SLICE.replace("record stdout", "record printed text")
+        # Concrete terms in the three failed round20 generated briefs.
+        docs["SLICE-001-demo.md"] = base + "\nNo stubs. A constant is proposed. What output contract? Compare both output streams; check a source-read failure.\n"
+        self.assertEqual(5, len(kit_audit.check_guided_labels(docs)))
+        for prose in (
+            "Stubs are temporary substitutes.",
+            "A constant is a fixed value stored in code.",
+            "The output contract sets rules for printed text and command results.",
+            "Output streams are normal and error output.",
+            "A source-read failure means unable to read the version value.",
+        ):
+            docs["SLICE-001-demo.md"] = base + "\n" + prose
+            self.assertEqual([], kit_audit.check_guided_labels(docs), prose)
+
+    def test_copied_recommendation_remains_in_decision_log(self):
+        text = CLEAN_SLICE + "\nA constant is recommended; alternative paths remain in D-002.\n"
+        self.assertEqual(1, len(kit_audit.check_brief_recommendations("SLICE-001-demo.md", text)))
+        text = CLEAN_SLICE + "\nVersion source needs the owner's answer in D-002.\n"
+        self.assertEqual([], kit_audit.check_brief_recommendations("SLICE-001-demo.md", text))
+        for prose in ("This is not recommended.", "The file is `recommended.py`.",
+                      "Read [D-002](DECISION-LOG.md#is-recommended).",
+                      "Read [choice][d].\n\n[d]: DECISION-LOG.md#is-recommended"):
+            self.assertEqual([], kit_audit.check_brief_recommendations("SLICE-001-demo.md", CLEAN_SLICE + "\n" + prose), prose)
+        text = text.replace("Proposed", "Done with evidence") + "\nA constant is recommended.\n"
+        self.assertEqual([], kit_audit.check_brief_recommendations("SLICE-001-demo.md", text))
+        for depth in ("guided", "expert"):
+            docs = ready_docs()
+            docs["ARCHITECTURE.md"] += "\nExplanation depth: " + depth + "\n"
+            docs["SLICE-001-demo.md"] = CLEAN_SLICE.replace("record stdout", "record printed text") + "\nA constant (fixed value stored in code) is recommended.\n"
+            findings = self.run_ready(docs)
+            self.assertEqual(["decision-copy"], [f["check"] for f in findings], depth)
+
+    def test_new_brief_checks_preserve_markdown_and_lines(self):
+        base = CLEAN_SLICE.replace("record stdout", "record printed text")
+        for gap in (" ", "  ", "\n", "\t"):
+            errors = kit_audit.check_brief_recommendations("SLICE-001-demo.md", base + "\nA value is" + gap + "recommended.")
+            self.assertEqual(1, len(errors), gap)
+        for prose in ('[choice](DECISION-LOG.md#version(source) "is recommended")',
+                      '[choice][d]\n\n[d]: DECISION-LOG.md\n  "is recommended"',
+                      '`is recommended.txt`'):
+            self.assertEqual([], kit_audit.check_brief_recommendations("SLICE-001-demo.md", base + "\n" + prose), prose)
+        text = base + "\n[choice](\nDECISION-LOG.md\n)\nA value is recommended.\n"
+        self.assertEqual(text[:text.index("A value is recommended")].count("\n") + 1,
+                         kit_audit.check_brief_recommendations("SLICE-001-demo.md", text)[0]["line"])
+        docs = ready_docs()
+        docs["ARCHITECTURE.md"] += "\nExplanation depth: guided\n"
+        for prose in ('[choice](notes/x(v)/constant.md)', '`constant.py`',
+                      '[ADD](\nARCHITECTURE.md\n) is the Architecture Document.',
+                      'Output contract means an agreement on printed results.'):
+            docs["SLICE-001-demo.md"] = base + "\n" + prose
+            self.assertEqual([], kit_audit.check_guided_labels(docs), prose)
+
+    def test_guided_scale_label_in_generated_footer(self):
+        docs = ready_docs()
+        docs["ARCHITECTURE.md"] += "\nExplanation depth: guided\n"
+        base = CLEAN_SLICE.replace("record stdout", "record printed text")
+        # Actual failed round21 footer; the configured scale alone is insufficient.
+        docs["SLICE-001-demo.md"] = base + "\nOmissions are recorded because this is a contained T1 change.\n"
+        self.assertEqual(1, len(kit_audit.check_guided_labels(docs)))
+        docs["SLICE-001-demo.md"] += "\nT1 means a prototype or personal tool.\n"
+        self.assertEqual([], kit_audit.check_guided_labels(docs))
+        docs["SLICE-001-demo.md"] = base + "\nOmissions are recorded because this is a small change.\n"
+        self.assertEqual([], kit_audit.check_guided_labels(docs))
+
+    def test_guided_generated_question_and_source_identity(self):
+        docs = ready_docs()
+        docs["ARCHITECTURE.md"] += "\nExplanation depth: guided\n"
+        base = CLEAN_SLICE.replace("record stdout", "record printed text")
+        # Actual round22 miss: owner-question reference and reader-facing state.
+        docs["SLICE-001-demo.md"] = base + "\nCompare Q-002 record and D-003.\n\n```text\nSLICE STATE\nSource checked: demo.py SHA-256 in linked evidence\n```\n"
+        errors = kit_audit.check_guided_labels(docs)
+        self.assertEqual(2, len(errors))
+        self.assertEqual(2, len({error["line"] for error in errors}))
+        docs["SLICE-001-demo.md"] += "\nQ identifies a question. SHA-256 is a file fingerprint.\n"
+        self.assertEqual([], kit_audit.check_guided_labels(docs))
+        docs["SLICE-001-demo.md"] = base + "\n```python\nQ = 'SHA-256'\n```\n"
+        self.assertEqual([], kit_audit.check_guided_labels(docs))
+        docs["ARCHITECTURE.md"] = docs["ARCHITECTURE.md"].replace("depth: guided", "depth: expert")
+        docs["SLICE-001-demo.md"] += "\nCompare Q-002.\n"
+        self.assertEqual([], kit_audit.check_guided_labels(docs))
+
+    def test_guided_state_uses_existing_fence_regions(self):
+        docs = ready_docs()
+        docs["ARCHITECTURE.md"] += "\nExplanation depth: guided\n"
+        base = CLEAN_SLICE.replace("record stdout", "record printed text")
+        cases = [
+            ("````python\n```text\nSLICE STATE\nSource checked: SHA-256; Q-002\n```\n````\n", 0),
+            ("~~~python\n```text\nSLICE STATE\nSource checked: SHA-256; Q-002\n```\n~~~\n", 0),
+            ("   ```text\nSLICE STATE\nSource checked: SHA-256; Q-002\n   ```\n", 2),
+            ("~~~text\nSLICE STATE\nSource checked: SHA-256; Q-002\n~~~\n", 2),
+            ("````text\nSLICE STATE\n```\nSource checked: SHA-256; Q-002\n````\n", 2),
+        ]
+        for prose, count in cases:
+            for newline in ("\n", "\r\n"):
+                docs["SLICE-001-demo.md"] = (base + "\n" + prose).replace("\n", newline)
+                self.assertEqual(count, len(kit_audit.check_guided_labels(docs)), prose)
+
+    def test_guided_generated_revision_and_exit_numbers(self):
+        docs = ready_docs()
+        docs["ARCHITECTURE.md"] += "\nExplanation depth: guided\n"
+        base = CLEAN_SLICE.replace("record stdout", "record printed text")
+        # Actual round24 state/acceptance wording, not just configured depth.
+        for term in ("exit code", "exit result", "exit status", "exit 0"):
+            docs["SLICE-001-demo.md"] = base + "\n```text\nSLICE STATE\nSource checked: local HEAD f51e0f4\n```\n\nCompare printed text and " + term + ".\n"
+            self.assertEqual(2, len(kit_audit.check_guided_labels(docs)))
+            docs["SLICE-001-demo.md"] += "\nHEAD is the current source revision. The " + term + " is a success or failure number; 0 means success.\n"
+            self.assertEqual([], kit_audit.check_guided_labels(docs))
+        # Approved Sample B explains its numeric result in an ordinary clause.
+        docs["SLICE-001-demo.md"] = base + "\nRefuses to overwrite and exits with code 2 (reports failure).\n\nRecord output and exit code.\n"
+        self.assertEqual([], kit_audit.check_guided_labels(docs))
+
+    def test_explicit_structural_omissions(self):
+        # Predicate excerpts from all four round12 failed active briefs.
+        combined = "Sections 2, 5, 7 and 9 through 12 and unused tables are omitted because this is one prose edit."
+        for extra in ("the exclusion/connection table is omitted.", "No future-work table is needed.",
+                      "no future connection table is needed.", "no exclusion/connection table is needed."):
+            text = CLEAN_SLICE + "\n" + extra + "\n" + combined
+            errors = self.run_audit(**{"SLICE-001-demo.md": text})
+            self.assertEqual(["omissions"], [f["check"] for f in errors], extra)
+            self.assertEqual(len(text.splitlines()), errors[0]["line"])
+        ignored = "No stubs are needed. No test harness is needed. No table changes are needed. Review sections 2 and 5; optional flags are omitted."
+        for body in (combined, combined.replace("unused", "milestone"), ignored, extra[:-1] + "; " + combined,
+                     "## " + extra + "\n~~~\n" + extra + "\n~~~\n" + combined):
+            self.assertEqual([], self.run_audit(**{"SLICE-001-demo.md": CLEAN_SLICE + "\n" + body}))
+        for status in kit_audit.COMPLETED_SLICE:
+            self.assertEqual([], self.run_audit(**{"SLICE-000-old.md": CLEAN_SLICE.replace("Proposed", status) + extra + combined}))
 
     def test_ready_requires_acceptance_and_confirmed_requirement_binding(self):
         for old, new, expected in (
             ("R-001 | Given", "R-999 | Given", "must reference confirmed R-IDs"),
             ("R-001 | Given", " | Given", "must reference confirmed R-IDs"),
-            ("Run demo with example input", "[test]", "Verified by is empty or a placeholder"),
+            ("Run demo with example input", "[test]", "How it will be checked is empty or a placeholder"),
             ("manual: record stdout in the slice evidence", "", "Gate is empty or a placeholder"),
         ):
             files = ready_docs()
@@ -176,6 +446,21 @@ class KitAuditTests(unittest.TestCase):
         files = ready_docs()
         files["SLICE-001-demo.md"] = CLEAN_SLICE.split("| S-001")[0]
         self.assertIn("section 8 needs acceptance rows with S-IDs", self.messages(self.run_ready(files)))
+
+    def test_ready_rejects_placeholder_words_and_duplicate_requirements(self):
+        for old, label in (("Run demo with example input", "How it will be checked"),
+                           ("manual: record stdout in the slice evidence", "Gate"),
+                           ("Given a valid input, the result is printed", "Criterion")):
+            for word in ("TBD", "pending", "N/A", "manual:", "-", "**TODO**"):
+                files = ready_docs()
+                files["SLICE-001-demo.md"] = CLEAN_SLICE.replace(old, word)
+                self.assertIn(f"S-001 {label} is empty or a placeholder", self.messages(self.run_ready(files)), word)
+        files = ready_docs()
+        files["SLICE-001-demo.md"] = CLEAN_SLICE.replace("Given a valid input", "None of the valid inputs fail; given one")
+        self.assertEqual([], self.run_ready(files))
+        row = "| R-001 | Print the result | Result is visible |"
+        files["ENGINEERING.md"] = READY_EDD.replace(row, row + "\n" + row)
+        self.assertIn("duplicate requirement ID: R-001", self.messages(self.run_ready(files)))
 
     def test_ready_rejects_duplicate_acceptance_ids_and_old_table_shape(self):
         files = ready_docs()
@@ -271,7 +556,7 @@ class KitAuditTests(unittest.TestCase):
             files["SLICE-001-demo.md"] = CLEAN_SLICE.replace("Run demo with example input", check)
             self.assertEqual([], self.run_ready(files))
         files["SLICE-001-demo.md"] = CLEAN_SLICE.replace("Run demo with example input", "[test or reproducible check] [result](result.md)")
-        self.assertIn("S-001 Verified by is empty or a placeholder", self.messages(self.run_ready(files)))
+        self.assertIn("S-001 How it will be checked is empty or a placeholder", self.messages(self.run_ready(files)))
 
     def test_decision_status_scan_stops_at_its_fence_boundary(self):
         text = """Version: 0.1

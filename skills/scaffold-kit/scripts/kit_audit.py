@@ -20,7 +20,20 @@ import sys
 from pathlib import Path
 
 STATUSES = ("Confirmed", "Proposed", "Assumed", "Open", "Deferred", "Superseded")
-SLICE_STATUSES = ("Proposed", "Approved for build", "In progress", "Done with evidence")
+# "Done" is what the earlier 0.4 footer told people to write; it stays valid.
+COMPLETED_SLICE = ("Done with evidence", "Done")
+SLICE_STATUSES = ("Proposed", "Approved for build", "In progress") + COMPLETED_SLICE
+# Whole-cell values that hold a place rather than name a check.
+PENDING_CELLS = {"", "tbd", "tba", "todo", "pending", "na", "none", "manual"}
+# Approval values that say no approval exists yet.
+NOT_APPROVED = re.compile(r"(not|no|un-?approved|pending|awaiting|waiting|tbd|tba|todo|none|withheld|declined|rejected)\b", re.I)
+# Dates as people write them: 2026-10-12, 12/10/2026, 12 October 2026, Oct 12, 2026.
+_MONTH = r"(?:jan|feb|mar|apr|may|jun|jul|aug|sep|sept|oct|nov|dec)[a-z]*\.?"
+APPROVAL_DATE = re.compile(r"\b(?:\d{4}-\d{1,2}-\d{1,2}|\d{1,2}/\d{1,2}/\d{2,4}|\d{1,2}\s+" + _MONTH + r"\s+\d{4}|"
+                           + _MONTH + r"\s+\d{1,2},?\s+\d{4})\b", re.I)
+# A plain, backticked or self-linked filename, optionally followed by punctuation and a description.
+CURRENT_SLICE = re.compile(
+    r"^\s*[-*]\s+\*\*Current slice:\*\*\s+(\[)?`?(SLICE-[\w-]+\.md)`?(?(1)\]\((?:\./)?\2\))[.,;:]?(?=\s|$)", re.M)
 BANNED_WORDS = (
     "robust", "seamless", "cutting-edge", "powerful", "world-class", "blazing",
     "game-changing", "captures", "implies", "reframes", "strips", "weaponize",
@@ -110,6 +123,32 @@ def has_placeholder(cell: str) -> bool:
                     continue
         index += 1
     return bool(re.search(r"(?<![\w\\])\[(?![^\]]*\]\()[^\]\n]+\]", prose))
+
+
+def is_pending(cell: str) -> bool:
+    """A cell such as TBD, N/A, pending or a bare `manual:` names no check."""
+    return re.sub(r"[\W_]+", "", cell).lower() in PENDING_CELLS
+
+
+def approved_versions(text: str) -> list:
+    """Brief versions named on approval lines that carry a name, then a date (None when unnamed).
+
+    This reads structure only; it cannot show the approval is genuine."""
+    found = []
+    for match in re.finditer(r"^[ \t>*_-]*Approved for build by:[ \t]*([^\r\n]*)", strip_fences(text), re.M):
+        value = match.group(1).strip(" \t*_`")
+        date = APPROVAL_DATE.search(value)
+        if not date or "<" in value or has_placeholder(value) or NOT_APPROVED.match(value):
+            continue
+        name = value[:date.start()].strip(" ,;:.-")
+        if re.search(r"[^\W\d_]", name) and not is_pending(name):
+            version = re.search(r"\bbrief version\s+v?(\d+(?:\.\d+)*)", value, re.I)
+            found.append(version.group(1) if version else None)
+    return found
+
+
+def approval_recorded(text: str) -> bool:
+    return bool(approved_versions(text))
 
 
 def check_hygiene(name: str, text: str) -> list[dict]:
@@ -264,7 +303,7 @@ def check_readiness(docs: dict[str, str]) -> list[dict]:
         if is_kit_doc(name) and re.search(r"Status:\s*In interview\b", text):
             fail(name, "still in interview")
     boundary = section(docs.get("ARCHITECTURE.md", ""), "15")
-    pointers = re.findall(r"^\s*-\s+\*\*Current slice:\*\*\s+`?(SLICE-[\w-]+\.md)`?(?=\s|$)", boundary, re.M)
+    pointers = [match.group(2) for match in CURRENT_SLICE.finditer(boundary)]
     if len(pointers) != 1:
         fail("ARCHITECTURE.md", "section 15 must name one Current slice filename (SLICE-*.md)")
         return findings
@@ -272,13 +311,24 @@ def check_readiness(docs: dict[str, str]) -> list[dict]:
     if active not in docs:
         fail(active, "active slice file is missing")
         return findings
-    if slice_status(docs[active]) == "Done with evidence":
+    status = slice_status(docs[active])
+    if status in COMPLETED_SLICE:
         fail(active, "completed slice cannot be the current build boundary")
+    elif status in ("Approved for build", "In progress"):
+        named = approved_versions(docs[active])
+        version = re.search(r"^Version:\s*v?(\d+(?:\.\d+)*)", strip_fences(docs[active]), re.M)
+        if not named:
+            fail(active, f"status {status!r} needs 'Approved for build by:' followed by a name and date on that line")
+        elif version and any(named) and version.group(1) not in named:
+            fail(active, f"approval names brief version {[v for v in named if v][-1]} but the brief is version {version.group(1)}")
     for name, text in docs.items():
         if name != active and name.startswith("SLICE-") and slice_status(text) in ("Approved for build", "In progress"):
             fail(name, "another slice is active")
 
-    requirements = set(re.findall(r"^\|\s*(R-\d+)\s*\|", section(docs.get("ENGINEERING.md", ""), "4.1"), re.M))
+    requirement_rows = re.findall(r"^\|\s*(R-\d+)\s*\|", section(docs.get("ENGINEERING.md", ""), "4.1"), re.M)
+    for duplicate in sorted({ref for ref in requirement_rows if requirement_rows.count(ref) > 1}):
+        fail("ENGINEERING.md", f"duplicate requirement ID: {duplicate}")
+    requirements = set(requirement_rows)
     acceptance = section(docs[active], "8")
     rows = [line for line in acceptance.splitlines() if re.match(r"^\|\s*S-\d+\s*\|", line)]
     if not rows:
@@ -291,13 +341,13 @@ def check_readiness(docs: dict[str, str]) -> list[dict]:
             fail(active, f"duplicate acceptance ID: {criterion_id}")
         seen.add(criterion_id)
         if len(cells) != 5:
-            fail(active, f"{criterion_id} needs ID, Requirement, Criterion, Verified by, Gate columns")
+            fail(active, f"{criterion_id} needs ID, Requirement, Criterion, How it will be checked, Gate columns")
             continue
         refs = re.findall(r"\bR-\d+\b", cells[1])
         if not refs or any(ref not in requirements for ref in refs):
             fail(active, f"{criterion_id} must reference confirmed R-IDs in EDD section 4.1")
-        for label, cell in zip(("Criterion", "Verified by", "Gate"), cells[2:]):
-            if not cell or has_placeholder(cell):
+        for label, cell in zip(("Criterion", "How it will be checked", "Gate"), cells[2:]):
+            if is_pending(cell) or has_placeholder(cell):
                 fail(active, f"{criterion_id} {label} is empty or a placeholder")
     return findings
 
@@ -308,6 +358,107 @@ def check_state_and_version(name: str, text: str) -> list[dict]:
         findings.append({"check": "version", "file": name, "message": "no Version line"})
     if re.search(r"Status:\s*In interview", text) and "INTERVIEW STATE" not in text:
         findings.append({"check": "state-block", "file": name, "message": "Status is In interview but no INTERVIEW STATE block"})
+    return findings
+
+
+def check_omissions(name: str, text: str) -> list[dict]:
+    """Explicit omission sentences only; no semantic completeness claim."""
+    if slice_status(text) in COMPLETED_SLICE:
+        return []
+    body = re.sub(r"^ {0,3}#{1,6}\s.*$", "", strip_fences(text), flags=re.M)
+    pattern = (r"\b(?:tables?|sections?\s+\d+(?:\s*(?:,|-|and|through|to)\s*\d+)*)\s+(?:is|are)\s+omitted\b|"
+               r"\bno\s+(?:(?:future(?:-work)?|connection|exclusion|milestone|unused|additional|template)[ /]+)*tables?\s+is\s+needed\b")
+    lines = []
+    for sentence in re.finditer(r"[^.!?]+", body):
+        hit = re.search(pattern, sentence.group(), re.I)
+        if hit:
+            lines.append(body[:sentence.start() + hit.start()].count("\n") + 1)
+    return ([{"check": "omissions", "file": name, "line": lines[1],
+              "message": "multiple explicit omission sentences; combine section/table omissions in one sentence"}]
+            if len(lines) > 1 else [])
+
+
+def brief_reader_prose(text: str, keep_literals: bool = True, keep_state: bool = False) -> str:
+    """Mask common Markdown destinations/literals while retaining source lines."""
+    lines = list(fenced_lines(text))
+    states = {region for index, (line, region) in enumerate(lines)
+              if keep_state and line.strip() == "SLICE STATE" and region == index - 1
+              and re.fullmatch(r"(?:`{3,}|~{3,})(?:text|plaintext)?", lines[region][0].strip())}
+    body = "".join(line if region is None or (region in states and index != region)
+                   else re.sub(r"[^\r\n]", " ", line)
+                   for index, (line, region) in enumerate(lines)).replace("\r\n", "\n")
+    mask = lambda value: re.sub(r"[^\n]", " ", value)
+    def link(match):
+        start, end = match.start(1) - match.start(), match.end(1) - match.start()
+        return mask(match[0][:start]) + match[1] + mask(match[0][end:])
+    body = re.sub(r"\[([^\]]+)\]\((?:[^()]|\([^()]*\))*\)", link, body)
+    body = re.sub(r"^[ \t]{0,3}\[[^\]]+\]:[^\n]*(?:\n[ \t]*(?:\"[^\n]*\"|'[^\n]*'|\([^\n]*\))[ \t]*)?",
+                  lambda match: mask(match[0]), body, flags=re.M)
+    def literal(match):
+        is_path = re.fullmatch(r"\S+\.[A-Za-z0-9]{1,10}", match[2].strip())
+        return mask(match[0]) if not keep_literals or is_path else match[0]
+    return re.sub(r"(`+)([^\n]*?)\1", literal, body)
+
+
+def check_brief_recommendations(name: str, text: str) -> list[dict]:
+    """Observed copied recommendation cue; alternatives still need source review."""
+    if slice_status(text) in COMPLETED_SLICE:
+        return []
+    body = brief_reader_prose(text, keep_literals=False)
+    match = re.search(r"\b(?:is|are)\s+recommended\b", body, re.I)
+    return ([{"check": "decision-copy", "file": name, "line": body[:match.start()].count("\n") + 1,
+              "message": "brief recommendation belongs in its canonical decision entry; keep the linked owner question here"}]
+            if match else [])
+
+
+def check_guided_labels(docs: dict[str, str]) -> list[dict]:
+    """Known label and action-term glosses in active guided prose, not comprehension."""
+    architecture = docs.get("ARCHITECTURE.md", "")
+    depth = re.search(r"^(?:Explanation|Interview) depth:\s*([^\n]+)", architecture, re.M)
+    active = list(CURRENT_SLICE.finditer(section(architecture, "15")))
+    if not depth or not depth.group(1).strip().startswith("guided") or len(active) != 1:
+        return []
+    name = active[0].group(2)
+    text = docs.get(name, "")
+    if slice_status(text) in COMPLETED_SLICE:
+        return []
+    body = brief_reader_prose(text, keep_state=True)
+    source = text.replace("\r\n", "\n")
+    cuts = [0] + [match.end() for match in re.finditer(r"\n[ \t]*\n", source)] + [len(body)]
+    paragraphs = [re.sub(r"\s+", " ", body[start:end]) for start, end in zip(cuts, cuts[1:])]
+    findings = []
+    labels = {
+        "ADD": ("Architecture Document", r"architecture(?:\s+document)?"),
+        "EDD": ("Engineering Document", r"engineering(?:\s+document)?"),
+        "CLI": ("command-line tool", r"command[- ]line(?:\s+(?:tool|interface))?|tool[^.\n]{0,30}typing commands"),
+        "T1": ("prototype or personal tool", r"prototype|personal tool|experiment"),
+        "Q": ("question identifier", r"question(?: identifier| ID)?"),
+        "SHA-256": ("file fingerprint", r"(?:file|source|content) (?:fingerprint|digest)|fingerprint (?:of|for) (?:the )?file"),
+        "HEAD": ("current source revision", r"(?:current|checked|source) (?:source )?revision|revision (?:checked|of (?:the )?source)"),
+        "exit code": ("success or failure number; 0 means success", r"(?:success(?:ful)?|failure|failed)[^.]{0,30}(?:number|code|status)|(?:number|code|status|0)[^.]{0,30}(?:success(?:ful)?|failure|failed)|(?:reports?|means|indicates) (?:success|failure)"),
+        "stdout": ("printed text", r"printed (?:text|output)|normal output|(?:text|output) printed"),
+        "stderr": ("error text", r"error (?:text|output|messages)|(?:text|output) printed for errors"),
+        "dispatch": ("handling command arguments", r"(?:read(?:ing|s)?|interpret(?:ing|s)?|handl(?:e|es|ing)|process(?:ing|es)?) (?:the )?(?:command(?:[- ]line)? )?arguments"),
+        "rendering": ("printing result text", r"(?:print(?:s|ing)?|display(?:s|ing)?|format(?:s|ting)?|prepar(?:e|es|ing)) (?:the )?(?:result )?(?:text|output)"),
+        "version branch": ("path that handles the version request", r"(?:path|part)[^.]{0,30}(?:version|request)"),
+        "stubs": ("temporary substitutes", r"temporary (?:substitutes|replacements|placeholders)|stand[- ]ins"),
+        "constant": ("fixed value stored in code", r"(?:fixed|stored) (?:version )?value|value (?:stored|defined) in (?:the )?(?:code|script)"),
+        "output contract": ("rules for printed text and command results", r"(?:rules|agreement|requirements|format)[^.]{0,30}(?:print(?:ed|ing|s)?|text|exit|results?)"),
+        "output streams": ("normal and error output", r"(?:normal|printed)(?:\s+and\s+|\s*/\s*)error (?:text|output)|(?:normal|printed) output[^.]{0,20}error (?:text|output)"),
+        "source-read failure": ("unable to read the version value", r"(?:cannot|unable to|fails? to|could not) read (?:the )?(?:version|source|value)"),
+    }
+    for label, (expansion, words) in labels.items():
+        alias = r"\b" + re.escape(label).replace(r"\ ", r"\s+") + r"\b"
+        if label == "exit code":
+            alias = r"\bexits?(?:\s+with)?\s+(?:code|result|status|0)\b"
+        if not label.isupper():
+            alias = "(?i:" + alias + ")"
+        used = re.search(alias, body)
+        gloss = r"\b(?i:" + words + r")\b"
+        pattern = gloss + r"[^.]{0,60}" + alias + "|" + alias + r"[^.]{0,60}" + gloss
+        if used and not any(re.search(pattern, paragraph) for paragraph in paragraphs):
+            findings.append({"check": "guided-label", "file": name, "line": body[:used.start()].count("\n") + 1,
+                             "message": f"guided brief uses {label} without a nearby plain label; write {expansion} ({label}) once"})
     return findings
 
 
@@ -323,9 +474,13 @@ def audit(root: Path, everything: bool = False, ready: bool = False) -> list[dic
             findings.extend(check_decision_blocks(name, text))
         if name == "DECISION-LOG.md":
             findings.extend(check_decision_log(name, text))
-        if name.startswith("SLICE-") and name.endswith(".md") and slice_status(text) not in SLICE_STATUSES:
-            findings.append({"check": "slice-status", "file": name, "message": f"invalid slice status: {slice_status(text)!r}"})
+        if name.startswith("SLICE-") and name.endswith(".md"):
+            findings.extend(check_omissions(name, text))
+            findings.extend(check_brief_recommendations(name, text))
+            if slice_status(text) not in SLICE_STATUSES:
+                findings.append({"check": "slice-status", "file": name, "message": f"invalid slice status: {slice_status(text)!r}"})
     findings.extend(check_cross_references(docs, ready))
+    findings.extend(check_guided_labels(docs))
     if ready:
         findings.extend(check_readiness(docs))
     return findings

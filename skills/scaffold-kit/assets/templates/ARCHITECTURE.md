@@ -2,6 +2,7 @@
 
 Version: 0.1 Draft. Date: [date]. Authors: [names]. Status: In interview.
 Companion documents: ENGINEERING.md, DECISION-LOG.md, and the slice briefs (SLICE-001 onward).
+Triage Card: [the filled card from the Conductor, as a text block. Its Explanation depth sets the wording of every document.]
 
 This document describes the system and its boundaries. Engineering describes how to build and verify it. Reconcile conflicts through DECISION-LOG.md before dependent work. Neither document silently overrides the other.
 

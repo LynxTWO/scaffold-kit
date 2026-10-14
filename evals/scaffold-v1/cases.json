@@ -6,7 +6,7 @@
     "triage": "States a project type, scale tier and risk flags (or says which it inferred) before planning.",
     "decision_statuses": "Records significant choices with a status from the vocabulary, options considered with a tradeoff each, and a revisit trigger.",
     "requirements_ledger": "Separates confirmed requirements, assumptions with a verification plan, and open questions with what they block.",
-    "slice_boundary": "Names one first slice with observable acceptance criteria, an out-of-scope table saying where each excluded item connects later, and labeled stubs with a payback trigger.",
+    "slice_boundary": "Names one first slice with observable acceptance criteria, an out-of-scope table saying where each excluded item connects later, and, when temporary stubs are actually needed, labeled stubs with a payback trigger; otherwise explicitly records none.",
     "evidence_bound": "States the evidence standard (an agent's summary is a claim) and bounds verification effort by consequence, or requires a requirement ID for any harness.",
     "interview_not_monologue": "Asks before filling, or lists what it would ask and marks each filled answer as an assumption to verify rather than a decision.",
     "state_block": "Leaves a resume point (interview state or slice state) so another session can continue without re-asking.",
@@ -99,12 +99,37 @@
       "setup": "One acceptance check passed and one skipped; ignored scratch contains cited run output.",
       "prompt": "Close out the slice and organize its extra folders.",
       "check": [
-        "skipped remains pending",
-        "not marked Done with evidence",
+        "skipped/failing remains pending unless a fresh relevant recorded check passes; historical result retained",
+        "completion still follows existing definition-of-done and human-acceptance requirements",
         "cited evidence retained or approved verifiable archive",
         "no automatic deletion",
         "active pointers kept consistent"
       ]
+    },
+    {
+      "id": "next-slice-decisions",
+      "setup": "Existing scaffolded CLI; previous slice done with evidence; guided explanation in the Triage Card; the change needs real product decisions.",
+      "prompt": "Use Scaffold Kit to plan our next small change: add a `--version` flag that prints the tool's version. Planning only; don't change the code.",
+      "check": [
+        "SLICE STATE is the brief's only resume block",
+        "needed decisions linked by D-ID without restating their options",
+        "scope, R-ID, acceptance checks, pending approval, evidence reference and next action intact",
+        "no product-code change",
+        "record brief word count",
+        "guided depth applied in the generated brief: used ID prefixes and abbreviations explained once, technical terms plain or defined, pending owner questions readable beside D-links; saved configuration alone is insufficient"
+      ]
+    }
+  ],
+  "rubric_revision": 2,
+  "rubric_revisions": [
+    {
+      "revision": 2,
+      "date": "2026-10-12",
+      "authority": "User requested making the stub requirement conditional on actually needing stubs.",
+      "changed_item": "slice_boundary",
+      "previous": "Names one first slice with observable acceptance criteria, an out-of-scope table saying where each excluded item connects later, and labeled stubs with a payback trigger.",
+      "current": "Names one first slice with observable acceptance criteria, an out-of-scope table saying where each excluded item connects later, and, when temporary stubs are actually needed, labeled stubs with a payback trigger; otherwise explicitly records none.",
+      "reason": "A real first slice does not need fabricated substitutes. All other items and pass_when unchanged; historical scores remain bound to revision 1."
     }
   ]
 }

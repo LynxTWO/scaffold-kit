@@ -32,14 +32,14 @@ Context:
 [2 to 4 lines: the situation that forced a choice]
 
 Decision:
-[what was chosen, one or two lines]
+[chosen option; for Open, unresolved with a link to the owner question/blocker]
 
 Because:
-[the reasoning, plain]
+[reason for the choice or for keeping it Open, plain]
 
 Options considered:
-- [option]: [one-line tradeoff]
-- [option]: [one-line tradeoff]
+- [plausible option]: [lets the user do/recover what] but [names actual work, loss or risk].
+- [plausible option]: [lets the user do/recover what] but [names actual work, loss or risk].
 
 Consequences:
 [what this makes easier, what it makes harder, any cost accepted]
@@ -50,31 +50,30 @@ Revisit when:
 
 ## Example entry (delete once real entries exist)
 
-## D-000: Example, single relational database
+## D-000: Example, permitted storage regions
 
 Date: [date]
-Status: Confirmed
-Area: ADD 8.4
+Status: Open
+Area: EDD 8
 
 Context:
-The data domain is relationship-dense: users own projects, projects hold items, and every result must stay connected to the inputs that produced it.
+The project will store household data. The owner has not confirmed permitted locations; verify provider offers before selection.
 
 Decision:
-One relational database, accessed only through the data module.
+Unresolved. The region question in EDD 4.3 blocks provisioning.
 
 Because:
-Relationship density and integrity needs favor relational. One database keeps operations simple at this tier.
+The owner must choose; comparing options does not authorize storing data.
 
 Options considered:
-- Relational: strong integrity, familiar tooling, fits the domain.
-- Document store: flexible shapes, weaker relational integrity for this domain.
-- Plain files: near-zero setup, collapses under concurrent writes.
+- One owner-approved region keeps household data in one permitted place but limits providers that can store it there.
+- Several owner-approved regions allow choosing among more providers but require checking where each stores household data.
 
 Consequences:
-Easier: joins, constraints, migrations. Harder: flexible or nested shapes need deliberate modeling.
+Provisioning remains blocked. No region is selected by default.
 
 Revisit when:
-A workload appears that is document-shaped end to end, or scale forces a split.
+Owner constraints change or verified offers cannot support the permitted regions.
 
 ---
 

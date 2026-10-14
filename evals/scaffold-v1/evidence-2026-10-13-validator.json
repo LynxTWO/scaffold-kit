@@ -1,0 +1,351 @@
+{
+  "date": "2026-10-13",
+  "authority": {
+    "authority": "User requested remaining validator failure repair, validation and updated patches/evidence; ADC unchanged.",
+    "defect": "Top-level compatibility is rejected by the installed skill validator.",
+    "fix": "Move exact existing compatibility sentence into Mechanical audit body; preserve name/description/license, all gates/templates/scripts and no word growth.",
+    "baseline": {
+      "argv": [
+        "<local-user>/Documents/Codex/2026-10-12/h/work/adc-test-env/bin/python",
+        "-B",
+        "<local-user>/.codex/skills/.system/skill-creator/scripts/quick_validate.py",
+        "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round27/before/scaffold-kit/skills/scaffold-kit"
+      ],
+      "exit_code": 1,
+      "stdout": "Unexpected key(s) in SKILL.md frontmatter: compatibility. Allowed properties are: allowed-tools, description, license, metadata, name\n",
+      "stderr": ""
+    },
+    "validator_sha256": "ee6dba90f44d37171c5a6edb8095979c54919ff6822c1a907afca2e78c48738c",
+    "before_source_sha256": {
+      "LICENSE.md": "c2cffd1120b34b8dcf55f16caa2ceb7c734965093a0d85fa7cce8d3df2280a72",
+      "CHANGELOG.md": "6a7034c20fc75eff25bbda66bc13a856f0afe909ba91ffa97c286bd936c09533",
+      "plugin.json": "e8955e85cf26049a15b48087f41a7fb11376f24c90a8988235dfc35ade652194",
+      "README.md": "ffc2bc4c8b471da37fa887009e294309f57d3c6c55c80675ac82af414148ae5b",
+      ".gitignore": "b597be97e235cd4f67d65d841c98798a0253d0a36796e98c3f0acc8ea3b821a1",
+      ".gitattributes": "2656e5e1f89de3a41b8fdd94ead144cb1e06b08f5c1a5145e12c757caafe73e4",
+      "design/plan-v0.4-2026-09-26.md": "5e5583552d7f1401e172b9fe53a4d6d540b8662d6308536d1ce12319498ad242",
+      "design/codex-verification-2026-09-26.md": "4396c3aed5209ba3e51a0a195ff1935500b32a62d69283b7be75abaf0cd0c730",
+      "docs/index.html": "750d3eea32176a89ef89862b2870d9b584f56d4edeca3fa35a9e2488e36ed19f",
+      "docs/.nojekyll": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "docs/sitemap.xml": "db1556188c186b437ecb9a76f06adf050a104a56246686ee8ab127c216c85759",
+      "docs/SEARCH-DISCOVERY.md": "4bb8de10175fee98294a8417cd2e7137a4bd183b0e0e4590d82b926e1a181c52",
+      ".claude-plugin/marketplace.json": "6eda0c2308399272b2e5c479a0368bb0860d99d02e7fa4c82bd8ce71a14ed65c",
+      ".claude-plugin/plugin.json": "aabb765679572b900b003205bc618e530cce0229c6d0233a9a82950d554f9b06",
+      ".codex-plugin/plugin.json": "903487fd5dd8d5f0e5a46cf1ffbb7d38151dcf97d730e11ae95dd8c0b8e793b6",
+      "skills/scaffold-kit/LICENSE.md": "c2cffd1120b34b8dcf55f16caa2ceb7c734965093a0d85fa7cce8d3df2280a72",
+      "skills/scaffold-kit/SKILL.md": "8abbb230903dc174c55136fe725249dc4957aa76c589980328f8b9de007bb2df",
+      "skills/scaffold-kit/references/conductor.md": "eec1a6299923bcda3da09e6af7200b8038ed490817d34fb841a362b87d6b2bf9",
+      "skills/scaffold-kit/references/claude-addendum.md": "a3f1971c15f75ba0d8efc78f56ed27e95b86d7e20d5652264e0967c627705c13",
+      "skills/scaffold-kit/references/working-with-anti-dark-code.md": "0cbac253909ea802407e5dc27b9ed117bac91822d6234484676af09b1a1816c2",
+      "skills/scaffold-kit/tests/test_kit_audit.py": "764e4941439f5e47f2f3e0bbcaefb3fce03505604db3112000c2f7e608be6746",
+      "skills/scaffold-kit/scripts/kit_audit.py": "617aec314a695870c4a064e5e70cc07a8a8e81bd1678a985433f146ec1048774",
+      "skills/scaffold-kit/assets/templates/ENGINEERING.md": "6be63cbc4f2d32b231ba43ba1ef2da4dc871b75ea9a64c36a746a2b309de9910",
+      "skills/scaffold-kit/assets/templates/SLICE-BRIEF.md": "0a82b7c2e726ffeaf9084fe67e7be2ab0f062e02671fb85157c4f2a86ec2e5f9",
+      "skills/scaffold-kit/assets/templates/ARCHITECTURE.md": "324c9ff54781dc182ed33fe9da72f03a5630ee13950115e6ab1b8dd906e2b59c",
+      "skills/scaffold-kit/assets/templates/DECISION-LOG.md": "7e5637519436e1f7e7b1cc99635b8c4bf3a2bb01af06240ddf80eafedd66331e",
+      ".agents/plugins/marketplace.json": "626d4fa289174725adb6f2bfa61e9d3d008bdb0ec7cac8bd1420a0b82d2e2e05",
+      "evals/scaffold-v1/evidence-2026-10-12-recipe.json": "c9b068a2b3871d208d39efbb25d4337b80c1be787370019aba164b4c5bd4e207",
+      "evals/scaffold-v1/evidence-2026-10-12-lean.json": "ea809affb04e83cecd5b73107b85d9632da2fd4b1b721b00cf6fac3dd7914fde",
+      "evals/scaffold-v1/evidence-2026-10-12-strict.json": "0ed5dec7a8ab56dd0745e6dcc12e637c1fed07d19930b84602e687fab9bbc639",
+      "evals/scaffold-v1/evidence-2026-10-12-choices.json": "d05d0ed93e5ef36f6ab93f7610109aa7e1f98b7cb4286533313e6da6921027c3",
+      "evals/scaffold-v1/evidence-2026-10-12-readability.json": "ab79c49c923e8a9ed38da267bb41decea469c84bc9c68f8ef0e6d402fa3a59a3",
+      "evals/scaffold-v1/evidence-codex-2026-09-26.json": "b3eed7c2f92c9557fa323563ec548f0939bd40f2afa7d1eaa2a2ac8d96ccaf72",
+      "evals/scaffold-v1/evidence-2026-09-26.json": "3bd317b20303d2172ffe0fb097949f36ea49c6751414ade7ac1d8b28917e9578",
+      "evals/scaffold-v1/README.md": "d19f97b1e5cf745e4cc1aa231b7003c78d1e17e92fb9fcbc3a9acb5fb350a773",
+      "evals/scaffold-v1/cases.json": "08d11c93b6831bbde6090c40d858f6df120466b6b7a722adf8c0b405a202600f",
+      "evals/scaffold-v1/evidence-2026-10-12.json": "13331f0d8be894e91a0d5fb1fa798d52450163bec91cf2c950a64f5ae6251a30",
+      "evals/scaffold-v1/evidence-2026-10-13-comprehension.json": "a7b0f15aedc472e77823f4cb77270070c07aa5d35bd66866560eb9ff088511f1",
+      "evals/scaffold-v1/evidence-2026-10-13-remaining.json": "b257828857b15bda3cccc425e43e9c7d947505e6c3fbfec733243c5acf4d623e"
+    },
+    "risks": [
+      "No source consumer of the frontmatter compatibility key found except historical design notes. External consumers expecting that key must read the body; actual host loading not exercised."
+    ],
+    "behavioral_retests": "No fresh generation: metadata relocation changes no workflow, templates or audit code. Replay exact prior generated documents and preserve original source/score bindings."
+  },
+  "fix": {
+    "compatibility_sentence_preserved_once": true,
+    "all_other_entrypoint_text_exact": true,
+    "other_ten_core_files_byte_identical": true,
+    "entrypoint_before_words": 853,
+    "entrypoint_after_words": 852,
+    "entrypoint_delta_words": -1,
+    "generation_templates_conductor_audit_tests": "Unchanged",
+    "frontmatter": "name/description/license unchanged; unsupported compatibility key removed; runtime statement in existing Mechanical audit section."
+  },
+  "source_checks": [
+    {
+      "name": "validator-after",
+      "argv": [
+        "<local-user>/Documents/Codex/2026-10-12/h/work/adc-test-env/bin/python",
+        "-B",
+        "<local-user>/.codex/skills/.system/skill-creator/scripts/quick_validate.py",
+        "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/scaffold-kit/skills/scaffold-kit"
+      ],
+      "cwd": "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review",
+      "exit_code": 0,
+      "log": "checks/validator-after.txt"
+    },
+    {
+      "name": "unit-py314",
+      "argv": [
+        "python3",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "skills/scaffold-kit/tests",
+        "-v"
+      ],
+      "cwd": "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/scaffold-kit",
+      "exit_code": 0,
+      "log": "checks/unit-py314.txt",
+      "passed": 53,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "name": "unit-py39",
+      "argv": [
+        "/usr/bin/python3",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "skills/scaffold-kit/tests",
+        "-v"
+      ],
+      "cwd": "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/scaffold-kit",
+      "exit_code": 0,
+      "log": "checks/unit-py39.txt",
+      "passed": 53,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "name": "adc-distribution",
+      "argv": [
+        "<local-user>/Documents/Codex/2026-10-12/h/work/adc-test-env/bin/python",
+        "-B",
+        "skills/anti-dark-code/scripts/adc.py",
+        "validate",
+        "--mode",
+        "distribution"
+      ],
+      "cwd": "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/anti-dark-code",
+      "exit_code": 0,
+      "log": "checks/adc-distribution.txt"
+    }
+  ],
+  "generated_document_replays": [
+    {
+      "case": "next-slice-decisions-1",
+      "generation_source": "round26",
+      "audit_code_unchanged": true,
+      "argv": [
+        "python3",
+        "-B",
+        "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/scaffold-kit/skills/scaffold-kit/scripts/kit_audit.py",
+        "--docs",
+        "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/fixtures/next-slice-decisions-1/docs",
+        "--json"
+      ],
+      "exit_code": 0,
+      "findings": [],
+      "fresh_generation": false
+    },
+    {
+      "case": "next-slice-decisions-2",
+      "generation_source": "round26",
+      "audit_code_unchanged": true,
+      "argv": [
+        "python3",
+        "-B",
+        "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/scaffold-kit/skills/scaffold-kit/scripts/kit_audit.py",
+        "--docs",
+        "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/fixtures/next-slice-decisions-2/docs",
+        "--json"
+      ],
+      "exit_code": 0,
+      "findings": [],
+      "fresh_generation": false
+    },
+    {
+      "case": "next-slice-decisions-3",
+      "generation_source": "round26",
+      "audit_code_unchanged": true,
+      "argv": [
+        "python3",
+        "-B",
+        "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/scaffold-kit/skills/scaffold-kit/scripts/kit_audit.py",
+        "--docs",
+        "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/fixtures/next-slice-decisions-3/docs",
+        "--json"
+      ],
+      "exit_code": 0,
+      "findings": [],
+      "fresh_generation": false
+    },
+    {
+      "case": "recipe-box-greenfield-1",
+      "generation_source": "round26",
+      "audit_code_unchanged": true,
+      "argv": [
+        "python3",
+        "-B",
+        "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/scaffold-kit/skills/scaffold-kit/scripts/kit_audit.py",
+        "--docs",
+        "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/fixtures/recipe-box-greenfield-1/docs",
+        "--json"
+      ],
+      "exit_code": 0,
+      "findings": [],
+      "fresh_generation": false
+    },
+    {
+      "case": "recipe-box-greenfield-2",
+      "generation_source": "round26",
+      "audit_code_unchanged": true,
+      "argv": [
+        "python3",
+        "-B",
+        "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/scaffold-kit/skills/scaffold-kit/scripts/kit_audit.py",
+        "--docs",
+        "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/fixtures/recipe-box-greenfield-2/docs",
+        "--json"
+      ],
+      "exit_code": 0,
+      "findings": [],
+      "fresh_generation": false
+    },
+    {
+      "case": "recipe-box-greenfield-3",
+      "generation_source": "round26",
+      "audit_code_unchanged": true,
+      "argv": [
+        "python3",
+        "-B",
+        "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/scaffold-kit/skills/scaffold-kit/scripts/kit_audit.py",
+        "--docs",
+        "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/fixtures/recipe-box-greenfield-3/docs",
+        "--json"
+      ],
+      "exit_code": 0,
+      "findings": [],
+      "fresh_generation": false
+    },
+    {
+      "case": "evidence-closeout-fresh",
+      "generation_source": "round26",
+      "audit_code_unchanged": true,
+      "argv": [
+        "python3",
+        "-B",
+        "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/scaffold-kit/skills/scaffold-kit/scripts/kit_audit.py",
+        "--docs",
+        "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/fixtures/evidence-closeout-fresh/docs",
+        "--json"
+      ],
+      "exit_code": 0,
+      "findings": [],
+      "fresh_generation": false
+    },
+    {
+      "case": "evidence-closeout-pending",
+      "generation_source": "round26",
+      "audit_code_unchanged": true,
+      "argv": [
+        "python3",
+        "-B",
+        "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/scaffold-kit/skills/scaffold-kit/scripts/kit_audit.py",
+        "--docs",
+        "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/fixtures/evidence-closeout-pending/docs",
+        "--json"
+      ],
+      "exit_code": 0,
+      "findings": [],
+      "fresh_generation": false
+    }
+  ],
+  "anti_dark_code": {
+    "source_files": 349,
+    "file_set_unchanged": true,
+    "byte_identical": true,
+    "distribution": "VALID: 0 errors, 0 warnings",
+    "full_unit_suite": "Not rerun; unchanged."
+  },
+  "generation_source_bindings": {
+    "previous_evidence": "evidence-2026-10-13-remaining.json",
+    "unchanged_sha256": "b257828857b15bda3cccc425e43e9c7d947505e6c3fbfec733243c5acf4d623e",
+    "previous_scores": "round26/blind/scores.json",
+    "unchanged_scores_sha256": "6af2a11f381aa6ade9f9b370bf034ea0977a4780bd9be7f359dd0b6f94008d3a",
+    "fresh_generated_trials": 0,
+    "reason": "Exact compatibility sentence relocation changes no workflow or templates. Eight existing source26 outputs replayed under identical audit code. Original v1/v2 closeout and first-pass/final recipe scores remain unchanged and bound to source26."
+  },
+  "human_comprehension": {
+    "prior_direct_approval": {
+      "date": "2026-10-13",
+      "source": "Direct user message during the remaining-misses follow-up.",
+      "statement": "Also, I compared the writing samples for the revised version, these are much better. I approve human comprehension.",
+      "accepted": "Comprehension of the supplied revised Samples A and B",
+      "artifacts": {
+        "A-revised": {
+          "file": "Sample-A-revised.txt",
+          "words": 473,
+          "sha256": "6192a6cc05f1e23cc989a91766710ffd610123072179aad046b1246462f5ceac",
+          "source": "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round21/fixtures/sample-a-rewrite-1/docs/SLICE-002-version.md",
+          "companion_folder": "A/revised/docs",
+          "header": "Version: 0.1 Draft. Date: 2026-10-12. Status: Proposed.",
+          "generation_source_wave": "round21",
+          "final_audit_wave": "round25"
+        },
+        "B-revised": {
+          "file": "Sample-B-revised.txt",
+          "words": 486,
+          "sha256": "82ecd9d79e96bbd02225dcbcea62eb04e1f79bb428a7177f12f92e7f3a7d23d7",
+          "source": "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round21/fixtures/audience-parity-plain/docs/SLICE-002-export-results.md",
+          "companion_folder": "B/revised/docs",
+          "header": "Version: 0.1. Date: 2026-10-10. Status: Approved for build.",
+          "generation_source_wave": "round21",
+          "final_audit_wave": "round25"
+        }
+      },
+      "human_feedback": "Requesting user compared originals/revisions and explicitly approved comprehension.",
+      "other_participants": "No separate participant A or participant B response recorded.",
+      "project_authorization": "Underlying project statuses, decisions, version-specific approvals and blockers remain as recorded in the samples.",
+      "automated_evaluation_claim": "Human approval is direct user evidence, not an inference from automated or model scores."
+    },
+    "change": "No sample edits or new human results; approval retains exact prior A/B versions."
+  },
+  "current_core_sha256": {
+    "LICENSE.md": "c2cffd1120b34b8dcf55f16caa2ceb7c734965093a0d85fa7cce8d3df2280a72",
+    "SKILL.md": "c33c17ec604b3165c2df02ccb4864729f857721f0316a5b9cf69daa5029a76b5",
+    "references/conductor.md": "eec1a6299923bcda3da09e6af7200b8038ed490817d34fb841a362b87d6b2bf9",
+    "references/claude-addendum.md": "a3f1971c15f75ba0d8efc78f56ed27e95b86d7e20d5652264e0967c627705c13",
+    "references/working-with-anti-dark-code.md": "0cbac253909ea802407e5dc27b9ed117bac91822d6234484676af09b1a1816c2",
+    "tests/test_kit_audit.py": "764e4941439f5e47f2f3e0bbcaefb3fce03505604db3112000c2f7e608be6746",
+    "scripts/kit_audit.py": "617aec314a695870c4a064e5e70cc07a8a8e81bd1678a985433f146ec1048774",
+    "assets/templates/ENGINEERING.md": "6be63cbc4f2d32b231ba43ba1ef2da4dc871b75ea9a64c36a746a2b309de9910",
+    "assets/templates/SLICE-BRIEF.md": "0a82b7c2e726ffeaf9084fe67e7be2ab0f062e02671fb85157c4f2a86ec2e5f9",
+    "assets/templates/ARCHITECTURE.md": "324c9ff54781dc182ed33fe9da72f03a5630ee13950115e6ab1b8dd906e2b59c",
+    "assets/templates/DECISION-LOG.md": "7e5637519436e1f7e7b1cc99635b8c4bf3a2bb01af06240ddf80eafedd66331e"
+  },
+  "older_artifacts_verified": 43,
+  "untested": [
+    "Live host discovery/loading; static validation does not prove every host accepts the package.",
+    "Fresh generated-document behavior; no behavior instructions changed, source26 replay only.",
+    "Full anti-dark-code unit suite and unrelated workflows.",
+    "New human comprehension results; prior A/B feedback retained."
+  ],
+  "new_frameworks_or_approval_layers": 0,
+  "status_approval_readiness_logic": "Unchanged; all existing discipline/traceability remains.",
+  "_publication": {
+    "original_record_sha256": "506a74e0dd3bb02ad4a79613270ab6670e34e9fa5dd0ea7d8b8dbb4554fb1ff1",
+    "redactions": {
+      "private_paths": 29,
+      "participant_names": 2
+    },
+    "note": "Public derivative: local machine paths and private participant names redacted. Original raw record retained privately; numeric scores, status values and source hashes preserved."
+  }
+}

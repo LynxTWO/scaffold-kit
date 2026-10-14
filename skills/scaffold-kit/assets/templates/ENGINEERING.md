@@ -222,7 +222,7 @@ Deletion rule: [what happens when this is deleted, cascades and orphans]
 - **T2:** unit tests on logic, integration tests on module seams, a smoke test that runs the core loop end to end, all wired into CI.
 - **T3:** T2 plus load tests against section 3 targets, security scanning, and a staging soak before release.
 
-**Verification ledger.** Every Confirmed requirement in section 4 maps to a check:
+**Verification ledger.** Every Confirmed requirement in section 4 maps to a check. Link a slice's section 8 row instead of copying its check:
 
 | Requirement | Check | Evidence lives |
 |---|---|---|
@@ -297,7 +297,7 @@ Deletion rule: [what happens when this is deleted, cascades and orphans]
 |---|---|---|---|---|
 | U-001 | [assumption or risk] | [what breaks] | [how we find out or soften it] | [Open | Watching | Closed] |
 
-**Rule.** Every Assumed decision and Open question is recorded here or linked to its canonical unknown. Review relevant rows at each audit. ADC unknowns have a different shape and vocabulary: link a short `U-` summary to the original record, preserve its status there, and do not maintain a second mutable copy.
+**Rule.** Every Assumed decision and Open question is recorded here or linked to its canonical unknown. Review relevant rows at each audit. ADC unknowns have different fields and statuses: a Scaffold-owned `U-` summary links to the ADC entry by title. Preserve its original fields/status; do not maintain a second mutable copy.
 
 > **Interview guide. Delete after filling.**
 > *Why:* recorded unknowns are a plan. Hidden unknowns are a countdown.

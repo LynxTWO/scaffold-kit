@@ -5,42 +5,44 @@ Version: 0.1 Draft. Date: [date]. Status: [Proposed | Approved for build | In pr
 ```
 SLICE STATE
 Approved intent:  [brief version, approving name/date, or pending]
-Source checked:   [commit or tree identity; relevant paths/triggers]
+Source checked:   [source identity; paths/triggers]
 Milestone:        [M-n in progress, or none]
 Next action:      [one concrete step]
-Blocked by:       [decision IDs, spikes, external gates, or none]
-Evidence so far:  [links to recorded checks, runs, packets]
+Blocked by:       [D-IDs, spikes, gates, or none]
+Evidence so far:  [recorded checks/runs]
 Last audit:       [date]
 ```
 
-Companions: ARCHITECTURE.md, ENGINEERING.md, DECISION-LOG.md. Update state at checkpoints. ADD section 15 names exactly one active brief by filename.
+Companions: Architecture Document (ADD), ARCHITECTURE.md; Engineering Document (EDD), ENGINEERING.md; DECISION-LOG.md. Update SLICE STATE; no INTERVIEW STATE. ADD 15 names one active brief.
 
-This brief bounds what may be built. Keep a short overview: what changes now, how we prove it, what waits, decisions needed, and next action. Use the Triage Card's Explanation depth; facts and gates do not change with audience.
+Apply Triage Card depth to the written brief. Guided: spell out every used abbreviation, including in the project name (CLI means command-line tool), and explain each used ID prefix once, including A for assumptions and U for unknowns. Describe included actions as behavior the reader can observe. Explain necessary builder terms once in their existing section. Preserve facts, gates, dates, audit state and source identity.
 
-**Compact form.** For a contained fix, retain only the short outcome, scope/exclusions, paths, state, section 8 acceptance table and approval. Omit unused headings and boilerplate with one combined reason; do not fill all twelve sections. Aim for a minute's reading, expanding only for a concrete risk. Update affected companions/pointers only, without a new document set or routine log entries. Delete guides and placeholders after filling.
+**Compact form.** Keep header/state, outcome, scope/exclusions, paths/effects, section 8, D-links and approval. Aim for 250 to 400 words; max 500 including state/tables unless a named risk needs essential decision detail. Delete unused guides/headings. Record omitted section/table numbers and one combined reason in existing linked planning/audit evidence, otherwise a labeled footer before approval. D-links ask plain owner questions; options, recommendations and conditional answers stay in the log. Concrete scope, baseline facts and inspected R/S-ID results may remain; link rules/evidence. Run the partial audit, resolve findings and count the whole brief. Preserve uncertainty, checks and approval.
 
 ## 1. What the slice proves
 
-- **Outcome:** [central idea for the first product slice; capability or restored behavior for later work]
-- **Why now:** [what someone gains, or what failure this fixes]
+[Outcome and why now: central claim, new capability or restored behavior.]
 
-> **Interview guide. Delete after filling.** Ask what smallest observable result makes this work worth doing. A first product slice tests its central claim. A small fix need only restore its named behavior.
 
 ## 2. The walkthrough
 
-[Steps from input or trigger to real result, including the relevant failure path. Use the actual interfaces and data inside the boundary.]
+[Input/trigger through result and failure path, with actual interfaces/data.]
 
 ## 3. In scope, with build order
 
-| Item | Notes |
+| Change | What the user sees; S-IDs |
 |---|---|
-| [capability or fix] | [links to the S-IDs it serves] |
+| [capability or fix] | [plain action and preserved behavior; S-IDs] |
 
-For multi-week work, add milestones. Close every spike before dependent work and test the riskiest assumption first.
+Add milestones for multi-week work; close spikes before dependent work, testing the riskiest assumption first.
 
 ## 4. Out of scope, on purpose
 
-[Name exclusions. Link a known extension point or decision only where useful; do not invent future features to fill a table.]
+| Excluded capability | Known later connection or decision |
+|---|---|
+| [requested or planned later capability] | [existing module, interface, entity or D-ID] |
+
+Keep this table when such exclusions exist. State permanent non-goals separately; do not invent future work or stubs to fill rows.
 
 ## 5. Stubs and their debts
 
@@ -48,51 +50,42 @@ For multi-week work, add milestones. Close every spike before dependent work and
 
 ## 6. Modules and paths touched
 
-[List relevant modules, files, interfaces and constraints, linked to ADD section 4 or the canonical observed map. Logical boundaries do not mandate new folders or services.]
+[Known affected files/interfaces/constraints; link ADD 4 or observed map. Unsettled storage locations belong only in D-entries, even conditionally. No mandatory folders/services.]
 
 ## 7. Data subset and reviewed effects
 
-[Relevant entities/fields from EDD section 5, or not applicable. Name schema, dependency, deletion, secret or deploy actions needing explicit approval. Record existing approval covering their targets and effects; do not request it twice.]
+[EDD 5 entities/fields, or none. Name schema/dependency/deletion/secret/deploy approvals; carry approval for reviewed targets/effects.]
 
 ## 8. Acceptance criteria
 
-| ID | Requirement | Criterion | Verified by | Gate |
+| ID | Requirement | Criterion | How it will be checked | Gate |
 |---|---|---|---|---|
-| S-001 | R-001 | [observable success] | [test or reproducible check] | [CI check, exact calibrated gate, or manual: steps and result location] |
-| S-002 | R-001 | [relevant failure path] | [check] | [gate or recorded manual check] |
-| S-003 | R-001 | [relevant unlisted input and expected behavior] | [check] | [gate or recorded manual check] |
+| S-001 | R-001 | [observable success] | [test or reproducible check] | [CI/calibrated gate, or manual: steps/result location] |
+| S-002 | R-001 | [relevant failure path] | [check] | [gate/manual check] |
+| S-003 | R-001 | [unlisted input and expected behavior] | [check] | [gate/manual check] |
 
-R-IDs come from EDD section 4.1. Keep only relevant rows. Each selected requirement has an S-row; each implementation item serves one. Empty checks are pending, not proof. Record outcomes beside these bindings or link canonical evidence; do not create a parallel ledger.
+Use EDD 4.1 R-IDs; each selected requirement has an S-row and each implementation item serves one. Empty checks are pending. Record results here or link canonical evidence.
 
-For user-facing work, review EDD section 4.4's relevant obligations here: truthful status, recoverable mistakes, neutral refusal, ownership/correction and honest defaults. Record a reason for any not-applicable obligation.
+For user-facing work, apply EDD 4.4 obligations; explain any not applicable.
 
 ## 9. Verification evidence required
 
-Per EDD section 11:
-
-- [ ] Each S-ID has a reliable executed check and linked result. Automate meaningful behavior and regressions; recorded inspection may suffice for trivial prose or formatting.
-- [ ] The walkthrough and relevant error paths ran, results recorded.
-- [ ] Relevant EDD section 17 checks passed; skips and limits are stated.
-- [ ] Verification serves named requirements and stays within their consequence. Any new harness, campaign or observer needs its own requirement ID.
-
-A selected test or agent summary is not executed evidence.
+Link EDD 11/17 checks to executed S-ID results, counts, skips and limits. Trivial prose may use inspection; summaries are not execution. New verification infrastructure needs an R-ID.
 
 ## 10. Agent guardrails for this build
 
-- Build only the approved outcome, paths and effects. Use the S-IDs to plan steps; the brief remains the contract.
-- Carry forward explicit approval inside its reviewed boundary. New scope or effects need approval before dependent work.
-- Separate discovery, implementation and verification. Switch back to implementation openly before fixing a verification failure.
-- If code or documents contradict intent, pause dependent work. Record evidence, affected IDs, options and the smallest correction in DECISION-LOG.md; reconcile and approve changed intent before continuing.
+Follow EDD 12 modes and approved paths/effects. Approve new scope; reconcile contradictions with evidence, IDs and options in DECISION-LOG.md before resuming.
 
 ## 11. Slice definition of done
 
-- [ ] Acceptance checks pass with linked evidence, actual counts and skips.
-- [ ] Diff and observed behavior match approved intent; removed behavior was deliberately preserved or approved for retirement.
-- [ ] Affected docs, unknowns and pointers are current; useful consequential lessons recorded.
-- [ ] Human acceptance recorded by [name]; cited evidence retained durably before scratch cleanup.
+- [ ] Checks pass; diff/behavior match intent, including approved retirement.
+- [ ] Docs, unknowns and pointers are current; consequential lessons recorded.
+- [ ] Human acceptance: [name]; retain cited evidence before scratch cleanup.
 
 ## 12. What this unlocks
 
-[Known next candidate, or none yet. This is a direction, not an obligation to invent more work.]
+[Next candidate, or none; invent no work.]
 
-*Approved for build by: [name], [date], brief version [version]. Approval of the idea is not approval of this brief. Progress and evidence can change without changing approved intent. When section 11 closes, mark Status: Done with evidence and update ADD section 15 and host pointers before activating the next brief.*
+*Approved for build by: [name], [date], brief version [version]. Approval of the idea is not approval of this brief.*
+
+Evidence updates preserve intent. At completion, mark Done with evidence; update ADD 15 and host pointers before another brief.

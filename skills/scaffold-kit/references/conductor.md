@@ -41,11 +41,20 @@ These rules override your defaults. Follow them for the entire engagement.
 
 ### Phase 0: Intake
 
-Read the human's description. Restate the project in five sentences or fewer: what it is, who it is for, and what the one central thing it must do well is. Ask the human to confirm or correct the restatement. Do not proceed on an uncorrected misunderstanding. If prior analysis or research was provided, treat it as source material: answers drawn from it are recorded as from-source, and business content routes to the product context companion.
+Read the human's description. Restate the project in five sentences or fewer. In a live interview, ask for correction before dependent planning. Prior research is source material, not consent; business detail belongs in PRODUCT-CONTEXT.md.
 
-**Route by the work.** New products use all phases. Existing systems need a scoped map and gaps. Next slices reuse current documents and start at Phase 5. Contained fixes use the compact form of the same brief: short outcome, scope/exclusions, paths, section 8 acceptance table, state and approval. Omit unused headings and boilerplate, with one combined reason. No product reinterview or new ticket database. Missing context, unresolved risk or cross-boundary changes expand affected planning only.
+**Drafting without live answers.** An explicit request for a plan without follow-up authorizes a provisional draft through the relevant templates. It never confirms answers or grants build approval. Link unchanged stock standards instead of restating their lists or unused headings; reserve handover words for project risks, questions, complete choice comparisons and checks:
 
-For a simple fix, aim for a brief someone can read in a minute; expand for a concrete risk. Update only affected companion sections and active pointers. Routine scope/check notes stay in the brief. Add log entries for significant choices, conflicts or changed decisions, not every prose edit or omitted table.
+- EDD 4.1 holds only intake-stated requirements, with their source. EDD 4.2 marks every unanswered interview answer **Assumed**, including a default paired with a recommendation, and names how to verify it. EDD 4.3 gives each question its specific blocked decision or work; avoid a generic “blocks dependent work.”
+- Significant recommendations stay **Proposed**; protected choices stay **Open**. In the existing Decision Log, give each significant choice, **including Open choices**, its own D-ID, 2 to 4 plausible options with a short **helps / costs** pair each, and a revisit trigger. Write complete plain clauses naming what the user gains and the actual work, loss or risk, never slash-label pairs; “easier,” “effort” and “cost” alone are insufficient. For data policies, say whose data remains, where or how long; “privacy” or “exposure” alone is insufficient. Flag unknown facts for verification. Keep independent policies separate (access roles versus login, retention duration versus deletion behavior); link the owner question and blocked work in EDD 4.3. A recovery recommendation stays **Proposed**, separate from sync/conflicts and Open retention/deletion. Compare what each recovery option restores, possible lost changes, and who must save, maintain or restore it; mark unknown limits to verify. Reconsider on observed loss or upkeep, not merely a scheduled restore test. Do not introduce decisions for out-of-scope features; revisit them at existing feature deferral triggers. Do not select protected defaults or turn recommendations into owner answers.
+- Draft one first slice with observable checks. Use SLICE-BRIEF section 4's exclusion/connection table for requested or planned later capabilities; prose alone is insufficient. Label permanent non-goals without inventing future work. If temporary stubs are needed, label their behavior and replacement trigger; otherwise record none. Never add fake substitutes for the workflow being proved.
+- In EDD 4.4, record at least one relevant named principle (truth, repair, dignity, ownership, no manipulation) as a **Proposed requirement with an ID and observable check**, or explain not applicable. State that an agent summary is a claim and verification effort is bounded by the consequence of the requirement.
+
+Before handover, check triage type/tier/risks, Open owner questions/blockers and concrete option tradeoffs. Unspecified 'handling' or pending verification alone is no downside. Preserve Decision Log's five-column index and separate Status lines; resolve actual section references. Count the entire brief. When permitted, run partial audit and repair findings; otherwise report it unexecuted. Keep the brief **Proposed** and the resume point naming unanswered choices/approval. Drafting neither completes the interview nor passes readiness.
+
+**Route by the work.** New products use all phases. Existing systems need a scoped map and gaps. Next slices reuse current documents and start at Phase 5. First slices, small features and contained fixes use the compact form in SLICE-BRIEF.md, normally 250 to 400 words and at most 500 including state and tables. Expand only for a named concrete risk, retaining its detail at the canonical source where possible. No product reinterview or new ticket database. Missing context, unresolved risk or cross-boundary changes expand affected planning only.
+
+Update only affected companion sections and active pointers. Routine scope/check notes stay in the brief. Add log entries for significant choices, conflicts or changed decisions, not every prose edit or omitted table.
 
 ### Phase 1: Triage
 
@@ -80,15 +89,17 @@ Budget posture:      [near zero | modest | funded]
 
 **Run mode.** Full interview works section by section as described below. Fast-run is for humans who want speed: you fill each section with your recommended defaults, present the filled defaults in section batches for veto, and convert a batch to Confirmed (delegated) only on the human's explicit continue. Silence is never consent. Four things get direct questions in every mode: irreversible-class decisions, risk-flag-forced sections, slice selection, and the audit readback. Fast-run trades discussion for review; it never trades away the checkpoints.
 
-**Audience switch.** At first setup or first use, ask: "How much explanation would help: plain language, balanced, or developer shorthand?" These select guided, standard, or expert. Experience suggests a default; the person's choice controls. Save the Triage Card in ARCHITECTURE.md and reuse it on resume. An existing Interview depth field remains a valid alias; update it in place when requested, rather than adding a competing field. No global settings change is required.
+**Audience switch.** At first setup or first use, ask: "How much explanation would help: plain language, balanced, or developer shorthand?" These select guided, standard, or expert. Experience suggests a default; the person's choice controls. Save the Triage Card in ARCHITECTURE.md's header and reuse it on resume. An existing Interview depth field remains a valid alias; update it in place when requested, rather than adding a competing field. No global settings change is required.
 
-Use one canonical document set at every depth. Start each document with a brief overview: what happens now, how we prove it, what waits, decisions needed, and the next action. Put necessary detail after that or link its owner.
+Use one canonical document set at every depth. Start with one or two plain sentences describing the outcome. Put scope, blockers, evidence and next action once in their owning sections or state fields; do not repeat them in a second overview. Link necessary detail at its owner.
 
-- **Guided:** plain sentences, define jargon once, give a concrete example when it helps a choice.
+- **Guided:** plain sentences; explain used ID prefixes, abbreviations and technical terms once, including in compact briefs. Put each pending owner question beside its decision link.
 - **Standard:** concise descriptions and the key tradeoff.
 - **Expert:** terse technical terms, IDs and evidence links.
 
-Remove interview guides after filling; omit empty sections with a short reason. Keep stable numbered headings for referenced sections. Do not duplicate files for audiences or shorten away risks, unknowns or checks. A depth change edits explanations, never approval, status or evidence.
+Remove filled guides; record one omission reason and referenced numbers in linked planning/audit evidence, or a labeled footer. Avoid audience copies; retain risks, unknowns and checks. Apply depth changes to new questions and touched sections; rewrite others only when asked. Preserve facts, IDs, approval, status, evidence and audit/source identity and dates. Update preferences without losing prior chooser/date.
+
+A rewrite reports contradictions and blockers without a recorded reason, citing their source. Distinguish inconsistent recorded claims from unanswered future-scope questions; label suspected conflicts uncertain, not established contradictions. Preserve the recorded blocker and approval pending clarification; invent no rationale. Use verified, inferred or unknown for evidence and say what was checked; Confirmed describes a decision, Approved for build describes authorization.
 
 ### Phase 2: Architecture interview
 
@@ -115,7 +126,7 @@ The Decision Log has been written continuously through Phases 2 and 3. This phas
 
 ### Phase 5: Slice selection
 
-Open Phase 5 by presenting the slice growth tally: every decision that enlarged the initial slice concept, summed in one view, before any slice shaping. The human decides the slice's final shape with the full bill visible.
+After a full interview, open Phase 5 by presenting the slice growth tally: every decision that enlarged the initial slice concept, summed in one view, before any slice shaping. The human decides the slice's final shape with the full bill visible. Next slices and contained fixes skip the tally.
 
 Use `assets/templates/SLICE-BRIEF.md`. Significant choices, changed decisions and stubs get log entries; routine scope/check notes stay in the brief. A first product slice asks:
 
@@ -130,7 +141,7 @@ The slice must run end to end, be production quality inside its own boundary, an
 
 ### Phase 6: Audit pass
 
-Before declaring the documents done, verify each item and show the results:
+Before declaring the documents ready for build, verify each item and show the results. An offline draft reports unanswered items as pending; it cannot claim this pass:
 
 - [ ] Every decision has exactly one status.
 - [ ] No Open or Proposed decision sits inside the current slice path, except an Open decision whose closing spike is scheduled in the build order before any dependent milestone.
@@ -138,8 +149,8 @@ Before declaring the documents done, verify each item and show the results:
 - [ ] Cross-references between documents resolve. No dangling section numbers.
 - [ ] Every active acceptance S-ID names confirmed R-IDs, a reliable check and an evidence location. Every requirement selected for this slice has an acceptance row; every planned implementation item serves one. Review both directions, without adding another ledger.
 - [ ] The builder can proceed without inventing a product decision. Document conflicts are reconciled before dependent work.
-- [ ] Skipped and collapsed sections are listed with their reasons.
-- [ ] Documents open with a concise overview or decision index. For a contained fix, check affected summaries and pointers; unrelated historical prose does not trigger a rewrite.
+- [ ] Skipped/collapsed template sections and numbers have one reason in the brief or linked planning/audit evidence.
+- [ ] Documents open with a concise overview or decision index. For a contained fix, check affected summaries and pointers; unrelated historical prose does not trigger a rewrite. Check actual guided prose: labels explained, included actions and pending owner questions readable, alternative answers kept in linked decisions. Settings alone are insufficient.
 - [ ] Hygiene scan passes: no banned punctuation, no banned phrases, no invented answers.
 - [ ] Version stamps and dates are set. First release is v0.1 Draft.
 - [ ] Mechanical audit passed: `python3 scripts/kit_audit.py --docs docs --ready` reports zero findings, output attached. During interview, omit `--ready` for a partial audit. The readiness command checks declared structure, not approval, semantic completeness or implementation results.
@@ -165,7 +176,7 @@ The interview produces the plan and the first slice. Everything after that is a 
 
 1. Build the current slice inside its brief. Nothing else.
 2. Verify with evidence per the Engineering Document. Close the slice's checklist.
-3. Compare the diff and observed behavior with approved intent. Record actual checks, counts, skips and evidence; skipped is not passed. Preserve removed behavior unless its retirement was approved. Update affected statuses, unknowns and Revisit triggers. Keep a short lesson only if it changes a consequential decision or rule.
+3. Compare the diff and observed behavior with approved intent. Record checks, counts, skips and evidence. A skipped/failed check stays pending until fresh relevant evidence passes it; retain the earlier result. Preserve removed behavior unless retirement was approved. Update affected statuses, unknowns and Revisit triggers. Record only lessons changing consequential decisions/rules.
 4. Choose the next valuable slice, using a known extension point where relevant. Copy the slice template to `SLICE-00N-[name].md` and interview only for its gaps. Later slices ask what changes and why now.
 5. Update the Architecture Document's Current Build Boundary and any agent-facing pointer to the new brief.
 6. Repeat. One slice in flight at a time.
@@ -186,7 +197,7 @@ Put scratch work in one ignored `work/<task-or-slice-id>/`, reusing it on resume
 
 ## Session management
 
-Long interviews span multiple sessions, and the next session may be a different AI with no memory of this one. At every pause, write this block at the top of the working documents:
+Long interviews span multiple sessions, and the next session may be a different AI with no memory of this one. At every pause, write this block at the top of the Architecture and Engineering documents being interviewed. A slice brief resumes from its own SLICE STATE instead:
 
 ```
 INTERVIEW STATE
@@ -234,7 +245,7 @@ These rules apply to every document this protocol produces and to the interview 
 
 ## Failure modes to refuse
 
-- Filling sections from vibes because the human went quiet. Pause and ask.
+- Treating silence as consent or inventing confirmed answers. Pause a live interview; an explicitly requested offline draft uses visible assumptions and pending decisions.
 - Letting one prompt span research, architecture, package installs, schema changes, and deployment. That is four modes pretending to be one.
 - Treating a demo, a screenshot, or your own summary as verification. Evidence means tests, logs, diffs, and observed behavior.
 - Quietly upgrading the project's scope. Scope changes go through the Decision Log with the human's confirmation.

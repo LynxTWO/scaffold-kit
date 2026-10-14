@@ -51,7 +51,7 @@ Adjust the stop list to EDD section 12. When advancing a slice, update the index
 ## Running the interview in Claude
 
 - The interview can run in claude.ai or Claude Code. Give Claude [the Conductor](conductor.md), then load templates as their phases start and describe the project.
-- In Claude Code, run planning phases in plan mode so nothing gets executed while the documents are being written. Switch out of plan mode only when the First Slice Brief is approved.
+- In Claude Code, plan mode blocks file writes, so it suits read-only discovery but cannot save the planning documents. During the interview allow edits to the documents only, and leave product code untouched until the active brief is approved.
 - Long interviews: rely on the Conductor's INTERVIEW STATE block. A fresh session resumes from the documents, not from chat memory.
 
 ## Permissions as tool discipline

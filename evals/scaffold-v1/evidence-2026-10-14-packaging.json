@@ -1,0 +1,337 @@
+{
+  "date": "2026-10-14",
+  "scope": "Prepare the previously approved final skill and plugin payload for GitHub review.",
+  "authority": {
+    "github_updates": "Owner requested updates to both GitHub skill repositories after checking the local installations.",
+    "permitted_effects": [
+      "Source branch and draft pull request",
+      "Existing repository documentation and evidence updates"
+    ],
+    "held_effects": [
+      "Merge",
+      "Tag",
+      "Release",
+      "Plugin-directory publication",
+      "Deployment",
+      "Installed-plugin changes"
+    ]
+  },
+  "payload": {
+    "version": "0.4.0",
+    "archive_sha256": "084aaf5b58011d0ac7adc5ee7c524fa88e5d7ed796a0de9ffb4170d38de9b557",
+    "archive_files": 18,
+    "core_files": 11,
+    "all_final_package_files_byte_identical": true,
+    "files_sha256": {
+      "LICENSE.md": "c2cffd1120b34b8dcf55f16caa2ceb7c734965093a0d85fa7cce8d3df2280a72",
+      "plugin.json": "1e11d1aadde094704812728dfa7b97c9a83f4e032c065e2a70daf98c737ce1c9",
+      ".claude-plugin/marketplace.json": "6eda0c2308399272b2e5c479a0368bb0860d99d02e7fa4c82bd8ce71a14ed65c",
+      ".claude-plugin/plugin.json": "b29f8fe0b4625de8f1337660f1874aec549e319acae0438748298654a633200c",
+      ".codex-plugin/plugin.json": "5650fc0ce5e1fdb8dbef39830ff7dbfb3bae0f40597d017d6f0bbe0bab410941",
+      "assets/brand/scaffold-kit.png": "97a878503b6a02a6804a62a81455a77c4ef1640fc0b2b35e1939ba0f9385023a",
+      "skills/scaffold-kit/LICENSE.md": "c2cffd1120b34b8dcf55f16caa2ceb7c734965093a0d85fa7cce8d3df2280a72",
+      "skills/scaffold-kit/SKILL.md": "c33c17ec604b3165c2df02ccb4864729f857721f0316a5b9cf69daa5029a76b5",
+      "skills/scaffold-kit/references/conductor.md": "eec1a6299923bcda3da09e6af7200b8038ed490817d34fb841a362b87d6b2bf9",
+      "skills/scaffold-kit/references/claude-addendum.md": "a3f1971c15f75ba0d8efc78f56ed27e95b86d7e20d5652264e0967c627705c13",
+      "skills/scaffold-kit/references/working-with-anti-dark-code.md": "0cbac253909ea802407e5dc27b9ed117bac91822d6234484676af09b1a1816c2",
+      "skills/scaffold-kit/tests/test_kit_audit.py": "764e4941439f5e47f2f3e0bbcaefb3fce03505604db3112000c2f7e608be6746",
+      "skills/scaffold-kit/scripts/kit_audit.py": "617aec314a695870c4a064e5e70cc07a8a8e81bd1678a985433f146ec1048774",
+      "skills/scaffold-kit/assets/templates/ENGINEERING.md": "6be63cbc4f2d32b231ba43ba1ef2da4dc871b75ea9a64c36a746a2b309de9910",
+      "skills/scaffold-kit/assets/templates/SLICE-BRIEF.md": "0a82b7c2e726ffeaf9084fe67e7be2ab0f062e02671fb85157c4f2a86ec2e5f9",
+      "skills/scaffold-kit/assets/templates/ARCHITECTURE.md": "324c9ff54781dc182ed33fe9da72f03a5630ee13950115e6ab1b8dd906e2b59c",
+      "skills/scaffold-kit/assets/templates/DECISION-LOG.md": "7e5637519436e1f7e7b1cc99635b8c4bf3a2bb01af06240ddf80eafedd66331e",
+      ".agents/plugins/marketplace.json": "626d4fa289174725adb6f2bfa61e9d3d008bdb0ec7cac8bd1420a0b82d2e2e05"
+    }
+  },
+  "github_base_sha": "53846c3a46c01e221948e8398d5568a3d166e586",
+  "local_installation": {
+    "record_date": "2026-10-13",
+    "record_sha256": "63a79ef255ac151bba3e1556b8cc32f1337652d25171363e8d03169161418576",
+    "Claude_Code": {
+      "enabled": true,
+      "package_file_hashes_passed": true,
+      "version_visibly_verified": true
+    },
+    "Codex": {
+      "enabled": true,
+      "package_file_hashes_passed": true,
+      "live_skill_discovery_passed": true
+    },
+    "published": false
+  },
+  "candidate_checks": [
+    {
+      "check": "scaffold-skill-validator",
+      "exit_code": 0,
+      "status": "passed",
+      "seconds": 0.04
+    },
+    {
+      "check": "scaffold-unit-python39",
+      "exit_code": 0,
+      "status": "passed",
+      "seconds": 0.65,
+      "passed": 53,
+      "failed": 0,
+      "skipped": 0,
+      "python": "3.9"
+    },
+    {
+      "check": "scaffold-claude-manifest",
+      "exit_code": 0,
+      "status": "passed",
+      "seconds": 0.71,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "check": "scaffold-claude-catalog",
+      "exit_code": 0,
+      "status": "passed",
+      "seconds": 0.69,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "check": "scaffold-generated-replay-evidence-closeout-fresh",
+      "exit_code": 0,
+      "status": "passed",
+      "seconds": 0.1,
+      "generated_document_hashes": {
+        "ENGINEERING.md": "5be0a0e90bc042916fe33cb425aebfeed96c67d6bb52a071cebf905b5dc4566e",
+        "ARCHITECTURE.md": "186417e2a7b42ee37517deff901ec15380606c653d609cf4c027286b3a54bc6b",
+        "DECISION-LOG.md": "9150b5104223833b69b387598336ad8ad5494c0b72032396dd7f60070c9ae309",
+        "SLICE-001-print-result.md": "923e39dec4b5a6f47e964e70df02eac387a872bc5290762109f5ee9e723277e2",
+        "README.md": "2aa24b0a468473b963f3ae932e2f3cf33da0926e87daff9d016c69cd4590d06d",
+        "SLICE-002-version-flag.md": "f4f309f92a1e9dd2fa033d47df9862f19fb5c6faf7667b8a2531293950835905"
+      },
+      "fresh_generation": false,
+      "findings": []
+    },
+    {
+      "check": "scaffold-generated-replay-evidence-closeout-pending",
+      "exit_code": 0,
+      "status": "passed",
+      "seconds": 0.08,
+      "generated_document_hashes": {
+        "ENGINEERING.md": "e7df937a8e134c0bbaed62c31d072208598732acb026ec1ee99dcac971d616bf",
+        "CLOSEOUT.md": "27bbc32797fe14bb06a8b609e024175a46f4a96c029456581e0cd6e18d3e2963",
+        "ARCHITECTURE.md": "9f635496b7c350098cb0f8b865199dc74dee55e5629d090e4e3377a36bcfe22c",
+        "DECISION-LOG.md": "9150b5104223833b69b387598336ad8ad5494c0b72032396dd7f60070c9ae309",
+        "SLICE-001-print-result.md": "923e39dec4b5a6f47e964e70df02eac387a872bc5290762109f5ee9e723277e2",
+        "README.md": "49267befd5e5cd4f60fe4401c2a94ac1636928c077aa33b6c24b7eb670add45a",
+        "SLICE-002-version-flag.md": "fa411a23550071d2b603847627f04d73153b6744986c67cc6089b4a31b00a02b"
+      },
+      "fresh_generation": false,
+      "findings": []
+    },
+    {
+      "check": "scaffold-generated-replay-next-slice-decisions-1",
+      "exit_code": 0,
+      "status": "passed",
+      "seconds": 0.08,
+      "generated_document_hashes": {
+        "SLICE-002-version.md": "912eaef5d7e009a350083a8848871135aa9977017258a18dd05cb2c473f1dd21",
+        "ENGINEERING.md": "576b746ecae364a10de7bf1f43be54a90e3c71c678c2e11353ee68d06304533b",
+        "ARCHITECTURE.md": "1aa9889dc1c37b237daa7b5fef0e1b8d5e5a741805a986cceaeae2fa9e10d6c6",
+        "DECISION-LOG.md": "2745264f4d1aba72087438362af5a5b7be812fa1ee06ac00b0b2318d4574fd15",
+        "SLICE-001-print-result.md": "923e39dec4b5a6f47e964e70df02eac387a872bc5290762109f5ee9e723277e2",
+        "README.md": "af883e15b9a0edeaa3601e6253b0361b6a73c2ba03578c472a2cb9f89dff9f19"
+      },
+      "fresh_generation": false,
+      "findings": []
+    },
+    {
+      "check": "scaffold-generated-replay-next-slice-decisions-2",
+      "exit_code": 0,
+      "status": "passed",
+      "seconds": 0.08,
+      "generated_document_hashes": {
+        "SLICE-002-version.md": "898461ba10094f4fabe558d64df11198c5b9044e3eb28dcb4a2959ab8453b973",
+        "ENGINEERING.md": "f9b80a9545863f1c3201eda5e3463e63ba7d922a380ceb1b81b99b341a2a85a8",
+        "ARCHITECTURE.md": "dc0eff7524a5f169683c24501a9bb56694a8a15f55aa1ca2900948f2363ff738",
+        "DECISION-LOG.md": "71b2af9ae5f1ce567ab4ba91f487584afb12a3fa937c31c29029ef7380411e77",
+        "SLICE-001-print-result.md": "923e39dec4b5a6f47e964e70df02eac387a872bc5290762109f5ee9e723277e2",
+        "README.md": "f3c089883373bc54e7d42ebdb9e2eaf486cbf283b9c84476b11714fe007568a4"
+      },
+      "fresh_generation": false,
+      "findings": []
+    },
+    {
+      "check": "scaffold-generated-replay-next-slice-decisions-3",
+      "exit_code": 0,
+      "status": "passed",
+      "seconds": 0.09,
+      "generated_document_hashes": {
+        "SLICE-002-version.md": "138df0fbec672e7f952edc26de06950232960c9abf97e0a7b2c36176bc871e5d",
+        "ENGINEERING.md": "f213f448a23219856ee4afcfcec9f2c7bef266c4263e5060dfb380538df47b24",
+        "ARCHITECTURE.md": "dfc9256d929f43ff9aa977ec62513e0b9f23d63f489d7002b6fe7b5a8ae87130",
+        "DECISION-LOG.md": "22a6e9b9fea6f4aea91033fc7d48dae0a97773eb1d819c00a3ac07106fbb3b2d",
+        "SLICE-001-print-result.md": "923e39dec4b5a6f47e964e70df02eac387a872bc5290762109f5ee9e723277e2",
+        "README.md": "ce62c82f18f84be9b383cd7de1ccae60a3efc8ef0c4871066f7291c79018feda"
+      },
+      "fresh_generation": false,
+      "findings": []
+    },
+    {
+      "check": "scaffold-generated-replay-recipe-box-greenfield-1",
+      "exit_code": 0,
+      "status": "passed",
+      "seconds": 0.1,
+      "generated_document_hashes": {
+        "ENGINEERING.md": "dbe68ec549eaaa0b91ecf5813271276378bf87ab36de194af72fdd91cfc6af8c",
+        "ARCHITECTURE.md": "1565f906408f26a6ad964bcb57489fd4d748c0fc47a6e96582c8ce451e16269d",
+        "DECISION-LOG.md": "c28d79e7aedae45b593a2828d596f0f8e5eb6751c0d5d69a7499c634d17fff50",
+        "SLICE-001-shared-recipe.md": "c9bd8598c6a38d1fdea027802d4e0de3e3e5098bc405de23b2894e88163246b0",
+        "README.md": "a9c1fdfa5486ed6353f8734fca9ed61eed8df2a53443b7a31e830aa81b9f91f9",
+        "PLANNING-EVIDENCE.md": "519aab27b0efd3cf53334fdbcde9e21db23a7af775a64f367ac3e0380651a0a0"
+      },
+      "fresh_generation": false,
+      "findings": []
+    },
+    {
+      "check": "scaffold-generated-replay-recipe-box-greenfield-2",
+      "exit_code": 0,
+      "status": "passed",
+      "seconds": 0.08,
+      "generated_document_hashes": {
+        "ENGINEERING.md": "45a20b61a5936741be13e9ba73aced0725fd9c7b5e9ac7f7e8d7d8b2fbc76940",
+        "ARCHITECTURE.md": "2651c9ee2e86389d996c01b0ddf44770ab66af89c48a14ba1ea8d0facc541f4b",
+        "DECISION-LOG.md": "a3262888d80bc81f796530c65916c7edf9417f875e334cb4be15f39596f0ff7c",
+        "SLICE-001-shared-recipe.md": "7bfafeda078c6c74c76d07cbf044804746b8e4b9884c612482d18fc6d3ac766e",
+        "README.md": "36ad0fe247288731aeaeb340912f2a2caa0e269a7a1fa3004b61575e21eeb310",
+        "PLANNING-EVIDENCE.md": "1e7f6c3f12fa5fd83f690f031b1610d3d5aa81d85450c75f0c5a389afe962681"
+      },
+      "fresh_generation": false,
+      "findings": []
+    },
+    {
+      "check": "scaffold-generated-replay-recipe-box-greenfield-3",
+      "exit_code": 0,
+      "status": "passed",
+      "seconds": 0.09,
+      "generated_document_hashes": {
+        "ENGINEERING.md": "47b99324d9ea017067d5cc402bfeafdeeb35bd2e178bf7a361765c71a76360d1",
+        "ARCHITECTURE.md": "4268ff7810c1feb87e842911b35b1db56578e192a2667f7b2e82e026a48c1cd0",
+        "DECISION-LOG.md": "8848fe22bf8e273319416fa279a9da4e05b7b9a81a888c62fad96f4f514ff3a5",
+        "SLICE-001-shared-recipe.md": "9e6dc8aa7ff2bca8ff21dc76e2b7cad9bcf66b58fc991d263f3a1358d85839f2",
+        "README.md": "533baa48981a2a17a1a787b04154fe755bd770867ce9313d83dab7a94062b92f",
+        "PLANNING-EVIDENCE.md": "b60e84623d9f857f86e996eb8027036d325639cc6962c0a56e7975213de0bcee"
+      },
+      "fresh_generation": false,
+      "findings": []
+    },
+    {
+      "check": "scaffold-unit-python314",
+      "status": "passed",
+      "exit_code": 0,
+      "passed": 53,
+      "failed": 0,
+      "skipped": 0,
+      "python": "3.14.7",
+      "method": "Observed direct python3 -B -m unittest discover -s skills/scaffold-kit/tests -v invocation against this candidate; code payload unchanged afterward."
+    }
+  ],
+  "public_evidence_derivatives": [
+    {
+      "path": "evals/scaffold-v1/evidence-2026-10-12-choices.json",
+      "original_sha256": "d05d0ed93e5ef36f6ab93f7610109aa7e1f98b7cb4286533313e6da6921027c3",
+      "public_sha256": "be0bba0dbcd8dfc79868a7aec69bd5685043a53d9ce210ae0165251ec1e490ae",
+      "redactions": {
+        "private_paths": 36,
+        "participant_names": 0
+      }
+    },
+    {
+      "path": "evals/scaffold-v1/evidence-2026-10-12-lean.json",
+      "original_sha256": "ea809affb04e83cecd5b73107b85d9632da2fd4b1b721b00cf6fac3dd7914fde",
+      "public_sha256": "508950db24820c234bde1421f3ee234ca52e5bee46ae88a1b3ccdc5e39bb5139",
+      "redactions": {
+        "private_paths": 66,
+        "participant_names": 0
+      }
+    },
+    {
+      "path": "evals/scaffold-v1/evidence-2026-10-12-readability.json",
+      "original_sha256": "ab79c49c923e8a9ed38da267bb41decea469c84bc9c68f8ef0e6d402fa3a59a3",
+      "public_sha256": "d761f24bb2d968ae1a1c20399d968ef0fbbd3fca832ec57756ddf3abc03f2c3c",
+      "redactions": {
+        "private_paths": 44,
+        "participant_names": 2
+      }
+    },
+    {
+      "path": "evals/scaffold-v1/evidence-2026-10-12-recipe.json",
+      "original_sha256": "c9b068a2b3871d208d39efbb25d4337b80c1be787370019aba164b4c5bd4e207",
+      "public_sha256": "e4547960a2aaf1c3b2591111ba5063c639a8393cb12f1b35d58b3b7643820983",
+      "redactions": {
+        "private_paths": 12,
+        "participant_names": 0
+      }
+    },
+    {
+      "path": "evals/scaffold-v1/evidence-2026-10-12-strict.json",
+      "original_sha256": "0ed5dec7a8ab56dd0745e6dcc12e637c1fed07d19930b84602e687fab9bbc639",
+      "public_sha256": "4048c9310a1e2e0787e92a3aaed91a69b710e77e36972b5b8adf72363699fbad",
+      "redactions": {
+        "private_paths": 46,
+        "participant_names": 2
+      }
+    },
+    {
+      "path": "evals/scaffold-v1/evidence-2026-10-12.json",
+      "original_sha256": "13331f0d8be894e91a0d5fb1fa798d52450163bec91cf2c950a64f5ae6251a30",
+      "public_sha256": "ca2de03cb514d8bc73e9561936c06dcf588a273a5e727b4c5daeea4b1fa85375",
+      "redactions": {
+        "private_paths": 240,
+        "participant_names": 0
+      }
+    },
+    {
+      "path": "evals/scaffold-v1/evidence-2026-10-13-comprehension.json",
+      "original_sha256": "a7b0f15aedc472e77823f4cb77270070c07aa5d35bd66866560eb9ff088511f1",
+      "public_sha256": "2a49e1a52aadc27bc23e67717fcd4f0efc1d66959bbeb67425ee5384d431247d",
+      "redactions": {
+        "private_paths": 70,
+        "participant_names": 0
+      }
+    },
+    {
+      "path": "evals/scaffold-v1/evidence-2026-10-13-remaining.json",
+      "original_sha256": "b257828857b15bda3cccc425e43e9c7d947505e6c3fbfec733243c5acf4d623e",
+      "public_sha256": "352c002ffca8450083ca75937e2604d7192d856f7d8308cd048411d792eb50cd",
+      "redactions": {
+        "private_paths": 75,
+        "participant_names": 4
+      }
+    },
+    {
+      "path": "evals/scaffold-v1/evidence-2026-10-13-validator.json",
+      "original_sha256": "506a74e0dd3bb02ad4a79613270ab6670e34e9fa5dd0ea7d8b8dbb4554fb1ff1",
+      "public_sha256": "0dce04ffaa6ef20f59b4d8ebb9ea43f233abff7314b0c0aa72c2af88804783ae",
+      "redactions": {
+        "private_paths": 29,
+        "participant_names": 2
+      }
+    }
+  ],
+  "scores_and_statuses_preserved": true,
+  "human_feedback": {
+    "prior_revised_samples": "Owner explicitly approved comprehension of the exact revised Samples A/B on 2026-10-13.",
+    "local_setup": "On 2026-10-14 the owner reported the setup appeared good on their end.",
+    "limits": "Feedback does not establish a controlled participant study, approval of unseen outputs, or independently observed icon rendering."
+  },
+  "new_agent_behavioral_trials": 0,
+  "host_limits": [
+    "Claude Code uses a generic plugin symbol; its documented icon field is directory-listing metadata.",
+    "Codex resolves the exact Scaffold Kit logo and composer icon. Visual rendering was not independently verified because computer use blocks the calling Codex window.",
+    "Local installation is for Claude Code and Codex on this machine; no separate Claude chat-account upload was performed."
+  ],
+  "untested": [
+    "Fresh model-generation trials for unchanged instruction payload",
+    "New human-comprehension testing",
+    "CI platform, hostile-environment and mutation-replay results at this local checkpoint"
+  ],
+  "no_new_core_changes": true,
+  "release_state": "Unreleased candidate: no tag, release or directory submission."
+}

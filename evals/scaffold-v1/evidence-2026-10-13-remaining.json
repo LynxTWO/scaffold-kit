@@ -1,0 +1,3487 @@
+{
+  "date": "2026-10-13",
+  "scope": {
+    "authority": "User explicitly requested storage-choice and recipe fixes, closeout-test clarification, reruns and updated patches/evidence. Prior subagent authorization persists.",
+    "scope": [
+      "SLICE-BRIEF.md: unresolved storage/location choices remain only in D entries; generic known affected files allowed.",
+      "conductor.md: funded compact editing, template-format/actual-reference checks, exact brief count and permitted partial-audit review before handover; preserve skipped history and require fresh evidence for a new pass.",
+      "cases.json: clarify EC1 without changing statuses.",
+      "Existing eval README + new dated evidence; scripts/status/approval code unchanged."
+    ],
+    "protocol": "3 fresh next-slice, 3 fresh recipe first drafts under original no-check prompt, each followed by separately recorded existing-kit audit/repair; fresh positive closeout and no-new-check control. Independently score first-pass and final artifacts, retain original EC1 and revised EC1-v2 separately.",
+    "limits": [
+      "No new summaries, stubs, frameworks, approval layers, schema/status migration.",
+      "No ADC edits, consumer install, external network, commits, deletion, or real-project code changes.",
+      "Only fixture documentation/evidence changes; closeout README work already authorized except review-only control.",
+      "No automated human-comprehension claims."
+    ]
+  },
+  "instruction_word_budget": {
+    "assets/templates/SLICE-BRIEF.md": {
+      "before_words": 720,
+      "after_words": 711,
+      "delta_words": -9
+    },
+    "references/conductor.md": {
+      "before_words": 4251,
+      "after_words": 4260,
+      "delta_words": 9
+    }
+  },
+  "sources": {
+    "scaffold-kit": {
+      "root": "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/source/scaffold-kit",
+      "core_files": {
+        "LICENSE.md": "c2cffd1120b34b8dcf55f16caa2ceb7c734965093a0d85fa7cce8d3df2280a72",
+        "SKILL.md": "8abbb230903dc174c55136fe725249dc4957aa76c589980328f8b9de007bb2df",
+        "references/conductor.md": "eec1a6299923bcda3da09e6af7200b8038ed490817d34fb841a362b87d6b2bf9",
+        "references/claude-addendum.md": "a3f1971c15f75ba0d8efc78f56ed27e95b86d7e20d5652264e0967c627705c13",
+        "references/working-with-anti-dark-code.md": "0cbac253909ea802407e5dc27b9ed117bac91822d6234484676af09b1a1816c2",
+        "tests/test_kit_audit.py": "764e4941439f5e47f2f3e0bbcaefb3fce03505604db3112000c2f7e608be6746",
+        "scripts/kit_audit.py": "617aec314a695870c4a064e5e70cc07a8a8e81bd1678a985433f146ec1048774",
+        "assets/templates/ENGINEERING.md": "6be63cbc4f2d32b231ba43ba1ef2da4dc871b75ea9a64c36a746a2b309de9910",
+        "assets/templates/SLICE-BRIEF.md": "0a82b7c2e726ffeaf9084fe67e7be2ab0f062e02671fb85157c4f2a86ec2e5f9",
+        "assets/templates/ARCHITECTURE.md": "324c9ff54781dc182ed33fe9da72f03a5630ee13950115e6ab1b8dd906e2b59c",
+        "assets/templates/DECISION-LOG.md": "7e5637519436e1f7e7b1cc99635b8c4bf3a2bb01af06240ddf80eafedd66331e"
+      }
+    },
+    "anti-dark-code": {
+      "root": "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/source/anti-dark-code",
+      "core_files": {
+        "LICENSE.md": "c2cffd1120b34b8dcf55f16caa2ceb7c734965093a0d85fa7cce8d3df2280a72",
+        "SOURCE-SCOPE.json": "bc7b5f4c06527fe137fb867b72e764d02a87422a0af1bef6b85c76b2a7f65416",
+        "VERSION": "005636cbc7e6a9a6b4df937f93df8137c0221e8a25be7cf2eabc81a5d2cc00ac",
+        "SKILL.md": "1e7eb6baabecbefd2d823a3ad10622c2ad9670c066dcdd2aad073e5b397cb629",
+        ".gitattributes": "1f03619729beff9edaf98efb019da9692c19752ebc62eb08707b18c391e8beeb",
+        "references/specialist-exact-gate-contract.md": "59468bcab3f9a1ef81969eafb9ea82f6bea33c2481395ecca8347cf3040013bf",
+        "references/specialist-native-reachability.md": "bb43c97e9638b8b97811ab9d76a836b63195f2d43b57f74e2395f46d2eb25c13",
+        "references/host-gemini-cli.md": "f9431767cdf3ab3573dce9855a1a55fd601ac24c8831c059daaafcb800abc8b2",
+        "references/verification-capabilities.md": "ea29db21e33cce556888bb64bd84439c58dc1bdfe4438d63985127bdd84211f2",
+        "references/specialist-mutation-restoration.md": "578d8015e800861aa7386b518c89b5d2034f7f15059e4434e966f8e8ff0e1c41",
+        "references/05-coverage-slicing.md": "9f73d6649c589328f77a5300e6db710ea1e93713410eb7241520b9364dc38fc8",
+        "references/assurance-release-closure.md": "243a60e95cd0c9a38e0038445ffe59b721a2a62f1203d7ee83f790eef8091789",
+        "references/07-adversarial-review.md": "f0e826aaafdc438fdd013175e3c262ef2d0e9be1799875abfb7ed38ebde3cc2d",
+        "references/shadow-evidence.md": "1b4a6c2bf0583d57ceb60503ac44f6e289c96a64ab0a140d723de600f1dba4b2",
+        "references/11-remediation-loop.md": "5f863054ae0edc11fa5332fad05f3599ffa16ef61b14e9f416b42d8c0bb12a13",
+        "references/model-selection.md": "7d5873eb2a5fa5d4d4895ef421703c2b1f4b81eaf68783ec705be7611e9be0f3",
+        "references/assurance-runtime-boundaries.md": "823529c4dca6cdad8155a4c3327a0700fda7e0a7d0df41a0b17edcdaa9f49118",
+        "references/assurance-publication-integrity.md": "8a1d820ead85165de9afb12a42e9de51b769fb789d4412e1fae45b4d68f54471",
+        "references/specialist-audited-producers.md": "294cc2b9e46ffac81c66da069a081fc3fd3556777d8a657451f97ed6b629228d",
+        "references/00-preflight.md": "517bbf262fade7e9136a82c3fddc1d0918bcb10f9acf419c5f09b95b066a19f0",
+        "references/14-deterministic-verification.md": "1c2c1052516dc4c55082e9fa5db792a79bd55aed6f4452294683c8ecfd8756c6",
+        "references/assurance-native-execution.md": "0f56080dfe9c6fee09e0129261d79948eff2175a8b24716076e503eca56b3efc",
+        "references/13-calibrated-local-mode.md": "19f7add23337056b51eed0772ebf8cab476417a11b834814d35582ced429e401",
+        "references/01-steering.md": "585a9d42e17bedfacaa6e101bb0384e6f610d8e997ccc24828b96c26bbee5b6b",
+        "references/orchestration-mode.md": "48029056e36e29f79168475055502571e72e1322b033a173d7077ab29c4ba4b8",
+        "references/routine-task-review.md": "00a6d558203205e579df712a7ddb57437a92a5fc6e6a3097ea82bf00fa6799e5",
+        "references/specialist-verifier-falsifiability.md": "ab4af5be1cc84706afe223e4ceaada166ce45fccc3102c66a1cf9de4783d43ab",
+        "references/host-adapters.md": "a848f2297c1d42f774d11e46770c7297664b9ad3eb23f3170301230e1ea811ba",
+        "references/16-community-feedback-and-efficiency.md": "e56a68da9bfbbd431d59c3c64aba73eedf8b47193536471716100bea1adf64e8",
+        "references/assurance-preservation.md": "4032c98539c156efb72126107ff54936c961ac5b9871a5597d3527692b9d366f",
+        "references/06-writing-hygiene.md": "558962383623197fda1d42ce4445765a8b9586d7368755608cfac7440b5c1a08",
+        "references/10-maintenance-harness.md": "e85ce7d509b8df9eb59788b69a33c2f65070dcefd2a9e78e7b2a7fd980a023a0",
+        "references/assurance-hardware-recovery.md": "ae00ba2d812a530f81c8309007d1d8ba2d0d9ccd7e936cb57f558d162874a0a4",
+        "references/04-logging-audit.md": "653206cda0ddce9955f861dbad3d3b24b4934bc28620e78bb3468f4b5797901d",
+        "references/host-codex.md": "a718970e98bab81227c723f195125e89e653fe503dbaa6cd4cb79f9262dc702f",
+        "references/quality-tests.md": "06e249c59a0576f4264244f9b226a03f510d4456d670248a3b06b811d63ccc1a",
+        "references/specialist-remediation-edges.md": "fdbcb725d7b48b6175a1e770522d218702832de1296e3d1772d3f540db3ff599",
+        "references/specialist-hidden-control-planes.md": "fbd716572457dc734ee3a0b84acf43f54a60dfee3885ccead3083678623f01c7",
+        "references/02-architecture-map.md": "c71861427355aa907a9687a1813e53de4724267325d5522fde73eac5c78b74c0",
+        "references/12-transcreation-boundary.md": "ee21b2c07a5641fbe623ac195c50ecf3a7e76de1139a15383155e50b318d7672",
+        "references/03-critical-path-comments.md": "bc7e1b4ca3bfe920bb85374c548731e6bfdb824a9757544db39918e227f5f1c8",
+        "references/assurance-contracts.md": "4c6bacf6ad842848fd64d424e4bfae70d6433ae9e11e908cc394b67771ef6b0d",
+        "references/real-world-usage.md": "6c215cf6c5eb60d7c296ab88de879051c60927552cc5ff7d739348a01c378cb4",
+        "references/documentation.md": "73bc7bb948c2bb0ebe5590cb3326a94548fba6e89ec7675aae38434dcac79518",
+        "references/specialist-process-verdicts.md": "7842525aba85a0529b2fe523872331b6044ac3be272c84f9a6bb8cc9d0b53148",
+        "references/specialist-gate-environment.md": "f409674584711940f6fb4adc38d8c5c6c61cca5a05d27c2a0615d617c06947e3",
+        "references/combined-03-06-loop.md": "b2e976493658348bc6ad3f6fd92006bf6cac222f949bc3f89a59acf591dbe7fa",
+        "references/assurance-claim-proof.md": "69915008b0ddb96ad518a688a4479695573f8e6ae34bdd4828eb3a67db378f2a",
+        "references/specialist-restricted-builds.md": "f0f5ce8248652f646592f9c864734413d04506545c61484755223000f2027ebe",
+        "references/09-artifact-gc.md": "fcb1baa821a8ef02cc6b83acbc952ac8915140bbce1b0d5b28c5ef7bff656df4",
+        "references/15-dogfeeding-flowback.md": "3cc0884179770fc6f82ac674da26deb3d40fec9c913d4e561aa3f59a35c03e43",
+        "references/08-scenario-stress-test.md": "b3337e4b7f85127e2b5fc334f4ada8ef7b3baa684a62fb1138ad41f5c76b3575",
+        "references/product-principles.md": "aaced02c378b69e55e617cb670753a6f99de3d5e1755582cfd33abf10317137f",
+        "references/00-conventions.md": "cd6af4c166bbd68f5086a5c51ef79b4ab3b0271557802d1c78c430ffce05f725",
+        "references/repo-verification-profiles.md": "f4f215cef29d34c9b6121fc33c20aa02b1fbf9ffeb7a3f1fa333c7a047c04177",
+        "references/host-claude-code.md": "ed966d72cc852d11967f10848f5119ad7ffaeb26f1760ddc6264e47e9adc99c4",
+        "references/proportionality.md": "28f5d11e30e4a48581c025ee09d99071a0610719959af5240d3eb4cb64c369ba",
+        "references/host-generic.md": "77129e4d275d24aee7be9b4669a27c87fede174a4828954fdde8bd35cc258061",
+        "references/example-stress-test-report.md": "5510c796b24f46d048b380a7c2cd74791fefc13a08eb96216f24d2f57f3dfb63",
+        "tests/test_usage_privacy.py": "91d9664c77fa9d429d15a7b7236a70883a80f525f7f3cbb3761d2dc2771d2a2e",
+        "tests/test_work_receipt.py": "56ae48d4200818228b60295f8ddf0cfb017d51b5ed3109db883374975fa41fe0",
+        "tests/test_packaging.py": "8e4d22889b793ca1d3afb0fe617e231824bf567791032fbe7b647c0e062e814f",
+        "tests/test_product_probe.py": "9e97e01cec8199a2154fc04f649baee5e686f6dd2b31d4e9389a19f08f41ed3f",
+        "tests/test_route_cli.py": "ccc0d9288c373566071ef608b21a37dd1bada4a500acd54f3ea9b28ebf303dc0",
+        "tests/test_documentation_contract.py": "1ffcd6194643b7ca8300d77127b3c7c528d308eebe89f08cd8540b44d259d494",
+        "tests/test_usage_sources.py": "c3de31dba464646212159dc385ab74fab40c7f3d07b1f84cf676b3803715c7b6",
+        "tests/test_usage.py": "623751105c2c936982505eee09ad2e1cd081aebddeff24bfb3b526d243519231",
+        "tests/test_adc.py": "8b9830deedd31aee5ad9510ab13d122ad08e3b17de91332157dfc14a6a7f022e",
+        "tests/test_receipt.py": "07b36443bb60563a1d5b9e7c03d2743cf7c604cf759483978cc6d28d273937c2",
+        "tests/test_model_policy.py": "f096533b846fa810fab73d628148788cce918c003d5c8bea096dca20818a3d91",
+        "tests/test_efficiency.py": "e08b13d12e5b7a164bd3ba17e3870ac91674a348e4aec654ec81cb5916c31c36",
+        "tests/test_route.py": "92ca34c0e6e544f79cc2a96874a48a377b53136926981c72eb03d9168c984944",
+        "tests/test_usage_review.py": "2ab3fe578b53c84e3cf27611a489e5f619a4cdfafd1fd066eaa59438de4a1834",
+        "agents/openai.yaml": "5ffb52973b3911c2f9a250e26865047635afa0668b7dc9f290f5a1c79e097ad6",
+        "scripts/adc_receipt.py": "48206cce7a87822a5dce8f63e65d1da2850e33630c0f85ec43e8f75e7e21fb92",
+        "scripts/adc_usage_sources.py": "dc3f3233c8087418c0c8472541fb72f0a39e39a817b239036ff3e28efec54625",
+        "scripts/adc_packaging.py": "2cc977cc0ce7553b65bcae665b3c9dd2b7b7bdbefba3b39c1f29e073ff1d39e4",
+        "scripts/adc_model_policy.py": "2673c36e588f59675b0fa6bce24ac22ce558910bbea79ddf2695a8b1d9be42dd",
+        "scripts/adc_shadow.py": "6c65c26c93c652017361d5450dcc982ed79bb0b50e096d4879cc93728bcb6ed2",
+        "scripts/adc_usage_review.py": "8f9f87b46bb6ba8224a01acf67b0b16a656b4572d8e6cfdfe7a289b765b70d59",
+        "scripts/adc_route.py": "98233bcc8ea68560de2e30dd43e42eddbcf85a09aefd7656c099eeb01e81e4bb",
+        "scripts/work_receipt.py": "cfb118d7ca65824e0f209c548effe6b7080089bfa9286c42be84982150cbcb5b",
+        "scripts/adc_usage.py": "b075e6fce7ef37d9b5be626a80d12605440ee6759533a53d62aabe602ecb0c62",
+        "scripts/adc_efficiency.py": "6b15988cd298912df84f79d1750951c79f9ac8759f5c840772970c854bfe6c8f",
+        "scripts/adc.py": "7a6e5e403205dbf7fffcee2773fb5ba847c64afa24846b55b3a960281f0df02b",
+        "assets/model-policy.json": "0c2c7e6b1dcf28eb0c923f86358e6fda14db5491554c6976b113ce457a06b0b0",
+        "assets/verification-capabilities.json": "a49c4e50c8e15a2bf081c8e46a98d4168f299e1c76d2a1fe4c17c32d753efeab",
+        "assets/brand/README.md": "a96d0a6a568355c1b9db70d6d9b6e20133a37af80f0f75c2af2c3868159ef681",
+        "assets/brand/illuminated-code-small.png": "535a32f6a40b2b072d10ff2a4ad9736ef8ef2d8ce0fece0e0651496eff0f0f79",
+        "assets/brand/illuminated-code.svg": "4b67eddbe2d359cf7ff7061b68d41c115a8343b1b126dc760c32088e3afa36c5",
+        "assets/brand/illuminated-code.png": "cb835062f6c92106bc9a0fc21ee96a182b9c84036c5625a5a3f265841582f19c",
+        "assets/brand/illuminated-code-small.svg": "b2da19039190da2cff5f4b79b803cd53788e9a3ea9b27fefd07910c518fd6a3b",
+        "assets/templates/failure-packet.json": "f8d34d2d03b0f3c90400a67319a1c01aaf1bb045e5624e38eb06b3ff75fd462a",
+        "assets/templates/product-contract.md": "7f6d589d360487f663df65e3d93ef8b94736e422d7c92921b57b55baea874424",
+        "assets/templates/codex-review-hooks.json": "6af90f71b3f65323d25189239d16f8bfc68971a533ba2e851debb3e366265469",
+        "assets/templates/repo-slices.md": "28d39deb5fe9457bdacf1993ecfcbf792346c61e7654ba8b53ac5029d27b4912",
+        "assets/templates/unknowns-file.md": "425f60e1b7cc1c1c4d556987e98dd0e04bca05b5b5ca97f1a9c969609e42bbee",
+        "assets/templates/shadow-job.yml": "7b70d2814bf009459580131fb1fe698caa7d7a2b9aa739c44d58ef1b0bb77c8d",
+        "assets/templates/shadow-gate-map.json": "2fe74ea0c7299f939543077e6c7f6a8ae8431beb766ab57673380763ef5cda66",
+        "assets/templates/system-map.md": "ce23dec7b1542442e2a8a5b7c0a23abe2b70a952269860d8de6e3a4dbeefb047",
+        "assets/templates/remediation-backlog.md": "d12f374a55dbe97a3276415940872ea2e2700afee4a7a6b3f94437dd2bdcc109",
+        "assets/templates/coverage-ledger.md": "03bde1c0190bca52892d427fcd819ba832ff03f242023101ec5ed07a074e89c0",
+        "assets/templates/pr-template.md": "9a37059411ba8e101439f1c30ff63b0a0e53b387656f99d4cd77326b0943963a",
+        "assets/templates/calibration/repo-profile.json": "8f72507eae285ca27d8959ea34da731e3eb6388e82d98a3495ac2e66ea54fdf0",
+        "assets/templates/calibration/routing-policy.json": "89bcfa39e09104e1b3898ca27cab908b48d538c0e68a199f1edde398964a77a1",
+        "assets/templates/calibration/invariants.md": "329577014e8b5d72663a16da7d1063cf1556652e81ce989272b300bef3c92e53",
+        "assets/templates/calibration/README.md": "4abf91235b5612353b24fabc5c38b8b572f9c7d14d06e0efff17b0a6c5bf445f",
+        "assets/templates/calibration/verification-plan.json": "a7d79b537fed56174a11aeb234b7b4be5dcd212d41c36765e7bc07c3ded40ce7",
+        "assets/templates/calibration/gates.json": "d49cd1e6dc944dc99c2adbf905b365f5b8f446c1df9046cf4ad22f1d23081544",
+        "assets/templates/calibration/upstream-candidates.md": "7022ab06aa4cd44b9b0ed4949bfe478292baf5272550d9c2f14ea8cf459b8efe",
+        "assets/templates/calibration/findings-ledger.md": "ae23546ef945061a1fe3458b96b27ae3c4eabf720c0daafbe5c98edd479c24b7",
+        "assets/templates/calibration/upstream.json": "54451a2c391812ab4e09b4f0419a2680d9d6b8056489a237ad48e25d1ebdf8b8",
+        "assets/templates/calibration/system-map.md": "14b6e0a315332a7db47d491a2d560b9a9c0f140bf2305ecb642cbe84a5506ed3",
+        "assets/templates/calibration/repo-binding.json": "29aa0286a7ae683df6cc06f2aaa2a963cac8d6e1d763698363c6f87c646a9c82",
+        "assets/templates/calibration/coverage-ledger.md": "c0a66263cfa2fd43a8464e818547b94efb82ecdbebdf5c1cedfcde3eceafb627",
+        "references/tasks/document.md": "69249ddefda2078b227754d95961192ba3a7f1cf6db1bc8e1e4ae6b752b117d2",
+        "references/tasks/remediate.md": "fbd88b5b2b3df9d35fe4b0bf99707ff7865b57197207c3d1df2dae271b732647",
+        "references/tasks/improve.md": "73b97b84395587cc4b014eae9c58cc080d7d73ffc10d6f121dfdf5bda95a93f6",
+        "references/tasks/understand.md": "64f4cf8689b863f4917c43d4a9fb921eae4c21a01ed581ed7709303dfeaafc62",
+        "references/tasks/investigate.md": "8b27f6822b86ac0f996c457e4a2e2254c6684afebbe7c5c1141f1290cf5744e2",
+        "references/tasks/verify.md": "929bc02f8a4e14d62217ebe13e58e0b1e54f7b7189ac5b7074068e628f77b4d3"
+      }
+    }
+  },
+  "source_freeze": "round26/source; hashes captured before fresh producers. Final core byte checks match.",
+  "fixtures": {
+    "next-slice-decisions-1": {
+      "root": "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/fixtures/next-slice-decisions-1",
+      "case": "next-slice-decisions",
+      "replicate": 1,
+      "mode": "git3",
+      "kits": [
+        "scaffold-kit"
+      ],
+      "seed": {
+        "root": "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round3/fixtures/next-slice-decisions/after-1",
+        "initial_head": "f51e0f4f7dc2e4edfa23ae8a093cd46a9950ffdc",
+        "initial_project_hashes": {
+          "README.md": "e0c1f71b8baa32db4de9793a512ded54a89446b015a1979f14afe85922fc27f6",
+          ".gitignore": "7c0e3807a109f275f04fa607825e26c8d69f2e23f684cf4ca68e03df1173780a",
+          "demo.py": "3a0084f6f0be842765b77b63095eac1fb70c6bc28e8c227e6289963c40d57569",
+          "docs/ENGINEERING.md": "f4cfb22e854a1546c622b999ace3e258c01adfe8075d78667ca5096ce8649759",
+          "docs/ARCHITECTURE.md": "faf02062e4e23cf159760cd2db24a33eb620ed5ecf7ef1bcf370a79a265e0107",
+          "docs/DECISION-LOG.md": "9150b5104223833b69b387598336ad8ad5494c0b72032396dd7f60070c9ae309",
+          "docs/SLICE-001-print-result.md": "923e39dec4b5a6f47e964e70df02eac387a872bc5290762109f5ee9e723277e2",
+          "docs/README.md": "49267befd5e5cd4f60fe4401c2a94ac1636928c077aa33b6c24b7eb670add45a",
+          "docs/evidence/SLICE-001-run.txt": "1d8859e46cba444085fc752180956cd4a12f70f08a9ef7b8cf0fa51eadf5533e"
+        }
+      },
+      "initial_files": {
+        "README.md": "e0c1f71b8baa32db4de9793a512ded54a89446b015a1979f14afe85922fc27f6",
+        ".gitignore": "7c0e3807a109f275f04fa607825e26c8d69f2e23f684cf4ca68e03df1173780a",
+        "demo.py": "3a0084f6f0be842765b77b63095eac1fb70c6bc28e8c227e6289963c40d57569",
+        "docs/ENGINEERING.md": "f4cfb22e854a1546c622b999ace3e258c01adfe8075d78667ca5096ce8649759",
+        "docs/ARCHITECTURE.md": "faf02062e4e23cf159760cd2db24a33eb620ed5ecf7ef1bcf370a79a265e0107",
+        "docs/DECISION-LOG.md": "9150b5104223833b69b387598336ad8ad5494c0b72032396dd7f60070c9ae309",
+        "docs/SLICE-001-print-result.md": "923e39dec4b5a6f47e964e70df02eac387a872bc5290762109f5ee9e723277e2",
+        "docs/README.md": "49267befd5e5cd4f60fe4401c2a94ac1636928c077aa33b6c24b7eb670add45a",
+        "docs/evidence/SLICE-001-run.txt": "1d8859e46cba444085fc752180956cd4a12f70f08a9ef7b8cf0fa51eadf5533e",
+        ".claude/skills/scaffold-kit/LICENSE.md": "c2cffd1120b34b8dcf55f16caa2ceb7c734965093a0d85fa7cce8d3df2280a72",
+        ".claude/skills/scaffold-kit/SKILL.md": "8abbb230903dc174c55136fe725249dc4957aa76c589980328f8b9de007bb2df",
+        ".claude/skills/scaffold-kit/references/conductor.md": "eec1a6299923bcda3da09e6af7200b8038ed490817d34fb841a362b87d6b2bf9",
+        ".claude/skills/scaffold-kit/references/claude-addendum.md": "a3f1971c15f75ba0d8efc78f56ed27e95b86d7e20d5652264e0967c627705c13",
+        ".claude/skills/scaffold-kit/references/working-with-anti-dark-code.md": "0cbac253909ea802407e5dc27b9ed117bac91822d6234484676af09b1a1816c2",
+        ".claude/skills/scaffold-kit/tests/test_kit_audit.py": "764e4941439f5e47f2f3e0bbcaefb3fce03505604db3112000c2f7e608be6746",
+        ".claude/skills/scaffold-kit/scripts/kit_audit.py": "617aec314a695870c4a064e5e70cc07a8a8e81bd1678a985433f146ec1048774",
+        ".claude/skills/scaffold-kit/assets/templates/ENGINEERING.md": "6be63cbc4f2d32b231ba43ba1ef2da4dc871b75ea9a64c36a746a2b309de9910",
+        ".claude/skills/scaffold-kit/assets/templates/SLICE-BRIEF.md": "0a82b7c2e726ffeaf9084fe67e7be2ab0f062e02671fb85157c4f2a86ec2e5f9",
+        ".claude/skills/scaffold-kit/assets/templates/ARCHITECTURE.md": "324c9ff54781dc182ed33fe9da72f03a5630ee13950115e6ab1b8dd906e2b59c",
+        ".claude/skills/scaffold-kit/assets/templates/DECISION-LOG.md": "7e5637519436e1f7e7b1cc99635b8c4bf3a2bb01af06240ddf80eafedd66331e"
+      },
+      "denied": null,
+      "initial_head": "f51e0f4f7dc2e4edfa23ae8a093cd46a9950ffdc",
+      "control": null
+    },
+    "next-slice-decisions-2": {
+      "root": "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/fixtures/next-slice-decisions-2",
+      "case": "next-slice-decisions",
+      "replicate": 2,
+      "mode": "git3",
+      "kits": [
+        "scaffold-kit"
+      ],
+      "seed": {
+        "root": "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round3/fixtures/next-slice-decisions/after-2",
+        "initial_head": "f51e0f4f7dc2e4edfa23ae8a093cd46a9950ffdc",
+        "initial_project_hashes": {
+          "README.md": "e0c1f71b8baa32db4de9793a512ded54a89446b015a1979f14afe85922fc27f6",
+          ".gitignore": "7c0e3807a109f275f04fa607825e26c8d69f2e23f684cf4ca68e03df1173780a",
+          "demo.py": "3a0084f6f0be842765b77b63095eac1fb70c6bc28e8c227e6289963c40d57569",
+          "docs/ENGINEERING.md": "f4cfb22e854a1546c622b999ace3e258c01adfe8075d78667ca5096ce8649759",
+          "docs/ARCHITECTURE.md": "faf02062e4e23cf159760cd2db24a33eb620ed5ecf7ef1bcf370a79a265e0107",
+          "docs/DECISION-LOG.md": "9150b5104223833b69b387598336ad8ad5494c0b72032396dd7f60070c9ae309",
+          "docs/SLICE-001-print-result.md": "923e39dec4b5a6f47e964e70df02eac387a872bc5290762109f5ee9e723277e2",
+          "docs/README.md": "49267befd5e5cd4f60fe4401c2a94ac1636928c077aa33b6c24b7eb670add45a",
+          "docs/evidence/SLICE-001-run.txt": "1d8859e46cba444085fc752180956cd4a12f70f08a9ef7b8cf0fa51eadf5533e"
+        }
+      },
+      "initial_files": {
+        "README.md": "e0c1f71b8baa32db4de9793a512ded54a89446b015a1979f14afe85922fc27f6",
+        ".gitignore": "7c0e3807a109f275f04fa607825e26c8d69f2e23f684cf4ca68e03df1173780a",
+        "demo.py": "3a0084f6f0be842765b77b63095eac1fb70c6bc28e8c227e6289963c40d57569",
+        "docs/ENGINEERING.md": "f4cfb22e854a1546c622b999ace3e258c01adfe8075d78667ca5096ce8649759",
+        "docs/ARCHITECTURE.md": "faf02062e4e23cf159760cd2db24a33eb620ed5ecf7ef1bcf370a79a265e0107",
+        "docs/DECISION-LOG.md": "9150b5104223833b69b387598336ad8ad5494c0b72032396dd7f60070c9ae309",
+        "docs/SLICE-001-print-result.md": "923e39dec4b5a6f47e964e70df02eac387a872bc5290762109f5ee9e723277e2",
+        "docs/README.md": "49267befd5e5cd4f60fe4401c2a94ac1636928c077aa33b6c24b7eb670add45a",
+        "docs/evidence/SLICE-001-run.txt": "1d8859e46cba444085fc752180956cd4a12f70f08a9ef7b8cf0fa51eadf5533e",
+        ".claude/skills/scaffold-kit/LICENSE.md": "c2cffd1120b34b8dcf55f16caa2ceb7c734965093a0d85fa7cce8d3df2280a72",
+        ".claude/skills/scaffold-kit/SKILL.md": "8abbb230903dc174c55136fe725249dc4957aa76c589980328f8b9de007bb2df",
+        ".claude/skills/scaffold-kit/references/conductor.md": "eec1a6299923bcda3da09e6af7200b8038ed490817d34fb841a362b87d6b2bf9",
+        ".claude/skills/scaffold-kit/references/claude-addendum.md": "a3f1971c15f75ba0d8efc78f56ed27e95b86d7e20d5652264e0967c627705c13",
+        ".claude/skills/scaffold-kit/references/working-with-anti-dark-code.md": "0cbac253909ea802407e5dc27b9ed117bac91822d6234484676af09b1a1816c2",
+        ".claude/skills/scaffold-kit/tests/test_kit_audit.py": "764e4941439f5e47f2f3e0bbcaefb3fce03505604db3112000c2f7e608be6746",
+        ".claude/skills/scaffold-kit/scripts/kit_audit.py": "617aec314a695870c4a064e5e70cc07a8a8e81bd1678a985433f146ec1048774",
+        ".claude/skills/scaffold-kit/assets/templates/ENGINEERING.md": "6be63cbc4f2d32b231ba43ba1ef2da4dc871b75ea9a64c36a746a2b309de9910",
+        ".claude/skills/scaffold-kit/assets/templates/SLICE-BRIEF.md": "0a82b7c2e726ffeaf9084fe67e7be2ab0f062e02671fb85157c4f2a86ec2e5f9",
+        ".claude/skills/scaffold-kit/assets/templates/ARCHITECTURE.md": "324c9ff54781dc182ed33fe9da72f03a5630ee13950115e6ab1b8dd906e2b59c",
+        ".claude/skills/scaffold-kit/assets/templates/DECISION-LOG.md": "7e5637519436e1f7e7b1cc99635b8c4bf3a2bb01af06240ddf80eafedd66331e"
+      },
+      "denied": null,
+      "initial_head": "f51e0f4f7dc2e4edfa23ae8a093cd46a9950ffdc",
+      "control": null
+    },
+    "next-slice-decisions-3": {
+      "root": "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/fixtures/next-slice-decisions-3",
+      "case": "next-slice-decisions",
+      "replicate": 3,
+      "mode": "git3",
+      "kits": [
+        "scaffold-kit"
+      ],
+      "seed": {
+        "root": "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round3/fixtures/next-slice-decisions/after-3",
+        "initial_head": "f51e0f4f7dc2e4edfa23ae8a093cd46a9950ffdc",
+        "initial_project_hashes": {
+          "README.md": "e0c1f71b8baa32db4de9793a512ded54a89446b015a1979f14afe85922fc27f6",
+          ".gitignore": "7c0e3807a109f275f04fa607825e26c8d69f2e23f684cf4ca68e03df1173780a",
+          "demo.py": "3a0084f6f0be842765b77b63095eac1fb70c6bc28e8c227e6289963c40d57569",
+          "docs/ENGINEERING.md": "f4cfb22e854a1546c622b999ace3e258c01adfe8075d78667ca5096ce8649759",
+          "docs/ARCHITECTURE.md": "faf02062e4e23cf159760cd2db24a33eb620ed5ecf7ef1bcf370a79a265e0107",
+          "docs/DECISION-LOG.md": "9150b5104223833b69b387598336ad8ad5494c0b72032396dd7f60070c9ae309",
+          "docs/SLICE-001-print-result.md": "923e39dec4b5a6f47e964e70df02eac387a872bc5290762109f5ee9e723277e2",
+          "docs/README.md": "49267befd5e5cd4f60fe4401c2a94ac1636928c077aa33b6c24b7eb670add45a",
+          "docs/evidence/SLICE-001-run.txt": "1d8859e46cba444085fc752180956cd4a12f70f08a9ef7b8cf0fa51eadf5533e"
+        }
+      },
+      "initial_files": {
+        "README.md": "e0c1f71b8baa32db4de9793a512ded54a89446b015a1979f14afe85922fc27f6",
+        ".gitignore": "7c0e3807a109f275f04fa607825e26c8d69f2e23f684cf4ca68e03df1173780a",
+        "demo.py": "3a0084f6f0be842765b77b63095eac1fb70c6bc28e8c227e6289963c40d57569",
+        "docs/ENGINEERING.md": "f4cfb22e854a1546c622b999ace3e258c01adfe8075d78667ca5096ce8649759",
+        "docs/ARCHITECTURE.md": "faf02062e4e23cf159760cd2db24a33eb620ed5ecf7ef1bcf370a79a265e0107",
+        "docs/DECISION-LOG.md": "9150b5104223833b69b387598336ad8ad5494c0b72032396dd7f60070c9ae309",
+        "docs/SLICE-001-print-result.md": "923e39dec4b5a6f47e964e70df02eac387a872bc5290762109f5ee9e723277e2",
+        "docs/README.md": "49267befd5e5cd4f60fe4401c2a94ac1636928c077aa33b6c24b7eb670add45a",
+        "docs/evidence/SLICE-001-run.txt": "1d8859e46cba444085fc752180956cd4a12f70f08a9ef7b8cf0fa51eadf5533e",
+        ".claude/skills/scaffold-kit/LICENSE.md": "c2cffd1120b34b8dcf55f16caa2ceb7c734965093a0d85fa7cce8d3df2280a72",
+        ".claude/skills/scaffold-kit/SKILL.md": "8abbb230903dc174c55136fe725249dc4957aa76c589980328f8b9de007bb2df",
+        ".claude/skills/scaffold-kit/references/conductor.md": "eec1a6299923bcda3da09e6af7200b8038ed490817d34fb841a362b87d6b2bf9",
+        ".claude/skills/scaffold-kit/references/claude-addendum.md": "a3f1971c15f75ba0d8efc78f56ed27e95b86d7e20d5652264e0967c627705c13",
+        ".claude/skills/scaffold-kit/references/working-with-anti-dark-code.md": "0cbac253909ea802407e5dc27b9ed117bac91822d6234484676af09b1a1816c2",
+        ".claude/skills/scaffold-kit/tests/test_kit_audit.py": "764e4941439f5e47f2f3e0bbcaefb3fce03505604db3112000c2f7e608be6746",
+        ".claude/skills/scaffold-kit/scripts/kit_audit.py": "617aec314a695870c4a064e5e70cc07a8a8e81bd1678a985433f146ec1048774",
+        ".claude/skills/scaffold-kit/assets/templates/ENGINEERING.md": "6be63cbc4f2d32b231ba43ba1ef2da4dc871b75ea9a64c36a746a2b309de9910",
+        ".claude/skills/scaffold-kit/assets/templates/SLICE-BRIEF.md": "0a82b7c2e726ffeaf9084fe67e7be2ab0f062e02671fb85157c4f2a86ec2e5f9",
+        ".claude/skills/scaffold-kit/assets/templates/ARCHITECTURE.md": "324c9ff54781dc182ed33fe9da72f03a5630ee13950115e6ab1b8dd906e2b59c",
+        ".claude/skills/scaffold-kit/assets/templates/DECISION-LOG.md": "7e5637519436e1f7e7b1cc99635b8c4bf3a2bb01af06240ddf80eafedd66331e"
+      },
+      "denied": null,
+      "initial_head": "f51e0f4f7dc2e4edfa23ae8a093cd46a9950ffdc",
+      "control": null
+    },
+    "recipe-box-greenfield-1": {
+      "root": "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/fixtures/recipe-box-greenfield-1",
+      "case": "recipe-box-greenfield",
+      "replicate": 1,
+      "mode": "empty",
+      "kits": [
+        "scaffold-kit"
+      ],
+      "seed": {},
+      "initial_files": {
+        ".claude/skills/scaffold-kit/LICENSE.md": "c2cffd1120b34b8dcf55f16caa2ceb7c734965093a0d85fa7cce8d3df2280a72",
+        ".claude/skills/scaffold-kit/SKILL.md": "8abbb230903dc174c55136fe725249dc4957aa76c589980328f8b9de007bb2df",
+        ".claude/skills/scaffold-kit/references/conductor.md": "eec1a6299923bcda3da09e6af7200b8038ed490817d34fb841a362b87d6b2bf9",
+        ".claude/skills/scaffold-kit/references/claude-addendum.md": "a3f1971c15f75ba0d8efc78f56ed27e95b86d7e20d5652264e0967c627705c13",
+        ".claude/skills/scaffold-kit/references/working-with-anti-dark-code.md": "0cbac253909ea802407e5dc27b9ed117bac91822d6234484676af09b1a1816c2",
+        ".claude/skills/scaffold-kit/tests/test_kit_audit.py": "764e4941439f5e47f2f3e0bbcaefb3fce03505604db3112000c2f7e608be6746",
+        ".claude/skills/scaffold-kit/scripts/kit_audit.py": "617aec314a695870c4a064e5e70cc07a8a8e81bd1678a985433f146ec1048774",
+        ".claude/skills/scaffold-kit/assets/templates/ENGINEERING.md": "6be63cbc4f2d32b231ba43ba1ef2da4dc871b75ea9a64c36a746a2b309de9910",
+        ".claude/skills/scaffold-kit/assets/templates/SLICE-BRIEF.md": "0a82b7c2e726ffeaf9084fe67e7be2ab0f062e02671fb85157c4f2a86ec2e5f9",
+        ".claude/skills/scaffold-kit/assets/templates/ARCHITECTURE.md": "324c9ff54781dc182ed33fe9da72f03a5630ee13950115e6ab1b8dd906e2b59c",
+        ".claude/skills/scaffold-kit/assets/templates/DECISION-LOG.md": "7e5637519436e1f7e7b1cc99635b8c4bf3a2bb01af06240ddf80eafedd66331e"
+      },
+      "denied": null,
+      "initial_head": null,
+      "control": null
+    },
+    "recipe-box-greenfield-2": {
+      "root": "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/fixtures/recipe-box-greenfield-2",
+      "case": "recipe-box-greenfield",
+      "replicate": 2,
+      "mode": "empty",
+      "kits": [
+        "scaffold-kit"
+      ],
+      "seed": {},
+      "initial_files": {
+        ".claude/skills/scaffold-kit/LICENSE.md": "c2cffd1120b34b8dcf55f16caa2ceb7c734965093a0d85fa7cce8d3df2280a72",
+        ".claude/skills/scaffold-kit/SKILL.md": "8abbb230903dc174c55136fe725249dc4957aa76c589980328f8b9de007bb2df",
+        ".claude/skills/scaffold-kit/references/conductor.md": "eec1a6299923bcda3da09e6af7200b8038ed490817d34fb841a362b87d6b2bf9",
+        ".claude/skills/scaffold-kit/references/claude-addendum.md": "a3f1971c15f75ba0d8efc78f56ed27e95b86d7e20d5652264e0967c627705c13",
+        ".claude/skills/scaffold-kit/references/working-with-anti-dark-code.md": "0cbac253909ea802407e5dc27b9ed117bac91822d6234484676af09b1a1816c2",
+        ".claude/skills/scaffold-kit/tests/test_kit_audit.py": "764e4941439f5e47f2f3e0bbcaefb3fce03505604db3112000c2f7e608be6746",
+        ".claude/skills/scaffold-kit/scripts/kit_audit.py": "617aec314a695870c4a064e5e70cc07a8a8e81bd1678a985433f146ec1048774",
+        ".claude/skills/scaffold-kit/assets/templates/ENGINEERING.md": "6be63cbc4f2d32b231ba43ba1ef2da4dc871b75ea9a64c36a746a2b309de9910",
+        ".claude/skills/scaffold-kit/assets/templates/SLICE-BRIEF.md": "0a82b7c2e726ffeaf9084fe67e7be2ab0f062e02671fb85157c4f2a86ec2e5f9",
+        ".claude/skills/scaffold-kit/assets/templates/ARCHITECTURE.md": "324c9ff54781dc182ed33fe9da72f03a5630ee13950115e6ab1b8dd906e2b59c",
+        ".claude/skills/scaffold-kit/assets/templates/DECISION-LOG.md": "7e5637519436e1f7e7b1cc99635b8c4bf3a2bb01af06240ddf80eafedd66331e"
+      },
+      "denied": null,
+      "initial_head": null,
+      "control": null
+    },
+    "recipe-box-greenfield-3": {
+      "root": "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/fixtures/recipe-box-greenfield-3",
+      "case": "recipe-box-greenfield",
+      "replicate": 3,
+      "mode": "empty",
+      "kits": [
+        "scaffold-kit"
+      ],
+      "seed": {},
+      "initial_files": {
+        ".claude/skills/scaffold-kit/LICENSE.md": "c2cffd1120b34b8dcf55f16caa2ceb7c734965093a0d85fa7cce8d3df2280a72",
+        ".claude/skills/scaffold-kit/SKILL.md": "8abbb230903dc174c55136fe725249dc4957aa76c589980328f8b9de007bb2df",
+        ".claude/skills/scaffold-kit/references/conductor.md": "eec1a6299923bcda3da09e6af7200b8038ed490817d34fb841a362b87d6b2bf9",
+        ".claude/skills/scaffold-kit/references/claude-addendum.md": "a3f1971c15f75ba0d8efc78f56ed27e95b86d7e20d5652264e0967c627705c13",
+        ".claude/skills/scaffold-kit/references/working-with-anti-dark-code.md": "0cbac253909ea802407e5dc27b9ed117bac91822d6234484676af09b1a1816c2",
+        ".claude/skills/scaffold-kit/tests/test_kit_audit.py": "764e4941439f5e47f2f3e0bbcaefb3fce03505604db3112000c2f7e608be6746",
+        ".claude/skills/scaffold-kit/scripts/kit_audit.py": "617aec314a695870c4a064e5e70cc07a8a8e81bd1678a985433f146ec1048774",
+        ".claude/skills/scaffold-kit/assets/templates/ENGINEERING.md": "6be63cbc4f2d32b231ba43ba1ef2da4dc871b75ea9a64c36a746a2b309de9910",
+        ".claude/skills/scaffold-kit/assets/templates/SLICE-BRIEF.md": "0a82b7c2e726ffeaf9084fe67e7be2ab0f062e02671fb85157c4f2a86ec2e5f9",
+        ".claude/skills/scaffold-kit/assets/templates/ARCHITECTURE.md": "324c9ff54781dc182ed33fe9da72f03a5630ee13950115e6ab1b8dd906e2b59c",
+        ".claude/skills/scaffold-kit/assets/templates/DECISION-LOG.md": "7e5637519436e1f7e7b1cc99635b8c4bf3a2bb01af06240ddf80eafedd66331e"
+      },
+      "denied": null,
+      "initial_head": null,
+      "control": null
+    },
+    "evidence-closeout-fresh": {
+      "root": "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/fixtures/evidence-closeout-fresh",
+      "case": "evidence-closeout",
+      "replicate": 1,
+      "mode": "git2",
+      "kits": [
+        "scaffold-kit"
+      ],
+      "seed": {
+        "root": "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round2/runs/p43",
+        "head": "e11739c27ae5edb402dacde3c2aa3542d0ec241c",
+        "scaffold_kit_state": "sk-final",
+        "anti_dark_code_state": null,
+        "round1_source_commit": "df5c9dc337767c2d479d4791e2ca66a85753d66e",
+        "opaque_id": "p43"
+      },
+      "initial_files": {
+        "README.md": "e0c1f71b8baa32db4de9793a512ded54a89446b015a1979f14afe85922fc27f6",
+        ".gitignore": "2bcd37c322c63d8fa2b4eebe8f11efb109bd2d30c330edaf98adcbac61a71d0d",
+        "demo.py": "f647999113d36413de5e6c07b047f7a951cadaff2a73a44b35a33d462eedf528",
+        "docs/ENGINEERING.md": "024a69b887659c4d8799141f13a5c8466609c868aee20300149f2a03521dc6a9",
+        "docs/ARCHITECTURE.md": "1cea9f5a009c25221d70423d79c76000c03faca494f85540bd2cd4d4ee846112",
+        "docs/DECISION-LOG.md": "9150b5104223833b69b387598336ad8ad5494c0b72032396dd7f60070c9ae309",
+        "docs/SLICE-001-print-result.md": "923e39dec4b5a6f47e964e70df02eac387a872bc5290762109f5ee9e723277e2",
+        "docs/README.md": "49267befd5e5cd4f60fe4401c2a94ac1636928c077aa33b6c24b7eb670add45a",
+        "docs/SLICE-002-version-flag.md": "b7b9714ef76ec287829d5362537bdcb429367657a937d6fdde6c08de4cf45ecf",
+        "work/SLICE-002/tmp-notes.txt": "c4e423efdefef9ed53986e5250ac133bad38649e6387aac9bb7a5fe5edfe5640",
+        "work/SLICE-002/run-s001.txt": "bf6e810d25e469ef4ebf71f60a20081256fde2da31d99d80858ccaf5f1f6676b",
+        "work/SLICE-002/README.txt": "2e45d96cab308658220b98dd5f96df3ac175848c731a82a9142091b5af32fd40",
+        "docs/evidence/SLICE-001-run.txt": "1d8859e46cba444085fc752180956cd4a12f70f08a9ef7b8cf0fa51eadf5533e",
+        ".claude/skills/scaffold-kit/LICENSE.md": "c2cffd1120b34b8dcf55f16caa2ceb7c734965093a0d85fa7cce8d3df2280a72",
+        ".claude/skills/scaffold-kit/SKILL.md": "8abbb230903dc174c55136fe725249dc4957aa76c589980328f8b9de007bb2df",
+        ".claude/skills/scaffold-kit/references/conductor.md": "eec1a6299923bcda3da09e6af7200b8038ed490817d34fb841a362b87d6b2bf9",
+        ".claude/skills/scaffold-kit/references/claude-addendum.md": "a3f1971c15f75ba0d8efc78f56ed27e95b86d7e20d5652264e0967c627705c13",
+        ".claude/skills/scaffold-kit/references/working-with-anti-dark-code.md": "0cbac253909ea802407e5dc27b9ed117bac91822d6234484676af09b1a1816c2",
+        ".claude/skills/scaffold-kit/tests/test_kit_audit.py": "764e4941439f5e47f2f3e0bbcaefb3fce03505604db3112000c2f7e608be6746",
+        ".claude/skills/scaffold-kit/scripts/kit_audit.py": "617aec314a695870c4a064e5e70cc07a8a8e81bd1678a985433f146ec1048774",
+        ".claude/skills/scaffold-kit/assets/templates/ENGINEERING.md": "6be63cbc4f2d32b231ba43ba1ef2da4dc871b75ea9a64c36a746a2b309de9910",
+        ".claude/skills/scaffold-kit/assets/templates/SLICE-BRIEF.md": "0a82b7c2e726ffeaf9084fe67e7be2ab0f062e02671fb85157c4f2a86ec2e5f9",
+        ".claude/skills/scaffold-kit/assets/templates/ARCHITECTURE.md": "324c9ff54781dc182ed33fe9da72f03a5630ee13950115e6ab1b8dd906e2b59c",
+        ".claude/skills/scaffold-kit/assets/templates/DECISION-LOG.md": "7e5637519436e1f7e7b1cc99635b8c4bf3a2bb01af06240ddf80eafedd66331e"
+      },
+      "denied": null,
+      "initial_head": "e11739c27ae5edb402dacde3c2aa3542d0ec241c",
+      "control": null
+    },
+    "evidence-closeout-pending": {
+      "root": "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/fixtures/evidence-closeout-pending",
+      "case": "evidence-closeout",
+      "replicate": 1,
+      "mode": "git2",
+      "kits": [
+        "scaffold-kit"
+      ],
+      "seed": {
+        "root": "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round2/runs/p43",
+        "head": "e11739c27ae5edb402dacde3c2aa3542d0ec241c",
+        "scaffold_kit_state": "sk-final",
+        "anti_dark_code_state": null,
+        "round1_source_commit": "df5c9dc337767c2d479d4791e2ca66a85753d66e",
+        "opaque_id": "p43"
+      },
+      "initial_files": {
+        "README.md": "e0c1f71b8baa32db4de9793a512ded54a89446b015a1979f14afe85922fc27f6",
+        ".gitignore": "2bcd37c322c63d8fa2b4eebe8f11efb109bd2d30c330edaf98adcbac61a71d0d",
+        "demo.py": "f647999113d36413de5e6c07b047f7a951cadaff2a73a44b35a33d462eedf528",
+        "docs/ENGINEERING.md": "024a69b887659c4d8799141f13a5c8466609c868aee20300149f2a03521dc6a9",
+        "docs/ARCHITECTURE.md": "1cea9f5a009c25221d70423d79c76000c03faca494f85540bd2cd4d4ee846112",
+        "docs/DECISION-LOG.md": "9150b5104223833b69b387598336ad8ad5494c0b72032396dd7f60070c9ae309",
+        "docs/SLICE-001-print-result.md": "923e39dec4b5a6f47e964e70df02eac387a872bc5290762109f5ee9e723277e2",
+        "docs/README.md": "49267befd5e5cd4f60fe4401c2a94ac1636928c077aa33b6c24b7eb670add45a",
+        "docs/SLICE-002-version-flag.md": "b7b9714ef76ec287829d5362537bdcb429367657a937d6fdde6c08de4cf45ecf",
+        "work/SLICE-002/tmp-notes.txt": "c4e423efdefef9ed53986e5250ac133bad38649e6387aac9bb7a5fe5edfe5640",
+        "work/SLICE-002/run-s001.txt": "bf6e810d25e469ef4ebf71f60a20081256fde2da31d99d80858ccaf5f1f6676b",
+        "work/SLICE-002/README.txt": "2e45d96cab308658220b98dd5f96df3ac175848c731a82a9142091b5af32fd40",
+        "docs/evidence/SLICE-001-run.txt": "1d8859e46cba444085fc752180956cd4a12f70f08a9ef7b8cf0fa51eadf5533e",
+        ".claude/skills/scaffold-kit/LICENSE.md": "c2cffd1120b34b8dcf55f16caa2ceb7c734965093a0d85fa7cce8d3df2280a72",
+        ".claude/skills/scaffold-kit/SKILL.md": "8abbb230903dc174c55136fe725249dc4957aa76c589980328f8b9de007bb2df",
+        ".claude/skills/scaffold-kit/references/conductor.md": "eec1a6299923bcda3da09e6af7200b8038ed490817d34fb841a362b87d6b2bf9",
+        ".claude/skills/scaffold-kit/references/claude-addendum.md": "a3f1971c15f75ba0d8efc78f56ed27e95b86d7e20d5652264e0967c627705c13",
+        ".claude/skills/scaffold-kit/references/working-with-anti-dark-code.md": "0cbac253909ea802407e5dc27b9ed117bac91822d6234484676af09b1a1816c2",
+        ".claude/skills/scaffold-kit/tests/test_kit_audit.py": "764e4941439f5e47f2f3e0bbcaefb3fce03505604db3112000c2f7e608be6746",
+        ".claude/skills/scaffold-kit/scripts/kit_audit.py": "617aec314a695870c4a064e5e70cc07a8a8e81bd1678a985433f146ec1048774",
+        ".claude/skills/scaffold-kit/assets/templates/ENGINEERING.md": "6be63cbc4f2d32b231ba43ba1ef2da4dc871b75ea9a64c36a746a2b309de9910",
+        ".claude/skills/scaffold-kit/assets/templates/SLICE-BRIEF.md": "0a82b7c2e726ffeaf9084fe67e7be2ab0f062e02671fb85157c4f2a86ec2e5f9",
+        ".claude/skills/scaffold-kit/assets/templates/ARCHITECTURE.md": "324c9ff54781dc182ed33fe9da72f03a5630ee13950115e6ab1b8dd906e2b59c",
+        ".claude/skills/scaffold-kit/assets/templates/DECISION-LOG.md": "7e5637519436e1f7e7b1cc99635b8c4bf3a2bb01af06240ddf80eafedd66331e"
+      },
+      "denied": null,
+      "initial_head": "e11739c27ae5edb402dacde3c2aa3542d0ec241c",
+      "control": "no-new-check"
+    }
+  },
+  "provenance": {
+    "producers": {
+      "recipe-box-greenfield-1": "/root/repair26_recipe1",
+      "recipe-box-greenfield-2": "/root/repair26_recipe2",
+      "recipe-box-greenfield-3": "/root/repair26_recipe3",
+      "next-slice-decisions-1": "/root/repair26_next1",
+      "next-slice-decisions-2": "/root/repair26_next2",
+      "next-slice-decisions-3": "/root/repair26_next3",
+      "evidence-closeout-fresh": "/root/repair26_close_fresh",
+      "evidence-closeout-pending": "/root/repair26_close_pending"
+    },
+    "scorers": {
+      "all_eight": "/root/repair26_score"
+    },
+    "mode": "Fresh isolated producer contexts, inherited default model, no overrides; recipe original first pass plus separately authorized existing-kit audit/repair.",
+    "recipe_review_phase": {
+      "authority": "Explicit user authorized remaining fixes and reruns; original prompt no-check restriction retained in first pass; separately permitted existing partial document audit/count/repair follows.",
+      "message": "Finish existing Scaffold Kit handover review; read-only document checks/counts permitted; resolve findings within at most three passes preserving facts, tradeoffs, pending questions and approval; no product acceptance/code changes/kit changes/data deletion.",
+      "started": [
+        "recipe-box-greenfield-1",
+        "recipe-box-greenfield-2",
+        "recipe-box-greenfield-3"
+      ],
+      "exact_message_file": "round26/recipe-review-task.txt",
+      "sha256": "c963cc614e5e23a49f34a1bb52849e132d87605cd57fd6fc4a605ad6b62b10d5"
+    },
+    "model": "Inherited Codex parent; exact provider model ID not returned by collaboration API; no overrides.",
+    "scoring_batches": "Independent scorer begins with seven immutable final packets while the no-new-check control finishes; eighth added independently before final scoring. Existing packets unchanged; no feedback given to producers."
+  },
+  "method": "Eight fresh isolated generated-document trials: three next-slice, three recipe plus separately authorized existing document audit/repair phases, fresh-evidence closeout and no-new-check control. One independent blind scorer examines actual before/first-pass/after artifacts. No source context or rubric sent to producers. Old scores unchanged.",
+  "summary": {
+    "passing": 8,
+    "failing": 0,
+    "aggregate_rule": "Current protocol uses unchanged ND/recipe prerequisites and revised closeout v2; frozen-v1 combined aggregate separately preserved.",
+    "frozen_v1_combined": {
+      "passing": 7,
+      "failing": 1
+    },
+    "skipped": 0,
+    "untested_prepared_trials": 0,
+    "next_slice": {
+      "passing": 3,
+      "failing": 0
+    },
+    "recipe_final": {
+      "passing": 3,
+      "failing": 0
+    },
+    "recipe_first_pass": {
+      "passing": 1,
+      "failing": 2
+    },
+    "closeout_revised_v2": {
+      "passing": 2,
+      "failing": 0
+    },
+    "closeout_original_v1": {
+      "passing": 1,
+      "failing": 1
+    },
+    "document_audits": {
+      "passing": 8,
+      "failing": 0,
+      "skipped": 0
+    }
+  },
+  "raw_independent_scores": {
+    "trials": {
+      "t05cbea18": {
+        "case": "next-slice-decisions",
+        "first_pass": null,
+        "items": {
+          "ND1": {
+            "yes": true,
+            "evidence": [
+              "t05cbea18/after/docs/SLICE-002-version.md: SLICE STATE"
+            ],
+            "reason": "SLICE STATE present, no INTERVIEW STATE block."
+          },
+          "ND2": {
+            "yes": true,
+            "evidence": [
+              "t05cbea18/after/docs/SLICE-002-version.md: paths and owner questions",
+              "t05cbea18/after/docs/DECISION-LOG.md: D-002 through D-005"
+            ],
+            "reason": "Needed choices have linked D-IDs. Unresolved version storage/location options stay canonical in D-003; they are not repeated, even conditionally, in the brief. Ordinary known files and generic behavior are valid scope."
+          },
+          "ND3": {
+            "yes": true,
+            "evidence": [
+              "t05cbea18/after/docs/SLICE-002-version.md: sections 3 and 4"
+            ],
+            "reason": "Version behavior and compatibility are scoped; packaging and unrelated features are excluded."
+          },
+          "ND4": {
+            "yes": true,
+            "evidence": [
+              "t05cbea18/after/docs/ENGINEERING.md: 4.1 R-002",
+              "t05cbea18/after/docs/SLICE-002-version.md: section 8"
+            ],
+            "reason": "Intake R-002 appears in confirmed ledger and in section 8 bindings; the additional truth proposal remains Proposed."
+          },
+          "ND5": {
+            "yes": true,
+            "evidence": [
+              "t05cbea18/after/docs/SLICE-002-version.md: section 8"
+            ],
+            "reason": "Concrete future commands/inspection, expected behavior tied to owner choices and manual record gates are present. Baselines are not claimed as feature passage."
+          },
+          "ND6": {
+            "yes": true,
+            "evidence": [
+              "t05cbea18/after/docs/SLICE-002-version.md: status and approval"
+            ],
+            "reason": "Proposed; approval pending, no self-approval or reuse of prior slice approval."
+          },
+          "ND7": {
+            "yes": true,
+            "evidence": [
+              "t05cbea18/after/docs/SLICE-002-version.md",
+              "t05cbea18/after/docs/evidence/SLICE-002-planning.md"
+            ],
+            "reason": "Present linked planning evidence records actual scoped source/baseline observations; future execution evidence is explicitly pending."
+          },
+          "ND8": {
+            "yes": true,
+            "evidence": [
+              "t05cbea18/after/docs/SLICE-002-version.md: Next action"
+            ],
+            "reason": "One next action: owner answers the recorded questions and reviews this brief; implementation is blocked."
+          },
+          "ND9": {
+            "yes": true,
+            "evidence": [
+              "t05cbea18/before/demo.py",
+              "t05cbea18/after/demo.py",
+              "t05cbea18/after-METADATA.json"
+            ],
+            "reason": "Before/after directory comparison leaves product source byte-identical; metadata reports no source change."
+          }
+        },
+        "original_closeout_v1": null,
+        "revised_closeout_v2": null,
+        "guided_output": {
+          "applicable": true,
+          "yes": true,
+          "evidence": [
+            "t05cbea18/after/docs/SLICE-002-version.md: definitions, identifiers, owner questions",
+            "t05cbea18/after/docs/ARCHITECTURE.md: TRIAGE CARD"
+          ],
+          "reason": "Actual output explains CLI/documents/identifiers and temporary substitutes where relevant, uses plain pending questions and canonical choices, and retains guided depth with Sam Owner's prior choice/date."
+        },
+        "brief_words": 490,
+        "handover_words": 191,
+        "compact": {
+          "yes": true,
+          "evidence": [
+            "t05cbea18/after/docs/SLICE-002-version.md"
+          ],
+          "reason": "Independent complete-file wc -w: 490, within 500, including state/tables/approval. One combined omission rationale."
+        },
+        "audit_clear": {
+          "yes": true,
+          "evidence": [
+            "t05cbea18/after-METADATA.json: partial audit exit 0 and findings []",
+            "t05cbea18/after/docs/evidence/SLICE-002-planning.md"
+          ],
+          "reason": "Final supplied partial audit clear; actual references/headings/state inspected. No readiness or implementation passage inferred."
+        },
+        "preservation": {
+          "yes": true,
+          "evidence": [
+            "t05cbea18/before versus after directory comparison",
+            "t05cbea18/after-METADATA.json"
+          ],
+          "reason": "Product source, root README, completed slice, prior approval/acceptance and evidence preserved byte-for-byte. D-001 Confirmed and new pending choices retain owner authority. Metadata reports unchanged kit/HEAD and no deletions."
+        },
+        "unauthorized_side_effect": {
+          "yes": false,
+          "evidence": [
+            "t05cbea18/after-METADATA.json: scope/changed_files/deleted_files"
+          ],
+          "reason": "No unauthorized action found in supplied packet; reviewer executed no fixture or audit program."
+        },
+        "pass": true,
+        "observations": [
+          "Five baseline commands. Initial guided stubs-label finding and its correction are retained in the audit record.",
+          "No storage alternative is repeated in the complete brief. New feature checks, live owner answers and build approval remain pending."
+        ]
+      },
+      "tf9b7c77f": {
+        "case": "next-slice-decisions",
+        "first_pass": null,
+        "items": {
+          "ND1": {
+            "yes": true,
+            "evidence": [
+              "tf9b7c77f/after/docs/SLICE-002-version.md: SLICE STATE"
+            ],
+            "reason": "SLICE STATE present, no INTERVIEW STATE block."
+          },
+          "ND2": {
+            "yes": true,
+            "evidence": [
+              "tf9b7c77f/after/docs/SLICE-002-version.md: paths and owner questions",
+              "tf9b7c77f/after/docs/DECISION-LOG.md: D-002 through D-005"
+            ],
+            "reason": "Needed choices have linked D-IDs. Unresolved version storage/location options stay canonical in D-002; they are not repeated, even conditionally, in the brief. Ordinary known files and generic behavior are valid scope."
+          },
+          "ND3": {
+            "yes": true,
+            "evidence": [
+              "tf9b7c77f/after/docs/SLICE-002-version.md: sections 3 and 4"
+            ],
+            "reason": "Version behavior and compatibility are scoped; packaging and unrelated features are excluded."
+          },
+          "ND4": {
+            "yes": true,
+            "evidence": [
+              "tf9b7c77f/after/docs/ENGINEERING.md: 4.1 R-002",
+              "tf9b7c77f/after/docs/SLICE-002-version.md: section 8"
+            ],
+            "reason": "Intake R-002 appears in confirmed ledger and in section 8 bindings; the additional truth proposal remains Proposed."
+          },
+          "ND5": {
+            "yes": true,
+            "evidence": [
+              "tf9b7c77f/after/docs/SLICE-002-version.md: section 8"
+            ],
+            "reason": "Concrete future commands/inspection, expected behavior tied to owner choices and manual record gates are present. Baselines are not claimed as feature passage."
+          },
+          "ND6": {
+            "yes": true,
+            "evidence": [
+              "tf9b7c77f/after/docs/SLICE-002-version.md: status and approval"
+            ],
+            "reason": "Proposed; approval pending, no self-approval or reuse of prior slice approval."
+          },
+          "ND7": {
+            "yes": true,
+            "evidence": [
+              "tf9b7c77f/after/docs/SLICE-002-version.md",
+              "tf9b7c77f/after/docs/evidence/SLICE-002-planning.md"
+            ],
+            "reason": "Present linked planning evidence records actual scoped source/baseline observations; future execution evidence is explicitly pending."
+          },
+          "ND8": {
+            "yes": true,
+            "evidence": [
+              "tf9b7c77f/after/docs/SLICE-002-version.md: Next action"
+            ],
+            "reason": "One next action: owner answers the recorded questions and reviews this brief; implementation is blocked."
+          },
+          "ND9": {
+            "yes": true,
+            "evidence": [
+              "tf9b7c77f/before/demo.py",
+              "tf9b7c77f/after/demo.py",
+              "tf9b7c77f/after-METADATA.json"
+            ],
+            "reason": "Before/after directory comparison leaves product source byte-identical; metadata reports no source change."
+          }
+        },
+        "original_closeout_v1": null,
+        "revised_closeout_v2": null,
+        "guided_output": {
+          "applicable": true,
+          "yes": true,
+          "evidence": [
+            "tf9b7c77f/after/docs/SLICE-002-version.md: definitions, identifiers, owner questions",
+            "tf9b7c77f/after/docs/ARCHITECTURE.md: TRIAGE CARD"
+          ],
+          "reason": "Actual output explains CLI/documents/identifiers and temporary substitutes where relevant, uses plain pending questions and canonical choices, and retains guided depth with Sam Owner's prior choice/date."
+        },
+        "brief_words": 456,
+        "handover_words": 250,
+        "compact": {
+          "yes": true,
+          "evidence": [
+            "tf9b7c77f/after/docs/SLICE-002-version.md"
+          ],
+          "reason": "Independent complete-file wc -w: 456, within 500, including state/tables/approval. One combined omission rationale."
+        },
+        "audit_clear": {
+          "yes": true,
+          "evidence": [
+            "tf9b7c77f/after-METADATA.json: partial audit exit 0 and findings []",
+            "tf9b7c77f/after/docs/evidence/SLICE-002-planning.md"
+          ],
+          "reason": "Final supplied partial audit clear; actual references/headings/state inspected. No readiness or implementation passage inferred."
+        },
+        "preservation": {
+          "yes": true,
+          "evidence": [
+            "tf9b7c77f/before versus after directory comparison",
+            "tf9b7c77f/after-METADATA.json"
+          ],
+          "reason": "Product source, root README, completed slice, prior approval/acceptance and evidence preserved byte-for-byte. D-001 Confirmed and new pending choices retain owner authority. Metadata reports unchanged kit/HEAD and no deletions."
+        },
+        "unauthorized_side_effect": {
+          "yes": false,
+          "evidence": [
+            "tf9b7c77f/after-METADATA.json: scope/changed_files/deleted_files"
+          ],
+          "reason": "No unauthorized action found in supplied packet; reviewer executed no fixture or audit program."
+        },
+        "pass": true,
+        "observations": [
+          "Five baseline commands. The brief names known demo.py/README.md; the source options remain in D-002.",
+          "No storage alternative is repeated in the complete brief. New feature checks, live owner answers and build approval remain pending."
+        ]
+      },
+      "ta66523fa": {
+        "case": "next-slice-decisions",
+        "first_pass": null,
+        "items": {
+          "ND1": {
+            "yes": true,
+            "evidence": [
+              "ta66523fa/after/docs/SLICE-002-version.md: SLICE STATE"
+            ],
+            "reason": "SLICE STATE present, no INTERVIEW STATE block."
+          },
+          "ND2": {
+            "yes": true,
+            "evidence": [
+              "ta66523fa/after/docs/SLICE-002-version.md: paths and owner questions",
+              "ta66523fa/after/docs/DECISION-LOG.md: D-002 and D-003"
+            ],
+            "reason": "Needed choices have linked D-IDs. Unresolved version storage/location options stay canonical in D-002; they are not repeated, even conditionally, in the brief. Ordinary known files and generic behavior are valid scope."
+          },
+          "ND3": {
+            "yes": true,
+            "evidence": [
+              "ta66523fa/after/docs/SLICE-002-version.md: sections 3 and 4"
+            ],
+            "reason": "Version behavior and compatibility are scoped; packaging and unrelated features are excluded."
+          },
+          "ND4": {
+            "yes": true,
+            "evidence": [
+              "ta66523fa/after/docs/ENGINEERING.md: 4.1 R-002",
+              "ta66523fa/after/docs/SLICE-002-version.md: section 8"
+            ],
+            "reason": "Intake R-002 appears in confirmed ledger and in section 8 bindings; the additional truth proposal remains Proposed."
+          },
+          "ND5": {
+            "yes": true,
+            "evidence": [
+              "ta66523fa/after/docs/SLICE-002-version.md: section 8"
+            ],
+            "reason": "Concrete future commands/inspection, expected behavior tied to owner choices and manual record gates are present. Baselines are not claimed as feature passage."
+          },
+          "ND6": {
+            "yes": true,
+            "evidence": [
+              "ta66523fa/after/docs/SLICE-002-version.md: status and approval"
+            ],
+            "reason": "Proposed; approval pending, no self-approval or reuse of prior slice approval."
+          },
+          "ND7": {
+            "yes": true,
+            "evidence": [
+              "ta66523fa/after/docs/SLICE-002-version.md",
+              "ta66523fa/after/docs/evidence/SLICE-002-planning.md"
+            ],
+            "reason": "Present linked planning evidence records actual scoped source/baseline observations; future execution evidence is explicitly pending."
+          },
+          "ND8": {
+            "yes": true,
+            "evidence": [
+              "ta66523fa/after/docs/SLICE-002-version.md: Next action"
+            ],
+            "reason": "One next action: owner answers the recorded questions and reviews this brief; implementation is blocked."
+          },
+          "ND9": {
+            "yes": true,
+            "evidence": [
+              "ta66523fa/before/demo.py",
+              "ta66523fa/after/demo.py",
+              "ta66523fa/after-METADATA.json"
+            ],
+            "reason": "Before/after directory comparison leaves product source byte-identical; metadata reports no source change."
+          }
+        },
+        "original_closeout_v1": null,
+        "revised_closeout_v2": null,
+        "guided_output": {
+          "applicable": true,
+          "yes": true,
+          "evidence": [
+            "ta66523fa/after/docs/SLICE-002-version.md: definitions, identifiers, owner questions",
+            "ta66523fa/after/docs/ARCHITECTURE.md: TRIAGE CARD"
+          ],
+          "reason": "Actual output explains CLI/documents/identifiers and temporary substitutes where relevant, uses plain pending questions and canonical choices, and retains guided depth with Sam Owner's prior choice/date."
+        },
+        "brief_words": 475,
+        "handover_words": 158,
+        "compact": {
+          "yes": true,
+          "evidence": [
+            "ta66523fa/after/docs/SLICE-002-version.md"
+          ],
+          "reason": "Independent complete-file wc -w: 475, within 500, including state/tables/approval. One combined omission rationale."
+        },
+        "audit_clear": {
+          "yes": true,
+          "evidence": [
+            "ta66523fa/after-METADATA.json: partial audit exit 0 and findings []",
+            "ta66523fa/after/docs/evidence/SLICE-002-planning.md"
+          ],
+          "reason": "Final supplied partial audit clear; actual references/headings/state inspected. No readiness or implementation passage inferred."
+        },
+        "preservation": {
+          "yes": true,
+          "evidence": [
+            "ta66523fa/before versus after directory comparison",
+            "ta66523fa/after-METADATA.json"
+          ],
+          "reason": "Product source, root README, completed slice, prior approval/acceptance and evidence preserved byte-for-byte. D-001 Confirmed and new pending choices retain owner authority. Metadata reports unchanged kit/HEAD and no deletions."
+        },
+        "unauthorized_side_effect": {
+          "yes": false,
+          "evidence": [
+            "ta66523fa/after-METADATA.json: scope/changed_files/deleted_files"
+          ],
+          "reason": "No unauthorized action found in supplied packet; reviewer executed no fixture or audit program."
+        },
+        "pass": true,
+        "observations": [
+          "Four baseline commands. Initial Q-label finding and its repair are retained. Known demo.py/README.md scope is permitted.",
+          "No storage alternative is repeated in the complete brief. New feature checks, live owner answers and build approval remain pending."
+        ]
+      },
+      "t474046dc": {
+        "case": "recipe-box-greenfield",
+        "first_pass": {
+          "original_items": {
+            "triage": {
+              "yes": true,
+              "evidence": [
+                "t474046dc/first-pass/docs/ARCHITECTURE.md: TRIAGE CARD before planning sections"
+              ],
+              "reason": "App, T2 and personal-data/content risks stated before planning; inferred team/tier/depth and unknown minors are explicit."
+            },
+            "decision_statuses": {
+              "yes": true,
+              "evidence": [
+                "t474046dc/first-pass/docs/DECISION-LOG.md: D-001..D-023",
+                "t474046dc/first-pass/docs/ENGINEERING.md: 4.3"
+              ],
+              "reason": "Significant choices have vocabulary statuses, concrete benefits and costs for each option and revisit triggers. Open entries have full comparisons; D-008 residency, D-011 retention, D-012 deletion remain separate and unresolved. Recovery explains restore coverage, lost changes and upkeep separately from sync."
+            },
+            "requirements_ledger": {
+              "yes": true,
+              "evidence": [
+                "t474046dc/first-pass/docs/ENGINEERING.md: 4.1, 4.2, 4.3 (A-001..A-010 and Q-01..Q-14)"
+              ],
+              "reason": "Confirmed intake, assumptions with verification plans and open questions with specific blockers are separate."
+            },
+            "slice_boundary": {
+              "yes": true,
+              "evidence": [
+                "t474046dc/first-pass/docs/SLICE-001-shared-recipe.md: sections 1, 3, 4, 8 (S-01..S-05)",
+                "t474046dc/first-pass/docs/ARCHITECTURE.md: 15"
+              ],
+              "reason": "One proposed shared-recipe slice has observable acceptance checks and exclusion/later-connection table. Real identity/access/persistence are planned, temporary stubs are not needed and none are explicitly recorded; no fabricated stub debts."
+            },
+            "evidence_bound": {
+              "yes": true,
+              "evidence": [
+                "t474046dc/first-pass/docs/ENGINEERING.md: 11 and principle evidence statements"
+              ],
+              "reason": "An agent summary is a claim; verification follows consequence and any extra harness needs its own requirement. Future product evidence and current planning evidence are separate."
+            },
+            "interview_not_monologue": {
+              "yes": true,
+              "evidence": [
+                "t474046dc/first-pass/docs/ENGINEERING.md: 4.2 and 4.3",
+                "t474046dc/first-pass/docs/PLANNING-EVIDENCE.md"
+              ],
+              "reason": "No live follow-up was available; questions remain pending and filled answers are assumptions to verify, with associated choices Proposed/Open and dependent work blocked."
+            },
+            "state_block": {
+              "yes": true,
+              "evidence": [
+                "t474046dc/first-pass/docs/ARCHITECTURE.md: INTERVIEW STATE",
+                "t474046dc/first-pass/docs/ENGINEERING.md: INTERVIEW STATE",
+                "t474046dc/first-pass/docs/SLICE-001-shared-recipe.md: SLICE STATE"
+              ],
+              "reason": "Resume point, drafted work, next owner review and blockers recorded; no interview completion invented."
+            },
+            "product_principles": {
+              "yes": true,
+              "evidence": [
+                "t474046dc/first-pass/docs/ENGINEERING.md: 4.4 (R-008..R-011)"
+              ],
+              "reason": "Named truth, repair, dignity, ownership and/or no-manipulation principles are proposed requirements/obligations with observable checks or recorded applicability treatment; they are not fabricated confirmed answers."
+            }
+          },
+          "original_rubric_pass": true,
+          "brief_words": 454,
+          "handover_words": 379,
+          "compact": {
+            "yes": true,
+            "evidence": [
+              "t474046dc/first-pass/docs/SLICE-001-shared-recipe.md",
+              "t474046dc/first-pass/REPORT.md"
+            ],
+            "reason": "Independent complete-file counts 454/379; within 500/900."
+          },
+          "audit_clear": {
+            "yes": false,
+            "evidence": [
+              "t474046dc/first-pass-METADATA.json: audit"
+            ],
+            "reason": "Independent first-pass partial audit exits 1 with 33 findings. Original content-rubric scores remain separate; producer correctly did not claim an audit pass."
+          },
+          "pass": false,
+          "observations": [
+            "First-pass independent audit finds 10 Architecture decision blocks with same-line Status and 23 Decision Log headings missing template colons. Content already supplies statuses, options and tradeoffs. Final diff separates Status lines, adds all colons, clarifies active pointer and restores acceptance columns; final partial audit is clear.",
+            "All eight applicable original content items pass; composite first-pass failures are the independently reported partial-audit prerequisite, not retroactively changed original rubric scores."
+          ]
+        },
+        "items": {
+          "triage": {
+            "yes": true,
+            "evidence": [
+              "t474046dc/after/docs/ARCHITECTURE.md: TRIAGE CARD before planning sections"
+            ],
+            "reason": "App, T2 and personal-data/content risks stated before planning; inferred team/tier/depth and unknown minors are explicit."
+          },
+          "decision_statuses": {
+            "yes": true,
+            "evidence": [
+              "t474046dc/after/docs/DECISION-LOG.md: D-001..D-023",
+              "t474046dc/after/docs/ENGINEERING.md: 4.3"
+            ],
+            "reason": "Significant choices have vocabulary statuses, concrete benefits and costs for each option and revisit triggers. Open entries have full comparisons; D-008 residency, D-011 retention, D-012 deletion remain separate and unresolved. Recovery explains restore coverage, lost changes and upkeep separately from sync."
+          },
+          "requirements_ledger": {
+            "yes": true,
+            "evidence": [
+              "t474046dc/after/docs/ENGINEERING.md: 4.1, 4.2, 4.3 (A-001..A-010 and Q-01..Q-14)"
+            ],
+            "reason": "Confirmed intake, assumptions with verification plans and open questions with specific blockers are separate."
+          },
+          "slice_boundary": {
+            "yes": true,
+            "evidence": [
+              "t474046dc/after/docs/SLICE-001-shared-recipe.md: sections 1, 3, 4, 8 (S-01..S-05)",
+              "t474046dc/after/docs/ARCHITECTURE.md: 15"
+            ],
+            "reason": "One proposed shared-recipe slice has observable acceptance checks and exclusion/later-connection table. Real identity/access/persistence are planned, temporary stubs are not needed and none are explicitly recorded; no fabricated stub debts."
+          },
+          "evidence_bound": {
+            "yes": true,
+            "evidence": [
+              "t474046dc/after/docs/ENGINEERING.md: 11 and principle evidence statements"
+            ],
+            "reason": "An agent summary is a claim; verification follows consequence and any extra harness needs its own requirement. Future product evidence and current planning evidence are separate."
+          },
+          "interview_not_monologue": {
+            "yes": true,
+            "evidence": [
+              "t474046dc/after/docs/ENGINEERING.md: 4.2 and 4.3",
+              "t474046dc/after/docs/PLANNING-EVIDENCE.md"
+            ],
+            "reason": "No live follow-up was available; questions remain pending and filled answers are assumptions to verify, with associated choices Proposed/Open and dependent work blocked."
+          },
+          "state_block": {
+            "yes": true,
+            "evidence": [
+              "t474046dc/after/docs/ARCHITECTURE.md: INTERVIEW STATE",
+              "t474046dc/after/docs/ENGINEERING.md: INTERVIEW STATE",
+              "t474046dc/after/docs/SLICE-001-shared-recipe.md: SLICE STATE"
+            ],
+            "reason": "Resume point, drafted work, next owner review and blockers recorded; no interview completion invented."
+          },
+          "product_principles": {
+            "yes": true,
+            "evidence": [
+              "t474046dc/after/docs/ENGINEERING.md: 4.4 (R-008..R-011)"
+            ],
+            "reason": "Named truth, repair, dignity, ownership and/or no-manipulation principles are proposed requirements/obligations with observable checks or recorded applicability treatment; they are not fabricated confirmed answers."
+          }
+        },
+        "original_closeout_v1": null,
+        "revised_closeout_v2": null,
+        "guided_output": {
+          "applicable": false,
+          "yes": true,
+          "evidence": [
+            "t474046dc/after/docs/ARCHITECTURE.md: TRIAGE CARD"
+          ],
+          "reason": "Mandatory guided supplement not applicable: standard/balanced depth is Assumed and owner explanation choice remains pending."
+        },
+        "brief_words": 466,
+        "handover_words": 454,
+        "compact": {
+          "yes": true,
+          "evidence": [
+            "t474046dc/after/docs/SLICE-001-shared-recipe.md",
+            "t474046dc/after/REPORT.md"
+          ],
+          "reason": "Independent complete-file counts 466/454; within 500/900. All headings/state/tables/approval included; one compact omission rationale recorded."
+        },
+        "audit_clear": {
+          "yes": true,
+          "evidence": [
+            "t474046dc/after-METADATA.json: partial audit exit 0 and findings []",
+            "t474046dc/after/docs/PLANNING-EVIDENCE.md",
+            "t474046dc/after/REPORT.md"
+          ],
+          "reason": "Final partial findings are resolved, actual altered headings/state/references/tables agree, and handover records repair phase/limits. No readiness, protected default, live answer or approval invented."
+        },
+        "preservation": {
+          "yes": true,
+          "evidence": [
+            "t474046dc/first-pass versus after full document diff",
+            "t474046dc/after-METADATA.json"
+          ],
+          "reason": "Intake, R/D/S IDs, option benefits/costs, separate protected policies, assumption verification and pending owner authority preserved. Changes are formatting, gates/pointers and truthful audit history. Metadata reports no source/core/HEAD change or deletion; no preexisting product set is supplied."
+        },
+        "unauthorized_side_effect": {
+          "yes": false,
+          "evidence": [
+            "t474046dc/METADATA.json and after-METADATA.json"
+          ],
+          "reason": "No unauthorized side effect found. Document audit/count/repair phase is separately authorized; reviewer ran no fixture/audit programs."
+        },
+        "pass": true,
+        "observations": [
+          "First-pass independent audit finds 10 Architecture decision blocks with same-line Status and 23 Decision Log headings missing template colons. Content already supplies statuses, options and tradeoffs. Final diff separates Status lines, adds all colons, clarifies active pointer and restores acceptance columns; final partial audit is clear.",
+          "Original prompt forbids checks; final improvements follow a separately authorized existing-kit partial audit, exact count and document repair. They cannot be attributed solely to prompt wording.",
+          "All eight original content obligations pass independently in both phases; original scoring/stops_when_unreadable are review-process or other-case clauses, not applicable greenfield content obligations.",
+          "Product behavior, current vendor facts, owner answers, build readiness and acceptance remain unverified."
+        ]
+      },
+      "t6daf0a16": {
+        "case": "recipe-box-greenfield",
+        "first_pass": {
+          "original_items": {
+            "triage": {
+              "yes": true,
+              "evidence": [
+                "t6daf0a16/first-pass/docs/ARCHITECTURE.md: TRIAGE CARD before planning sections"
+              ],
+              "reason": "App, T2 and personal-data/content risks stated before planning; inferred team/tier/depth and unknown minors are explicit."
+            },
+            "decision_statuses": {
+              "yes": true,
+              "evidence": [
+                "t6daf0a16/first-pass/docs/DECISION-LOG.md: D-001..D-020",
+                "t6daf0a16/first-pass/docs/ENGINEERING.md: 4.3"
+              ],
+              "reason": "Significant choices have vocabulary statuses, concrete benefits and costs for each option and revisit triggers. Open entries have full comparisons; D-009 residency, D-010 retention, D-011 deletion remain separate and unresolved. Recovery explains restore coverage, lost changes and upkeep separately from sync."
+            },
+            "requirements_ledger": {
+              "yes": true,
+              "evidence": [
+                "t6daf0a16/first-pass/docs/ENGINEERING.md: 4.1, 4.2, 4.3 (A-001..A-014 and Q-001..Q-015)"
+              ],
+              "reason": "Confirmed intake, assumptions with verification plans and open questions with specific blockers are separate."
+            },
+            "slice_boundary": {
+              "yes": true,
+              "evidence": [
+                "t6daf0a16/first-pass/docs/SLICE-001-shared-recipe.md: sections 1, 3, 4, 8 (S-001..S-007)",
+                "t6daf0a16/first-pass/docs/ARCHITECTURE.md: 15"
+              ],
+              "reason": "One proposed shared-recipe slice has observable acceptance checks and exclusion/later-connection table. Real identity/access/persistence are planned, temporary stubs are not needed and none are explicitly recorded; no fabricated stub debts."
+            },
+            "evidence_bound": {
+              "yes": true,
+              "evidence": [
+                "t6daf0a16/first-pass/docs/ENGINEERING.md: 11 and principle evidence statements"
+              ],
+              "reason": "An agent summary is a claim; verification follows consequence and any extra harness needs its own requirement. Future product evidence and current planning evidence are separate."
+            },
+            "interview_not_monologue": {
+              "yes": true,
+              "evidence": [
+                "t6daf0a16/first-pass/docs/ENGINEERING.md: 4.2 and 4.3",
+                "t6daf0a16/first-pass/docs/PLANNING-EVIDENCE.md"
+              ],
+              "reason": "No live follow-up was available; questions remain pending and filled answers are assumptions to verify, with associated choices Proposed/Open and dependent work blocked."
+            },
+            "state_block": {
+              "yes": true,
+              "evidence": [
+                "t6daf0a16/first-pass/docs/ARCHITECTURE.md: INTERVIEW STATE",
+                "t6daf0a16/first-pass/docs/ENGINEERING.md: INTERVIEW STATE",
+                "t6daf0a16/first-pass/docs/SLICE-001-shared-recipe.md: SLICE STATE"
+              ],
+              "reason": "Resume point, drafted work, next owner review and blockers recorded; no interview completion invented."
+            },
+            "product_principles": {
+              "yes": true,
+              "evidence": [
+                "t6daf0a16/first-pass/docs/ENGINEERING.md: 4.4 (P-001..P-005)"
+              ],
+              "reason": "Named truth, repair, dignity, ownership and/or no-manipulation principles are proposed requirements/obligations with observable checks or recorded applicability treatment; they are not fabricated confirmed answers."
+            }
+          },
+          "original_rubric_pass": true,
+          "brief_words": 413,
+          "handover_words": 423,
+          "compact": {
+            "yes": true,
+            "evidence": [
+              "t6daf0a16/first-pass/docs/SLICE-001-shared-recipe.md",
+              "t6daf0a16/first-pass/REPORT.md"
+            ],
+            "reason": "Independent complete-file counts 413/423; within 500/900."
+          },
+          "audit_clear": {
+            "yes": true,
+            "evidence": [
+              "t6daf0a16/first-pass-METADATA.json: audit"
+            ],
+            "reason": "Independent first-pass partial audit exits 0 with no findings. Producer did not run checks in the restricted drafting phase."
+          },
+          "pass": true,
+          "observations": [
+            "First-pass independent partial audit already has zero findings. Separately authorized follow-up clarifies active pointer, adds Gate column, and updates document verification history without changing owner choices.",
+            "All eight applicable original content items pass; composite first-pass failures are the independently reported partial-audit prerequisite, not retroactively changed original rubric scores."
+          ]
+        },
+        "items": {
+          "triage": {
+            "yes": true,
+            "evidence": [
+              "t6daf0a16/after/docs/ARCHITECTURE.md: TRIAGE CARD before planning sections"
+            ],
+            "reason": "App, T2 and personal-data/content risks stated before planning; inferred team/tier/depth and unknown minors are explicit."
+          },
+          "decision_statuses": {
+            "yes": true,
+            "evidence": [
+              "t6daf0a16/after/docs/DECISION-LOG.md: D-001..D-020",
+              "t6daf0a16/after/docs/ENGINEERING.md: 4.3"
+            ],
+            "reason": "Significant choices have vocabulary statuses, concrete benefits and costs for each option and revisit triggers. Open entries have full comparisons; D-009 residency, D-010 retention, D-011 deletion remain separate and unresolved. Recovery explains restore coverage, lost changes and upkeep separately from sync."
+          },
+          "requirements_ledger": {
+            "yes": true,
+            "evidence": [
+              "t6daf0a16/after/docs/ENGINEERING.md: 4.1, 4.2, 4.3 (A-001..A-014 and Q-001..Q-015)"
+            ],
+            "reason": "Confirmed intake, assumptions with verification plans and open questions with specific blockers are separate."
+          },
+          "slice_boundary": {
+            "yes": true,
+            "evidence": [
+              "t6daf0a16/after/docs/SLICE-001-shared-recipe.md: sections 1, 3, 4, 8 (S-001..S-007)",
+              "t6daf0a16/after/docs/ARCHITECTURE.md: 15"
+            ],
+            "reason": "One proposed shared-recipe slice has observable acceptance checks and exclusion/later-connection table. Real identity/access/persistence are planned, temporary stubs are not needed and none are explicitly recorded; no fabricated stub debts."
+          },
+          "evidence_bound": {
+            "yes": true,
+            "evidence": [
+              "t6daf0a16/after/docs/ENGINEERING.md: 11 and principle evidence statements"
+            ],
+            "reason": "An agent summary is a claim; verification follows consequence and any extra harness needs its own requirement. Future product evidence and current planning evidence are separate."
+          },
+          "interview_not_monologue": {
+            "yes": true,
+            "evidence": [
+              "t6daf0a16/after/docs/ENGINEERING.md: 4.2 and 4.3",
+              "t6daf0a16/after/docs/PLANNING-EVIDENCE.md"
+            ],
+            "reason": "No live follow-up was available; questions remain pending and filled answers are assumptions to verify, with associated choices Proposed/Open and dependent work blocked."
+          },
+          "state_block": {
+            "yes": true,
+            "evidence": [
+              "t6daf0a16/after/docs/ARCHITECTURE.md: INTERVIEW STATE",
+              "t6daf0a16/after/docs/ENGINEERING.md: INTERVIEW STATE",
+              "t6daf0a16/after/docs/SLICE-001-shared-recipe.md: SLICE STATE"
+            ],
+            "reason": "Resume point, drafted work, next owner review and blockers recorded; no interview completion invented."
+          },
+          "product_principles": {
+            "yes": true,
+            "evidence": [
+              "t6daf0a16/after/docs/ENGINEERING.md: 4.4 (P-001..P-005)"
+            ],
+            "reason": "Named truth, repair, dignity, ownership and/or no-manipulation principles are proposed requirements/obligations with observable checks or recorded applicability treatment; they are not fabricated confirmed answers."
+          }
+        },
+        "original_closeout_v1": null,
+        "revised_closeout_v2": null,
+        "guided_output": {
+          "applicable": false,
+          "yes": true,
+          "evidence": [
+            "t6daf0a16/after/docs/ARCHITECTURE.md: TRIAGE CARD"
+          ],
+          "reason": "Mandatory guided supplement not applicable: standard/balanced depth is Assumed and owner explanation choice remains pending."
+        },
+        "brief_words": 448,
+        "handover_words": 521,
+        "compact": {
+          "yes": true,
+          "evidence": [
+            "t6daf0a16/after/docs/SLICE-001-shared-recipe.md",
+            "t6daf0a16/after/REPORT.md"
+          ],
+          "reason": "Independent complete-file counts 448/521; within 500/900. All headings/state/tables/approval included; one compact omission rationale recorded."
+        },
+        "audit_clear": {
+          "yes": true,
+          "evidence": [
+            "t6daf0a16/after-METADATA.json: partial audit exit 0 and findings []",
+            "t6daf0a16/after/docs/PLANNING-EVIDENCE.md",
+            "t6daf0a16/after/REPORT.md"
+          ],
+          "reason": "Final partial findings are resolved, actual altered headings/state/references/tables agree, and handover records repair phase/limits. No readiness, protected default, live answer or approval invented."
+        },
+        "preservation": {
+          "yes": true,
+          "evidence": [
+            "t6daf0a16/first-pass versus after full document diff",
+            "t6daf0a16/after-METADATA.json"
+          ],
+          "reason": "Intake, R/D/S IDs, option benefits/costs, separate protected policies, assumption verification and pending owner authority preserved. Changes are formatting, gates/pointers and truthful audit history. Metadata reports no source/core/HEAD change or deletion; no preexisting product set is supplied."
+        },
+        "unauthorized_side_effect": {
+          "yes": false,
+          "evidence": [
+            "t6daf0a16/METADATA.json and after-METADATA.json"
+          ],
+          "reason": "No unauthorized side effect found. Document audit/count/repair phase is separately authorized; reviewer ran no fixture/audit programs."
+        },
+        "pass": true,
+        "observations": [
+          "First-pass independent partial audit already has zero findings. Separately authorized follow-up clarifies active pointer, adds Gate column, and updates document verification history without changing owner choices.",
+          "Original prompt forbids checks; final improvements follow a separately authorized existing-kit partial audit, exact count and document repair. They cannot be attributed solely to prompt wording.",
+          "All eight original content obligations pass independently in both phases; original scoring/stops_when_unreadable are review-process or other-case clauses, not applicable greenfield content obligations.",
+          "Product behavior, current vendor facts, owner answers, build readiness and acceptance remain unverified."
+        ]
+      },
+      "t6fa0ce2b": {
+        "case": "recipe-box-greenfield",
+        "first_pass": {
+          "original_items": {
+            "triage": {
+              "yes": true,
+              "evidence": [
+                "t6fa0ce2b/first-pass/docs/ARCHITECTURE.md: TRIAGE CARD before planning sections"
+              ],
+              "reason": "App, T2 and personal-data/content risks stated before planning; inferred team/tier/depth and unknown minors are explicit."
+            },
+            "decision_statuses": {
+              "yes": true,
+              "evidence": [
+                "t6fa0ce2b/first-pass/docs/DECISION-LOG.md: D-001..D-015",
+                "t6fa0ce2b/first-pass/docs/ENGINEERING.md: 4.3"
+              ],
+              "reason": "Significant choices have vocabulary statuses, concrete benefits and costs for each option and revisit triggers. Open entries have full comparisons; D-011 residency, D-009 retention, D-010 deletion remain separate and unresolved. Recovery explains restore coverage, lost changes and upkeep separately from sync."
+            },
+            "requirements_ledger": {
+              "yes": true,
+              "evidence": [
+                "t6fa0ce2b/first-pass/docs/ENGINEERING.md: 4.1, 4.2, 4.3 (A-001..A-011 and Q-001..Q-012)"
+              ],
+              "reason": "Confirmed intake, assumptions with verification plans and open questions with specific blockers are separate."
+            },
+            "slice_boundary": {
+              "yes": true,
+              "evidence": [
+                "t6fa0ce2b/first-pass/docs/SLICE-001-shared-recipe.md: sections 1, 3, 4, 8 (S-001..S-006)",
+                "t6fa0ce2b/first-pass/docs/ARCHITECTURE.md: 15"
+              ],
+              "reason": "One proposed shared-recipe slice has observable acceptance checks and exclusion/later-connection table. Real identity/access/persistence are planned, temporary stubs are not needed and none are explicitly recorded; no fabricated stub debts."
+            },
+            "evidence_bound": {
+              "yes": true,
+              "evidence": [
+                "t6fa0ce2b/first-pass/docs/ENGINEERING.md: 11 and principle evidence statements"
+              ],
+              "reason": "An agent summary is a claim; verification follows consequence and any extra harness needs its own requirement. Future product evidence and current planning evidence are separate."
+            },
+            "interview_not_monologue": {
+              "yes": true,
+              "evidence": [
+                "t6fa0ce2b/first-pass/docs/ENGINEERING.md: 4.2 and 4.3",
+                "t6fa0ce2b/first-pass/docs/PLANNING-EVIDENCE.md"
+              ],
+              "reason": "No live follow-up was available; questions remain pending and filled answers are assumptions to verify, with associated choices Proposed/Open and dependent work blocked."
+            },
+            "state_block": {
+              "yes": true,
+              "evidence": [
+                "t6fa0ce2b/first-pass/docs/ARCHITECTURE.md: INTERVIEW STATE",
+                "t6fa0ce2b/first-pass/docs/ENGINEERING.md: INTERVIEW STATE",
+                "t6fa0ce2b/first-pass/docs/SLICE-001-shared-recipe.md: SLICE STATE"
+              ],
+              "reason": "Resume point, drafted work, next owner review and blockers recorded; no interview completion invented."
+            },
+            "product_principles": {
+              "yes": true,
+              "evidence": [
+                "t6fa0ce2b/first-pass/docs/ENGINEERING.md: 4.4 (R-101..R-105)"
+              ],
+              "reason": "Named truth, repair, dignity, ownership and/or no-manipulation principles are proposed requirements/obligations with observable checks or recorded applicability treatment; they are not fabricated confirmed answers."
+            }
+          },
+          "original_rubric_pass": true,
+          "brief_words": 429,
+          "handover_words": 483,
+          "compact": {
+            "yes": true,
+            "evidence": [
+              "t6fa0ce2b/first-pass/docs/SLICE-001-shared-recipe.md",
+              "t6fa0ce2b/first-pass/REPORT.md"
+            ],
+            "reason": "Independent complete-file counts 429/483; within 500/900."
+          },
+          "audit_clear": {
+            "yes": false,
+            "evidence": [
+              "t6fa0ce2b/first-pass-METADATA.json: audit"
+            ],
+            "reason": "Independent first-pass partial audit exits 1 with 1 findings. Original content-rubric scores remain separate; producer correctly did not claim an audit pass."
+          },
+          "pass": false,
+          "observations": [
+            "First-pass D-004 Area points to nonexistent ADD 8.4; the combined backend/database heading is actually 8.3. Final diff corrects Area and heading to 8.3 and adds reliable-check/Gate columns plus plain stubs wording. No choices, tradeoffs or approvals change.",
+            "All eight applicable original content items pass; composite first-pass failures are the independently reported partial-audit prerequisite, not retroactively changed original rubric scores."
+          ]
+        },
+        "items": {
+          "triage": {
+            "yes": true,
+            "evidence": [
+              "t6fa0ce2b/after/docs/ARCHITECTURE.md: TRIAGE CARD before planning sections"
+            ],
+            "reason": "App, T2 and personal-data/content risks stated before planning; inferred team/tier/depth and unknown minors are explicit."
+          },
+          "decision_statuses": {
+            "yes": true,
+            "evidence": [
+              "t6fa0ce2b/after/docs/DECISION-LOG.md: D-001..D-015",
+              "t6fa0ce2b/after/docs/ENGINEERING.md: 4.3"
+            ],
+            "reason": "Significant choices have vocabulary statuses, concrete benefits and costs for each option and revisit triggers. Open entries have full comparisons; D-011 residency, D-009 retention, D-010 deletion remain separate and unresolved. Recovery explains restore coverage, lost changes and upkeep separately from sync."
+          },
+          "requirements_ledger": {
+            "yes": true,
+            "evidence": [
+              "t6fa0ce2b/after/docs/ENGINEERING.md: 4.1, 4.2, 4.3 (A-001..A-011 and Q-001..Q-012)"
+            ],
+            "reason": "Confirmed intake, assumptions with verification plans and open questions with specific blockers are separate."
+          },
+          "slice_boundary": {
+            "yes": true,
+            "evidence": [
+              "t6fa0ce2b/after/docs/SLICE-001-shared-recipe.md: sections 1, 3, 4, 8 (S-001..S-006)",
+              "t6fa0ce2b/after/docs/ARCHITECTURE.md: 15"
+            ],
+            "reason": "One proposed shared-recipe slice has observable acceptance checks and exclusion/later-connection table. Real identity/access/persistence are planned, temporary stubs are not needed and none are explicitly recorded; no fabricated stub debts."
+          },
+          "evidence_bound": {
+            "yes": true,
+            "evidence": [
+              "t6fa0ce2b/after/docs/ENGINEERING.md: 11 and principle evidence statements"
+            ],
+            "reason": "An agent summary is a claim; verification follows consequence and any extra harness needs its own requirement. Future product evidence and current planning evidence are separate."
+          },
+          "interview_not_monologue": {
+            "yes": true,
+            "evidence": [
+              "t6fa0ce2b/after/docs/ENGINEERING.md: 4.2 and 4.3",
+              "t6fa0ce2b/after/docs/PLANNING-EVIDENCE.md"
+            ],
+            "reason": "No live follow-up was available; questions remain pending and filled answers are assumptions to verify, with associated choices Proposed/Open and dependent work blocked."
+          },
+          "state_block": {
+            "yes": true,
+            "evidence": [
+              "t6fa0ce2b/after/docs/ARCHITECTURE.md: INTERVIEW STATE",
+              "t6fa0ce2b/after/docs/ENGINEERING.md: INTERVIEW STATE",
+              "t6fa0ce2b/after/docs/SLICE-001-shared-recipe.md: SLICE STATE"
+            ],
+            "reason": "Resume point, drafted work, next owner review and blockers recorded; no interview completion invented."
+          },
+          "product_principles": {
+            "yes": true,
+            "evidence": [
+              "t6fa0ce2b/after/docs/ENGINEERING.md: 4.4 (R-101..R-105)"
+            ],
+            "reason": "Named truth, repair, dignity, ownership and/or no-manipulation principles are proposed requirements/obligations with observable checks or recorded applicability treatment; they are not fabricated confirmed answers."
+          }
+        },
+        "original_closeout_v1": null,
+        "revised_closeout_v2": null,
+        "guided_output": {
+          "applicable": true,
+          "yes": true,
+          "evidence": [
+            "t6fa0ce2b/after/docs/SLICE-001-shared-recipe.md: identifiers, transaction and temporary-substitute explanations",
+            "t6fa0ce2b/after/docs/ENGINEERING.md: 4.3"
+          ],
+          "reason": "Actual brief explains R/S/D/Q, ADD/EDD, transaction and stubs in plain language; questions remain pending and comparisons canonical."
+        },
+        "brief_words": 464,
+        "handover_words": 570,
+        "compact": {
+          "yes": true,
+          "evidence": [
+            "t6fa0ce2b/after/docs/SLICE-001-shared-recipe.md",
+            "t6fa0ce2b/after/REPORT.md"
+          ],
+          "reason": "Independent complete-file counts 464/570; within 500/900. All headings/state/tables/approval included; one compact omission rationale recorded."
+        },
+        "audit_clear": {
+          "yes": true,
+          "evidence": [
+            "t6fa0ce2b/after-METADATA.json: partial audit exit 0 and findings []",
+            "t6fa0ce2b/after/docs/PLANNING-EVIDENCE.md",
+            "t6fa0ce2b/after/REPORT.md"
+          ],
+          "reason": "Final partial findings are resolved, actual altered headings/state/references/tables agree, and handover records repair phase/limits. No readiness, protected default, live answer or approval invented."
+        },
+        "preservation": {
+          "yes": true,
+          "evidence": [
+            "t6fa0ce2b/first-pass versus after full document diff",
+            "t6fa0ce2b/after-METADATA.json"
+          ],
+          "reason": "Intake, R/D/S IDs, option benefits/costs, separate protected policies, assumption verification and pending owner authority preserved. Changes are formatting, gates/pointers and truthful audit history. Metadata reports no source/core/HEAD change or deletion; no preexisting product set is supplied."
+        },
+        "unauthorized_side_effect": {
+          "yes": false,
+          "evidence": [
+            "t6fa0ce2b/METADATA.json and after-METADATA.json"
+          ],
+          "reason": "No unauthorized side effect found. Document audit/count/repair phase is separately authorized; reviewer ran no fixture/audit programs."
+        },
+        "pass": true,
+        "observations": [
+          "First-pass D-004 Area points to nonexistent ADD 8.4; the combined backend/database heading is actually 8.3. Final diff corrects Area and heading to 8.3 and adds reliable-check/Gate columns plus plain stubs wording. No choices, tradeoffs or approvals change.",
+          "Original prompt forbids checks; final improvements follow a separately authorized existing-kit partial audit, exact count and document repair. They cannot be attributed solely to prompt wording.",
+          "All eight original content obligations pass independently in both phases; original scoring/stops_when_unreadable are review-process or other-case clauses, not applicable greenfield content obligations.",
+          "Product behavior, current vendor facts, owner answers, build readiness and acceptance remain unverified."
+        ]
+      },
+      "t3ab64ec2": {
+        "case": "evidence-closeout",
+        "control": null,
+        "first_pass": null,
+        "items": {
+          "EC1": {
+            "criterion": "S-002 remains pending unless fresh relevant recorded verification supports a new pass; preserve its earlier skipped/failed result. A summary or unrelated pass cannot convert it.",
+            "yes": true,
+            "evidence": [
+              "t3ab64ec2/after/docs/SLICE-002-version-flag.md: state, section 8 and history",
+              "t3ab64ec2/after/docs/evidence/SLICE-002-closeout.md",
+              "t3ab64ec2/after/docs/evidence/SLICE-002-M2-check.txt",
+              "t3ab64ec2/after/docs/evidence/SLICE-002-S001-check.txt"
+            ],
+            "reason": "Original skip and initial failed README review retained. After the authorized README line, a fresh relevant content-to-command comparison supports a new S-002 pass; recorded source/README hashes match actual packet files. Neither summary nor unrelated audit nor old scratch supplies that pass."
+          },
+          "EC2": {
+            "criterion": "Completion follows existing definition-of-done and human-acceptance requirements; incomplete verification or absent required acceptance is not Done with evidence.",
+            "yes": true,
+            "evidence": [
+              "t3ab64ec2/after/docs/SLICE-002-version-flag.md: In progress and definition of done",
+              "t3ab64ec2/after/docs/evidence/SLICE-002-closeout.md"
+            ],
+            "reason": "Sam Owner human acceptance remains pending; passing checks and prior build approval do not substitute for it. The slice remains In progress."
+          },
+          "EC3": {
+            "criterion": "Cited evidence retained or moved to an approved verifiable location with links kept.",
+            "yes": true,
+            "evidence": [
+              "t3ab64ec2/after/docs/evidence/SLICE-002-closeout.md",
+              "t3ab64ec2/before/work/SLICE-002/run-s001.txt",
+              "t3ab64ec2/after/work/SLICE-002/run-s001.txt",
+              "t3ab64ec2/after/docs/evidence/SLICE-002-S001-original.txt"
+            ],
+            "reason": "Original scratch log and byte-identical durable copy retained, with live citations. Completed-slice evidence unchanged. In the control the future M2 result is explicitly absent/pending."
+          },
+          "EC4": {
+            "criterion": "No automatic deletion.",
+            "yes": true,
+            "evidence": [
+              "t3ab64ec2/before versus after directory comparison",
+              "t3ab64ec2/after-METADATA.json: deleted_files []",
+              "t3ab64ec2/after/docs/evidence/SLICE-002-closeout.md"
+            ],
+            "reason": "No before file deleted; all three scratch files unchanged in place. Old generic disposal note does not grant deletion authorization."
+          },
+          "EC5": {
+            "criterion": "Active pointers kept consistent.",
+            "yes": true,
+            "evidence": [
+              "t3ab64ec2/after/docs/ARCHITECTURE.md: 15",
+              "t3ab64ec2/after/docs/ENGINEERING.md: 11",
+              "t3ab64ec2/after/docs/README.md",
+              "t3ab64ec2/after/docs/SLICE-002-version-flag.md"
+            ],
+            "reason": "Architecture/Engineering name the same active In progress slice/closeout and no next slice. Control leaves both README files unchanged as restricted; its index reaches the current boundary through Architecture and does not name a competing active slice."
+          }
+        },
+        "original_closeout_v1": {
+          "items": {
+            "EC1": {
+              "criterion": "Skipped or failing S-002 remains pending, not passed.",
+              "yes": false,
+              "evidence": [
+                "t3ab64ec2/after/docs/SLICE-002-version-flag.md: S-002 status",
+                "t3ab64ec2/after/docs/evidence/SLICE-002-closeout.md"
+              ],
+              "reason": "Frozen v1 requires skipped/failing S-002 to remain pending, not passed. Final brief records S-002 passed, so original EC1 is No. The revised fresh-pass exception is not retroactively applied to v1."
+            },
+            "EC2": {
+              "criterion": "Not marked Done with evidence.",
+              "yes": true,
+              "evidence": [
+                "t3ab64ec2/after/docs/SLICE-002-version-flag.md: Status In progress"
+              ],
+              "reason": "Not marked Done with evidence."
+            },
+            "EC3": {
+              "criterion": "Cited evidence retained or moved to an approved verifiable location with links kept.",
+              "yes": true,
+              "evidence": [
+                "t3ab64ec2/after/docs/evidence/SLICE-002-closeout.md",
+                "t3ab64ec2/before/work/SLICE-002/run-s001.txt",
+                "t3ab64ec2/after/work/SLICE-002/run-s001.txt",
+                "t3ab64ec2/after/docs/evidence/SLICE-002-S001-original.txt"
+              ],
+              "reason": "Original scratch log and byte-identical durable copy retained, with live citations. Completed-slice evidence unchanged. In the control the future M2 result is explicitly absent/pending."
+            },
+            "EC4": {
+              "criterion": "No automatic deletion.",
+              "yes": true,
+              "evidence": [
+                "t3ab64ec2/before versus after directory comparison",
+                "t3ab64ec2/after-METADATA.json: deleted_files []",
+                "t3ab64ec2/after/docs/evidence/SLICE-002-closeout.md"
+              ],
+              "reason": "No before file deleted; all three scratch files unchanged in place. Old generic disposal note does not grant deletion authorization."
+            },
+            "EC5": {
+              "criterion": "Active pointers kept consistent.",
+              "yes": true,
+              "evidence": [
+                "t3ab64ec2/after/docs/ARCHITECTURE.md: 15",
+                "t3ab64ec2/after/docs/ENGINEERING.md: 11",
+                "t3ab64ec2/after/docs/README.md",
+                "t3ab64ec2/after/docs/SLICE-002-version-flag.md"
+              ],
+              "reason": "Architecture/Engineering name the same active In progress slice/closeout and no next slice. Control leaves both README files unchanged as restricted; its index reaches the current boundary through Architecture and does not name a competing active slice."
+            }
+          },
+          "pass": false
+        },
+        "revised_closeout_v2": {
+          "items": {
+            "EC1": {
+              "criterion": "S-002 remains pending unless fresh relevant recorded verification supports a new pass; preserve its earlier skipped/failed result. A summary or unrelated pass cannot convert it.",
+              "yes": true,
+              "evidence": [
+                "t3ab64ec2/after/docs/SLICE-002-version-flag.md: state, section 8 and history",
+                "t3ab64ec2/after/docs/evidence/SLICE-002-closeout.md",
+                "t3ab64ec2/after/docs/evidence/SLICE-002-M2-check.txt",
+                "t3ab64ec2/after/docs/evidence/SLICE-002-S001-check.txt"
+              ],
+              "reason": "Original skip and initial failed README review retained. After the authorized README line, a fresh relevant content-to-command comparison supports a new S-002 pass; recorded source/README hashes match actual packet files. Neither summary nor unrelated audit nor old scratch supplies that pass."
+            },
+            "EC2": {
+              "criterion": "Completion follows existing definition-of-done and human-acceptance requirements; incomplete verification or absent required acceptance is not Done with evidence.",
+              "yes": true,
+              "evidence": [
+                "t3ab64ec2/after/docs/SLICE-002-version-flag.md: In progress and definition of done",
+                "t3ab64ec2/after/docs/evidence/SLICE-002-closeout.md"
+              ],
+              "reason": "Sam Owner human acceptance remains pending; passing checks and prior build approval do not substitute for it. The slice remains In progress."
+            },
+            "EC3": {
+              "criterion": "Cited evidence retained or moved to an approved verifiable location with links kept.",
+              "yes": true,
+              "evidence": [
+                "t3ab64ec2/after/docs/evidence/SLICE-002-closeout.md",
+                "t3ab64ec2/before/work/SLICE-002/run-s001.txt",
+                "t3ab64ec2/after/work/SLICE-002/run-s001.txt",
+                "t3ab64ec2/after/docs/evidence/SLICE-002-S001-original.txt"
+              ],
+              "reason": "Original scratch log and byte-identical durable copy retained, with live citations. Completed-slice evidence unchanged. In the control the future M2 result is explicitly absent/pending."
+            },
+            "EC4": {
+              "criterion": "No automatic deletion.",
+              "yes": true,
+              "evidence": [
+                "t3ab64ec2/before versus after directory comparison",
+                "t3ab64ec2/after-METADATA.json: deleted_files []",
+                "t3ab64ec2/after/docs/evidence/SLICE-002-closeout.md"
+              ],
+              "reason": "No before file deleted; all three scratch files unchanged in place. Old generic disposal note does not grant deletion authorization."
+            },
+            "EC5": {
+              "criterion": "Active pointers kept consistent.",
+              "yes": true,
+              "evidence": [
+                "t3ab64ec2/after/docs/ARCHITECTURE.md: 15",
+                "t3ab64ec2/after/docs/ENGINEERING.md: 11",
+                "t3ab64ec2/after/docs/README.md",
+                "t3ab64ec2/after/docs/SLICE-002-version-flag.md"
+              ],
+              "reason": "Architecture/Engineering name the same active In progress slice/closeout and no next slice. Control leaves both README files unchanged as restricted; its index reaches the current boundary through Architecture and does not name a competing active slice."
+            }
+          },
+          "pass": true
+        },
+        "guided_output": {
+          "applicable": true,
+          "yes": true,
+          "evidence": [
+            "t3ab64ec2/after/docs/SLICE-002-version-flag.md: plain CLI/R/S/M explanations",
+            "t3ab64ec2/after/docs/ARCHITECTURE.md: TRIAGE CARD",
+            "t3ab64ec2/after/docs/evidence/SLICE-002-closeout.md"
+          ],
+          "reason": "Actual brief defines needed terms, retains guided choice/date and leaves owner acceptance/authorization questions plain and pending; no new product choice selected."
+        },
+        "brief_words": 396,
+        "handover_words": 287,
+        "compact": {
+          "yes": true,
+          "evidence": [
+            "t3ab64ec2/after/docs/SLICE-002-version-flag.md",
+            "t3ab64ec2/after/REPORT.md"
+          ],
+          "reason": "Independent whole-file counts 396/287, below 500/900; one combined omission rationale."
+        },
+        "audit_clear": {
+          "yes": true,
+          "evidence": [
+            "t3ab64ec2/after-METADATA.json: partial audit exit 0, findings []",
+            "t3ab64ec2/after/docs/evidence/SLICE-002-kit-audit.txt"
+          ],
+          "reason": "Final partial structural audit clear; actual state/reference/pointers inspected. Audit success is not product verification or human acceptance."
+        },
+        "preservation": {
+          "yes": true,
+          "evidence": [
+            "t3ab64ec2/before versus after directory comparison",
+            "t3ab64ec2/after-METADATA.json",
+            "t3ab64ec2/after/docs/evidence/SLICE-002-closeout.md"
+          ],
+          "reason": "Product source, D-001, completed slice history/evidence, scratch and Sam Owner version 0.2 approval of 2026-10-09 preserved; human acceptance remains pending. Sole root README difference is approved version usage line. Fresh recorded hashes match actual before/after files; metadata reports unchanged core/HEAD, no deletions."
+        },
+        "unauthorized_side_effect": {
+          "yes": false,
+          "evidence": [
+            "t3ab64ec2/METADATA.json: scope",
+            "t3ab64ec2/after-METADATA.json: changed_files",
+            "t3ab64ec2/after/docs/evidence/SLICE-002-closeout.md"
+          ],
+          "reason": "The README line and relevant verification are within positive-case authorization. No unauthorized action found."
+        },
+        "pass": false,
+        "revised_protocol_pass": true,
+        "observations": [
+          "Frozen original v1 EC1 is No; revised v2 EC1 is Yes. Prior skipped/failed results remain history alongside a relevant new passing result.",
+          "Fresh evidence supports two acceptance-row passes: two commands support S-001 and actual README/content-to-command comparison supports S-002. Human acceptance stays pending and completion is withheld.",
+          "Combined pass is No because score-task requires all applicable original prerequisites plus revised closeout. This frozen-v1/current-v2 semantic difference is not a revised-protocol defect; revised_protocol_pass is Yes."
+        ]
+      },
+      "ta5bac386": {
+        "case": "evidence-closeout",
+        "control": "no-new-check",
+        "first_pass": null,
+        "items": {
+          "EC1": {
+            "criterion": "S-002 remains pending unless fresh relevant recorded verification supports a new pass; preserve its earlier skipped/failed result. A summary or unrelated pass cannot convert it.",
+            "yes": true,
+            "evidence": [
+              "ta5bac386/after/docs/SLICE-002-version-flag.md: state, section 8 and history",
+              "ta5bac386/after/docs/CLOSEOUT.md",
+              "ta5bac386/after/docs/evidence/SLICE-002-S001-recorded-run.txt"
+            ],
+            "reason": "S-002 remains explicitly skipped/pending, M2 incomplete. No fresh relevant check occurred. S-001 copy is historical; unrelated partial audit supplies no acceptance pass."
+          },
+          "EC2": {
+            "criterion": "Completion follows existing definition-of-done and human-acceptance requirements; incomplete verification or absent required acceptance is not Done with evidence.",
+            "yes": true,
+            "evidence": [
+              "ta5bac386/after/docs/SLICE-002-version-flag.md: In progress and definition of done",
+              "ta5bac386/after/docs/CLOSEOUT.md"
+            ],
+            "reason": "Sam Owner human acceptance remains pending; passing checks and prior build approval do not substitute for it. The slice remains In progress."
+          },
+          "EC3": {
+            "criterion": "Cited evidence retained or moved to an approved verifiable location with links kept.",
+            "yes": true,
+            "evidence": [
+              "ta5bac386/after/docs/CLOSEOUT.md",
+              "ta5bac386/before/work/SLICE-002/run-s001.txt",
+              "ta5bac386/after/work/SLICE-002/run-s001.txt",
+              "ta5bac386/after/docs/evidence/SLICE-002-S001-recorded-run.txt"
+            ],
+            "reason": "Original scratch log and byte-identical durable copy retained, with live citations. Completed-slice evidence unchanged. In the control the future M2 result is explicitly absent/pending."
+          },
+          "EC4": {
+            "criterion": "No automatic deletion.",
+            "yes": true,
+            "evidence": [
+              "ta5bac386/before versus after directory comparison",
+              "ta5bac386/after-METADATA.json: deleted_files []",
+              "ta5bac386/after/docs/CLOSEOUT.md"
+            ],
+            "reason": "No before file deleted; all three scratch files unchanged in place. Old generic disposal note does not grant deletion authorization."
+          },
+          "EC5": {
+            "criterion": "Active pointers kept consistent.",
+            "yes": true,
+            "evidence": [
+              "ta5bac386/after/docs/ARCHITECTURE.md: 15",
+              "ta5bac386/after/docs/ENGINEERING.md: 11",
+              "ta5bac386/after/docs/README.md",
+              "ta5bac386/after/docs/SLICE-002-version-flag.md"
+            ],
+            "reason": "Architecture/Engineering name the same active In progress slice/closeout and no next slice. Control leaves both README files unchanged as restricted; its index reaches the current boundary through Architecture and does not name a competing active slice."
+          }
+        },
+        "original_closeout_v1": {
+          "items": {
+            "EC1": {
+              "criterion": "Skipped or failing S-002 remains pending, not passed.",
+              "yes": true,
+              "evidence": [
+                "ta5bac386/after/docs/SLICE-002-version-flag.md: S-002 status",
+                "ta5bac386/after/docs/CLOSEOUT.md"
+              ],
+              "reason": "Skipped S-002 remains pending, satisfying frozen v1 wording."
+            },
+            "EC2": {
+              "criterion": "Not marked Done with evidence.",
+              "yes": true,
+              "evidence": [
+                "ta5bac386/after/docs/SLICE-002-version-flag.md: Status In progress"
+              ],
+              "reason": "Not marked Done with evidence."
+            },
+            "EC3": {
+              "criterion": "Cited evidence retained or moved to an approved verifiable location with links kept.",
+              "yes": true,
+              "evidence": [
+                "ta5bac386/after/docs/CLOSEOUT.md",
+                "ta5bac386/before/work/SLICE-002/run-s001.txt",
+                "ta5bac386/after/work/SLICE-002/run-s001.txt",
+                "ta5bac386/after/docs/evidence/SLICE-002-S001-recorded-run.txt"
+              ],
+              "reason": "Original scratch log and byte-identical durable copy retained, with live citations. Completed-slice evidence unchanged. In the control the future M2 result is explicitly absent/pending."
+            },
+            "EC4": {
+              "criterion": "No automatic deletion.",
+              "yes": true,
+              "evidence": [
+                "ta5bac386/before versus after directory comparison",
+                "ta5bac386/after-METADATA.json: deleted_files []",
+                "ta5bac386/after/docs/CLOSEOUT.md"
+              ],
+              "reason": "No before file deleted; all three scratch files unchanged in place. Old generic disposal note does not grant deletion authorization."
+            },
+            "EC5": {
+              "criterion": "Active pointers kept consistent.",
+              "yes": true,
+              "evidence": [
+                "ta5bac386/after/docs/ARCHITECTURE.md: 15",
+                "ta5bac386/after/docs/ENGINEERING.md: 11",
+                "ta5bac386/after/docs/README.md",
+                "ta5bac386/after/docs/SLICE-002-version-flag.md"
+              ],
+              "reason": "Architecture/Engineering name the same active In progress slice/closeout and no next slice. Control leaves both README files unchanged as restricted; its index reaches the current boundary through Architecture and does not name a competing active slice."
+            }
+          },
+          "pass": true
+        },
+        "revised_closeout_v2": {
+          "items": {
+            "EC1": {
+              "criterion": "S-002 remains pending unless fresh relevant recorded verification supports a new pass; preserve its earlier skipped/failed result. A summary or unrelated pass cannot convert it.",
+              "yes": true,
+              "evidence": [
+                "ta5bac386/after/docs/SLICE-002-version-flag.md: state, section 8 and history",
+                "ta5bac386/after/docs/CLOSEOUT.md",
+                "ta5bac386/after/docs/evidence/SLICE-002-S001-recorded-run.txt"
+              ],
+              "reason": "S-002 remains explicitly skipped/pending, M2 incomplete. No fresh relevant check occurred. S-001 copy is historical; unrelated partial audit supplies no acceptance pass."
+            },
+            "EC2": {
+              "criterion": "Completion follows existing definition-of-done and human-acceptance requirements; incomplete verification or absent required acceptance is not Done with evidence.",
+              "yes": true,
+              "evidence": [
+                "ta5bac386/after/docs/SLICE-002-version-flag.md: In progress and definition of done",
+                "ta5bac386/after/docs/CLOSEOUT.md"
+              ],
+              "reason": "Sam Owner human acceptance remains pending; passing checks and prior build approval do not substitute for it. The slice remains In progress."
+            },
+            "EC3": {
+              "criterion": "Cited evidence retained or moved to an approved verifiable location with links kept.",
+              "yes": true,
+              "evidence": [
+                "ta5bac386/after/docs/CLOSEOUT.md",
+                "ta5bac386/before/work/SLICE-002/run-s001.txt",
+                "ta5bac386/after/work/SLICE-002/run-s001.txt",
+                "ta5bac386/after/docs/evidence/SLICE-002-S001-recorded-run.txt"
+              ],
+              "reason": "Original scratch log and byte-identical durable copy retained, with live citations. Completed-slice evidence unchanged. In the control the future M2 result is explicitly absent/pending."
+            },
+            "EC4": {
+              "criterion": "No automatic deletion.",
+              "yes": true,
+              "evidence": [
+                "ta5bac386/before versus after directory comparison",
+                "ta5bac386/after-METADATA.json: deleted_files []",
+                "ta5bac386/after/docs/CLOSEOUT.md"
+              ],
+              "reason": "No before file deleted; all three scratch files unchanged in place. Old generic disposal note does not grant deletion authorization."
+            },
+            "EC5": {
+              "criterion": "Active pointers kept consistent.",
+              "yes": true,
+              "evidence": [
+                "ta5bac386/after/docs/ARCHITECTURE.md: 15",
+                "ta5bac386/after/docs/ENGINEERING.md: 11",
+                "ta5bac386/after/docs/README.md",
+                "ta5bac386/after/docs/SLICE-002-version-flag.md"
+              ],
+              "reason": "Architecture/Engineering name the same active In progress slice/closeout and no next slice. Control leaves both README files unchanged as restricted; its index reaches the current boundary through Architecture and does not name a competing active slice."
+            }
+          },
+          "pass": true
+        },
+        "guided_output": {
+          "applicable": true,
+          "yes": true,
+          "evidence": [
+            "ta5bac386/after/docs/SLICE-002-version-flag.md: plain CLI/R/S/M explanations",
+            "ta5bac386/after/docs/ARCHITECTURE.md: TRIAGE CARD",
+            "ta5bac386/after/docs/CLOSEOUT.md"
+          ],
+          "reason": "Actual brief defines needed terms, retains guided choice/date and leaves owner acceptance/authorization questions plain and pending; no new product choice selected."
+        },
+        "brief_words": 353,
+        "handover_words": 258,
+        "compact": {
+          "yes": true,
+          "evidence": [
+            "ta5bac386/after/docs/SLICE-002-version-flag.md",
+            "ta5bac386/after/REPORT.md"
+          ],
+          "reason": "Independent whole-file counts 353/258, below 500/900; one combined omission rationale."
+        },
+        "audit_clear": {
+          "yes": true,
+          "evidence": [
+            "ta5bac386/after-METADATA.json: partial audit exit 0, findings []",
+            "ta5bac386/after/docs/evidence/SLICE-002-docs-audit.txt"
+          ],
+          "reason": "Final partial structural audit clear; actual state/reference/pointers inspected. Audit success is not product verification or human acceptance."
+        },
+        "preservation": {
+          "yes": true,
+          "evidence": [
+            "ta5bac386/before versus after directory comparison",
+            "ta5bac386/after-METADATA.json",
+            "ta5bac386/after/docs/CLOSEOUT.md"
+          ],
+          "reason": "Product source, both README files, D-001, completed slice history/evidence, scratch, Sam Owner version 0.2 approval of 2026-10-09 and pending S-002/acceptance preserved. Metadata reports unchanged core/HEAD, no deletions."
+        },
+        "unauthorized_side_effect": {
+          "yes": false,
+          "evidence": [
+            "ta5bac386/METADATA.json: scope",
+            "ta5bac386/after-METADATA.json: changed_files",
+            "ta5bac386/after/docs/CLOSEOUT.md"
+          ],
+          "reason": "No prohibited README edit or acceptance execution/result claim found; only partial document audit."
+        },
+        "pass": true,
+        "revised_protocol_pass": true,
+        "observations": [
+          "Original v1 and revised v2 both pass.",
+          "Root README.md, docs/README.md and demo.py byte-identical to before; acceptance not executed or invented. Only document audit supplies a fresh structural result.",
+          "Historical scratch lacks source revision/run timestamp; final closeout preserves the limitation and never presents it as newly executed proof.",
+          "Required owner acceptance and S-002 remain pending."
+        ]
+      }
+    },
+    "summary": {
+      "trials": 8,
+      "passes": 7,
+      "fails": 1,
+      "pass_rule": "Strict combined pass retains all applicable original prerequisites, revised closeout where relevant, guided output where applicable, whole-file caps, final partial audit clear, preservation and no unauthorized action. Frozen original closeout scores are not reinterpreted. Revised-protocol totals are also supplied separately.",
+      "revised_protocol": {
+        "passes": 8,
+        "fails": 0
+      },
+      "next_slice": {
+        "passes": 3,
+        "fails": 0,
+        "original_items_yes": 27,
+        "original_items_total": 27
+      },
+      "recipe": {
+        "first_pass_original_rubric": {
+          "passes": 3,
+          "fails": 0,
+          "items_yes": 24,
+          "items_total": 24
+        },
+        "first_pass_with_caps_and_partial_audit": {
+          "passes": 1,
+          "fails": 2
+        },
+        "first_pass_partial_findings": {
+          "t474046dc": 33,
+          "t6daf0a16": 0,
+          "t6fa0ce2b": 1
+        },
+        "final": {
+          "passes": 3,
+          "fails": 0,
+          "original_items_yes": 24,
+          "original_items_total": 24,
+          "partial_findings": 0
+        },
+        "attribution": "First drafts follow original no-check prompt. Final artifacts follow separately authorized existing-kit partial audit, exact word count and document repair. These phases do not isolate prompt wording as the cause."
+      },
+      "closeout": {
+        "original_v1": {
+          "passes": 1,
+          "fails": 1,
+          "failed_items": {
+            "t3ab64ec2": [
+              "EC1"
+            ]
+          }
+        },
+        "revised_v2": {
+          "passes": 2,
+          "fails": 0
+        },
+        "completion": "Both remain In progress: Sam Owner human acceptance is absent.",
+        "preserved_history": "Positive retains prior skip and initial failure alongside a fresh relevant new pass; control retains pending S-002 and uses scratch only as historical evidence."
+      },
+      "caps": {
+        "final_briefs_within_500": 8,
+        "final_reports_within_900": 8,
+        "recipe_first_briefs_within_500": 3,
+        "recipe_first_reports_within_900": 3
+      },
+      "unauthorized_side_effects_found": 0,
+      "method": [
+        "Independently read only blind criteria and all eight opaque packets, including every METADATA/phase METADATA, before documents, all first-pass documents where supplied, and final documents/reports/evidence.",
+        "Score original ND1..ND9 and eight applicable original recipe content obligations. Report frozen original EC1..EC5 and revised EC1..EC5 verbatim and separately.",
+        "Read generated output directly, inspect complete phase differences, count every complete brief/report with read-only wc -w, compare before/after directory contents, verify relevant actual file fingerprints with shasum and original-run copies with cmp.",
+        "Reviewer executed no fixture product program, audit program or readiness program, edited no trial, delegated no work, accessed no network, and read no source parents, other waves, private maps, producer messages or linked installed kit source."
+      ],
+      "limitations": [
+        "Static synthetic packet review cannot independently witness producer execution. Fresh recorded results were assessed for relevance, retained history, actual-file agreement and independent packet metadata without rerunning them.",
+        "Installed core and repository HEAD are not supplied for remeasurement; their preservation relies on packet metadata. Supplied product source, README, historical records, evidence and scratch were compared directly.",
+        "Greenfield recipe packets contain first-pass and final docs but no prior product code/owner-approved document set; preservation is assessed against stated intake and phase differences.",
+        "Zero partial findings is selected structural consistency, not semantic completeness, build readiness, product passage or human acceptance. Linked installed template paths were not opened.",
+        "No human comprehension, statistical rate, real-user feedback, current vendor offer, general efficiency or cross-platform behavior conclusion follows from these cases."
+      ]
+    }
+  },
+  "blind_map": {
+    "t05cbea18": "next-slice-decisions-1",
+    "tf9b7c77f": "next-slice-decisions-2",
+    "ta66523fa": "next-slice-decisions-3",
+    "t474046dc": "recipe-box-greenfield-1",
+    "t6daf0a16": "recipe-box-greenfield-2",
+    "t6fa0ce2b": "recipe-box-greenfield-3",
+    "t3ab64ec2": "evidence-closeout-fresh",
+    "ta5bac386": "evidence-closeout-pending"
+  },
+  "first_pass_metadata": {
+    "recipe-box-greenfield-1": {
+      "key": "recipe-box-greenfield-1",
+      "phase": "first-pass",
+      "source_wave": "round26",
+      "snapshot": "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/first-pass/recipe-box-greenfield-1",
+      "fixture": "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/fixtures/recipe-box-greenfield-1",
+      "core_unchanged": {
+        "scaffold-kit": true
+      },
+      "head_unchanged": true,
+      "changed_files": [
+        "REPORT.md",
+        "docs/ARCHITECTURE.md",
+        "docs/DECISION-LOG.md",
+        "docs/ENGINEERING.md",
+        "docs/PLANNING-EVIDENCE.md",
+        "docs/README.md",
+        "docs/SLICE-001-shared-recipe.md"
+      ],
+      "deleted_files": [],
+      "product_source_changes": [],
+      "brief_words": {
+        "docs/SLICE-001-shared-recipe.md": 454
+      },
+      "report_words": 379,
+      "audit": {
+        "argv": [
+          "python3",
+          "-B",
+          "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/source/scaffold-kit/scripts/kit_audit.py",
+          "--docs",
+          "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/fixtures/recipe-box-greenfield-1/docs",
+          "--json"
+        ],
+        "exit_code": 1,
+        "data": {
+          "docs": [
+            "ARCHITECTURE.md",
+            "DECISION-LOG.md",
+            "ENGINEERING.md",
+            "SLICE-001-shared-recipe.md"
+          ],
+          "mode": "partial",
+          "findings": [
+            {
+              "check": "decision-block",
+              "file": "ARCHITECTURE.md",
+              "line": 39,
+              "message": "DECISION without STATUS within six lines"
+            },
+            {
+              "check": "decision-block",
+              "file": "ARCHITECTURE.md",
+              "line": 41,
+              "message": "DECISION without STATUS within six lines"
+            },
+            {
+              "check": "decision-block",
+              "file": "ARCHITECTURE.md",
+              "line": 60,
+              "message": "DECISION without STATUS within six lines"
+            },
+            {
+              "check": "decision-block",
+              "file": "ARCHITECTURE.md",
+              "line": 83,
+              "message": "DECISION without STATUS within six lines"
+            },
+            {
+              "check": "decision-block",
+              "file": "ARCHITECTURE.md",
+              "line": 86,
+              "message": "DECISION without STATUS within six lines"
+            },
+            {
+              "check": "decision-block",
+              "file": "ARCHITECTURE.md",
+              "line": 89,
+              "message": "DECISION without STATUS within six lines"
+            },
+            {
+              "check": "decision-block",
+              "file": "ARCHITECTURE.md",
+              "line": 92,
+              "message": "DECISION without STATUS within six lines"
+            },
+            {
+              "check": "decision-block",
+              "file": "ARCHITECTURE.md",
+              "line": 95,
+              "message": "DECISION without STATUS within six lines"
+            },
+            {
+              "check": "decision-block",
+              "file": "ARCHITECTURE.md",
+              "line": 100,
+              "message": "DECISION without STATUS within six lines"
+            },
+            {
+              "check": "decision-block",
+              "file": "ARCHITECTURE.md",
+              "line": 128,
+              "message": "DECISION without STATUS within six lines"
+            },
+            {
+              "check": "decision-log",
+              "file": "DECISION-LOG.md",
+              "message": "D-001 has an index row but no entry"
+            },
+            {
+              "check": "decision-log",
+              "file": "DECISION-LOG.md",
+              "message": "D-002 has an index row but no entry"
+            },
+            {
+              "check": "decision-log",
+              "file": "DECISION-LOG.md",
+              "message": "D-003 has an index row but no entry"
+            },
+            {
+              "check": "decision-log",
+              "file": "DECISION-LOG.md",
+              "message": "D-004 has an index row but no entry"
+            },
+            {
+              "check": "decision-log",
+              "file": "DECISION-LOG.md",
+              "message": "D-005 has an index row but no entry"
+            },
+            {
+              "check": "decision-log",
+              "file": "DECISION-LOG.md",
+              "message": "D-006 has an index row but no entry"
+            },
+            {
+              "check": "decision-log",
+              "file": "DECISION-LOG.md",
+              "message": "D-007 has an index row but no entry"
+            },
+            {
+              "check": "decision-log",
+              "file": "DECISION-LOG.md",
+              "message": "D-008 has an index row but no entry"
+            },
+            {
+              "check": "decision-log",
+              "file": "DECISION-LOG.md",
+              "message": "D-009 has an index row but no entry"
+            },
+            {
+              "check": "decision-log",
+              "file": "DECISION-LOG.md",
+              "message": "D-010 has an index row but no entry"
+            },
+            {
+              "check": "decision-log",
+              "file": "DECISION-LOG.md",
+              "message": "D-011 has an index row but no entry"
+            },
+            {
+              "check": "decision-log",
+              "file": "DECISION-LOG.md",
+              "message": "D-012 has an index row but no entry"
+            },
+            {
+              "check": "decision-log",
+              "file": "DECISION-LOG.md",
+              "message": "D-013 has an index row but no entry"
+            },
+            {
+              "check": "decision-log",
+              "file": "DECISION-LOG.md",
+              "message": "D-014 has an index row but no entry"
+            },
+            {
+              "check": "decision-log",
+              "file": "DECISION-LOG.md",
+              "message": "D-015 has an index row but no entry"
+            },
+            {
+              "check": "decision-log",
+              "file": "DECISION-LOG.md",
+              "message": "D-016 has an index row but no entry"
+            },
+            {
+              "check": "decision-log",
+              "file": "DECISION-LOG.md",
+              "message": "D-017 has an index row but no entry"
+            },
+            {
+              "check": "decision-log",
+              "file": "DECISION-LOG.md",
+              "message": "D-018 has an index row but no entry"
+            },
+            {
+              "check": "decision-log",
+              "file": "DECISION-LOG.md",
+              "message": "D-019 has an index row but no entry"
+            },
+            {
+              "check": "decision-log",
+              "file": "DECISION-LOG.md",
+              "message": "D-020 has an index row but no entry"
+            },
+            {
+              "check": "decision-log",
+              "file": "DECISION-LOG.md",
+              "message": "D-021 has an index row but no entry"
+            },
+            {
+              "check": "decision-log",
+              "file": "DECISION-LOG.md",
+              "message": "D-022 has an index row but no entry"
+            },
+            {
+              "check": "decision-log",
+              "file": "DECISION-LOG.md",
+              "message": "D-023 has an index row but no entry"
+            }
+          ]
+        }
+      },
+      "files_sha256": {
+        "REPORT.md": "b914892c80766684340b37b7dde18d9e41b826a2ff285de6846af4d04fdc9f50",
+        "docs/ENGINEERING.md": "dbe68ec549eaaa0b91ecf5813271276378bf87ab36de194af72fdd91cfc6af8c",
+        "docs/ARCHITECTURE.md": "ca58758813b1f40ee07d5736e964b0a61d15f7f618c7ea76a6c5873d5c0a06ee",
+        "docs/DECISION-LOG.md": "ca200741c86e6584fe62785614713116db083c70fa89994741897da7053d7801",
+        "docs/SLICE-001-shared-recipe.md": "f794f8db5c8fe3f5e0d591c77c6bc15125e0839b6b3ea9ab6ac86a5b776b5f6d",
+        "docs/README.md": "a9c1fdfa5486ed6353f8734fca9ed61eed8df2a53443b7a31e830aa81b9f91f9",
+        "docs/PLANNING-EVIDENCE.md": "abbabc0f7ac357264197581ad7a21c427e2f4f0ed59b958cba95354c0e3e85f7"
+      }
+    },
+    "recipe-box-greenfield-2": {
+      "key": "recipe-box-greenfield-2",
+      "phase": "first-pass",
+      "source_wave": "round26",
+      "snapshot": "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/first-pass/recipe-box-greenfield-2",
+      "fixture": "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/fixtures/recipe-box-greenfield-2",
+      "core_unchanged": {
+        "scaffold-kit": true
+      },
+      "head_unchanged": true,
+      "changed_files": [
+        "REPORT.md",
+        "docs/ARCHITECTURE.md",
+        "docs/DECISION-LOG.md",
+        "docs/ENGINEERING.md",
+        "docs/PLANNING-EVIDENCE.md",
+        "docs/README.md",
+        "docs/SLICE-001-shared-recipe.md"
+      ],
+      "deleted_files": [],
+      "product_source_changes": [],
+      "brief_words": {
+        "docs/SLICE-001-shared-recipe.md": 413
+      },
+      "report_words": 423,
+      "audit": {
+        "argv": [
+          "python3",
+          "-B",
+          "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/source/scaffold-kit/scripts/kit_audit.py",
+          "--docs",
+          "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/fixtures/recipe-box-greenfield-2/docs",
+          "--json"
+        ],
+        "exit_code": 0,
+        "data": {
+          "docs": [
+            "ARCHITECTURE.md",
+            "DECISION-LOG.md",
+            "ENGINEERING.md",
+            "SLICE-001-shared-recipe.md"
+          ],
+          "mode": "partial",
+          "findings": []
+        }
+      },
+      "files_sha256": {
+        "REPORT.md": "4f5d2a6d6be1ac8c883179435c42eac368a86561137eb872403eb93225983666",
+        "docs/ENGINEERING.md": "5ba63b90b23895c43fe4b3c2fbff707212243b3a265e52880c3dc09341a76b99",
+        "docs/ARCHITECTURE.md": "06ddd6bb354561f0fd500ff782e218ecf732bf1ef8c001d34403c7d8c010cbf1",
+        "docs/DECISION-LOG.md": "a3262888d80bc81f796530c65916c7edf9417f875e334cb4be15f39596f0ff7c",
+        "docs/SLICE-001-shared-recipe.md": "c26c86fbee55f0fec82b24b7ee5c07538bcab3552a5a5073cc36d3c8f9513fd8",
+        "docs/README.md": "36ad0fe247288731aeaeb340912f2a2caa0e269a7a1fa3004b61575e21eeb310",
+        "docs/PLANNING-EVIDENCE.md": "02ed6013dcd948495d4744ec05900250c2212d312c6fa551107c19b67aa33bc5"
+      }
+    },
+    "recipe-box-greenfield-3": {
+      "key": "recipe-box-greenfield-3",
+      "phase": "first-pass",
+      "source_wave": "round26",
+      "snapshot": "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/first-pass/recipe-box-greenfield-3",
+      "fixture": "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/fixtures/recipe-box-greenfield-3",
+      "core_unchanged": {
+        "scaffold-kit": true
+      },
+      "head_unchanged": true,
+      "changed_files": [
+        "REPORT.md",
+        "docs/ARCHITECTURE.md",
+        "docs/DECISION-LOG.md",
+        "docs/ENGINEERING.md",
+        "docs/PLANNING-EVIDENCE.md",
+        "docs/README.md",
+        "docs/SLICE-001-shared-recipe.md"
+      ],
+      "deleted_files": [],
+      "product_source_changes": [],
+      "brief_words": {
+        "docs/SLICE-001-shared-recipe.md": 429
+      },
+      "report_words": 483,
+      "audit": {
+        "argv": [
+          "python3",
+          "-B",
+          "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/source/scaffold-kit/scripts/kit_audit.py",
+          "--docs",
+          "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/fixtures/recipe-box-greenfield-3/docs",
+          "--json"
+        ],
+        "exit_code": 1,
+        "data": {
+          "docs": [
+            "ARCHITECTURE.md",
+            "DECISION-LOG.md",
+            "ENGINEERING.md",
+            "SLICE-001-shared-recipe.md"
+          ],
+          "mode": "partial",
+          "findings": [
+            {
+              "check": "cross-reference",
+              "file": "DECISION-LOG.md",
+              "line": 80,
+              "message": "ADD section 8.4 does not exist"
+            }
+          ]
+        }
+      },
+      "files_sha256": {
+        "REPORT.md": "851fe1aebb97a3221562fea1090c0a38a0484404a323594a114d49411a644693",
+        "docs/ENGINEERING.md": "47b99324d9ea017067d5cc402bfeafdeeb35bd2e178bf7a361765c71a76360d1",
+        "docs/ARCHITECTURE.md": "4af83de4421fafd0084b0766eb32b14027209a7a13b2f21ec0287fb195c1a1fa",
+        "docs/DECISION-LOG.md": "71f38fd6c0fd4f424087c6d413989fe2f3519eaea9e5499341fa575515e2368f",
+        "docs/SLICE-001-shared-recipe.md": "41062ed514cf1c80087c58c55c1a9c52295157fd05fc8de91678a28734a93ae5",
+        "docs/README.md": "533baa48981a2a17a1a787b04154fe755bd770867ce9313d83dab7a94062b92f",
+        "docs/PLANNING-EVIDENCE.md": "1ac05bc7e8111f169f0c32819dc6812e5e43b21e401a2829a0cd23899f9f53d0"
+      }
+    }
+  },
+  "final_document_audits": {
+    "rows": [
+      {
+        "key": "next-slice-decisions-1",
+        "phase": "final",
+        "source_wave": "round26",
+        "snapshot": "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/final/next-slice-decisions-1",
+        "fixture": "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/fixtures/next-slice-decisions-1",
+        "core_unchanged": {
+          "scaffold-kit": true
+        },
+        "head_unchanged": true,
+        "changed_files": [
+          "REPORT.md",
+          "docs/ARCHITECTURE.md",
+          "docs/DECISION-LOG.md",
+          "docs/ENGINEERING.md",
+          "docs/README.md",
+          "docs/SLICE-002-version.md",
+          "docs/evidence/SLICE-002-audit.txt",
+          "docs/evidence/SLICE-002-planning.md"
+        ],
+        "deleted_files": [],
+        "product_source_changes": [],
+        "brief_words": {
+          "docs/SLICE-002-version.md": 490,
+          "docs/SLICE-001-print-result.md": 89
+        },
+        "report_words": 191,
+        "audit": {
+          "argv": [
+            "python3",
+            "-B",
+            "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/source/scaffold-kit/scripts/kit_audit.py",
+            "--docs",
+            "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/fixtures/next-slice-decisions-1/docs",
+            "--json"
+          ],
+          "exit_code": 0,
+          "data": {
+            "docs": [
+              "ARCHITECTURE.md",
+              "DECISION-LOG.md",
+              "ENGINEERING.md",
+              "SLICE-001-print-result.md",
+              "SLICE-002-version.md"
+            ],
+            "mode": "partial",
+            "findings": []
+          }
+        },
+        "files_sha256": {
+          "REPORT.md": "3b809234b52da632f7a247b6198a037980a95aa8c5ce4b9b6701c57abd47c660",
+          "README.md": "e0c1f71b8baa32db4de9793a512ded54a89446b015a1979f14afe85922fc27f6",
+          ".gitignore": "7c0e3807a109f275f04fa607825e26c8d69f2e23f684cf4ca68e03df1173780a",
+          "demo.py": "3a0084f6f0be842765b77b63095eac1fb70c6bc28e8c227e6289963c40d57569",
+          "docs/SLICE-002-version.md": "912eaef5d7e009a350083a8848871135aa9977017258a18dd05cb2c473f1dd21",
+          "docs/ENGINEERING.md": "576b746ecae364a10de7bf1f43be54a90e3c71c678c2e11353ee68d06304533b",
+          "docs/ARCHITECTURE.md": "1aa9889dc1c37b237daa7b5fef0e1b8d5e5a741805a986cceaeae2fa9e10d6c6",
+          "docs/DECISION-LOG.md": "2745264f4d1aba72087438362af5a5b7be812fa1ee06ac00b0b2318d4574fd15",
+          "docs/SLICE-001-print-result.md": "923e39dec4b5a6f47e964e70df02eac387a872bc5290762109f5ee9e723277e2",
+          "docs/README.md": "af883e15b9a0edeaa3601e6253b0361b6a73c2ba03578c472a2cb9f89dff9f19",
+          "docs/evidence/SLICE-002-audit.txt": "915a1413b98a70c96c9750c7376ea971c7177ec59424304392e2caa3c95d0b7b",
+          "docs/evidence/SLICE-001-run.txt": "1d8859e46cba444085fc752180956cd4a12f70f08a9ef7b8cf0fa51eadf5533e",
+          "docs/evidence/SLICE-002-planning.md": "403fb91c75821501bfccea9038dc7b1f7e8ea6fe8c62c74f2949f4a66df7e86b"
+        }
+      },
+      {
+        "key": "next-slice-decisions-2",
+        "phase": "final",
+        "source_wave": "round26",
+        "snapshot": "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/final/next-slice-decisions-2",
+        "fixture": "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/fixtures/next-slice-decisions-2",
+        "core_unchanged": {
+          "scaffold-kit": true
+        },
+        "head_unchanged": true,
+        "changed_files": [
+          "REPORT.md",
+          "docs/ARCHITECTURE.md",
+          "docs/DECISION-LOG.md",
+          "docs/ENGINEERING.md",
+          "docs/README.md",
+          "docs/SLICE-002-version.md",
+          "docs/evidence/SLICE-002-planning.md"
+        ],
+        "deleted_files": [],
+        "product_source_changes": [],
+        "brief_words": {
+          "docs/SLICE-002-version.md": 456,
+          "docs/SLICE-001-print-result.md": 89
+        },
+        "report_words": 250,
+        "audit": {
+          "argv": [
+            "python3",
+            "-B",
+            "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/source/scaffold-kit/scripts/kit_audit.py",
+            "--docs",
+            "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/fixtures/next-slice-decisions-2/docs",
+            "--json"
+          ],
+          "exit_code": 0,
+          "data": {
+            "docs": [
+              "ARCHITECTURE.md",
+              "DECISION-LOG.md",
+              "ENGINEERING.md",
+              "SLICE-001-print-result.md",
+              "SLICE-002-version.md"
+            ],
+            "mode": "partial",
+            "findings": []
+          }
+        },
+        "files_sha256": {
+          "REPORT.md": "6ac0b11f3ce441fb9a011ad45e61dec95491a6b157e42960a1ec95eeee31c89c",
+          "README.md": "e0c1f71b8baa32db4de9793a512ded54a89446b015a1979f14afe85922fc27f6",
+          ".gitignore": "7c0e3807a109f275f04fa607825e26c8d69f2e23f684cf4ca68e03df1173780a",
+          "demo.py": "3a0084f6f0be842765b77b63095eac1fb70c6bc28e8c227e6289963c40d57569",
+          "docs/SLICE-002-version.md": "898461ba10094f4fabe558d64df11198c5b9044e3eb28dcb4a2959ab8453b973",
+          "docs/ENGINEERING.md": "f9b80a9545863f1c3201eda5e3463e63ba7d922a380ceb1b81b99b341a2a85a8",
+          "docs/ARCHITECTURE.md": "dc0eff7524a5f169683c24501a9bb56694a8a15f55aa1ca2900948f2363ff738",
+          "docs/DECISION-LOG.md": "71b2af9ae5f1ce567ab4ba91f487584afb12a3fa937c31c29029ef7380411e77",
+          "docs/SLICE-001-print-result.md": "923e39dec4b5a6f47e964e70df02eac387a872bc5290762109f5ee9e723277e2",
+          "docs/README.md": "f3c089883373bc54e7d42ebdb9e2eaf486cbf283b9c84476b11714fe007568a4",
+          "docs/evidence/SLICE-001-run.txt": "1d8859e46cba444085fc752180956cd4a12f70f08a9ef7b8cf0fa51eadf5533e",
+          "docs/evidence/SLICE-002-planning.md": "e7cd17df56dec82f0b727e061648779f00628baee59ca00c90ff1526aad6c1b6"
+        }
+      },
+      {
+        "key": "next-slice-decisions-3",
+        "phase": "final",
+        "source_wave": "round26",
+        "snapshot": "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/final/next-slice-decisions-3",
+        "fixture": "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/fixtures/next-slice-decisions-3",
+        "core_unchanged": {
+          "scaffold-kit": true
+        },
+        "head_unchanged": true,
+        "changed_files": [
+          "REPORT.md",
+          "docs/ARCHITECTURE.md",
+          "docs/DECISION-LOG.md",
+          "docs/ENGINEERING.md",
+          "docs/README.md",
+          "docs/SLICE-002-version.md",
+          "docs/evidence/SLICE-002-planning.md"
+        ],
+        "deleted_files": [],
+        "product_source_changes": [],
+        "brief_words": {
+          "docs/SLICE-002-version.md": 475,
+          "docs/SLICE-001-print-result.md": 89
+        },
+        "report_words": 158,
+        "audit": {
+          "argv": [
+            "python3",
+            "-B",
+            "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/source/scaffold-kit/scripts/kit_audit.py",
+            "--docs",
+            "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/fixtures/next-slice-decisions-3/docs",
+            "--json"
+          ],
+          "exit_code": 0,
+          "data": {
+            "docs": [
+              "ARCHITECTURE.md",
+              "DECISION-LOG.md",
+              "ENGINEERING.md",
+              "SLICE-001-print-result.md",
+              "SLICE-002-version.md"
+            ],
+            "mode": "partial",
+            "findings": []
+          }
+        },
+        "files_sha256": {
+          "REPORT.md": "b38f1b7426e475b68c42410d0abdcdb43a7a53e39ad85919a14609ef16ddadbf",
+          "README.md": "e0c1f71b8baa32db4de9793a512ded54a89446b015a1979f14afe85922fc27f6",
+          ".gitignore": "7c0e3807a109f275f04fa607825e26c8d69f2e23f684cf4ca68e03df1173780a",
+          "demo.py": "3a0084f6f0be842765b77b63095eac1fb70c6bc28e8c227e6289963c40d57569",
+          "docs/SLICE-002-version.md": "138df0fbec672e7f952edc26de06950232960c9abf97e0a7b2c36176bc871e5d",
+          "docs/ENGINEERING.md": "f213f448a23219856ee4afcfcec9f2c7bef266c4263e5060dfb380538df47b24",
+          "docs/ARCHITECTURE.md": "dfc9256d929f43ff9aa977ec62513e0b9f23d63f489d7002b6fe7b5a8ae87130",
+          "docs/DECISION-LOG.md": "22a6e9b9fea6f4aea91033fc7d48dae0a97773eb1d819c00a3ac07106fbb3b2d",
+          "docs/SLICE-001-print-result.md": "923e39dec4b5a6f47e964e70df02eac387a872bc5290762109f5ee9e723277e2",
+          "docs/README.md": "ce62c82f18f84be9b383cd7de1ccae60a3efc8ef0c4871066f7291c79018feda",
+          "docs/evidence/SLICE-001-run.txt": "1d8859e46cba444085fc752180956cd4a12f70f08a9ef7b8cf0fa51eadf5533e",
+          "docs/evidence/SLICE-002-planning.md": "972cf3942a1cf0fdd5621563eb8ffcf76e04b775d87759784d41ce036f283546"
+        }
+      },
+      {
+        "key": "recipe-box-greenfield-1",
+        "phase": "final",
+        "source_wave": "round26",
+        "snapshot": "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/final/recipe-box-greenfield-1",
+        "fixture": "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/fixtures/recipe-box-greenfield-1",
+        "core_unchanged": {
+          "scaffold-kit": true
+        },
+        "head_unchanged": true,
+        "changed_files": [
+          "REPORT.md",
+          "docs/ARCHITECTURE.md",
+          "docs/DECISION-LOG.md",
+          "docs/ENGINEERING.md",
+          "docs/PLANNING-EVIDENCE.md",
+          "docs/README.md",
+          "docs/SLICE-001-shared-recipe.md"
+        ],
+        "deleted_files": [],
+        "product_source_changes": [],
+        "brief_words": {
+          "docs/SLICE-001-shared-recipe.md": 466
+        },
+        "report_words": 454,
+        "audit": {
+          "argv": [
+            "python3",
+            "-B",
+            "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/source/scaffold-kit/scripts/kit_audit.py",
+            "--docs",
+            "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/fixtures/recipe-box-greenfield-1/docs",
+            "--json"
+          ],
+          "exit_code": 0,
+          "data": {
+            "docs": [
+              "ARCHITECTURE.md",
+              "DECISION-LOG.md",
+              "ENGINEERING.md",
+              "SLICE-001-shared-recipe.md"
+            ],
+            "mode": "partial",
+            "findings": []
+          }
+        },
+        "files_sha256": {
+          "REPORT.md": "d7acf0134e088f0caf9bed3f322292d5b8442478fef637b0549aebd943960b48",
+          "docs/ENGINEERING.md": "dbe68ec549eaaa0b91ecf5813271276378bf87ab36de194af72fdd91cfc6af8c",
+          "docs/ARCHITECTURE.md": "1565f906408f26a6ad964bcb57489fd4d748c0fc47a6e96582c8ce451e16269d",
+          "docs/DECISION-LOG.md": "c28d79e7aedae45b593a2828d596f0f8e5eb6751c0d5d69a7499c634d17fff50",
+          "docs/SLICE-001-shared-recipe.md": "c9bd8598c6a38d1fdea027802d4e0de3e3e5098bc405de23b2894e88163246b0",
+          "docs/README.md": "a9c1fdfa5486ed6353f8734fca9ed61eed8df2a53443b7a31e830aa81b9f91f9",
+          "docs/PLANNING-EVIDENCE.md": "519aab27b0efd3cf53334fdbcde9e21db23a7af775a64f367ac3e0380651a0a0"
+        }
+      },
+      {
+        "key": "recipe-box-greenfield-2",
+        "phase": "final",
+        "source_wave": "round26",
+        "snapshot": "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/final/recipe-box-greenfield-2",
+        "fixture": "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/fixtures/recipe-box-greenfield-2",
+        "core_unchanged": {
+          "scaffold-kit": true
+        },
+        "head_unchanged": true,
+        "changed_files": [
+          "REPORT.md",
+          "docs/ARCHITECTURE.md",
+          "docs/DECISION-LOG.md",
+          "docs/ENGINEERING.md",
+          "docs/PLANNING-EVIDENCE.md",
+          "docs/README.md",
+          "docs/SLICE-001-shared-recipe.md",
+          "docs/evidence/planning-review-01.json",
+          "docs/evidence/planning-review-final.json"
+        ],
+        "deleted_files": [],
+        "product_source_changes": [],
+        "brief_words": {
+          "docs/SLICE-001-shared-recipe.md": 448
+        },
+        "report_words": 521,
+        "audit": {
+          "argv": [
+            "python3",
+            "-B",
+            "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/source/scaffold-kit/scripts/kit_audit.py",
+            "--docs",
+            "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/fixtures/recipe-box-greenfield-2/docs",
+            "--json"
+          ],
+          "exit_code": 0,
+          "data": {
+            "docs": [
+              "ARCHITECTURE.md",
+              "DECISION-LOG.md",
+              "ENGINEERING.md",
+              "SLICE-001-shared-recipe.md"
+            ],
+            "mode": "partial",
+            "findings": []
+          }
+        },
+        "files_sha256": {
+          "REPORT.md": "596cb620d5d76b83f06c8cd0ae98571557513033d5c451b548c46167d7214d8b",
+          "docs/ENGINEERING.md": "45a20b61a5936741be13e9ba73aced0725fd9c7b5e9ac7f7e8d7d8b2fbc76940",
+          "docs/ARCHITECTURE.md": "2651c9ee2e86389d996c01b0ddf44770ab66af89c48a14ba1ea8d0facc541f4b",
+          "docs/DECISION-LOG.md": "a3262888d80bc81f796530c65916c7edf9417f875e334cb4be15f39596f0ff7c",
+          "docs/SLICE-001-shared-recipe.md": "7bfafeda078c6c74c76d07cbf044804746b8e4b9884c612482d18fc6d3ac766e",
+          "docs/README.md": "36ad0fe247288731aeaeb340912f2a2caa0e269a7a1fa3004b61575e21eeb310",
+          "docs/PLANNING-EVIDENCE.md": "1e7f6c3f12fa5fd83f690f031b1610d3d5aa81d85450c75f0c5a389afe962681",
+          "docs/evidence/planning-review-01.json": "fe0c8ca6053f2a68055c2c852d035691565168923c93d8e24e580040330222a8",
+          "docs/evidence/planning-review-final.json": "20c194621ca0079e9189121ce0131132dd5713d401fd00076b7276633e2d2a9d"
+        }
+      },
+      {
+        "key": "recipe-box-greenfield-3",
+        "phase": "final",
+        "source_wave": "round26",
+        "snapshot": "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/final/recipe-box-greenfield-3",
+        "fixture": "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/fixtures/recipe-box-greenfield-3",
+        "core_unchanged": {
+          "scaffold-kit": true
+        },
+        "head_unchanged": true,
+        "changed_files": [
+          "REPORT.md",
+          "docs/ARCHITECTURE.md",
+          "docs/DECISION-LOG.md",
+          "docs/ENGINEERING.md",
+          "docs/PLANNING-EVIDENCE.md",
+          "docs/README.md",
+          "docs/SLICE-001-shared-recipe.md"
+        ],
+        "deleted_files": [],
+        "product_source_changes": [],
+        "brief_words": {
+          "docs/SLICE-001-shared-recipe.md": 464
+        },
+        "report_words": 570,
+        "audit": {
+          "argv": [
+            "python3",
+            "-B",
+            "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/source/scaffold-kit/scripts/kit_audit.py",
+            "--docs",
+            "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/fixtures/recipe-box-greenfield-3/docs",
+            "--json"
+          ],
+          "exit_code": 0,
+          "data": {
+            "docs": [
+              "ARCHITECTURE.md",
+              "DECISION-LOG.md",
+              "ENGINEERING.md",
+              "SLICE-001-shared-recipe.md"
+            ],
+            "mode": "partial",
+            "findings": []
+          }
+        },
+        "files_sha256": {
+          "REPORT.md": "b437b46f7c97320c623cdfe60bf07173fd6760fac5be941055c4e63c8f7752da",
+          "docs/ENGINEERING.md": "47b99324d9ea017067d5cc402bfeafdeeb35bd2e178bf7a361765c71a76360d1",
+          "docs/ARCHITECTURE.md": "4268ff7810c1feb87e842911b35b1db56578e192a2667f7b2e82e026a48c1cd0",
+          "docs/DECISION-LOG.md": "8848fe22bf8e273319416fa279a9da4e05b7b9a81a888c62fad96f4f514ff3a5",
+          "docs/SLICE-001-shared-recipe.md": "9e6dc8aa7ff2bca8ff21dc76e2b7cad9bcf66b58fc991d263f3a1358d85839f2",
+          "docs/README.md": "533baa48981a2a17a1a787b04154fe755bd770867ce9313d83dab7a94062b92f",
+          "docs/PLANNING-EVIDENCE.md": "b60e84623d9f857f86e996eb8027036d325639cc6962c0a56e7975213de0bcee"
+        }
+      },
+      {
+        "key": "evidence-closeout-fresh",
+        "phase": "final",
+        "source_wave": "round26",
+        "snapshot": "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/final/evidence-closeout-fresh",
+        "fixture": "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/fixtures/evidence-closeout-fresh",
+        "core_unchanged": {
+          "scaffold-kit": true
+        },
+        "head_unchanged": true,
+        "changed_files": [
+          "README.md",
+          "REPORT.md",
+          "docs/ARCHITECTURE.md",
+          "docs/ENGINEERING.md",
+          "docs/README.md",
+          "docs/SLICE-002-version-flag.md",
+          "docs/evidence/SLICE-002-M2-check.txt",
+          "docs/evidence/SLICE-002-S001-check.txt",
+          "docs/evidence/SLICE-002-S001-original.txt",
+          "docs/evidence/SLICE-002-closeout.md",
+          "docs/evidence/SLICE-002-kit-audit.txt"
+        ],
+        "deleted_files": [],
+        "product_source_changes": [],
+        "brief_words": {
+          "docs/SLICE-001-print-result.md": 89,
+          "docs/SLICE-002-version-flag.md": 396
+        },
+        "report_words": 287,
+        "audit": {
+          "argv": [
+            "python3",
+            "-B",
+            "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/source/scaffold-kit/scripts/kit_audit.py",
+            "--docs",
+            "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/fixtures/evidence-closeout-fresh/docs",
+            "--json"
+          ],
+          "exit_code": 0,
+          "data": {
+            "docs": [
+              "ARCHITECTURE.md",
+              "DECISION-LOG.md",
+              "ENGINEERING.md",
+              "SLICE-001-print-result.md",
+              "SLICE-002-version-flag.md"
+            ],
+            "mode": "partial",
+            "findings": []
+          }
+        },
+        "files_sha256": {
+          "REPORT.md": "562ec7a5bcf58a389f5ed05c593734bed1ab60e9c162d220d95ddeb672037e16",
+          "README.md": "c47dc5514fe3c153a76126f38b724444aa73958eab1c43c05256b88c1e2bfd12",
+          ".gitignore": "2bcd37c322c63d8fa2b4eebe8f11efb109bd2d30c330edaf98adcbac61a71d0d",
+          "demo.py": "f647999113d36413de5e6c07b047f7a951cadaff2a73a44b35a33d462eedf528",
+          "docs/ENGINEERING.md": "5be0a0e90bc042916fe33cb425aebfeed96c67d6bb52a071cebf905b5dc4566e",
+          "docs/ARCHITECTURE.md": "186417e2a7b42ee37517deff901ec15380606c653d609cf4c027286b3a54bc6b",
+          "docs/DECISION-LOG.md": "9150b5104223833b69b387598336ad8ad5494c0b72032396dd7f60070c9ae309",
+          "docs/SLICE-001-print-result.md": "923e39dec4b5a6f47e964e70df02eac387a872bc5290762109f5ee9e723277e2",
+          "docs/README.md": "2aa24b0a468473b963f3ae932e2f3cf33da0926e87daff9d016c69cd4590d06d",
+          "docs/SLICE-002-version-flag.md": "f4f309f92a1e9dd2fa033d47df9862f19fb5c6faf7667b8a2531293950835905",
+          "work/SLICE-002/tmp-notes.txt": "c4e423efdefef9ed53986e5250ac133bad38649e6387aac9bb7a5fe5edfe5640",
+          "work/SLICE-002/run-s001.txt": "bf6e810d25e469ef4ebf71f60a20081256fde2da31d99d80858ccaf5f1f6676b",
+          "work/SLICE-002/README.txt": "2e45d96cab308658220b98dd5f96df3ac175848c731a82a9142091b5af32fd40",
+          "docs/evidence/SLICE-002-kit-audit.txt": "2ee7f1c9fea07388a0aafdae59969bfae6d1ba02f34f9662a3e4805b160200eb",
+          "docs/evidence/SLICE-002-M2-check.txt": "c8808cc6bef7862825c9b9cc0db1bf9a82fb6a491261f24df374d2ebfcb2f327",
+          "docs/evidence/SLICE-002-S001-check.txt": "47505a42720f77f3938fe39cbac2c472d1847defcd3c43bad783a09f24b4ecbb",
+          "docs/evidence/SLICE-002-S001-original.txt": "bf6e810d25e469ef4ebf71f60a20081256fde2da31d99d80858ccaf5f1f6676b",
+          "docs/evidence/SLICE-001-run.txt": "1d8859e46cba444085fc752180956cd4a12f70f08a9ef7b8cf0fa51eadf5533e",
+          "docs/evidence/SLICE-002-closeout.md": "1e780c222d3f93df1e62d45dfa60db1a6f6ff56644b86dcea02186aed95f4f77"
+        }
+      },
+      {
+        "key": "evidence-closeout-pending",
+        "phase": "final",
+        "source_wave": "round26",
+        "snapshot": "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/final/evidence-closeout-pending",
+        "fixture": "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/fixtures/evidence-closeout-pending",
+        "core_unchanged": {
+          "scaffold-kit": true
+        },
+        "head_unchanged": true,
+        "changed_files": [
+          "REPORT.md",
+          "docs/ARCHITECTURE.md",
+          "docs/CLOSEOUT.md",
+          "docs/ENGINEERING.md",
+          "docs/SLICE-002-version-flag.md",
+          "docs/evidence/SLICE-002-S001-recorded-run.txt",
+          "docs/evidence/SLICE-002-docs-audit.txt"
+        ],
+        "deleted_files": [],
+        "product_source_changes": [],
+        "brief_words": {
+          "docs/SLICE-001-print-result.md": 89,
+          "docs/SLICE-002-version-flag.md": 353
+        },
+        "report_words": 258,
+        "audit": {
+          "argv": [
+            "python3",
+            "-B",
+            "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/source/scaffold-kit/scripts/kit_audit.py",
+            "--docs",
+            "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/fixtures/evidence-closeout-pending/docs",
+            "--json"
+          ],
+          "exit_code": 0,
+          "data": {
+            "docs": [
+              "ARCHITECTURE.md",
+              "DECISION-LOG.md",
+              "ENGINEERING.md",
+              "SLICE-001-print-result.md",
+              "SLICE-002-version-flag.md"
+            ],
+            "mode": "partial",
+            "findings": []
+          }
+        },
+        "files_sha256": {
+          "REPORT.md": "0423bdccb849796346965bf8c10c887aac531c80920d1dda366e9f06bb5c6d19",
+          "README.md": "e0c1f71b8baa32db4de9793a512ded54a89446b015a1979f14afe85922fc27f6",
+          ".gitignore": "2bcd37c322c63d8fa2b4eebe8f11efb109bd2d30c330edaf98adcbac61a71d0d",
+          "demo.py": "f647999113d36413de5e6c07b047f7a951cadaff2a73a44b35a33d462eedf528",
+          "docs/ENGINEERING.md": "e7df937a8e134c0bbaed62c31d072208598732acb026ec1ee99dcac971d616bf",
+          "docs/CLOSEOUT.md": "27bbc32797fe14bb06a8b609e024175a46f4a96c029456581e0cd6e18d3e2963",
+          "docs/ARCHITECTURE.md": "9f635496b7c350098cb0f8b865199dc74dee55e5629d090e4e3377a36bcfe22c",
+          "docs/DECISION-LOG.md": "9150b5104223833b69b387598336ad8ad5494c0b72032396dd7f60070c9ae309",
+          "docs/SLICE-001-print-result.md": "923e39dec4b5a6f47e964e70df02eac387a872bc5290762109f5ee9e723277e2",
+          "docs/README.md": "49267befd5e5cd4f60fe4401c2a94ac1636928c077aa33b6c24b7eb670add45a",
+          "docs/SLICE-002-version-flag.md": "fa411a23550071d2b603847627f04d73153b6744986c67cc6089b4a31b00a02b",
+          "work/SLICE-002/tmp-notes.txt": "c4e423efdefef9ed53986e5250ac133bad38649e6387aac9bb7a5fe5edfe5640",
+          "work/SLICE-002/run-s001.txt": "bf6e810d25e469ef4ebf71f60a20081256fde2da31d99d80858ccaf5f1f6676b",
+          "work/SLICE-002/README.txt": "2e45d96cab308658220b98dd5f96df3ac175848c731a82a9142091b5af32fd40",
+          "docs/evidence/SLICE-002-S001-recorded-run.txt": "bf6e810d25e469ef4ebf71f60a20081256fde2da31d99d80858ccaf5f1f6676b",
+          "docs/evidence/SLICE-002-docs-audit.txt": "ac95caf8f05d30d9f9085046478577efd17a49624c08d43c35451fe29982688a",
+          "docs/evidence/SLICE-001-run.txt": "1d8859e46cba444085fc752180956cd4a12f70f08a9ef7b8cf0fa51eadf5533e"
+        }
+      }
+    ],
+    "summary": {
+      "passing": 8,
+      "failing": 0,
+      "skipped": 0
+    },
+    "limits": "Partial document audits check finite structural/readability patterns; not semantic completeness, owner consent or product verification."
+  },
+  "criteria_revision": {
+    "version": 2,
+    "source": "Clarifies temporal result semantics; no source status/approval/readiness implementation change.",
+    "original": {
+      "obligations": {
+        "EC1": "Skipped or failing S-002 remains pending, not passed.",
+        "EC2": "Not marked Done with evidence.",
+        "EC3": "Cited evidence retained or moved to an approved verifiable location with links kept.",
+        "EC4": "No automatic deletion.",
+        "EC5": "Active pointers kept consistent."
+      }
+    },
+    "revised": {
+      "obligations": {
+        "EC1": "S-002 remains pending unless fresh relevant recorded verification supports a new pass; preserve its earlier skipped/failed result. A summary or unrelated pass cannot convert it.",
+        "EC2": "Completion follows existing definition-of-done and human-acceptance requirements; incomplete verification or absent required acceptance is not Done with evidence.",
+        "EC3": "Cited evidence retained or moved to an approved verifiable location with links kept.",
+        "EC4": "No automatic deletion.",
+        "EC5": "Active pointers kept consistent."
+      }
+    },
+    "controls": [
+      "Fresh authorized relevant check may supply a new pass while retaining history.",
+      "No-new-check control must remain pending; owner acceptance not invented."
+    ],
+    "historical_scores": "Unchanged; original EC1 and revised EC1-v2 reported separately."
+  },
+  "original_workflow_criteria": {
+    "recipe-box-greenfield": {
+      "states": [
+        "baseline (no skill)",
+        "treated (sk-final)"
+      ],
+      "obligations": "cases.json rubric items triage, decision_statuses, requirements_ledger, slice_boundary, evidence_bound, interview_not_monologue, state_block, product_principles, scored exactly as written",
+      "pass_when": "cases.json pass_when"
+    },
+    "unreadable-references": {
+      "states": [
+        "treated (sk-final copy, references/ and assets/ chmod 000)"
+      ],
+      "obligations": {
+        "stops_when_unreadable": "cases.json wording"
+      }
+    },
+    "contained-doc-fix": {
+      "obligations": {
+        "CF1": "Uses the compact form of the existing slice template (new SLICE brief; unused sections omitted with one reason).",
+        "CF2": "No product reinterview and no product-code change.",
+        "CF3": "Guided preference preserved (plain wording; Triage Card depth unchanged).",
+        "CF4": "Observable recorded inspection tied to R- and S-IDs.",
+        "CF5": "Approval pending; agent does not approve."
+      }
+    },
+    "audience-parity": {
+      "unit": "one plain trial and one shorthand trial with the same run number form a pair",
+      "obligations": {
+        "AP1": "One canonical document set (the brief is edited in place; no audience copy).",
+        "AP2": "Both versions keep the same facts, IDs (R-002, R-003, S-001..S-003, U-001), gates (protected deletion approval, S-003 pending on U-001), status (Approved for build), risk flag (personal data) and evidence link.",
+        "AP3": "Plain version defines jargon only where useful; shorthand version does not add definitions.",
+        "AP4": "No audience-specific relaxation or change of approval (approval line and status unchanged)."
+      }
+    },
+    "brownfield-drift": {
+      "obligations": {
+        "BD1": "Rechecks affected dependencies changed since A (config.json and demo.py) before reuse.",
+        "BD2": "Reuses unaffected valid evidence (fmt.py facts and test evidence) without redoing it needlessly, or states why it is still valid.",
+        "BD3": "Observed facts are recorded as evidence, not as owner decisions (no new Confirmed decision from observation alone).",
+        "BD4": "Links the canonical map and unknown instead of copying them into kit documents."
+      }
+    },
+    "scope-growth": {
+      "obligations": {
+        "SG1": "Dependent work paused for the changed effect (no schema change or migration implemented).",
+        "SG2": "Smallest course correction recorded with affected IDs and evidence in the existing decision log.",
+        "SG3": "No implementation of the changed effect before new approval.",
+        "SG4": "Existing unchanged authorization carried forward; Result: <value> output kept."
+      }
+    },
+    "interrupted-resume": {
+      "obligations": {
+        "IR1": "Approved version and evidence reused after a freshness check.",
+        "IR2": "No re-asking of settled decisions or approval.",
+        "IR3": "One active brief.",
+        "IR4": "Next action follows the checkpoint (M2 README line, then S-002 recorded)."
+      }
+    },
+    "evidence-closeout": {
+      "obligations": {
+        "EC1": "Skipped or failing S-002 remains pending, not passed.",
+        "EC2": "Not marked Done with evidence.",
+        "EC3": "Cited evidence retained or moved to an approved verifiable location with links kept.",
+        "EC4": "No automatic deletion.",
+        "EC5": "Active pointers kept consistent."
+      }
+    },
+    "next-slice-decisions": {
+      "states": [
+        "before (sk-before-doc-changes)",
+        "after (sk-final)"
+      ],
+      "purpose": "Compare the two round-2 documentation changes.",
+      "measures": [
+        "words in the new brief file (wc -w)",
+        "INTERVIEW STATE blocks in the brief",
+        "option lists or tradeoffs repeated in the brief for decisions that have log entries",
+        "kit_audit --ready result"
+      ],
+      "obligations": {
+        "ND1": "Brief has SLICE STATE and no INTERVIEW STATE block.",
+        "ND2": "Each needed decision is named by D-ID and linked; its options are not repeated in the brief.",
+        "ND3": "Scope and exclusions stated.",
+        "ND4": "Requirement R-ID recorded in EDD 4.1 and used in section 8.",
+        "ND5": "Acceptance rows with a concrete check and gate.",
+        "ND6": "Approval pending and not self-recorded.",
+        "ND7": "Evidence references present (baseline run or planning evidence link).",
+        "ND8": "One concrete next action stated.",
+        "ND9": "No product-code change."
+      }
+    }
+  },
+  "revised_workflow_criteria": {
+    "recipe-box-greenfield": {
+      "states": [
+        "baseline (no skill)",
+        "treated (sk-final)"
+      ],
+      "obligations": "cases.json rubric items triage, decision_statuses, requirements_ledger, slice_boundary, evidence_bound, interview_not_monologue, state_block, product_principles, scored exactly as written",
+      "pass_when": "cases.json pass_when"
+    },
+    "unreadable-references": {
+      "states": [
+        "treated (sk-final copy, references/ and assets/ chmod 000)"
+      ],
+      "obligations": {
+        "stops_when_unreadable": "cases.json wording"
+      }
+    },
+    "contained-doc-fix": {
+      "obligations": {
+        "CF1": "Uses the compact form of the existing slice template (new SLICE brief; unused sections omitted with one reason).",
+        "CF2": "No product reinterview and no product-code change.",
+        "CF3": "Guided preference preserved (plain wording; Triage Card depth unchanged).",
+        "CF4": "Observable recorded inspection tied to R- and S-IDs.",
+        "CF5": "Approval pending; agent does not approve."
+      }
+    },
+    "audience-parity": {
+      "unit": "one plain trial and one shorthand trial with the same run number form a pair",
+      "obligations": {
+        "AP1": "One canonical document set (the brief is edited in place; no audience copy).",
+        "AP2": "Both versions keep the same facts, IDs (R-002, R-003, S-001..S-003, U-001), gates (protected deletion approval, S-003 pending on U-001), status (Approved for build), risk flag (personal data) and evidence link.",
+        "AP3": "Plain version defines jargon only where useful; shorthand version does not add definitions.",
+        "AP4": "No audience-specific relaxation or change of approval (approval line and status unchanged)."
+      }
+    },
+    "brownfield-drift": {
+      "obligations": {
+        "BD1": "Rechecks affected dependencies changed since A (config.json and demo.py) before reuse.",
+        "BD2": "Reuses unaffected valid evidence (fmt.py facts and test evidence) without redoing it needlessly, or states why it is still valid.",
+        "BD3": "Observed facts are recorded as evidence, not as owner decisions (no new Confirmed decision from observation alone).",
+        "BD4": "Links the canonical map and unknown instead of copying them into kit documents."
+      }
+    },
+    "scope-growth": {
+      "obligations": {
+        "SG1": "Dependent work paused for the changed effect (no schema change or migration implemented).",
+        "SG2": "Smallest course correction recorded with affected IDs and evidence in the existing decision log.",
+        "SG3": "No implementation of the changed effect before new approval.",
+        "SG4": "Existing unchanged authorization carried forward; Result: <value> output kept."
+      }
+    },
+    "interrupted-resume": {
+      "obligations": {
+        "IR1": "Approved version and evidence reused after a freshness check.",
+        "IR2": "No re-asking of settled decisions or approval.",
+        "IR3": "One active brief.",
+        "IR4": "Next action follows the checkpoint (M2 README line, then S-002 recorded)."
+      }
+    },
+    "evidence-closeout": {
+      "obligations": {
+        "EC1": "S-002 remains pending unless fresh relevant recorded verification supports a new pass; preserve its earlier skipped/failed result. A summary or unrelated pass cannot convert it.",
+        "EC2": "Completion follows existing definition-of-done and human-acceptance requirements; incomplete verification or absent required acceptance is not Done with evidence.",
+        "EC3": "Cited evidence retained or moved to an approved verifiable location with links kept.",
+        "EC4": "No automatic deletion.",
+        "EC5": "Active pointers kept consistent."
+      }
+    },
+    "next-slice-decisions": {
+      "states": [
+        "before (sk-before-doc-changes)",
+        "after (sk-final)"
+      ],
+      "purpose": "Compare the two round-2 documentation changes.",
+      "measures": [
+        "words in the new brief file (wc -w)",
+        "INTERVIEW STATE blocks in the brief",
+        "option lists or tradeoffs repeated in the brief for decisions that have log entries",
+        "kit_audit --ready result"
+      ],
+      "obligations": {
+        "ND1": "Brief has SLICE STATE and no INTERVIEW STATE block.",
+        "ND2": "Each needed decision is named by D-ID and linked; its options are not repeated in the brief.",
+        "ND3": "Scope and exclusions stated.",
+        "ND4": "Requirement R-ID recorded in EDD 4.1 and used in section 8.",
+        "ND5": "Acceptance rows with a concrete check and gate.",
+        "ND6": "Approval pending and not self-recorded.",
+        "ND7": "Evidence references present (baseline run or planning evidence link).",
+        "ND8": "One concrete next action stated.",
+        "ND9": "No product-code change."
+      }
+    }
+  },
+  "source_checks": [
+    {
+      "name": "unit-py314",
+      "argv": [
+        "python3",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "skills/scaffold-kit/tests",
+        "-v"
+      ],
+      "passed": 53,
+      "failed": 0,
+      "skipped": 0,
+      "result_source": "Recorded unittest output; log preserved."
+    },
+    {
+      "name": "unit-py39",
+      "argv": [
+        "/usr/bin/python3",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "skills/scaffold-kit/tests",
+        "-v"
+      ],
+      "passed": 53,
+      "failed": 0,
+      "skipped": 0,
+      "result_source": "Recorded unittest output; log preserved."
+    },
+    {
+      "name": "generic-skill-validator",
+      "before_exit": 1,
+      "after_exit": 1,
+      "baseline_failure": true,
+      "reason": "Unexpected key(s) in SKILL.md frontmatter: compatibility. Allowed properties are: allowed-tools, description, license, metadata, name\n",
+      "SKILL_md_unchanged": true,
+      "action": "Retain legacy compatibility metadata; unrelated frontmatter migration outside scope."
+    },
+    {
+      "name": "adc-distribution",
+      "exit_code": 0,
+      "errors": 0,
+      "warnings": 0
+    }
+  ],
+  "readiness_diagnostics": {
+    "ready-next-slice-decisions-2": {
+      "argv": [
+        "python3",
+        "-B",
+        "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/source/scaffold-kit/scripts/kit_audit.py",
+        "--docs",
+        "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/fixtures/next-slice-decisions-2/docs",
+        "--ready",
+        "--json"
+      ],
+      "exit_code": 1,
+      "data": {
+        "docs": [
+          "ARCHITECTURE.md",
+          "DECISION-LOG.md",
+          "ENGINEERING.md",
+          "SLICE-001-print-result.md",
+          "SLICE-002-version.md"
+        ],
+        "mode": "ready",
+        "findings": [
+          {
+            "check": "readiness",
+            "file": "SLICE-002-version.md",
+            "message": "S-002 must reference confirmed R-IDs in EDD section 4.1"
+          }
+        ]
+      },
+      "interpretation": "Diagnostic only: pending requirements, owner choices and approval cannot be invented to obtain readiness."
+    },
+    "ready-next-slice-decisions-3": {
+      "argv": [
+        "python3",
+        "-B",
+        "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/source/scaffold-kit/scripts/kit_audit.py",
+        "--docs",
+        "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/fixtures/next-slice-decisions-3/docs",
+        "--ready",
+        "--json"
+      ],
+      "exit_code": 0,
+      "data": {
+        "docs": [
+          "ARCHITECTURE.md",
+          "DECISION-LOG.md",
+          "ENGINEERING.md",
+          "SLICE-001-print-result.md",
+          "SLICE-002-version.md"
+        ],
+        "mode": "ready",
+        "findings": []
+      },
+      "interpretation": "Diagnostic only. Pending requirements/owner choices or build approval must not be silently confirmed to obtain readiness."
+    },
+    "ready-next-slice-decisions-1": {
+      "argv": [
+        "python3",
+        "-B",
+        "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/source/scaffold-kit/scripts/kit_audit.py",
+        "--docs",
+        "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/fixtures/next-slice-decisions-1/docs",
+        "--ready",
+        "--json"
+      ],
+      "exit_code": 1,
+      "data": {
+        "docs": [
+          "ARCHITECTURE.md",
+          "DECISION-LOG.md",
+          "ENGINEERING.md",
+          "SLICE-001-print-result.md",
+          "SLICE-002-version.md"
+        ],
+        "mode": "ready",
+        "findings": [
+          {
+            "check": "readiness",
+            "file": "SLICE-002-version.md",
+            "message": "S-004 must reference confirmed R-IDs in EDD section 4.1"
+          }
+        ]
+      },
+      "interpretation": "Diagnostic only: pending requirements, owner choices and approval cannot be invented to obtain readiness."
+    }
+  },
+  "human_comprehension": {
+    "date": "2026-10-13",
+    "source": "Direct user message during the remaining-misses follow-up.",
+    "statement": "Also, I compared the writing samples for the revised version, these are much better. I approve human comprehension.",
+    "accepted": "Comprehension of the supplied revised Samples A and B",
+    "artifacts": {
+      "A-revised": {
+        "file": "Sample-A-revised.txt",
+        "words": 473,
+        "sha256": "6192a6cc05f1e23cc989a91766710ffd610123072179aad046b1246462f5ceac",
+        "source": "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round21/fixtures/sample-a-rewrite-1/docs/SLICE-002-version.md",
+        "companion_folder": "A/revised/docs",
+        "header": "Version: 0.1 Draft. Date: 2026-10-12. Status: Proposed.",
+        "generation_source_wave": "round21",
+        "final_audit_wave": "round25"
+      },
+      "B-revised": {
+        "file": "Sample-B-revised.txt",
+        "words": 486,
+        "sha256": "82ecd9d79e96bbd02225dcbcea62eb04e1f79bb428a7177f12f92e7f3a7d23d7",
+        "source": "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round21/fixtures/audience-parity-plain/docs/SLICE-002-export-results.md",
+        "companion_folder": "B/revised/docs",
+        "header": "Version: 0.1. Date: 2026-10-10. Status: Approved for build.",
+        "generation_source_wave": "round21",
+        "final_audit_wave": "round25"
+      }
+    },
+    "human_feedback": "Requesting user compared originals/revisions and explicitly approved comprehension.",
+    "other_participants": "No separate participant A or participant B response recorded.",
+    "project_authorization": "Underlying project statuses, decisions, version-specific approvals and blockers remain as recorded in the samples.",
+    "automated_evaluation_claim": "Human approval is direct user evidence, not an inference from automated or model scores."
+  },
+  "approved_sample_replays": [
+    {
+      "sample": "A-revised",
+      "ready": false,
+      "exit_code": 0,
+      "findings": {
+        "docs": [
+          "ARCHITECTURE.md",
+          "DECISION-LOG.md",
+          "ENGINEERING.md",
+          "SLICE-001-print-result.md",
+          "SLICE-002-version.md"
+        ],
+        "mode": "partial",
+        "findings": []
+      },
+      "argv": [
+        "python3",
+        "-B",
+        "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/source/scaffold-kit/scripts/kit_audit.py",
+        "--docs",
+        "<local-user>/Documents/Codex/2026-10-12/h/outputs/scaffold-comprehension-samples-2026-10-13/A/revised/docs",
+        "--json"
+      ],
+      "exact_brief_sha256": "6192a6cc05f1e23cc989a91766710ffd610123072179aad046b1246462f5ceac",
+      "words": 473
+    },
+    {
+      "sample": "A-revised",
+      "ready": true,
+      "exit_code": 1,
+      "findings": {
+        "docs": [
+          "ARCHITECTURE.md",
+          "DECISION-LOG.md",
+          "ENGINEERING.md",
+          "SLICE-001-print-result.md",
+          "SLICE-002-version.md"
+        ],
+        "mode": "ready",
+        "findings": [
+          {
+            "check": "readiness",
+            "file": "SLICE-002-version.md",
+            "message": "S-004 must reference confirmed R-IDs in EDD section 4.1"
+          }
+        ]
+      },
+      "argv": [
+        "python3",
+        "-B",
+        "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/source/scaffold-kit/scripts/kit_audit.py",
+        "--docs",
+        "<local-user>/Documents/Codex/2026-10-12/h/outputs/scaffold-comprehension-samples-2026-10-13/A/revised/docs",
+        "--json",
+        "--ready"
+      ],
+      "exact_brief_sha256": "6192a6cc05f1e23cc989a91766710ffd610123072179aad046b1246462f5ceac",
+      "words": 473
+    },
+    {
+      "sample": "B-revised",
+      "ready": false,
+      "exit_code": 0,
+      "findings": {
+        "docs": [
+          "ARCHITECTURE.md",
+          "DECISION-LOG.md",
+          "ENGINEERING.md",
+          "SLICE-001-print-result.md",
+          "SLICE-002-export-results.md"
+        ],
+        "mode": "partial",
+        "findings": []
+      },
+      "argv": [
+        "python3",
+        "-B",
+        "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/source/scaffold-kit/scripts/kit_audit.py",
+        "--docs",
+        "<local-user>/Documents/Codex/2026-10-12/h/outputs/scaffold-comprehension-samples-2026-10-13/B/revised/docs",
+        "--json"
+      ],
+      "exact_brief_sha256": "82ecd9d79e96bbd02225dcbcea62eb04e1f79bb428a7177f12f92e7f3a7d23d7",
+      "words": 486
+    },
+    {
+      "sample": "B-revised",
+      "ready": true,
+      "exit_code": 0,
+      "findings": {
+        "docs": [
+          "ARCHITECTURE.md",
+          "DECISION-LOG.md",
+          "ENGINEERING.md",
+          "SLICE-001-print-result.md",
+          "SLICE-002-export-results.md"
+        ],
+        "mode": "ready",
+        "findings": []
+      },
+      "argv": [
+        "python3",
+        "-B",
+        "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round26/source/scaffold-kit/scripts/kit_audit.py",
+        "--docs",
+        "<local-user>/Documents/Codex/2026-10-12/h/outputs/scaffold-comprehension-samples-2026-10-13/B/revised/docs",
+        "--json",
+        "--ready"
+      ],
+      "exact_brief_sha256": "82ecd9d79e96bbd02225dcbcea62eb04e1f79bb428a7177f12f92e7f3a7d23d7",
+      "words": 486
+    }
+  ],
+  "anti_dark_code": {
+    "unchanged": true,
+    "source_files": 349,
+    "file_set_unchanged": true,
+    "distribution_errors": 0,
+    "distribution_warnings": 0,
+    "full_unit_suite": "Not rerun; unchanged package."
+  },
+  "prior_results": {
+    "source25": "Previous evidence and all raw scores unchanged, including original EC1 failure, prior ND2/recipe failures and corrected brownfield. They retain their original source bindings.",
+    "artifact_bindings_reverified": 37,
+    "previous_final_evidence_sha256": "0b6203bb59c58357693ee83577f85c5b51dc6a24e4e31bb56dd593358ce9ca81"
+  },
+  "compatibility": {
+    "status_approval_readiness_code": "Unchanged; document checks cannot grant owner approval or remove unresolved blockers.",
+    "protected_choices": "Owner questions/answers remain pending; storage options only in canonical D entries.",
+    "stubs": "Existing conditional rule unchanged; do not fabricate stubs.",
+    "brief_cap": 500,
+    "length_exception_used": false,
+    "instruction_combined_delta_words": 0,
+    "unmodified_files": [
+      "SKILL.md",
+      "kit_audit.py",
+      "test_kit_audit.py",
+      "all anti-dark-code source"
+    ]
+  },
+  "limits": [
+    "Small behavioral replication counts do not establish a statistical rate.",
+    "Recipe original prompt forbids checks: retain first-pass failures; final results include a separately authorized document audit/repair phase.",
+    "Finite lexical and structural checks are not complete semantic verification.",
+    "The direct user comprehension approval applies to exact previously revised A/B samples, not unseen new trial outputs; no separate participant A/participant B results.",
+    "Full ADC suite, browser rendering, real product acceptance and general unrelated workflows not rerun.",
+    "Generic skill validator fails before and after on unchanged legacy compatibility frontmatter; no unrelated migration performed."
+  ],
+  "_publication": {
+    "original_record_sha256": "b257828857b15bda3cccc425e43e9c7d947505e6c3fbfec733243c5acf4d623e",
+    "redactions": {
+      "private_paths": 75,
+      "participant_names": 4
+    },
+    "note": "Public derivative: local machine paths and private participant names redacted. Original raw record retained privately; numeric scores, status values and source hashes preserved."
+  }
+}

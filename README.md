@@ -1,6 +1,8 @@
 # The Scaffold Kit
 
-Version 0.4 (Draft). September 26, 2026.
+Version 0.4 (Draft). October 14, 2026.
+
+![Scaffold Kit](assets/brand/scaffold-kit.png)
 
 A document scaffolding system for AI-assisted software development. It works for any kind of build: app, service, CLI tool, library, database system, game, automation, or site. It works for any experience level, from a first project to a senior engineer converting judgment into specifications.
 
@@ -21,11 +23,11 @@ Read the [overview and starter example](https://lynxtwo.github.io/scaffold-kit/)
 3. Ask: “Use Scaffold Kit 0.4 to plan a small reading-list app. Start with triage and questions. Write planning documents only; do not build product code.”
 4. Review the decisions, assumptions, and first slice. Build only after the active brief records your approval.
 
-At first setup/use, choose **plain language**, **balanced**, or **developer shorthand**. The choice is saved as Explanation depth in the project's Triage Card. It changes questions and document wording; IDs, risk checks and approval stay the same. Documents start with a short overview and link to their detailed evidence. Existing projects reuse their current plans; a contained fix needs only a compact slice brief and affected updates.
+At first setup/use, choose **plain language**, **balanced**, or **developer shorthand**. The choice is saved as Explanation depth in the project's Triage Card, at the top of ARCHITECTURE.md. It changes questions and document wording; IDs, risk checks and approval stay the same. Documents start with a short overview and link to their detailed evidence. Small features and fixes use a compact brief, normally 250 to 400 words. If you ask for a plan without live follow-up, you receive a provisional plan with questions and assumptions; it still needs your answers and build approval.
 
 This reading-list prompt is an illustrative starter, not an evaluation result. For existing code, [Anti-Dark-Code](https://github.com/LynxTWO/anti-dark-code-skill) provides codebase mapping and verification evidence; Scaffold Kit turns that evidence into planning decisions and a build boundary.
 
-Installation depends on your host's current discovery rules. The [Codex verification record](design/codex-verification-2026-09-26.md) includes failed file-resolution and discovery checks; packaging is not acceptance on every host. The manual file workflow avoids assuming a plugin has loaded.
+Local installation checks passed for both Claude Code and Codex using the final bundles; [the current evidence](evals/scaffold-v1/evidence-2026-10-14-packaging.json) records versions, hashes and limits. Codex resolves the new icon; its visual rendering has not been independently observed. Claude Code lists the plugin but uses a generic symbol. The [September verification record](design/codex-verification-2026-09-26.md) retains earlier failed checks. These observations do not establish compatibility with every host.
 
 ## Revision note: v0.4 (Draft)
 
@@ -59,7 +61,11 @@ One convention rides alongside the files: prior research and business planning (
 
 ## Quick start
 
-As a skill: install `skills/scaffold-kit/` where your host reads skills (`.agents/skills/scaffold-kit/` for Codex, Cursor, Copilot and Gemini; `.claude/skills/scaffold-kit/` for Claude Code), or add this repository as a plugin marketplace in Claude Code (`claude plugin marketplace add LynxTWO/scaffold-kit`, then `claude plugin install scaffold-kit@lynxtwo`). Then describe what you want to build in a paragraph. Rough is fine. The interview exists to sharpen it.
+As a Claude Code plugin: `claude plugin marketplace add LynxTWO/scaffold-kit`, then `claude plugin install scaffold-kit@lynxtwo`. In a local session, invoke `/scaffold-kit:scaffold-kit` and describe your project.
+
+As a Codex plugin: clone this repository, run `codex plugin marketplace add /absolute/path/to/scaffold-kit`, then `codex plugin add scaffold-kit@lynxtwo`. In a new local chat, select Scaffold Kit through `@` or ask Codex to use it by name.
+
+As a standalone skill: install only `skills/scaffold-kit/` where your host reads skills (`.agents/skills/scaffold-kit/` for Codex, Cursor, Copilot and Gemini; `.claude/skills/scaffold-kit/` for Claude Code). Choose either the plugin or standalone installation to avoid duplicate discovery. Rough project descriptions are welcome.
 
 By hand: give your AI `skills/scaffold-kit/references/conductor.md` and the four templates under `skills/scaffold-kit/assets/templates/`, then describe the project. Answer the questions, or choose fast-run at triage and review filled defaults in batches instead. The AI fills out the Architecture Document, the Engineering Document, the Decision Log, and the first Slice Brief. After the owner approves the active Slice Brief, implementation can build only that slice.
 

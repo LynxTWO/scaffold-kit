@@ -2,7 +2,6 @@
 name: scaffold-kit
 description: Use when starting a software project, scaffolding planning documents for an existing codebase, choosing or writing the next slice brief, or recording a design decision with a status and a revisit trigger. Plan broadly, build narrowly, test reality, expand deliberately. A structured interview produces an Architecture Document, an Engineering Document, a Decision Log and one active Slice Brief that bounds what an AI agent may build. Works for apps, services, CLIs, libraries, data systems, games, automations and sites at any experience level. Pairs with anti-dark-code for mapping existing code and for verification.
 license: FSL-1.1-MIT. LICENSE.md has complete terms
-compatibility: Instructions only. The optional audit script needs Python 3.9 or newer and no packages.
 ---
 
 # Scaffold Kit
@@ -28,7 +27,7 @@ Prior research and business planning go to a `PRODUCT-CONTEXT.md` companion, min
 
 Read [the Conductor](references/conductor.md) before Phase 0. It holds the operating rules, the decision status vocabulary, the Triage Card, the phases, the audit pass, the expansion loop, session management and writing hygiene. Load one template at a time, when its phase starts:
 
-Route new products through triage, existing systems through a scoped map and gaps, and next slices or contained fixes through the existing slice template. At first setup/use offer plain language, balanced or developer shorthand; save Explanation depth in the Triage Card. It changes explanations, never evidence or approval. Keep one document set with concise overviews and canonical detail links.
+Route new products through triage, existing systems through a scoped map and gaps, and next slices through the existing slice template. Small features and contained fixes use its compact form. An explicit request for a plan without live follow-up uses the Conductor's provisional drafting route, keeping unanswered choices and approval pending. At first setup/use offer plain language, balanced or developer shorthand; save Explanation depth in the Triage Card. It changes explanations, never evidence or approval. Keep one document set with concise overviews and canonical detail links.
 
 | Phase | Load |
 |---|---|
@@ -43,7 +42,7 @@ When code already exists, or when anti-dark-code is installed in the repository,
 
 ## Gates that do not move
 
-- **Interview, do not invent.** Every filled section traces to an answer, an accepted default, or a flagged assumption.
+- **Trace answers; do not invent consent.** Every filled section traces to an answer, an accepted default, or a flagged assumption. Offline drafting never grants build approval.
 - **Planning writes documents only.** No package installs, schema changes or product code during the interview.
 - **Irreversible choices need an explicit human confirmation:** payment provider, data residency, public API names and shapes, anything deleting user data.
 - **Nothing is built until the active Slice Brief reads `Approved for build by: <name>, <date>`.** Say the gate out loud when the brief is presented; approval of the idea is not approval of the brief.
@@ -53,7 +52,9 @@ When code already exists, or when anti-dark-code is installed in the repository,
 
 ## Mechanical audit
 
-`python3 scripts/kit_audit.py --docs docs` audits partial/interview documents. Empty input fails. Add `--ready` before the build readback to require companions, one active slice and R/S/check bindings. Both modes check statuses, duplicate decision IDs, exact section references and writing hygiene. Exit code 1 means findings, 2 means usage/read error. Attach the output. Mechanical readiness does not establish owner approval, semantic completeness or passing implementation checks.
+Instructions only. The optional audit script needs Python 3.9 or newer and no packages.
+
+`python3 scripts/kit_audit.py --docs docs` audits partial/interview documents. Empty input fails. Add `--ready` before the build readback to require companions, one active slice, R/S/check bindings without placeholders such as TBD, and an approver's name and date on an approved or in-progress brief. Both modes check statuses, duplicate decision IDs, exact section references and writing hygiene. Exit code 1 means findings, 2 means usage/read error. Attach the output. Mechanical readiness does not establish owner approval, semantic completeness or passing implementation checks.
 
 ## Manual use without a host that loads skills
 

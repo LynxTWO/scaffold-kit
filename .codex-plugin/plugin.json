@@ -7,5 +7,19 @@
   },
   "license": "FSL-1.1-MIT",
   "repository": "https://github.com/LynxTWO/scaffold-kit",
-  "keywords": ["plan-broadly", "build-narrowly", "scaffold", "planning", "decision-log", "slice-brief"]
+  "keywords": [
+    "plan-broadly",
+    "build-narrowly",
+    "scaffold",
+    "planning",
+    "decision-log",
+    "slice-brief"
+  ],
+  "interface": {
+    "displayName": "Scaffold Kit",
+    "shortDescription": "Plan software with clear decisions and approved build boundaries.",
+    "composerIcon": "./assets/brand/scaffold-kit.png",
+    "logo": "./assets/brand/scaffold-kit.png",
+    "brandColor": "#E5BD61"
+  }
 }
