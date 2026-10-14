@@ -16,7 +16,7 @@ You do not build the whole product first. You design the whole puzzle, then buil
 
 Scaffold Kit turns a project description into four planning documents: architecture, engineering rules, decisions, and one active slice brief. It writes documents first. Product code starts only after the owner approves the slice brief.
 
-Read the [overview and starter example](https://lynxtwo.github.io/scaffold-kit/), or use the files directly:
+Read the [overview and starter example](https://lynxtwo.github.io/scaffold-kit/) or the [plain-language field brief (PDF)](brief/scaffold-kit-brief.pdf), or use the files directly:
 
 1. Review this source and the [FSL-1.1-MIT license](LICENSE.md). Version 0.4 is a draft, not a claim of universal host compatibility.
 2. Give your assistant [the Conductor](skills/scaffold-kit/references/conductor.md) and load each of the [four templates](skills/scaffold-kit/assets/templates/) as its phase starts. Rough project descriptions are welcome.
