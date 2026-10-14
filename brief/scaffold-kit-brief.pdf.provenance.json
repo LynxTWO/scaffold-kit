@@ -4,12 +4,12 @@
   "publication": "Plugin publication on hold; source and documentation proposed for GitHub review.",
   "generator": "Playwright 1.62.0 / Chromium 151.0.7922.34 on Darwin arm64, design/render-brief-pdf.py",
   "source_sha256": "8c61e9ae8ffc81a506fd205b4674b3b5bf5d3505ffc64b4ecfe384d9bb03326b",
-  "renderer_sha256": "649add37292944fc331013c7cbfa44cc19dd384b8cfbe7966cd4c808df86c4a4",
+  "renderer_sha256": "d5725f2f6371caaa0f1de86ef594d7b7d766c970d8f9eafbd003c79c70fce514",
   "pdf_sha256": "55982cb9a88c0a4a3bb8800ba4f1c58cae6bad6b15f8ec78c47663ebe35a9ce8",
   "normalized_pdf_sha256": "1c166c50296fdaab5f98cb14827f1218612029e88c9cc2cdb14d872d01151f9d",
   "source_facts_checked_against": {
     "plugin.json": "295aca2d7aaaa42c41164ee609969b1d02917b93d9888698f7d58938f5baa5c0",
-    "README.md": "97022a28d19e2e20c9c7c95ba1d9d8d4592a1f003398439f0a9a296811d4442f",
+    "README.md": "10beb47a3792f6d4bf60e7abd5909a23369d91a66009466651994aa002b72b83",
     "skills/scaffold-kit/SKILL.md": "c33c17ec604b3165c2df02ccb4864729f857721f0316a5b9cf69daa5029a76b5",
     "skills/scaffold-kit/references/conductor.md": "eec1a6299923bcda3da09e6af7200b8038ed490817d34fb841a362b87d6b2bf9",
     "skills/scaffold-kit/references/working-with-anti-dark-code.md": "0cbac253909ea802407e5dc27b9ed117bac91822d6234484676af09b1a1816c2",
@@ -126,5 +126,6 @@
     "light_pdf_bytes_retained": true
   },
   "color_scheme": "light",
-  "original_renderer_sha256": "c54faf118f5e17155091946fa9c656b703af95ed3f461004a0176a17457fd471"
+  "original_renderer_sha256": "c54faf118f5e17155091946fa9c656b703af95ed3f461004a0176a17457fd471",
+  "source_path": "docs/brief/scaffold-kit-brief.html"
 }
