@@ -1,5 +1,9 @@
 # v0.4: package as a skill and apply the second field run
 
+Historical planning snapshot from 2026-09-26. Status and checks below describe
+that work at the time. For current behavior use [the skill](../skills/scaffold-kit/SKILL.md)
+and [Changelog](../CHANGELOG.md), not this old branch checklist.
+
 Date: 2026-09-26. Status: In progress on branch `v0.4`.
 
 ## Decisions

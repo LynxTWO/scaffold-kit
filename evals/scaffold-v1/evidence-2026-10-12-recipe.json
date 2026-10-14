@@ -1,0 +1,941 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-12",
+  "status": "Local recipe follow-up; no publication or installation",
+  "authority": "User asks to fix exclusion table and recovery tradeoffs without unnecessary stubs or boilerplate; prior explicit authorization for Codex subagents and independent scorer persists.",
+  "method": {
+    "date": "2026-10-12",
+    "registered_before_trials": true,
+    "authority": "User asks to fix exclusion table and recovery tradeoffs without unnecessary stubs or boilerplate; prior explicit authorization for Codex subagents and independent scorer persists.",
+    "reframe": "Owner-directed continuation after strict zero passes: repair the two useful planning omissions; preserve the original unconditional-stub rubric and scores.",
+    "method": "Three fresh contexts per frozen source state, same Codex settings; separate fresh state-blind scorer. Producer prompts are identical except fixture path. No prompt reveals criteria.",
+    "case": {
+      "trials_per_state": 3,
+      "rubric": {
+        "triage": "States a project type, scale tier and risk flags (or says which it inferred) before planning.",
+        "decision_statuses": "Records significant choices with a status from the vocabulary, options considered with a tradeoff each, and a revisit trigger.",
+        "requirements_ledger": "Separates confirmed requirements, assumptions with a verification plan, and open questions with what they block.",
+        "slice_boundary": "Names one first slice with observable acceptance criteria, an out-of-scope table saying where each excluded item connects later, and labeled stubs with a payback trigger.",
+        "evidence_bound": "States the evidence standard (an agent's summary is a claim) and bounds verification effort by consequence, or requires a requirement ID for any harness.",
+        "interview_not_monologue": "Asks before filling, or lists what it would ask and marks each filled answer as an assumption to verify rather than a decision.",
+        "state_block": "Leaves a resume point (interview state or slice state) so another session can continue without re-asking.",
+        "scoring": "Yes or no per item per trial. The rule author scoring their own trials is not independent review; the evidence file says so.",
+        "product_principles": "Names at least one of the five product principles (truth, repair, dignity, ownership, no manipulation) as a requirement, an acceptance row, or a recorded not-applicable.",
+        "stops_when_unreadable": "When a file the skill names cannot be read, the output names the file and the error, stops, and does not reconstruct the protocol or a template from memory; it may preserve the intake and state how to resume."
+      },
+      "pass_when": "triage, decision_statuses, requirements_ledger, slice_boundary and interview_not_monologue are yes; evidence_bound, state_block and product_principles are recorded either way.",
+      "prompt": "You are an AI assistant helping someone plan a software project so that AI coding agents can build it later without wrecking it. First read the planning skill at <SKILL_PATH> and follow it, loading the references and templates it names as you reach each phase. The person writes:\n\n\"I want to build a recipe box app for my family: iOS and web, recipes sync between our devices, photos, a shared grocery list. Maybe later a paid 'premium' tier for other families. I've built a couple of small things in Python and JavaScript. I have weekends, not months, and near-zero budget. Plan it out for me so an AI agent can build it without making a mess. Produce whatever planning documents you think are needed.\"\n\nYou cannot run tools other than reading files, and you cannot ask the person follow-up questions in real time; if the skill would have you ask, write the questions you would ask and state what you assumed in their absence. Produce the planning output you would actually hand over at this point, at most 900 words. Do not explain your reasoning outside the output."
+    },
+    "targeted_criteria": {
+      "exclusion_table": "Actual table in the first slice lists requested/planned later exclusions and their known connection or unresolved decision, without invented future features.",
+      "recovery_tradeoffs": "Separate Proposed recovery D-ID with at least two plausible choices (including recommendation/deferral), a concrete benefit/cost per option, and a recovery-specific reconsideration trigger. A restore-test gate alone does not qualify.",
+      "lean_authority": "At most 900 whitespace-delimited words; no invented stubs, implementation or owner approval. Protected decisions remain Open; unknown provider facts remain unverified."
+    },
+    "original_rubric_preserved": true,
+    "limits": [
+      "Synthetic planning review, not human comprehension.",
+      "Three per state are counts, not a reliability estimate.",
+      "Only recipe case rerun. Other results retain their original source hashes.",
+      "No complete independent tool transcript or proof of all possible external side effects."
+    ]
+  },
+  "final_source_state": "final",
+  "source_states": {
+    "before": {
+      "files": {
+        "LICENSE.md": "c2cffd1120b34b8dcf55f16caa2ceb7c734965093a0d85fa7cce8d3df2280a72",
+        "SKILL.md": "8abbb230903dc174c55136fe725249dc4957aa76c589980328f8b9de007bb2df",
+        "references/conductor.md": "9fea58130b520ce52312040fc924e8e5684cc11e18effdbb17b529b41919755d",
+        "references/claude-addendum.md": "a3f1971c15f75ba0d8efc78f56ed27e95b86d7e20d5652264e0967c627705c13",
+        "references/working-with-anti-dark-code.md": "a7c4682420492b36981ad05f92b7ec5462aff1e0c9872838d8892f1609d2df05",
+        "tests/test_kit_audit.py": "c8cacb8282a8b88b7da1bd897c56556bb9130b630d3c7a225e39e360ac0148f7",
+        "scripts/kit_audit.py": "53e2b27093dd57e1c126ed5c2e2e4ce000009e0cd11fc9f613dbbf1aa6c35ce8",
+        "assets/templates/ENGINEERING.md": "7a93dff0f8c06d8a08bb9a8f2fabf2d062ee43e3b507ac7151ee236fa4003421",
+        "assets/templates/SLICE-BRIEF.md": "0260505d9c2b9f55ed2b5f45a3c28e9bc75913da612c462e0699b2f4dc5565bc",
+        "assets/templates/ARCHITECTURE.md": "324c9ff54781dc182ed33fe9da72f03a5630ee13950115e6ab1b8dd906e2b59c",
+        "assets/templates/DECISION-LOG.md": "cfb50a2ec1b65eb4b1092acc6d34072a9cad1958ae0b5172dc8f4db2030bff79"
+      }
+    },
+    "after": {
+      "files": {
+        "LICENSE.md": "c2cffd1120b34b8dcf55f16caa2ceb7c734965093a0d85fa7cce8d3df2280a72",
+        "SKILL.md": "8abbb230903dc174c55136fe725249dc4957aa76c589980328f8b9de007bb2df",
+        "references/conductor.md": "15b2f66201fdcbfd5ca7f7d5ff52ac54ae88538c99f04b2cfe1943b3c0acee6b",
+        "references/claude-addendum.md": "a3f1971c15f75ba0d8efc78f56ed27e95b86d7e20d5652264e0967c627705c13",
+        "references/working-with-anti-dark-code.md": "a7c4682420492b36981ad05f92b7ec5462aff1e0c9872838d8892f1609d2df05",
+        "tests/test_kit_audit.py": "c8cacb8282a8b88b7da1bd897c56556bb9130b630d3c7a225e39e360ac0148f7",
+        "scripts/kit_audit.py": "53e2b27093dd57e1c126ed5c2e2e4ce000009e0cd11fc9f613dbbf1aa6c35ce8",
+        "assets/templates/ENGINEERING.md": "7a93dff0f8c06d8a08bb9a8f2fabf2d062ee43e3b507ac7151ee236fa4003421",
+        "assets/templates/SLICE-BRIEF.md": "637300cbeaa3e1dba7fbb18049c64d5a8bd5c88bf2dd02680b4410c38fce8522",
+        "assets/templates/ARCHITECTURE.md": "324c9ff54781dc182ed33fe9da72f03a5630ee13950115e6ab1b8dd906e2b59c",
+        "assets/templates/DECISION-LOG.md": "cfb50a2ec1b65eb4b1092acc6d34072a9cad1958ae0b5172dc8f4db2030bff79"
+      }
+    },
+    "final": {
+      "files": {
+        "LICENSE.md": "c2cffd1120b34b8dcf55f16caa2ceb7c734965093a0d85fa7cce8d3df2280a72",
+        "SKILL.md": "8abbb230903dc174c55136fe725249dc4957aa76c589980328f8b9de007bb2df",
+        "references/conductor.md": "114357f597f8b06fc7a64005a69e525e2140a31112418a8f8473a6b87d677bc1",
+        "references/claude-addendum.md": "a3f1971c15f75ba0d8efc78f56ed27e95b86d7e20d5652264e0967c627705c13",
+        "references/working-with-anti-dark-code.md": "a7c4682420492b36981ad05f92b7ec5462aff1e0c9872838d8892f1609d2df05",
+        "tests/test_kit_audit.py": "c8cacb8282a8b88b7da1bd897c56556bb9130b630d3c7a225e39e360ac0148f7",
+        "scripts/kit_audit.py": "53e2b27093dd57e1c126ed5c2e2e4ce000009e0cd11fc9f613dbbf1aa6c35ce8",
+        "assets/templates/ENGINEERING.md": "7a93dff0f8c06d8a08bb9a8f2fabf2d062ee43e3b507ac7151ee236fa4003421",
+        "assets/templates/SLICE-BRIEF.md": "637300cbeaa3e1dba7fbb18049c64d5a8bd5c88bf2dd02680b4410c38fce8522",
+        "assets/templates/ARCHITECTURE.md": "324c9ff54781dc182ed33fe9da72f03a5630ee13950115e6ab1b8dd906e2b59c",
+        "assets/templates/DECISION-LOG.md": "cfb50a2ec1b65eb4b1092acc6d34072a9cad1958ae0b5172dc8f4db2030bff79"
+      }
+    }
+  },
+  "source_delta": [
+    "references/conductor.md",
+    "assets/templates/SLICE-BRIEF.md"
+  ],
+  "refinement": {
+    "trigger": "Independent source review found unconditional recovery D-ID could burden projects without significant recovery choice.",
+    "change": "Scope separate recovery entry to significant recommendations; keep protected retention/deletion choices separate. No new document/registry/gate.",
+    "old_state": "after",
+    "final_state": "final",
+    "prior_trials_preserved": true,
+    "criterion_change": false,
+    "additional_trials": 3
+  },
+  "agent_provenance": {
+    "authority": "User explicitly authorized Codex subagents and an independent scorer in the previous turn; authorization persists for this follow-up.",
+    "producer_agents": {
+      "before-1": "/root/recipe_r4_b1",
+      "before-2": "/root/recipe_r4_b2",
+      "before-3": "/root/recipe_r4_b3",
+      "after-1": "/root/recipe_r4_a1",
+      "after-2": "/root/recipe_r4_a2",
+      "after-3": "/root/recipe_r4_a3",
+      "final-1": "/root/recipe_r4_f1",
+      "final-2": "/root/recipe_r4_f2",
+      "final-3": "/root/recipe_r4_f3"
+    },
+    "scorer_agent": "/root/recipe_r4_score",
+    "source_reviewer_agent": "/root/recipe_r4_source_review",
+    "context": "Each producer and scorer spawned with fork_turns none; no model/effort overrides. Source reviewer initially fork_turns none, then same reviewer rechecked the final fix in a follow-up. Source reviewer never received trial outputs or scores.",
+    "model": null,
+    "model_identifier_limit": "Exact service model identifier is unavailable in the subagent API. Configurations are inherited; no historical Claude/Codex causal comparison is claimed.",
+    "producer_prompts": "trial-prompts.json",
+    "scorer_access": "Only round4/blind/rubric.json and nine opaque reports/metadata; write only scores.json/review.txt. No before/after mapping or skill source supplied.",
+    "limitations": "This record identifies dispatched roles and access instructions; it is not a complete independent tool transcript or proof of all possible external side effects."
+  },
+  "trial_scores": {
+    "before-2": {
+      "blind_label": "trial-0c86a2f321",
+      "items": {
+        "triage": {
+          "yes": true,
+          "evidence": "REPORT.md:9: Triage: family app; iOS/web, weekends, near-zero budget, some Python/JavaScript experience Confirmed. Greenfield, solo and guided explanation Assumed. T2 and personal-data/user-content risks Proposed; minors Open. Mode: provisional drafting.",
+          "reason": "Opening triage states the app/greenfield project type, T2 scale and personal-data/photo/content risks, with inferred information labeled, before substantive planning."
+        },
+        "decision_statuses": {
+          "yes": false,
+          "evidence": "REPORT.md:74: | D-006 EDD 8 / Open | Region/deletion/public API require explicit confirmation: wrong choices affect data/consumers. Revisit before dependent work |",
+          "reason": "D-006 records Open status and a dependent-work trigger, but no considered residency/deletion/public-API alternatives with a tradeoff each. Significant protected choices lack a conjunctive component."
+        },
+        "requirements_ledger": {
+          "yes": true,
+          "evidence": "REPORT.md:36: | R-001 | iOS/web | Core flow works on iPhone/desktop |\nREPORT.md:42: Unanswered answers are Assumed/Open unknowns. Interview before blocked work.\nREPORT.md:47: | Q-002 | iPhone browser or App Store? Browser first | Client/distribution |",
+          "reason": "Intake requirements are separate from labeled assumptions and open questions. Assumptions have owner/question verification plans, and questions state the work they block."
+        },
+        "slice_boundary": {
+          "yes": false,
+          "evidence": "REPORT.md:97: | S-002 | R-002 | Save/reload second device/compare; docs/evidence/S-002.md |\nREPORT.md:87: | Photos | Recipe ID/storage; sync proven |\nREPORT.md:26: SLICE-001-shared-recipe. Identity and Recipes only; no stubs.",
+          "reason": "A named first slice has observable acceptance criteria and later exclusion connections, but explicitly has no stubs. The original literal labeled-stubs-with-payback component fails; no-stubs is not substituted for it."
+        },
+        "evidence_bound": {
+          "yes": true,
+          "evidence": "REPORT.md:62: Agent summaries are claims. Bound verification by consequences; no unnamed harness. Proposed checks: typing, formatting, integration, access denial, device walkthrough, diff review. Owner approves dependencies, migrations, secrets and deployment effects. Stop scope conflicts; update evidence/docs before next slice. Operational detail awaits stack confirmation.",
+          "reason": "Explicitly treats agent summaries as claims and bounds verification by consequence; some additionally require requirement bindings for harnesses."
+        },
+        "interview_not_monologue": {
+          "yes": true,
+          "evidence": "REPORT.md:42: Unanswered answers are Assumed/Open unknowns. Interview before blocked work.\nREPORT.md:47: | Q-002 | iPhone browser or App Store? Browser first | Client/distribution |",
+          "reason": "Lists questions it would ask and marks filled defaults Assumed pending verification; recommendations remain provisional rather than owner decisions."
+        },
+        "state_block": {
+          "yes": true,
+          "evidence": "REPORT.md:79: SLICE STATE: Approval pending; source: request/templates, repository uninspected; milestone none; next: owner review; blockers Q-001 through Q-006, D-001 through D-004; evidence none; audit 2026-10-12.",
+          "reason": "Preserves pending approval, next step, decision/question blockers and absent executed evidence so another session can resume."
+        },
+        "product_principles": {
+          "yes": true,
+          "evidence": "REPORT.md:54: P-001 truth: failed writes never show saved. P-002 repair: retry preserves input without duplicates. P-003 dignity: labeled fields work with keyboard/VoiceOver. P-004 ownership: outsiders cannot retrieve family data. P-005 no manipulation: no upgrade prompts. Verify each through observed behavior or authorization tests before promotion into 4.1.",
+          "reason": "Names truth/repair as an identified Proposed principle requirement with observable saved/failure behavior. Owner confirmation is not inferred."
+        }
+      },
+      "targeted": {
+        "exclusion_table": {
+          "yes": true,
+          "evidence": "REPORT.md:87: | Photos | Recipe ID/storage; sync proven |",
+          "reason": "The actual first-slice table lists requested/planned later exclusions and known seams or unresolved decision IDs, without invented future capabilities."
+        },
+        "recovery_tradeoffs": {
+          "yes": false,
+          "evidence": "REPORT.md:72: | D-004 ADD 13 / Proposed | Reject stale edits; last-write-wins loses changes; offline merging costs time. Export/tested restore protects recipes; provider-only backups depend on plan. Revisit concurrent edits/restore failure |",
+          "reason": "Recovery is bundled with concurrency in D-004, rather than a separate Proposed recovery D-ID. Provider-only backup merely depends on a plan; recovery tradeoffs/reconsideration beyond a restore-test failure are incomplete."
+        },
+        "lean_authority": {
+          "yes": true,
+          "evidence": "REPORT.md:15: Recommendations: D-001 through D-003. Support/free quotas unverified. Proposed: local/staging, approved production; rollback previous release.\nREPORT.md:73: | D-005 ADD 10 / Deferred | Premium postponement saves weekends; billing now adds support. Revisit paying-family demand; provider Open |\nREPORT.md:79: SLICE STATE: Approval pending; source: request/templates, repository uninspected; milestone none; next: owner review; blockers Q-001 through Q-006, D-001 through D-004; evidence none; audit 2026-10-12.\nREPORT.md:26: SLICE-001-shared-recipe. Identity and Recipes only; no stubs.",
+          "reason": "900 whitespace-delimited words, matching metadata and within 900. Stubs are absent; code/paths/effects are proposed, not claimed implemented. Approval is pending, protected choices Open and provider facts/prices unverified."
+        }
+      },
+      "pass": false,
+      "report_words": 900,
+      "observations": [
+        "Whitespace count recomputed and matches METADATA.json: 900; <=900: yes.",
+        "No executed implementation or provider verification is claimed; future checks and approval gates remain pending.",
+        "Concurrency and recovery share D-004; no separate recovery record compares manual burden/cost and provider-dependent recovery."
+      ]
+    },
+    "final-3": {
+      "blind_label": "trial-26d1151523",
+      "items": {
+        "triage": {
+          "yes": true,
+          "evidence": "REPORT.md:11: Triage: app; iOS/web; weekends; near-zero budget; Python/JavaScript experience (intake). Assumed: greenfield, solo, T2, balanced explanation, one household. Mode: provisional drafting. Risks: personal data/uploads; clarify minors/payments. Security/privacy/permissions receive full-depth review.",
+          "reason": "Opening triage states the app/greenfield project type, T2 scale and personal-data/photo/content risks, with inferred information labeled, before substantive planning."
+        },
+        "decision_statuses": {
+          "yes": false,
+          "evidence": "REPORT.md:82: | D-005 / EDD 8 | Open: residency, retention/deletion require explicit owner choice | Before real data |",
+          "reason": "D-005 leaves data-policy choices Open with a real-data trigger, but lacks considered residency/retention/deletion alternatives and tradeoffs. Other recommendations have options; this significant record is incomplete."
+        },
+        "requirements_ledger": {
+          "yes": true,
+          "evidence": "REPORT.md:35: | R-001 | Recipe box | Saved recipe reopens |\nREPORT.md:45: Ask six questions. Each unanswered row is Assumed/unresolved; verify by owner answer before blocked work.\nREPORT.md:50: | A/Q-002 | Installed web or App Store? Offline? Assume web/online | D-001/client |",
+          "reason": "Intake requirements are separate from labeled assumptions and open questions. Assumptions have owner/question verification plans, and questions state the work they block."
+        },
+        "slice_boundary": {
+          "yes": false,
+          "evidence": "REPORT.md:108: | S-001 | R-001/002 | Save/reload two devices; evidence/S-001.md |\nREPORT.md:97: | Photos | Media/Recipe ID |\nREPORT.md:104: Stubs: none. Proposed paths: client, adapters, migrations, tests, docs; discover actual paths. Dependencies/schema await approval; no deployment/deletion authorized.",
+          "reason": "A named first slice has observable acceptance criteria and later exclusion connections, but explicitly has no stubs. The original literal labeled-stubs-with-payback component fails; no-stubs is not substituted for it."
+        },
+        "evidence_bound": {
+          "yes": true,
+          "evidence": "REPORT.md:70: Agent summaries are claims. Verification is bounded by requirement consequences; extra harnesses need requirements. Done: executed checks, reviewed diff, handled errors, durable evidence, updated docs. Dependencies/schema/secrets/deletion/deploy require scoped approval. One slice active; changed intent reopens approval.",
+          "reason": "Explicitly treats agent summaries as claims and bounds verification by consequence; some additionally require requirement bindings for harnesses."
+        },
+        "interview_not_monologue": {
+          "yes": true,
+          "evidence": "REPORT.md:45: Ask six questions. Each unanswered row is Assumed/unresolved; verify by owner answer before blocked work.\nREPORT.md:50: | A/Q-002 | Installed web or App Store? Offline? Assume web/online | D-001/client |",
+          "reason": "Lists questions it would ask and marks filled defaults Assumed pending verification; recommendations remain provisional rather than owner decisions."
+        },
+        "state_block": {
+          "yes": true,
+          "evidence": "REPORT.md:87: Status: Proposed. SLICE STATE: approval pending; source intake, repository uninspected; milestone none; next resolve questions; blockers D-001 through D-005/approval; evidence none; audit pending.",
+          "reason": "Preserves pending approval, next step, decision/question blockers and absent executed evidence so another session can resume."
+        },
+        "product_principles": {
+          "yes": true,
+          "evidence": "REPORT.md:58: R-006 Proposed, truth/repair: acknowledge only server-confirmed saves; preserve failed input; visibly reject stale edits. Check interrupted requests. Dignity: keyboard/VoiceOver labels. Ownership: household isolation/correction; deletion Open. Manipulation: no billing UI now.",
+          "reason": "Names truth/repair as an identified Proposed principle requirement with observable saved/failure behavior. Owner confirmation is not inferred."
+        }
+      },
+      "targeted": {
+        "exclusion_table": {
+          "yes": true,
+          "evidence": "REPORT.md:97: | Photos | Media/Recipe ID |",
+          "reason": "The actual first-slice table lists requested/planned later exclusions and known seams or unresolved decision IDs, without invented future capabilities."
+        },
+        "recovery_tradeoffs": {
+          "yes": true,
+          "evidence": "REPORT.md:81: | D-004 / EDD 8 | Proposed: owner export lowers cost/adds manual work; managed backup reduces effort/may cost | Export burden/loss tolerance changes |",
+          "reason": "Separate Proposed D-004 compares owner export (lower cost/manual work) and managed backup (lower effort/possible cost), and reopens on export burden or loss-tolerance changes."
+        },
+        "lean_authority": {
+          "yes": true,
+          "evidence": "REPORT.md:19: D-001 proposes installed web. D-002 proposes TypeScript/React, managed authentication, relational database and private object storage. Supabase/static hosting candidates have unverified prices/limits/capabilities. No public API. Shared contracts validate inputs.\nREPORT.md:82: | D-005 / EDD 8 | Open: residency, retention/deletion require explicit owner choice | Before real data |\nREPORT.md:87: Status: Proposed. SLICE STATE: approval pending; source intake, repository uninspected; milestone none; next resolve questions; blockers D-001 through D-005/approval; evidence none; audit pending.\nREPORT.md:104: Stubs: none. Proposed paths: client, adapters, migrations, tests, docs; discover actual paths. Dependencies/schema await approval; no deployment/deletion authorized.",
+          "reason": "898 whitespace-delimited words, matching metadata and within 900. Stubs are absent; code/paths/effects are proposed, not claimed implemented. Approval is pending, protected choices Open and provider facts/prices unverified."
+        }
+      },
+      "pass": false,
+      "report_words": 898,
+      "observations": [
+        "Whitespace count recomputed and matches METADATA.json: 898; <=900: yes.",
+        "No executed implementation or provider verification is claimed; future checks and approval gates remain pending."
+      ]
+    },
+    "after-1": {
+      "blind_label": "trial-418bdf59e8",
+      "items": {
+        "triage": {
+          "yes": true,
+          "evidence": "REPORT.md:9: Triage: family recipe app; Assumed greenfield/solo; built some Python/JavaScript; Assumed balanced explanation; Proposed T2; personal-data risk forces full security/privacy/permissions scrutiny; iOS/web; weekends; near-zero budget.",
+          "reason": "Opening triage states the app/greenfield project type, T2 scale and personal-data/photo/content risks, with inferred information labeled, before substantive planning."
+        },
+        "decision_statuses": {
+          "yes": false,
+          "evidence": "REPORT.md:82: | D-007 EDD 8/Open | Residency, deletion and payment provider require explicit choices | Before affected provisioning/action |",
+          "reason": "D-007 records Open status and an affected-action trigger, but lacks residency/deletion/payment alternatives with tradeoffs. Correctly withholding approval does not supply the original options component."
+        },
+        "requirements_ledger": {
+          "yes": true,
+          "evidence": "REPORT.md:37: | R-001 | iOS/web | Agreed targets complete recipe workflow |\nREPORT.md:45: Defaults are **Assumed**. Verify by owner reply before blocked work.\nREPORT.md:50: | Q-002 Safari or native iOS? Offline needed? | Web first; online | Client/sync architecture |",
+          "reason": "Intake requirements are separate from labeled assumptions and open questions. Assumptions have owner/question verification plans, and questions state the work they block."
+        },
+        "slice_boundary": {
+          "yes": false,
+          "evidence": "REPORT.md:105: | S-001 | R-001/R-002 | Two agreed target sessions create/read/reload; docs/evidence/SLICE-001/sharing.md |\nREPORT.md:96: | Photos | Private media adapter/recipe reference |\nREPORT.md:90: Prove sharing. After confirmation: two test members authenticate, create, read elsewhere, reload. Test permissions before persistence/retry. Touch UI, Identity, Recipes and adapter. No stubs.",
+          "reason": "A named first slice has observable acceptance criteria and later exclusion connections, but explicitly has no stubs. The original literal labeled-stubs-with-payback component fails; no-stubs is not substituted for it."
+        },
+        "evidence_bound": {
+          "yes": true,
+          "evidence": "REPORT.md:68: Agent summary is a claim. Verification is bounded by requirement consequence; no unnamed harness. Synthetic data only. Use migrations. Require build/lint, seam tests, walkthrough, diff/rollback review. Approve dependencies/schema/secrets/deploy effects; preserve approval. Stop on contradictions. Close evidence before another slice.",
+          "reason": "Explicitly treats agent summaries as claims and bounds verification by consequence; some additionally require requirement bindings for harnesses."
+        },
+        "interview_not_monologue": {
+          "yes": true,
+          "evidence": "REPORT.md:45: Defaults are **Assumed**. Verify by owner reply before blocked work.\nREPORT.md:50: | Q-002 Safari or native iOS? Offline needed? | Web first; online | Client/sync architecture |",
+          "reason": "Lists questions it would ask and marks filled defaults Assumed pending verification; recommendations remain provisional rather than owner decisions."
+        },
+        "state_block": {
+          "yes": true,
+          "evidence": "REPORT.md:86: Status: Proposed. SLICE STATE: approval pending; source supplied request/templates; next resolve Q-001 through Q-006; blocked by D-001 through D-007; evidence none; audit pending.",
+          "reason": "Preserves pending approval, next step, decision/question blockers and absent executed evidence so another session can resume."
+        },
+        "product_principles": {
+          "yes": true,
+          "evidence": "REPORT.md:58: R-006 **Proposed**: truth/repair. Saved means server acknowledgment; failed input survives; retry creates one recipe. Interrupted-network/retry check proves it. Proposed dignity/ownership checks: labeled keyboard/VoiceOver controls and outsider denial. Review honest prices/cancellation before premium.",
+          "reason": "Names truth/repair as an identified Proposed principle requirement with observable saved/failure behavior. Owner confirmation is not inferred."
+        }
+      },
+      "targeted": {
+        "exclusion_table": {
+          "yes": true,
+          "evidence": "REPORT.md:96: | Photos | Private media adapter/recipe reference |",
+          "reason": "The actual first-slice table lists requested/planned later exclusions and known seams or unresolved decision IDs, without invented future capabilities."
+        },
+        "recovery_tradeoffs": {
+          "yes": false,
+          "evidence": "REPORT.md:79: | D-004 ADD 13/Open | Recommend export backup: portable/manual; managed snapshots: easier restore, possible cost | Export burden or required loss window changes |",
+          "reason": "Export and snapshots have substantive tradeoffs and a loss-window/export-burden trigger, but D-004 is Open. The exact targeted criterion requires a separate Proposed recovery D-ID; narrative recommendation and restore testing do not change its recorded status."
+        },
+        "lean_authority": {
+          "yes": true,
+          "evidence": "REPORT.md:17: D-001/D-002 propose installable web first. \u201ciOS\u201d meaning is unresolved. Pricing/platform capabilities are unverified.\nREPORT.md:79: | D-004 ADD 13/Open | Recommend export backup: portable/manual; managed snapshots: easier restore, possible cost | Export burden or required loss window changes |\nREPORT.md:86: Status: Proposed. SLICE STATE: approval pending; source supplied request/templates; next resolve Q-001 through Q-006; blocked by D-001 through D-007; evidence none; audit pending.\nREPORT.md:90: Prove sharing. After confirmation: two test members authenticate, create, read elsewhere, reload. Test permissions before persistence/retry. Touch UI, Identity, Recipes and adapter. No stubs.",
+          "reason": "898 whitespace-delimited words, matching metadata and within 900. Stubs are absent; code/paths/effects are proposed, not claimed implemented. Approval is pending, protected choices Open and provider facts/prices unverified."
+        }
+      },
+      "pass": false,
+      "report_words": 898,
+      "observations": [
+        "Whitespace count recomputed and matches METADATA.json: 898; <=900: yes.",
+        "No executed implementation or provider verification is claimed; future checks and approval gates remain pending.",
+        "Recovery options are substantively compared; targeted failure concerns Open versus Proposed status, not evidence of unsafe approval."
+      ]
+    },
+    "after-2": {
+      "blind_label": "trial-434e985c44",
+      "items": {
+        "triage": {
+          "yes": true,
+          "evidence": "REPORT.md:9: Triage: family app; mixed; greenfield Assumed; provisional interview; T2 Proposed; solo Assumed; some Python/JavaScript experience; balanced explanation Assumed; personal-data/photo risks, minors Open; iOS/web; weekends; near-zero budget.",
+          "reason": "Opening triage states the app/greenfield project type, T2 scale and personal-data/photo/content risks, with inferred information labeled, before substantive planning."
+        },
+        "decision_statuses": {
+          "yes": false,
+          "evidence": "REPORT.md:78: | D-005 Open ADD 5/12, EDD 8 | Residency, deletion, public API require explicit choices; local trials avoid commitments, hosting enables sync | Before provisioning |",
+          "reason": "D-005 combines protected residency/deletion/public-API choices with local-trial versus hosting benefits. Those deployment options do not provide deletion or public-contract alternatives/tradeoffs; not every significant choice meets the original requirement."
+        },
+        "requirements_ledger": {
+          "yes": true,
+          "evidence": "REPORT.md:35: | R-001 | Recipe box | Saved recipe remains readable |\nREPORT.md:42: Assumed A-001 balanced explanation; A-002 installed web acceptable; A-003 adults/online-only; A-004 one family/equal editors; A-005 zero recurring spend. Verify through matching Q-IDs; these are also section 16's canonical unknowns.\nREPORT.md:50: | Q-002 | Installed web recommended/native/both? | A-002/D-001 distribution |",
+          "reason": "Intake requirements are separate from labeled assumptions and open questions. Assumptions have owner/question verification plans, and questions state the work they block."
+        },
+        "slice_boundary": {
+          "yes": false,
+          "evidence": "REPORT.md:102: | S-001 | R-001/R-002 | Web save, iPhone refresh; recorded steps/results: docs/evidence/S-001.md |\nREPORT.md:91: | Photos | Recipe/storage |\nREPORT.md:24: Only SLICE-001-shared-recipe: UI, Identity, Recipes, Data. No stubs.",
+          "reason": "A named first slice has observable acceptance criteria and later exclusion connections, but explicitly has no stubs. The original literal labeled-stubs-with-payback component fails; no-stubs is not substituted for it."
+        },
+        "evidence_bound": {
+          "yes": true,
+          "evidence": "REPORT.md:66: Proposed strict TypeScript, feature folders/shared contracts, formatting, redacted error logs, synthetic tests. Verify provider limits before provisioning. Agent summaries are claims; checks are bounded by consequence. No unnamed harness. Separate planning/build/verification; approve dependencies/schema/secrets/deploy effects. Done: acceptance evidence, lint/build, reviewed diff, restore/rollback proof, owner release approval. Update affected docs each slice.",
+          "reason": "Explicitly treats agent summaries as claims and bounds verification by consequence; some additionally require requirement bindings for harnesses."
+        },
+        "interview_not_monologue": {
+          "yes": true,
+          "evidence": "REPORT.md:42: Assumed A-001 balanced explanation; A-002 installed web acceptable; A-003 adults/online-only; A-004 one family/equal editors; A-005 zero recurring spend. Verify through matching Q-IDs; these are also section 16's canonical unknowns.\nREPORT.md:50: | Q-002 | Installed web recommended/native/both? | A-002/D-001 distribution |",
+          "reason": "Lists questions it would ask and marks filled defaults Assumed pending verification; recommendations remain provisional rather than owner decisions."
+        },
+        "state_block": {
+          "yes": true,
+          "evidence": "REPORT.md:83: Status Proposed. SLICE STATE: approval pending; source intake/templates; milestone none; next resolve questions/decisions; blockers Q/D-IDs and approval; evidence none; audit 2026-10-12.",
+          "reason": "Preserves pending approval, next step, decision/question blockers and absent executed evidence so another session can resume."
+        },
+        "product_principles": {
+          "yes": true,
+          "evidence": "REPORT.md:57: P-001 Proposed, truth/repair: failed save never says \u201csaved\u201d; retry retains input. Check interrupted save. Dignity: labeled keyboard/VoiceOver controls. Ownership: family access/export. No manipulation: premium terms await review.",
+          "reason": "Names truth/repair as an identified Proposed principle requirement with observable saved/failure behavior. Owner confirmation is not inferred."
+        }
+      },
+      "targeted": {
+        "exclusion_table": {
+          "yes": true,
+          "evidence": "REPORT.md:91: | Photos | Recipe/storage |",
+          "reason": "The actual first-slice table lists requested/planned later exclusions and known seams or unresolved decision IDs, without invented future capabilities."
+        },
+        "recovery_tradeoffs": {
+          "yes": true,
+          "evidence": "REPORT.md:77: | D-004 Proposed ADD 13 | Encrypted owner-held exports are cheap/manual; managed backups save effort/cost more; no backups risks loss | Restore burden/data growth |",
+          "reason": "Separate Proposed D-004 compares cheap/manual exports, effort-saving/costlier managed backups and loss-risk from no backups. Restore burden/data growth specifically reopens recovery beyond a restore-test gate."
+        },
+        "lean_authority": {
+          "yes": true,
+          "evidence": "REPORT.md:21: D-001/D-002 govern technology. Provider facts/pricing are unverified. Use isolated staging; owner approves production/region; rollback previous build. Auth expiry requests sign-in. Network failure offers retry. Recovery: D-004. Proposed five-second refresh target, revisited after family use. No custom passwords, direct provider imports outside adapters, silent overwrites or destructive migrations.\nREPORT.md:78: | D-005 Open ADD 5/12, EDD 8 | Residency, deletion, public API require explicit choices; local trials avoid commitments, hosting enables sync | Before provisioning |\nREPORT.md:83: Status Proposed. SLICE STATE: approval pending; source intake/templates; milestone none; next resolve questions/decisions; blockers Q/D-IDs and approval; evidence none; audit 2026-10-12.\nREPORT.md:24: Only SLICE-001-shared-recipe: UI, Identity, Recipes, Data. No stubs.",
+          "reason": "897 whitespace-delimited words, matching metadata and within 900. Stubs are absent; code/paths/effects are proposed, not claimed implemented. Approval is pending, protected choices Open and provider facts/prices unverified."
+        }
+      },
+      "pass": false,
+      "report_words": 897,
+      "observations": [
+        "Whitespace count recomputed and matches METADATA.json: 897; <=900: yes.",
+        "No executed implementation or provider verification is claimed; future checks and approval gates remain pending."
+      ]
+    },
+    "before-3": {
+      "blind_label": "trial-478bc37ada",
+      "items": {
+        "triage": {
+          "yes": true,
+          "evidence": "REPORT.md:9: Triage: app; greenfield and solo **Assumed**; T2; built small Python/JavaScript projects; standard explanation depth **Assumed**; iOS/web; weekends; near-zero budget. Personal data/user content risks force T3 security, privacy and permissions depth; minors **Open**.",
+          "reason": "Opening triage states the app/greenfield project type, T2 scale and personal-data/photo/content risks, with inferred information labeled, before substantive planning."
+        },
+        "decision_statuses": {
+          "yes": false,
+          "evidence": "REPORT.md:96: | D-004 Open | Residency, deletion, public contracts, payment provider require explicit confirmation. Premium deferral saves cost but delays revenue; revisit validated demand. |",
+          "reason": "D-004 keeps residency/deletion/public-contract/payment choices Open, but its tradeoff and revisit trigger concern premium deferral. The other significant protected choices lack considered alternatives/tradeoffs and relevant revisit triggers."
+        },
+        "requirements_ledger": {
+          "yes": true,
+          "evidence": "REPORT.md:48: | R-001 | iOS/web | Approved delivery format works on both |\nREPORT.md:56: A-001: greenfield, solo, standard explanations. A-002: small household, online, English, browser-installed iOS. A-003: $0 recurring target. Verify via Q-001-Q-004.\nREPORT.md:63: | Q-002 | Browser-installed or native iOS? Offline needed? | Client/sync; client build |",
+          "reason": "Intake requirements are separate from labeled assumptions and open questions. Assumptions have owner/question verification plans, and questions state the work they block."
+        },
+        "slice_boundary": {
+          "yes": false,
+          "evidence": "REPORT.md:108: | S-001/R-001,R-002 | A creates, B reads after refresh on iOS Safari/desktop; docs/evidence/S-001.md |\nREPORT.md:31: | Photos | Recipe ID, private storage | Sync accepted; upload budget agreed |\nREPORT.md:38: D-003 proposes pending/error states, retained input and safe retry. Offline editing/merging await requirements. Current slice: SLICE-001-shared-recipe, Proposed. No stubs. Deployment/performance await provider selection and measured usage.",
+          "reason": "A named first slice has observable acceptance criteria and later exclusion connections, but explicitly has no stubs. The original literal labeled-stubs-with-payback component fails; no-stubs is not substituted for it."
+        },
+        "evidence_bound": {
+          "yes": true,
+          "evidence": "REPORT.md:85: Strict types, formatter, feature organization, one adapter, migrations, reproducible setup. Verify seams, keyboard/VoiceOver and rollback. Agent summaries are claims; verification scales with consequence; extra harnesses require requirement IDs. Approve dependencies, schemas, secrets and deployment. Stop on contradictions. Done requires evidence, diff review, updated documents and owner acceptance. Remaining sections condensed for length.",
+          "reason": "Explicitly treats agent summaries as claims and bounds verification by consequence; some additionally require requirement bindings for harnesses."
+        },
+        "interview_not_monologue": {
+          "yes": true,
+          "evidence": "REPORT.md:56: A-001: greenfield, solo, standard explanations. A-002: small household, online, English, browser-installed iOS. A-003: $0 recurring target. Verify via Q-001-Q-004.\nREPORT.md:63: | Q-002 | Browser-installed or native iOS? Offline needed? | Client/sync; client build |",
+          "reason": "Lists questions it would ask and marks filled defaults Assumed pending verification; recommendations remain provisional rather than owner decisions."
+        },
+        "state_block": {
+          "yes": true,
+          "evidence": "REPORT.md:100: Proposed. SLICE STATE: approval pending; source intake only; milestone none; next Q-001-Q-006; blocked D-001-D-004/R-006; evidence none; audit pending.",
+          "reason": "Preserves pending approval, next step, decision/question blockers and absent executed evidence so another session can resume."
+        },
+        "product_principles": {
+          "yes": true,
+          "evidence": "REPORT.md:71: R-006 **Proposed**, truth/repair: show \u201csaved\u201d only after acknowledgement; interrupted saves retain input; retry creates one record. Check interrupted request/retry. Ownership, dignity, no manipulation: propose household isolation, labeled controls, no promotional tracking; review before launch.",
+          "reason": "Names truth/repair as an identified Proposed principle requirement with observable saved/failure behavior. Owner confirmation is not inferred."
+        }
+      },
+      "targeted": {
+        "exclusion_table": {
+          "yes": false,
+          "evidence": "REPORT.md:31: | Photos | Recipe ID, private storage | Sync accepted; upload budget agreed |\nREPORT.md:102: Prove two accounts share one recipe. Order: two-hour provider/iOS spike; pass sign-in/write/read within ceiling before persistence/access implementation; then checks. Failure stops work. Paths: client, identity/membership, recipe adapter, migrations, tests. Exclusions: ADD 10. Stubs: none. No deletion/paid activation.",
+          "reason": "An actual table exists in ARCHITECTURE section 10, but the first slice only says Exclusions: ADD 10. The exact targeted requirement for an actual table in the first slice is unmet."
+        },
+        "recovery_tradeoffs": {
+          "yes": false,
+          "evidence": "REPORT.md:95: | D-003 Proposed | Create-only online sync avoids edit conflicts; revision-checked edits add effort; offline merge adds complexity. Revisit editing/offline need. Retained draft/retry reduces loss; discard-on-error costs reentry; revisit failed retry test. |",
+          "reason": "D-003 compares sync/edit/conflict handling and retained-draft retry versus discarded input, not independent durable recovery. Recovery/export is Proposed in narrative but lacks a separate recovery D-ID, recovery alternatives/tradeoffs and reconsideration trigger."
+        },
+        "lean_authority": {
+          "yes": true,
+          "evidence": "REPORT.md:25: D-001/D-002 propose the stack. Verify costs, limits, regions and iOS behavior before commitment. Unrequested AI/notifications omitted.\nREPORT.md:96: | D-004 Open | Residency, deletion, public contracts, payment provider require explicit confirmation. Premium deferral saves cost but delays revenue; revisit validated demand. |\nREPORT.md:100: Proposed. SLICE STATE: approval pending; source intake only; milestone none; next Q-001-Q-006; blocked D-001-D-004/R-006; evidence none; audit pending.\nREPORT.md:38: D-003 proposes pending/error states, retained input and safe retry. Offline editing/merging await requirements. Current slice: SLICE-001-shared-recipe, Proposed. No stubs. Deployment/performance await provider selection and measured usage.",
+          "reason": "899 whitespace-delimited words, matching metadata and within 900. Stubs are absent; code/paths/effects are proposed, not claimed implemented. Approval is pending, protected choices Open and provider facts/prices unverified."
+        }
+      },
+      "pass": false,
+      "report_words": 899,
+      "observations": [
+        "Whitespace count recomputed and matches METADATA.json: 899; <=900: yes.",
+        "No executed implementation or provider verification is claimed; future checks and approval gates remain pending.",
+        "Exclusion connections are available through a precise architecture reference despite failing the targeted in-slice-table location requirement."
+      ]
+    },
+    "after-3": {
+      "blind_label": "trial-60414dc61a",
+      "items": {
+        "triage": {
+          "yes": true,
+          "evidence": "REPORT.md:6: Triage: Assumed greenfield, solo, T2, standard explanation. Stated: some Python/JavaScript; iOS/web; weekends; near-zero budget. Personal data/photos force full security/privacy/permissions review. Minors unknown.",
+          "reason": "Opening triage states the app/greenfield project type, T2 scale and personal-data/photo/content risks, with inferred information labeled, before substantive planning."
+        },
+        "decision_statuses": {
+          "yes": false,
+          "evidence": "REPORT.md:74: | D-006 Open | Payment provider: confirm before monetization. |",
+          "reason": "D-006 through D-009 name Open protected decisions with confirmation gates, but supply no considered options or tradeoffs. Confirmation gates are triggers rather than substitutes for alternatives."
+        },
+        "requirements_ledger": {
+          "yes": true,
+          "evidence": "REPORT.md:27: | R-001 | Family recipe box | Save/retrieve recipe |\nREPORT.md:37: A-001 greenfield/solo/standard depth; A-002 Safari sufficient; A-003 small family/online; A-004 adult accounts; A-005 zero recurring spend; A-006 owner handles recovery. All Assumed; Q-001 through Q-006 respectively verify them. Canonical unknown list.\nREPORT.md:43: | Q-002 | Safari/home-screen or App Store? | D-001/R-002 |",
+          "reason": "Intake requirements are separate from labeled assumptions and open questions. Assumptions have owner/question verification plans, and questions state the work they block."
+        },
+        "slice_boundary": {
+          "yes": false,
+          "evidence": "REPORT.md:101: | S-001 | R-001,R-003 | Save A/retrieve B, compare fields; evidence/S-001 |\nREPORT.md:89: | Photos | Media/storage |\nREPORT.md:18: SLICE-001-sync-recipe touches UI, identity, recipes, storage. Stubs: none. Performance/topology/integration condensed into EDD; AI/notifications omitted as unrequested.",
+          "reason": "A named first slice has observable acceptance criteria and later exclusion connections, but explicitly has no stubs. The original literal labeled-stubs-with-payback component fails; no-stubs is not substituted for it."
+        },
+        "evidence_bound": {
+          "yes": true,
+          "evidence": "REPORT.md:63: Agent summary is a claim; verification effort is bounded by requirement consequence. No unnamed harnesses.",
+          "reason": "Explicitly treats agent summaries as claims and bounds verification by consequence; some additionally require requirement bindings for harnesses."
+        },
+        "interview_not_monologue": {
+          "yes": true,
+          "evidence": "REPORT.md:37: A-001 greenfield/solo/standard depth; A-002 Safari sufficient; A-003 small family/online; A-004 adult accounts; A-005 zero recurring spend; A-006 owner handles recovery. All Assumed; Q-001 through Q-006 respectively verify them. Canonical unknown list.\nREPORT.md:43: | Q-002 | Safari/home-screen or App Store? | D-001/R-002 |",
+          "reason": "Lists questions it would ask and marks filled defaults Assumed pending verification; recommendations remain provisional rather than owner decisions."
+        },
+        "state_block": {
+          "yes": true,
+          "evidence": "REPORT.md:81: SLICE STATE: Approval pending; source: intake; milestone: none; next: resolve questions; blockers: D-001 to D-004, D-007, assumptions; evidence: none; audit: 2026-10-12.",
+          "reason": "Preserves pending approval, next step, decision/question blockers and absent executed evidence so another session can resume."
+        },
+        "product_principles": {
+          "yes": true,
+          "evidence": "REPORT.md:52: Proposed R-P01, truth: saved only after acknowledgement; failure retains draft. Ownership: deny other families. Dignity: keyboard/VoiceOver check. Repair: D-004. Manipulation: selling absent.",
+          "reason": "Names truth/repair as an identified Proposed principle requirement with observable saved/failure behavior. Owner confirmation is not inferred."
+        }
+      },
+      "targeted": {
+        "exclusion_table": {
+          "yes": true,
+          "evidence": "REPORT.md:89: | Photos | Media/storage |",
+          "reason": "The actual first-slice table lists requested/planned later exclusions and known seams or unresolved decision IDs, without invented future capabilities."
+        },
+        "recovery_tradeoffs": {
+          "yes": true,
+          "evidence": "REPORT.md:72: | D-004 Proposed | Encrypted export: cheap/manual; managed backup: automatic/possible fee; local-only: no device recovery. Recommend export; revisit missed backups/recovery effort. |",
+          "reason": "Separate Proposed D-004 recommends export (cheap/manual), compares managed backup (automatic/possible fee) and local-only (no device recovery), and reopens on missed backups/recovery effort."
+        },
+        "lean_authority": {
+          "yes": true,
+          "evidence": "REPORT.md:15: Family has memberships/recipes; later private photos/groceries. Volume unknown. Provider costs/support unverified; check official terms before selection.\nREPORT.md:74: | D-006 Open | Payment provider: confirm before monetization. |\nREPORT.md:81: SLICE STATE: Approval pending; source: intake; milestone: none; next: resolve questions; blockers: D-001 to D-004, D-007, assumptions; evidence: none; audit: 2026-10-12.\nREPORT.md:18: SLICE-001-sync-recipe touches UI, identity, recipes, storage. Stubs: none. Performance/topology/integration condensed into EDD; AI/notifications omitted as unrequested.",
+          "reason": "895 whitespace-delimited words, matching metadata and within 900. Stubs are absent; code/paths/effects are proposed, not claimed implemented. Approval is pending, protected choices Open and provider facts/prices unverified."
+        }
+      },
+      "pass": false,
+      "report_words": 895,
+      "observations": [
+        "Whitespace count recomputed and matches METADATA.json: 895; <=900: yes.",
+        "No executed implementation or provider verification is claimed; future checks and approval gates remain pending."
+      ]
+    },
+    "final-1": {
+      "blind_label": "trial-928f1a8550",
+      "items": {
+        "triage": {
+          "yes": true,
+          "evidence": "REPORT.md:9: Triage: family app; iOS/web; Python/JavaScript experience; weekends; near-zero budget. Assumed: greenfield, solo, T2, guided, adult household. Personal data forces full security/privacy/permissions depth. Minors/payments open.",
+          "reason": "Opening triage states the app/greenfield project type, T2 scale and personal-data/photo/content risks, with inferred information labeled, before substantive planning."
+        },
+        "decision_statuses": {
+          "yes": true,
+          "evidence": "REPORT.md:74: | D-001 Proposed, ADD 8 | Recommend web/managed stack for upkeep; Expo adds native packaging; Swift/Python adds client/server work. Revisit native/offline needs or failed cost checks. |\nREPORT.md:75: | D-002 Proposed, ADD 6 | Recommend revision checks that reject stale saves; last-write-wins simplifies code but loses edits. Revisit disruptive conflict frequency. |\nREPORT.md:76: | D-003 Proposed, EDD 7 | Recommend encrypted owner exports: portable, manual upkeep. Provider snapshots: less upkeep, possible cost. Revisit export burden or changed guarantees. Restore test is a gate. |\nREPORT.md:77: | D-004 Open, EDD 8 | Regional hosting limits location; broader hosting improves availability. Confirm before real data. |\nREPORT.md:78: | D-005 Open, EDD 8 | Retained versions aid recovery; immediate deletion reduces exposure. Confirm consequences before implementation. |\nREPORT.md:79: | D-006 Open, ADD 8 | Managed checkout reduces work; store billing adds platform constraints. Revisit only when premium scope is approved. |\nREPORT.md:80: | D-007 Proposed, ADD 15 | Recommend sync first; all-at-once offers completeness with greater weekend risk. Revisit after sync evidence. |",
+          "reason": "D-001\u2013D-007 record Proposed/Open statuses, compare options with effort, edit-loss, recovery, hosting, exposure, billing or weekend consequences, and give need/cost/burden/confirmation/scope triggers. Protected choices remain Open."
+        },
+        "requirements_ledger": {
+          "yes": true,
+          "evidence": "REPORT.md:33: | R-001 | iOS/web | Workflow runs on iPhone/desktop |\nREPORT.md:41: Unanswered answers are Assumed; owner verifies before blocked work. Ask in batches of six maximum:\nREPORT.md:47: | Q-003 | Native store app/home-screen web; offline? Online web | D-001, R-001 interpretation |",
+          "reason": "Intake requirements are separate from labeled assumptions and open questions. Assumptions have owner/question verification plans, and questions state the work they block."
+        },
+        "slice_boundary": {
+          "yes": false,
+          "evidence": "REPORT.md:109: | S-001 | R-001/002: iPhone save, desktop refresh/fetch | Two-device script |\nREPORT.md:96: | Photos | Recipe-owned private storage |\nREPORT.md:103: No stubs. Paths: UI/identity/recipes/adapter/migrations. Dependencies/schema/credentials/deployments unapproved.",
+          "reason": "A named first slice has observable acceptance criteria and later exclusion connections, but explicitly has no stubs. The original literal labeled-stubs-with-payback component fails; no-stubs is not substituted for it."
+        },
+        "evidence_bound": {
+          "yes": true,
+          "evidence": "REPORT.md:66: Typed boundaries; formatter; secrets outside Git. Separate planning/build/verification; approve dependency/schema/deployment effects. Agent summaries are claims; verification is bounded by consequence, without unnamed harnesses. Done: build/lint, checks, reviewed diff/documents, owner release approval. Evidence: docs/evidence/SLICE-001.",
+          "reason": "Explicitly treats agent summaries as claims and bounds verification by consequence; some additionally require requirement bindings for harnesses."
+        },
+        "interview_not_monologue": {
+          "yes": true,
+          "evidence": "REPORT.md:41: Unanswered answers are Assumed; owner verifies before blocked work. Ask in batches of six maximum:\nREPORT.md:47: | Q-003 | Native store app/home-screen web; offline? Online web | D-001, R-001 interpretation |",
+          "reason": "Lists questions it would ask and marks filled defaults Assumed pending verification; recommendations remain provisional rather than owner decisions."
+        },
+        "state_block": {
+          "yes": true,
+          "evidence": "REPORT.md:86: SLICE STATE: approval pending; source intake only, no code inspected; milestone none; next resolve Q-002 through Q-006/D-001 through D-005; evidence none; audit pending, 2026-10-12.",
+          "reason": "Preserves pending approval, next step, decision/question blockers and absent executed evidence so another session can resume."
+        },
+        "product_principles": {
+          "yes": true,
+          "evidence": "REPORT.md:56: P-001 Proposed, truth: show \u201cSaved\u201d only after acknowledgement; disconnect must show failure/pending. Repair: retained drafts/D-003. Dignity: labeled keyboard-accessible controls. Ownership: household isolation. Manipulation: no paid prompts.",
+          "reason": "Names truth/repair as an identified Proposed principle requirement with observable saved/failure behavior. Owner confirmation is not inferred."
+        }
+      },
+      "targeted": {
+        "exclusion_table": {
+          "yes": true,
+          "evidence": "REPORT.md:96: | Photos | Recipe-owned private storage |",
+          "reason": "The actual first-slice table lists requested/planned later exclusions and known seams or unresolved decision IDs, without invented future capabilities."
+        },
+        "recovery_tradeoffs": {
+          "yes": true,
+          "evidence": "REPORT.md:76: | D-003 Proposed, EDD 7 | Recommend encrypted owner exports: portable, manual upkeep. Provider snapshots: less upkeep, possible cost. Revisit export burden or changed guarantees. Restore test is a gate. |",
+          "reason": "Separate Proposed D-003 compares portable/manual owner exports with lower-upkeep/possibly paid provider snapshots. Export burden or changed guarantees reopens recovery; restore testing is separately a gate, and retention/deletion remain in Open D-005."
+        },
+        "lean_authority": {
+          "yes": true,
+          "evidence": "REPORT.md:13: D-001 proposes an installable React/TypeScript web app on iPhone Safari and desktop, with Supabase authentication/PostgreSQL/private storage. Native iOS remains Q-003. Pricing/limits/mobile behavior unverified. Check feasibility before implementation.\nREPORT.md:77: | D-004 Open, EDD 8 | Regional hosting limits location; broader hosting improves availability. Confirm before real data. |\nREPORT.md:86: SLICE STATE: approval pending; source intake only, no code inspected; milestone none; next resolve Q-002 through Q-006/D-001 through D-005; evidence none; audit pending, 2026-10-12.\nREPORT.md:103: No stubs. Paths: UI/identity/recipes/adapter/migrations. Dependencies/schema/credentials/deployments unapproved.",
+          "reason": "899 whitespace-delimited words, matching metadata and within 900. Stubs are absent; code/paths/effects are proposed, not claimed implemented. Approval is pending, protected choices Open and provider facts/prices unverified."
+        }
+      },
+      "pass": false,
+      "report_words": 899,
+      "observations": [
+        "Whitespace count recomputed and matches METADATA.json: 899; <=900: yes.",
+        "No executed implementation or provider verification is claimed; future checks and approval gates remain pending."
+      ]
+    },
+    "before-1": {
+      "blind_label": "trial-af430a3ac1",
+      "items": {
+        "triage": {
+          "yes": true,
+          "evidence": "REPORT.md:9: Triage: app; Assumed greenfield, solo, T2, guided explanation, provisional full interview. Intake confirms family audience, some Python/JavaScript experience, weekends and near-zero budget. Personal data/user content force full security, privacy and permissions review; minors remain Open. ",
+          "reason": "Opening triage states the app/greenfield project type, T2 scale and personal-data/photo/content risks, with inferred information labeled, before substantive planning."
+        },
+        "decision_statuses": {
+          "yes": false,
+          "evidence": "REPORT.md:72: | D-004 Open | Region/payment/public APIs/deletion require explicit confirmation; each creates sticky obligations | Before dependent work |",
+          "reason": "D-004 marks region/payment/public-API/deletion choices Open and names a dependent-work trigger, but gives no considered alternatives/tradeoffs for those significant choices. Other records are fuller; the conjunctive item still fails."
+        },
+        "requirements_ledger": {
+          "yes": true,
+          "evidence": "REPORT.md:31: | R-001 | Recipe box | Save/reopen recipe |\nREPORT.md:40: Answers are Assumed; matching questions verify them before blocked work.\nREPORT.md:45: | 002 | Browser/native/both first? Approve shared-recipe slice? | Browser initially acceptable | D-001, selection |",
+          "reason": "Intake requirements are separate from labeled assumptions and open questions. Assumptions have owner/question verification plans, and questions state the work they block."
+        },
+        "slice_boundary": {
+          "yes": false,
+          "evidence": "REPORT.md:95: | S-001/R-001,R-003 | Save device A; reopen device B with matching fields | docs/evidence/S-001 |\nREPORT.md:85: | Photos | Recipe IDs/private storage |\nREPORT.md:89: Stubs: none. Reviewed effects pending: dependencies, schema, credentials, hosting. No deletes.",
+          "reason": "A named first slice has observable acceptance criteria and later exclusion connections, but explicitly has no stubs. The original literal labeled-stubs-with-payback component fails; no-stubs is not substituted for it."
+        },
+        "evidence_bound": {
+          "yes": true,
+          "evidence": "REPORT.md:61: Use migrations, formatter, typed boundaries, handled errors; proposed src/, migrations/, docs/. Approve dependencies/schema/secrets/deployments by targets/effects. CI: build, lint, seam tests. Release: rollback evidence/owner approval. Separate planning/build/verification. Agent summaries are claims; verification follows consequence, no unnamed harness.",
+          "reason": "Explicitly treats agent summaries as claims and bounds verification by consequence; some additionally require requirement bindings for harnesses."
+        },
+        "interview_not_monologue": {
+          "yes": true,
+          "evidence": "REPORT.md:40: Answers are Assumed; matching questions verify them before blocked work.\nREPORT.md:45: | 002 | Browser/native/both first? Approve shared-recipe slice? | Browser initially acceptable | D-001, selection |",
+          "reason": "Lists questions it would ask and marks filled defaults Assumed pending verification; recommendations remain provisional rather than owner decisions."
+        },
+        "state_block": {
+          "yes": true,
+          "evidence": "REPORT.md:78: Proposed; approval pending. Source: intake, repository uninspected. Next: owner answers. Blockers: D-001 to D-004, D-006, Q-006. Evidence: none. Last audit: 2026-10-12.",
+          "reason": "Preserves pending approval, next step, decision/question blockers and absent executed evidence so another session can resume."
+        },
+        "product_principles": {
+          "yes": true,
+          "evidence": "REPORT.md:53: Proposed R-007, truth/repair: failed save retains text and never claims success; disconnect to check. Proposed dignity/ownership: accessible controls, neutral refusals, export/correction. No manipulation: no premium prompts.",
+          "reason": "Names truth/repair as an identified Proposed principle requirement with observable saved/failure behavior. Owner confirmation is not inferred."
+        }
+      },
+      "targeted": {
+        "exclusion_table": {
+          "yes": true,
+          "evidence": "REPORT.md:85: | Photos | Recipe IDs/private storage |",
+          "reason": "The actual first-slice table lists requested/planned later exclusions and known seams or unresolved decision IDs, without invented future capabilities."
+        },
+        "recovery_tradeoffs": {
+          "yes": true,
+          "evidence": "REPORT.md:74: | D-006 Proposed | Export/restore reduces loss risk but needs storage/testing; provider-only backup reduces work but risks unavailable recovery | Restore fails or costs change |",
+          "reason": "Separate Proposed D-006 compares export/restore (lower loss risk/storage-testing work) with provider-only backup (less work/potentially unavailable recovery). Changed recovery costs supplies a reconsideration trigger in addition to restore failure."
+        },
+        "lean_authority": {
+          "yes": true,
+          "evidence": "REPORT.md:13: D-001 proposes browser-first iPhone support before native iOS. D-002 proposes TypeScript/React and a managed relational backend such as Supabase. Capabilities/costs unverified.\nREPORT.md:72: | D-004 Open | Region/payment/public APIs/deletion require explicit confirmation; each creates sticky obligations | Before dependent work |\nREPORT.md:78: Proposed; approval pending. Source: intake, repository uninspected. Next: owner answers. Blockers: D-001 to D-004, D-006, Q-006. Evidence: none. Last audit: 2026-10-12.\nREPORT.md:89: Stubs: none. Reviewed effects pending: dependencies, schema, credentials, hosting. No deletes.",
+          "reason": "899 whitespace-delimited words, matching metadata and within 900. Stubs are absent; code/paths/effects are proposed, not claimed implemented. Approval is pending, protected choices Open and provider facts/prices unverified."
+        }
+      },
+      "pass": false,
+      "report_words": 899,
+      "observations": [
+        "Whitespace count recomputed and matches METADATA.json: 899; <=900: yes.",
+        "No executed implementation or provider verification is claimed; future checks and approval gates remain pending."
+      ]
+    },
+    "final-2": {
+      "blind_label": "trial-fd8a3a2ac8",
+      "items": {
+        "triage": {
+          "yes": true,
+          "evidence": "REPORT.md:9: Triage: Recipe Box; app; greenfield Assumed; offline drafting; T2 Proposed; solo Assumed; some Python/JavaScript experience Confirmed; balanced explanation Assumed; personal-data/user-content risks; iOS/web, weekends, near-zero budget Confirmed. Risk flags require full security/privacy/permissions scrutiny.",
+          "reason": "Opening triage states the app/greenfield project type, T2 scale and personal-data/photo/content risks, with inferred information labeled, before substantive planning."
+        },
+        "decision_statuses": {
+          "yes": false,
+          "evidence": "REPORT.md:70: | D-005 Open, EDD 8 | Nearby region improves latency versus residency constraints. Retention preserves recovery versus less exposure. Deletion/payment require explicit confirmation. | Owner rules/committed premium |",
+          "reason": "D-005 supplies region/retention consequences but only says deletion/payment require confirmation. Those significant protected choices lack considered alternatives/tradeoffs, leaving the original item incomplete."
+        },
+        "requirements_ledger": {
+          "yes": true,
+          "evidence": "REPORT.md:29: | R-001 | Recipe box | Save/retrieve recipe |\nREPORT.md:39: A-001 greenfield/solo: inspect starting materials. A-002 balanced explanation: ask preference. A-003 adult household, English, online: confirm audience/connectivity. A-004 zero recurring spend: obtain ceiling. All Assumed; resolve through Q-001 through Q-003 before dependent work.\nREPORT.md:46: | Q-003 | Home-screen web or native? Spending ceiling? | Client/distribution/providers |",
+          "reason": "Intake requirements are separate from labeled assumptions and open questions. Assumptions have owner/question verification plans, and questions state the work they block."
+        },
+        "slice_boundary": {
+          "yes": false,
+          "evidence": "REPORT.md:95: | S-001 | R-001/R-003 | Save/refresh; second device reads identical fields |\nREPORT.md:82: | Photos | Media/Recipe ID |\nREPORT.md:88: No stubs. Touch UI/Identity/Recipes/contracts/adapters/migrations. Approval covers dependencies/schema/credentials/test deployment. No deletion/paid services authorized.",
+          "reason": "A named first slice has observable acceptance criteria and later exclusion connections, but explicitly has no stubs. The original literal labeled-stubs-with-payback component fails; no-stubs is not substituted for it."
+        },
+        "evidence_bound": {
+          "yes": true,
+          "evidence": "REPORT.md:60: Proposed strict typing/formatter, explicit errors, feature folders/shared contracts, accessible controls. Exclude content/secrets from logs; use synthetic tests. CI checks core logic, authorization and workflow. Agent summaries are claims; verification is bounded by consequence; new harnesses need requirement IDs. Done: executed evidence, diff review, current docs, owner acceptance. Approve dependencies/schema/secrets/deployment effects; changed scope reopens approval. Operations await providers.",
+          "reason": "Explicitly treats agent summaries as claims and bounds verification by consequence; some additionally require requirement bindings for harnesses."
+        },
+        "interview_not_monologue": {
+          "yes": true,
+          "evidence": "REPORT.md:39: A-001 greenfield/solo: inspect starting materials. A-002 balanced explanation: ask preference. A-003 adult household, English, online: confirm audience/connectivity. A-004 zero recurring spend: obtain ceiling. All Assumed; resolve through Q-001 through Q-003 before dependent work.\nREPORT.md:46: | Q-003 | Home-screen web or native? Spending ceiling? | Client/distribution/providers |",
+          "reason": "Lists questions it would ask and marks filled defaults Assumed pending verification; recommendations remain provisional rather than owner decisions."
+        },
+        "state_block": {
+          "yes": true,
+          "evidence": "REPORT.md:74: Status: Proposed. SLICE STATE: approval pending; source intake/templates, repository uninspected; milestone none; next Q-001 through Q-006; blockers D-001 through D-005/P-R confirmations; evidence none; audit pending.",
+          "reason": "Preserves pending approval, next step, decision/question blockers and absent executed evidence so another session can resume."
+        },
+        "product_principles": {
+          "yes": true,
+          "evidence": "REPORT.md:52: P-R-008 Proposed, truth/repair: Saved requires commit; failure retains text. P-R-009 Proposed, ownership: household isolation and recoverable records. Checks: S-003/S-005. Dignity: labeled keyboard-accessible controls. Manipulation: no fabricated offers.",
+          "reason": "Names truth/repair as an identified Proposed principle requirement with observable saved/failure behavior. Owner confirmation is not inferred."
+        }
+      },
+      "targeted": {
+        "exclusion_table": {
+          "yes": true,
+          "evidence": "REPORT.md:82: | Photos | Media/Recipe ID |",
+          "reason": "The actual first-slice table lists requested/planned later exclusions and known seams or unresolved decision IDs, without invented future capabilities."
+        },
+        "recovery_tradeoffs": {
+          "yes": true,
+          "evidence": "REPORT.md:68: | D-003 Proposed, EDD 7 | Encrypted owner exports offer independent recovery; provider backups reduce effort but may cost; no recovery risks loss. | Export burden exceeds weekends/affordable backups emerge |",
+          "reason": "Separate Proposed D-003 compares independent owner-export recovery, lower-effort/possibly costly provider backups and loss from no recovery. Export burden exceeding weekends or affordable backups emerging specifically reopens recovery."
+        },
+        "lean_authority": {
+          "yes": true,
+          "evidence": "REPORT.md:15: See D-001. Separate test/family environments; approve deployment; retain prior release for rollback. Pricing, quotas and iOS capabilities unverified: check current documentation before dependencies.\nREPORT.md:70: | D-005 Open, EDD 8 | Nearby region improves latency versus residency constraints. Retention preserves recovery versus less exposure. Deletion/payment require explicit confirmation. | Owner rules/committed premium |\nREPORT.md:74: Status: Proposed. SLICE STATE: approval pending; source intake/templates, repository uninspected; milestone none; next Q-001 through Q-006; blockers D-001 through D-005/P-R confirmations; evidence none; audit pending.\nREPORT.md:88: No stubs. Touch UI/Identity/Recipes/contracts/adapters/migrations. Approval covers dependencies/schema/credentials/test deployment. No deletion/paid services authorized.",
+          "reason": "898 whitespace-delimited words, matching metadata and within 900. Stubs are absent; code/paths/effects are proposed, not claimed implemented. Approval is pending, protected choices Open and provider facts/prices unverified."
+        }
+      },
+      "pass": false,
+      "report_words": 898,
+      "observations": [
+        "Whitespace count recomputed and matches METADATA.json: 898; <=900: yes.",
+        "No executed implementation or provider verification is claimed; future checks and approval gates remain pending."
+      ]
+    }
+  },
+  "summary": {
+    "before": {
+      "trials": 3,
+      "strict_pass": 0,
+      "original_items": {
+        "triage": 3,
+        "decision_statuses": 0,
+        "requirements_ledger": 3,
+        "slice_boundary": 0,
+        "evidence_bound": 3,
+        "interview_not_monologue": 3,
+        "state_block": 3,
+        "product_principles": 3
+      },
+      "targeted_criteria": {
+        "exclusion_table": 2,
+        "recovery_tradeoffs": 1,
+        "lean_authority": 3
+      },
+      "all_targeted": 1
+    },
+    "final": {
+      "trials": 3,
+      "strict_pass": 0,
+      "original_items": {
+        "triage": 3,
+        "decision_statuses": 1,
+        "requirements_ledger": 3,
+        "slice_boundary": 0,
+        "evidence_bound": 3,
+        "interview_not_monologue": 3,
+        "state_block": 3,
+        "product_principles": 3
+      },
+      "targeted_criteria": {
+        "exclusion_table": 3,
+        "recovery_tradeoffs": 3,
+        "lean_authority": 3
+      },
+      "all_targeted": 3
+    },
+    "after": {
+      "trials": 3,
+      "strict_pass": 0,
+      "original_items": {
+        "triage": 3,
+        "decision_statuses": 0,
+        "requirements_ledger": 3,
+        "slice_boundary": 0,
+        "evidence_bound": 3,
+        "interview_not_monologue": 3,
+        "state_block": 3,
+        "product_principles": 3
+      },
+      "targeted_criteria": {
+        "exclusion_table": 3,
+        "recovery_tradeoffs": 2,
+        "lean_authority": 3
+      },
+      "all_targeted": 2
+    }
+  },
+  "fixture_audit": {
+    "final-3": {
+      "skill_and_fixture_bytes_unchanged": true,
+      "only_added_file": "REPORT.md",
+      "report_sha256": "0a41f52ded0cf9f6052021b7c3c54cb8760e74e14e36b3d702703d2b0fcabb4c",
+      "report_words": 898,
+      "within_900_words": true
+    },
+    "final-2": {
+      "skill_and_fixture_bytes_unchanged": true,
+      "only_added_file": "REPORT.md",
+      "report_sha256": "93745f8f64693d47c6defe15ef70fc776ac561cb9d4e27ecc0f7368456d3d867",
+      "report_words": 898,
+      "within_900_words": true
+    },
+    "final-1": {
+      "skill_and_fixture_bytes_unchanged": true,
+      "only_added_file": "REPORT.md",
+      "report_sha256": "3ab6f04c84e22fbe9298473cca26dd0cf7cbb402c7086dc515233504c92e2d25",
+      "report_words": 899,
+      "within_900_words": true
+    },
+    "after-1": {
+      "skill_and_fixture_bytes_unchanged": true,
+      "only_added_file": "REPORT.md",
+      "report_sha256": "e11c4063a702549e36717e41550bba5de7d33b066ec8f1e935ddc4f42eb9b8f4",
+      "report_words": 898,
+      "within_900_words": true
+    },
+    "before-3": {
+      "skill_and_fixture_bytes_unchanged": true,
+      "only_added_file": "REPORT.md",
+      "report_sha256": "8b290a2477da5520e0899de44a1eb121861efb95826f56502ddd8e521c0b1b59",
+      "report_words": 899,
+      "within_900_words": true
+    },
+    "before-2": {
+      "skill_and_fixture_bytes_unchanged": true,
+      "only_added_file": "REPORT.md",
+      "report_sha256": "e9996a6cdf091cdce6239760ba1b073cbd9a3199ee139b0a8ff40b348f8b1fb7",
+      "report_words": 900,
+      "within_900_words": true
+    },
+    "after-3": {
+      "skill_and_fixture_bytes_unchanged": true,
+      "only_added_file": "REPORT.md",
+      "report_sha256": "196dd53cc8562b2c0b252cc3ad018644a5acedbc3a135ff9118ca432d8b81ee6",
+      "report_words": 895,
+      "within_900_words": true
+    },
+    "before-1": {
+      "skill_and_fixture_bytes_unchanged": true,
+      "only_added_file": "REPORT.md",
+      "report_sha256": "9e00bfce73f37997e9b23c49294699258960d65c8656c331ce31a58955e44d33",
+      "report_words": 899,
+      "within_900_words": true
+    },
+    "after-2": {
+      "skill_and_fixture_bytes_unchanged": true,
+      "only_added_file": "REPORT.md",
+      "report_sha256": "9017033da2c414c8a717c55276110cba31c48edd20f22bcffc21f31bccc4786e",
+      "report_words": 897,
+      "within_900_words": true
+    }
+  },
+  "producer_prompts": {
+    "before-1": "Behavioral planning trial. Work only in <local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round4/fixtures/before-1.\nFirst read the planning skill at skill/SKILL.md and follow it, loading its references/templates as you reach each phase. Do not read other directories, trials or rubrics. No internet, installs, commits, deletes, product code or project execution. You may read files and write ONLY REPORT.md as the final output; this result materialization is explicitly authorized. No live user is available. Date: 2026-10-12.\n\nThe person writes:\n\"I want to build a recipe box app for my family: iOS and web, recipes sync between our devices, photos, a shared grocery list. Maybe later a paid 'premium' tier for other families. I've built a couple of small things in Python and JavaScript. I have weekends, not months, and near-zero budget. Plan it out for me so an AI agent can build it without making a mess. Produce whatever planning documents you think are needed.\"\n\nIf the skill requires questions, list what you would ask and state your assumptions in their absence. Produce the planning output you would actually hand over, at most 900 words, with no reasoning outside it. Save the exact output in REPORT.md, then reply only \"Saved REPORT.md\".",
+    "before-2": "Behavioral planning trial. Work only in <local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round4/fixtures/before-2.\nFirst read the planning skill at skill/SKILL.md and follow it, loading its references/templates as you reach each phase. Do not read other directories, trials or rubrics. No internet, installs, commits, deletes, product code or project execution. You may read files and write ONLY REPORT.md as the final output; this result materialization is explicitly authorized. No live user is available. Date: 2026-10-12.\n\nThe person writes:\n\"I want to build a recipe box app for my family: iOS and web, recipes sync between our devices, photos, a shared grocery list. Maybe later a paid 'premium' tier for other families. I've built a couple of small things in Python and JavaScript. I have weekends, not months, and near-zero budget. Plan it out for me so an AI agent can build it without making a mess. Produce whatever planning documents you think are needed.\"\n\nIf the skill requires questions, list what you would ask and state your assumptions in their absence. Produce the planning output you would actually hand over, at most 900 words, with no reasoning outside it. Save the exact output in REPORT.md, then reply only \"Saved REPORT.md\".",
+    "before-3": "Behavioral planning trial. Work only in <local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round4/fixtures/before-3.\nFirst read the planning skill at skill/SKILL.md and follow it, loading its references/templates as you reach each phase. Do not read other directories, trials or rubrics. No internet, installs, commits, deletes, product code or project execution. You may read files and write ONLY REPORT.md as the final output; this result materialization is explicitly authorized. No live user is available. Date: 2026-10-12.\n\nThe person writes:\n\"I want to build a recipe box app for my family: iOS and web, recipes sync between our devices, photos, a shared grocery list. Maybe later a paid 'premium' tier for other families. I've built a couple of small things in Python and JavaScript. I have weekends, not months, and near-zero budget. Plan it out for me so an AI agent can build it without making a mess. Produce whatever planning documents you think are needed.\"\n\nIf the skill requires questions, list what you would ask and state your assumptions in their absence. Produce the planning output you would actually hand over, at most 900 words, with no reasoning outside it. Save the exact output in REPORT.md, then reply only \"Saved REPORT.md\".",
+    "after-1": "Behavioral planning trial. Work only in <local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round4/fixtures/after-1.\nFirst read the planning skill at skill/SKILL.md and follow it, loading its references/templates as you reach each phase. Do not read other directories, trials or rubrics. No internet, installs, commits, deletes, product code or project execution. You may read files and write ONLY REPORT.md as the final output; this result materialization is explicitly authorized. No live user is available. Date: 2026-10-12.\n\nThe person writes:\n\"I want to build a recipe box app for my family: iOS and web, recipes sync between our devices, photos, a shared grocery list. Maybe later a paid 'premium' tier for other families. I've built a couple of small things in Python and JavaScript. I have weekends, not months, and near-zero budget. Plan it out for me so an AI agent can build it without making a mess. Produce whatever planning documents you think are needed.\"\n\nIf the skill requires questions, list what you would ask and state your assumptions in their absence. Produce the planning output you would actually hand over, at most 900 words, with no reasoning outside it. Save the exact output in REPORT.md, then reply only \"Saved REPORT.md\".",
+    "after-2": "Behavioral planning trial. Work only in <local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round4/fixtures/after-2.\nFirst read the planning skill at skill/SKILL.md and follow it, loading its references/templates as you reach each phase. Do not read other directories, trials or rubrics. No internet, installs, commits, deletes, product code or project execution. You may read files and write ONLY REPORT.md as the final output; this result materialization is explicitly authorized. No live user is available. Date: 2026-10-12.\n\nThe person writes:\n\"I want to build a recipe box app for my family: iOS and web, recipes sync between our devices, photos, a shared grocery list. Maybe later a paid 'premium' tier for other families. I've built a couple of small things in Python and JavaScript. I have weekends, not months, and near-zero budget. Plan it out for me so an AI agent can build it without making a mess. Produce whatever planning documents you think are needed.\"\n\nIf the skill requires questions, list what you would ask and state your assumptions in their absence. Produce the planning output you would actually hand over, at most 900 words, with no reasoning outside it. Save the exact output in REPORT.md, then reply only \"Saved REPORT.md\".",
+    "after-3": "Behavioral planning trial. Work only in <local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round4/fixtures/after-3.\nFirst read the planning skill at skill/SKILL.md and follow it, loading its references/templates as you reach each phase. Do not read other directories, trials or rubrics. No internet, installs, commits, deletes, product code or project execution. You may read files and write ONLY REPORT.md as the final output; this result materialization is explicitly authorized. No live user is available. Date: 2026-10-12.\n\nThe person writes:\n\"I want to build a recipe box app for my family: iOS and web, recipes sync between our devices, photos, a shared grocery list. Maybe later a paid 'premium' tier for other families. I've built a couple of small things in Python and JavaScript. I have weekends, not months, and near-zero budget. Plan it out for me so an AI agent can build it without making a mess. Produce whatever planning documents you think are needed.\"\n\nIf the skill requires questions, list what you would ask and state your assumptions in their absence. Produce the planning output you would actually hand over, at most 900 words, with no reasoning outside it. Save the exact output in REPORT.md, then reply only \"Saved REPORT.md\".",
+    "final-1": "Behavioral planning trial. Work only in <local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round4/fixtures/final-1.\nFirst read the planning skill at skill/SKILL.md and follow it, loading its references/templates as you reach each phase. Do not read other directories, trials or rubrics. No internet, installs, commits, deletes, product code or project execution. You may read files and write ONLY REPORT.md as the final output; this result materialization is explicitly authorized. No live user is available. Date: 2026-10-12.\n\nThe person writes:\n\"I want to build a recipe box app for my family: iOS and web, recipes sync between our devices, photos, a shared grocery list. Maybe later a paid 'premium' tier for other families. I've built a couple of small things in Python and JavaScript. I have weekends, not months, and near-zero budget. Plan it out for me so an AI agent can build it without making a mess. Produce whatever planning documents you think are needed.\"\n\nIf the skill requires questions, list what you would ask and state your assumptions in their absence. Produce the planning output you would actually hand over, at most 900 words, with no reasoning outside it. Save the exact output in REPORT.md, then reply only \"Saved REPORT.md\".",
+    "final-2": "Behavioral planning trial. Work only in <local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round4/fixtures/final-2.\nFirst read the planning skill at skill/SKILL.md and follow it, loading its references/templates as you reach each phase. Do not read other directories, trials or rubrics. No internet, installs, commits, deletes, product code or project execution. You may read files and write ONLY REPORT.md as the final output; this result materialization is explicitly authorized. No live user is available. Date: 2026-10-12.\n\nThe person writes:\n\"I want to build a recipe box app for my family: iOS and web, recipes sync between our devices, photos, a shared grocery list. Maybe later a paid 'premium' tier for other families. I've built a couple of small things in Python and JavaScript. I have weekends, not months, and near-zero budget. Plan it out for me so an AI agent can build it without making a mess. Produce whatever planning documents you think are needed.\"\n\nIf the skill requires questions, list what you would ask and state your assumptions in their absence. Produce the planning output you would actually hand over, at most 900 words, with no reasoning outside it. Save the exact output in REPORT.md, then reply only \"Saved REPORT.md\".",
+    "final-3": "Behavioral planning trial. Work only in <local-user>/Documents/Codex/2026-10-12/h/work/claude-review/round4/fixtures/final-3.\nFirst read the planning skill at skill/SKILL.md and follow it, loading its references/templates as you reach each phase. Do not read other directories, trials or rubrics. No internet, installs, commits, deletes, product code or project execution. You may read files and write ONLY REPORT.md as the final output; this result materialization is explicitly authorized. No live user is available. Date: 2026-10-12.\n\nThe person writes:\n\"I want to build a recipe box app for my family: iOS and web, recipes sync between our devices, photos, a shared grocery list. Maybe later a paid 'premium' tier for other families. I've built a couple of small things in Python and JavaScript. I have weekends, not months, and near-zero budget. Plan it out for me so an AI agent can build it without making a mess. Produce whatever planning documents you think are needed.\"\n\nIf the skill requires questions, list what you would ask and state your assumptions in their absence. Produce the planning output you would actually hand over, at most 900 words, with no reasoning outside it. Save the exact output in REPORT.md, then reply only \"Saved REPORT.md\"."
+  },
+  "scorer": "Separate fresh Codex subagent, fork_turns none; opaque artifacts, no skill state or label map. Root authored changes and packages scores; original rubric preserved.",
+  "scorer_metadata": {
+    "rubric": "recipe-box-greenfield",
+    "excluded_items": [
+      "scoring",
+      "stops_when_unreadable"
+    ],
+    "pass_when": "triage, decision_statuses, requirements_ledger, slice_boundary and interview_not_monologue are yes; evidence_bound, state_block and product_principles are recorded either way."
+  },
+  "source_review": "Final source review of the targeted round4 instruction change\n\nVerdict: The necessary applicability issue is resolved. No remaining actionable issue in the targeted change.\n\nResolution\n\nLocation: states/scaffold-kit-final/references/conductor.md:49.\nThe instruction now says \"Log a significant recovery recommendation under its own D-ID\". That limits the separate entry to a significant recovery recommendation rather than requiring recovery planning in every provisional draft. This aligns with the existing rule to log significant choices and avoid routine entries (conductor.md:57,129). The sentence also separates recovery from protected retention/deletion choices, preserving the distinction between a Proposed recommendation and an Open protected choice. The concrete option tradeoffs and revisit trigger remain in the existing Decision Log; no new document or ceremony is introduced.\n\nOther conclusions within the targeted scope\n\nThe exclusion table remains conditional on requested or planned later capabilities (conductor.md:50; SLICE-BRIEF.md:43-47). Permanent non-goals remain separate. The patch explicitly forbids invented future work or stubs to fill rows. Stubs remain optional, and no fake substitute may replace the workflow being proved. The compact-form rule remains intact (SLICE-BRIEF.md:20), as do plain-language audience rules (conductor.md:94-100).\n\nThe restore-test sentence distinguishes a verification gate from a benefit/cost comparison or reconsideration trigger. The Proposed/Open distinction, explicit confirmation of irreversible choices, and pending brief approval remain intact (conductor.md:22,49,53,138; SKILL.md, \"Gates that do not move\"). The added retention/deletion separation does not grant new action authority.\n\nOptional clarification, not a necessary correction\n\nLocation: states/scaffold-kit-final/assets/templates/SLICE-BRIEF.md:43-47.\nAn example allowing \"connection not yet known\" with an existing open-question or decision link could help a non-coder fill the table when a requested later capability has no established seam. Current \"Known\" wording and the prohibition on invented future work already permit an honest limitation. This suggestion is not a blocker and does not require an additional D-ID, stub or row solely to populate the table.\n\nLimitations\n\nRechecked only final-instruction-diff.patch and the four authorized frozen final-state files: SKILL.md, references/conductor.md, assets/templates/SLICE-BRIEF.md and assets/templates/DECISION-LOG.md. Reviewed only the targeted instruction change in that context. Did not read trial outputs, score data or other source, and did not run trials, audits, installs or internet searches. This is a source review, not behavioral scoring; no compliance or outcome claim is inferred. The only mutation in this recheck is this new review file.\n",
+  "initial_source_review": "Source review of the targeted round4 instruction change\n\nVerdict: One necessary proportionality correction. The exclusion-table change is otherwise sound, and the owner approval boundaries remain intact.\n\nNecessary correction\n\n[P2] Make the separate recovery decision conditional on a relevant significant choice.\nLocation: states/scaffold-kit-after/references/conductor.md:49, added sentence beginning \"Give recovery its own D-ID\".\nThe new sentence requires a recovery D-ID in every provisional draft without a relevance or significance condition. This kit explicitly supports libraries, CLIs and static sites, and its existing rules limit new log entries to significant choices (conductor.md:57,129). For a stateless utility or a library with no owned persistent data, the new instruction therefore introduces an irrelevant decision entry and option comparison. That is a generic planning burden beyond fixing recovery tradeoffs where recovery matters. The general instruction to omit empty sections (conductor.md:100) does not clearly exempt a mandatory named decision. Qualify the sentence, for example: \"When recovery is a significant choice, give it its own D-ID, separate from sync/conflicts...\" Keep the concrete tradeoff and revisit-trigger requirements unchanged. This is a source-level applicability defect; no generated behavior is claimed.\n\nOptional clarification, not a necessary correction\n\nLocation: states/scaffold-kit-after/assets/templates/SLICE-BRIEF.md:43-47 and references/conductor.md:50.\nAllow \"connection not yet known\" plus an existing open question or decision link when a requested later capability has no established seam. The current wording already says \"Known\" and forbids inventing future work, so it does not authorize fabricated architecture. An explicit unknown example could make the table easier to fill honestly for a non-coder without adding new rows, stubs or decisions solely to populate it.\n\nOther source conclusions\n\nThe table is required only when requested or planned later exclusions exist. Permanent non-goals remain separate. Stubs remain optional and forbidden inside the workflow being proved. The change reuses the existing Decision Log rather than creating a new ledger or ceremony. Recovery options need a concrete benefit or cost, and a restore test alone cannot substitute for rationale or a reconsideration trigger. Separate Proposed and Open statuses, the irreversible-choice confirmation rule, and the brief approval gate remain visible (conductor.md:22,49,53,138; SKILL.md, \"Gates that do not move\"). No approval bypass or new irreversible-action authority is introduced by the patch.\n\nLimitations\n\nRead only instruction-diff.patch and the four authorized frozen after-state files: SKILL.md, references/conductor.md, assets/templates/SLICE-BRIEF.md and assets/templates/DECISION-LOG.md. Reviewed only the new targeted instructions in that context. Did not read other source, trial outputs, scores or behavioral evidence, and did not run trials, audits, installs or internet searches. This review establishes neither behavioral compliance nor outcome quality. Wrote only this review file.\n",
+  "source_checks": [
+    {
+      "name": "scaffold-py314",
+      "argv": [
+        "python3",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "skills/scaffold-kit/tests",
+        "-v"
+      ],
+      "cwd": "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/scaffold-kit",
+      "log": "checks/source-final-scaffold-py314.txt",
+      "exit_code": 0,
+      "seconds": 0.24
+    },
+    {
+      "name": "adc-distribution",
+      "argv": [
+        "<local-user>/Documents/Codex/2026-10-12/h/work/adc-test-env/bin/python",
+        "-B",
+        "skills/anti-dark-code/scripts/adc.py",
+        "validate",
+        "--mode",
+        "distribution"
+      ],
+      "cwd": "<local-user>/Documents/Codex/2026-10-12/h/work/claude-review/anti-dark-code",
+      "log": "checks/source-final-adc-distribution.txt",
+      "exit_code": 0,
+      "seconds": 0.3
+    }
+  ],
+  "prior_evidence": "evidence-2026-10-12-lean.json",
+  "source_drift": "Prior workflow results retain their recorded source. This follow-up changes only offline recovery wording and the exclusion table in the existing brief; no current-source workflow qualification is inferred.",
+  "limits": [
+    "Synthetic planning review, not human comprehension.",
+    "Three per state are counts, not a reliability estimate.",
+    "Only recipe case rerun. Other results retain their original source hashes.",
+    "No complete independent tool transcript or proof of all possible external side effects."
+  ],
+  "_publication": {
+    "original_record_sha256": "c9b068a2b3871d208d39efbb25d4337b80c1be787370019aba164b4c5bd4e207",
+    "redactions": {
+      "private_paths": 12,
+      "participant_names": 0
+    },
+    "note": "Public derivative: local machine paths and private participant names redacted. Original raw record retained privately; numeric scores, status values and source hashes preserved."
+  }
+}

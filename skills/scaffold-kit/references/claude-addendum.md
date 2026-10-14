@@ -24,18 +24,18 @@ Claude Code reads `CLAUDE.md` automatically at the start of a session. That file
 ```markdown
 # CLAUDE.md
 
-Read before any work, in this order:
-1. docs/SLICE-001-[name].md  (the active slice brief, the build boundary)
-2. docs/ARCHITECTURE.md      (the puzzle: modules, seams, guardrails)
-3. docs/ENGINEERING.md       (the rules: standards, verification, done)
-4. docs/DECISION-LOG.md      (why things are the way they are)
+Start with docs/README.md and docs/SLICE-001-[name].md (active brief).
+Read the Architecture and Engineering overviews, then only the relevant
+sections and decision entries linked by the brief. Check source freshness
+on resume. Reuse the Triage Card's Explanation depth.
 
 Standing rules:
-- Build only inside the active slice brief's boundary. Anything else
-  needs a Decision Log entry approved by me first.
+- Build only inside the approved active brief. New scope needs a revised
+  approved brief; significant decision changes go through the log.
 - Do not build on decisions marked Open or Proposed. Ask.
-- Stop and ask before: schema changes, new dependencies, deletions,
-  anything touching secrets, any deploy.
+- Require explicit approval for schema changes, new dependencies,
+  deletions, secrets and deploys. Carry forward approval within reviewed
+  targets and effects; changed scope reopens the gate.
 - Unattended agents never touch: auth, sessions, secrets, migrations,
   RLS or access policies, CI workflows, billing, retention or deletion
   of user data. A founder or owner drives those in an interactive session.
@@ -46,12 +46,12 @@ Standing rules:
   short sentences, no marketing adjectives.
 ```
 
-Adjust the stop list to match EDD section 12 for the project. When the expansion loop advances to a new slice, update line 1 to the new brief in the same commit that approves it. A stale pointer here quietly widens the build boundary.
+Adjust the stop list to EDD section 12. When advancing a slice, update the index, ADD section 15 and this active pointer together. If the repository already has an index, use it instead of creating another.
 
 ## Running the interview in Claude
 
-- The interview itself can run in claude.ai or in Claude Code. Give Claude `01-CONDUCTOR.md` plus the four templates and the project description, then answer its questions.
-- In Claude Code, run planning phases in plan mode so nothing gets executed while the documents are being written. Switch out of plan mode only when the First Slice Brief is approved.
+- The interview can run in claude.ai or Claude Code. Give Claude [the Conductor](conductor.md), then load templates as their phases start and describe the project.
+- In Claude Code, plan mode blocks file writes, so it suits read-only discovery but cannot save the planning documents. During the interview allow edits to the documents only, and leave product code untouched until the active brief is approved.
 - Long interviews: rely on the Conductor's INTERVIEW STATE block. A fresh session resumes from the documents, not from chat memory.
 
 ## Permissions as tool discipline
@@ -74,10 +74,10 @@ Mechanical checks catch drift that polite intentions miss.
 
 ## Pairing with an existing codebase
 
-This kit assumes a fresh start. When code already exists, map it first, then scaffold:
+When code already exists, map the relevant scope first, then scaffold gaps:
 
 1. Run a codebase-mapping pass (anti-dark-code's Understand card when it is installed; see [working with anti-dark-code](working-with-anti-dark-code.md)) to establish what is actually there: modules, trust boundaries, unknowns.
-2. Backfill ARCHITECTURE.md from the map, marking reality-derived entries as Confirmed and aspirations as Proposed.
+2. Link observed facts from ARCHITECTURE.md to current map evidence and confidence. Proposed changes need owner choice or delegation before becoming Confirmed.
 3. Run the Conductor for the gaps, then proceed slice by slice as usual.
 
 Greenfield gets the interview first. Brownfield earns the interview by being mapped honestly first.

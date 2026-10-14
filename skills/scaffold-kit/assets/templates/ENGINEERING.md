@@ -14,7 +14,7 @@ This document is the rules for placing pieces: requirements, data, security, sta
 - **Build philosophy in one line:** [for example: managed services, one language, evidence over claims]
 - **The three goals that outrank the rest:** [from section 3]
 - **The verification standard:** tests, logs, diffs, and observed behavior. An agent saying it worked is not a test result.
-- **Current build boundary:** the active slice brief, per ADD section 15. Nothing outside it gets built without a Decision Log entry.
+- **Current build boundary:** the active approved slice brief, per ADD section 15. Changed intent requires a revised approved brief; significant decision changes also get log entries.
 
 > **Interview guide. Delete after filling.**
 > *Why:* the one-page overview is what an agent should re-read at the start of every session.
@@ -199,7 +199,8 @@ Deletion rule: [what happens when this is deleted, cascades and orphans]
 - **Feature organization:** [by feature, by layer, or hybrid, and why]
 - **Shared code location:** [where shared types, utilities, and interface definitions live: one place]
 - **Dependency direction:** [restate the ADD rule by reference: see ADD section 4]
-- **Documentation locations:** these documents live in [path], and agents read them before working.
+- **Documentation locations:** [existing index or docs/README.md, current plan and active brief pointers; historical records labeled with date/version and replacement]
+- **Scratch work:** [one ignored work/task-or-slice-id folder; purpose and disposal condition in the task record; preserve cited evidence at closeout]
 - **Setup:** [written steps take a clean machine to a running local instance; the steps are re-tested whenever they change]
 
 > **Interview guide. Delete after filling.**
@@ -221,7 +222,7 @@ Deletion rule: [what happens when this is deleted, cascades and orphans]
 - **T2:** unit tests on logic, integration tests on module seams, a smoke test that runs the core loop end to end, all wired into CI.
 - **T3:** T2 plus load tests against section 3 targets, security scanning, and a staging soak before release.
 
-**Verification ledger.** Every Confirmed requirement in section 4 maps to a check:
+**Verification ledger.** Every Confirmed requirement in section 4 maps to a check. Link a slice's section 8 row instead of copying its check:
 
 | Requirement | Check | Evidence lives |
 |---|---|---|
@@ -249,8 +250,8 @@ Deletion rule: [what happens when this is deleted, cascades and orphans]
 **Standing rules.**
 - Read before writing. Inspect before modifying.
 - One purpose per tool call. A vague prompt must not research the market, choose the architecture, install packages, migrate the database, rewrite the UI, and deploy.
-- Stop and ask before: schema changes, new dependencies, deletions, anything touching secrets, and any deploy.
-- The current build boundary is the active slice brief, SLICE-NNN, per ADD section 15. Work outside it requires a Decision Log entry first.
+- Require explicit approval for schema changes, new dependencies, deletions, secrets and deploys. Existing approval covering the operation, targets and effects carries forward; ask again only when that boundary changes.
+- The active approved brief, per ADD section 15, bounds the build. New scope requires a revised approved brief; significant changed decisions go through the log.
 - When evidence contradicts the plan, stop and surface it. Do not patch silently around a wrong assumption.
 
 > **Interview guide. Delete after filling.**
@@ -296,7 +297,7 @@ Deletion rule: [what happens when this is deleted, cascades and orphans]
 |---|---|---|---|---|
 | U-001 | [assumption or risk] | [what breaks] | [how we find out or soften it] | [Open | Watching | Closed] |
 
-**Rule.** Every Assumed decision and every Open question from any document appears here. This table is reviewed at every document audit. When anti-dark-code has mapped the repository, its unknowns entries and coverage ledger rows land here as `U-` rows; one unknown lives in one place.
+**Rule.** Every Assumed decision and Open question is recorded here or linked to its canonical unknown. Review relevant rows at each audit. ADC unknowns have different fields and statuses: a Scaffold-owned `U-` summary links to the ADC entry by title. Preserve its original fields/status; do not maintain a second mutable copy.
 
 > **Interview guide. Delete after filling.**
 > *Why:* recorded unknowns are a plan. Hidden unknowns are a countdown.
@@ -305,7 +306,7 @@ Deletion rule: [what happens when this is deleted, cascades and orphans]
 
 **Per change:**
 - [ ] Builds clean, lints clean, formatted.
-- [ ] Tests exist for the change and pass. Evidence linked per section 11.
+- [ ] A reliable check for the changed behavior passed, with evidence per section 11. Automate meaningful behavior and regression checks; use a recorded inspection for trivial prose or formatting. Unexecuted checks remain pending.
 - [ ] Errors on the new path are handled and logged.
 - [ ] No secrets, no debug leftovers, no dead code introduced.
 - [ ] Documents and Decision Log updated if any decision changed.
@@ -327,6 +328,7 @@ Deletion rule: [what happens when this is deleted, cascades and orphans]
 - **The audit pass:** reread against the Conductor's Phase 6 checklist: statuses complete, references resolve, unknowns current, hygiene clean.
 - **Status lifecycle:** Proposed becomes Confirmed or is replaced. Assumed is verified or corrected. Open closes before dependent work. Deferred reopens on its trigger.
 - **No silent edits:** decision changes travel through DECISION-LOG.md. The documents state what is true now; the log preserves how it got that way.
+- **Freshness:** record checked source and invalidation triggers in the existing state/map. Code and configuration own implemented detail; these documents own intent. On relevant changes or resume, refresh affected claims and pointers, preserving still-valid evidence.
 
 > **Interview guide. Delete after filling.**
 > *Why:* a document nobody trusts is worse than no document. Change control is what keeps these files worth reading in month six.

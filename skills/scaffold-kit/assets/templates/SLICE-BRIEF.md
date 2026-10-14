@@ -4,122 +4,88 @@ Version: 0.1 Draft. Date: [date]. Status: [Proposed | Approved for build | In pr
 
 ```
 SLICE STATE
+Approved intent:  [brief version, approving name/date, or pending]
+Source checked:   [source identity; paths/triggers]
 Milestone:        [M-n in progress, or none]
-Blocked by:       [decision IDs, spikes, external gates, or none]
-Evidence so far:  [links to ledgers, runs, packets]
+Next action:      [one concrete step]
+Blocked by:       [D-IDs, spikes, gates, or none]
+Evidence so far:  [recorded checks/runs]
 Last audit:       [date]
 ```
 
-The state block is the slice's resume point, the same way the Conductor's INTERVIEW STATE block is the interview's. Update it at every checkpoint; do not invent status tokens elsewhere.
-Companion documents: ARCHITECTURE.md, ENGINEERING.md, DECISION-LOG.md.
+Companions: Architecture Document (ADD), ARCHITECTURE.md; Engineering Document (EDD), ENGINEERING.md; DECISION-LOG.md. Update SLICE STATE; no INTERVIEW STATE. ADD 15 names one active brief.
 
-One narrow, production-quality section, small enough to test and structured so the next pieces connect without smashing the existing architecture apart. This document is the agent's build boundary: if it is not in here, it does not get built. The first slice (SLICE-001) proves the central idea. Every later slice uses this same template through the Conductor's expansion loop, and exactly one slice is active at a time, named in ADD section 15.
+Apply Triage Card depth to the written brief. Guided: spell out every used abbreviation, including in the project name (CLI means command-line tool), and explain each used ID prefix once, including A for assumptions and U for unknowns. Describe included actions as behavior the reader can observe. Explain necessary builder terms once in their existing section. Preserve facts, gates, dates, audit state and source identity.
 
----
+**Compact form.** Keep header/state, outcome, scope/exclusions, paths/effects, section 8, D-links and approval. Aim for 250 to 400 words; max 500 including state/tables unless a named risk needs essential decision detail. Delete unused guides/headings. Record omitted section/table numbers and one combined reason in existing linked planning/audit evidence, otherwise a labeled footer before approval. D-links ask plain owner questions; options, recommendations and conditional answers stay in the log. Concrete scope, baseline facts and inspected R/S-ID results may remain; link rules/evidence. Run the partial audit, resolve findings and count the whole brief. Preserve uncertainty, checks and approval.
 
 ## 1. What the slice proves
 
-- **Central claim (SLICE-001) or capability added (later slices):** [the one thing that, if true, makes this project worth continuing; or the specific capability this slice adds and why it is next]
-- **The slice in one line:** [a user can register, do X once, and get Y]
-- **Honest stakes:** for SLICE-001: if real users go through this slice and it fails to deliver value, the project deserves a rethink. If that sentence feels too strong, the slice is too small to prove anything. For later slices: if this capability did not exist, what would users be unable to do?
+[Outcome and why now: central claim, new capability or restored behavior.]
 
-> **Interview guide. Delete after filling.**
-> *Ask, first slice:* strip everything away. What is the single workflow that makes someone say "I would use this again"? That workflow is the slice. Everything else waits.
-> *Ask, later slices:* which extension point from ADD section 10 is this, and why now instead of the alternatives?
 
 ## 2. The walkthrough
 
-[The complete path, step by step, exactly as a real user experiences it.]
-
-1. [user arrives, how]
-2. [user does the one thing]
-3. [system produces the one result]
-4. [user takes one meaningful action on the result]
-
-Every step above must work end to end against the real architecture: real interfaces, real data module, real persistence. No bypasses inside the boundary.
+[Input/trigger through result and failure path, with actual interfaces/data.]
 
 ## 3. In scope, with build order
 
-| Item | Notes |
+| Change | What the user sees; S-IDs |
 |---|---|
-| [capability] | [production quality, per EDD standards] |
+| [capability or fix] | [plain action and preserved behavior; S-IDs] |
 
-For multi-week slices, add the build-order table: sequenced milestones so the riskiest proof lands first and every spike closes before the milestone that depends on it.
-
-| Milestone | Contents |
-|---|---|
-| M1 | [engine-critical work and any spikes] |
-| M2 | [...] |
+Add milestones for multi-week work; close spikes before dependent work, testing the riskiest assumption first.
 
 ## 4. Out of scope, on purpose
 
-| Excluded | Where it will connect later | Log entry |
-|---|---|---|
-| [feature] | [extension point, per ADD section 10] | D-[n] |
+| Excluded capability | Known later connection or decision |
+|---|---|
+| [requested or planned later capability] | [existing module, interface, entity or D-ID] |
 
-**Rule.** Out-of-scope items are named, not implied. Silence is how "minimum" quietly becomes the permanent foundation.
+Keep this table when such exclusions exist. State permanent non-goals separately; do not invent future work or stubs to fill rows.
 
 ## 5. Stubs and their debts
 
-| Stub | Real version arrives when | Behavior for now | Log entry |
-|---|---|---|---|
-| [for example: one hardcoded provider] | [trigger] | [what the stub does] | D-[n] |
+[None, or each labeled stub outside the boundary, its current behavior, replacement trigger and D-ID. No stubs inside the behavior being proved.]
 
-Stubs live outside the slice boundary and are labeled in code. Inside the boundary, nothing is a stub.
+## 6. Modules and paths touched
 
-## 6. Modules touched
+[Known affected files/interfaces/constraints; link ADD 4 or observed map. Unsettled storage locations belong only in D-entries, even conditionally. No mandatory folders/services.]
 
-Per the ADD module map: [list modules the slice builds, and the interfaces it exercises]. The slice must pass through the real seams. A slice that bypasses the architecture proves nothing about the architecture.
+## 7. Data subset and reviewed effects
 
-## 7. Data subset
-
-[The entities and fields from EDD section 5 that must exist for the slice, in full production shape: migrations, constraints, deletion rules included.]
+[EDD 5 entities/fields, or none. Name schema/dependency/deletion/secret/deploy approvals; carry approval for reviewed targets/effects.]
 
 ## 8. Acceptance criteria
 
-[Each one observable. These are the finish line, agreed before building starts.]
+| ID | Requirement | Criterion | How it will be checked | Gate |
+|---|---|---|---|---|
+| S-001 | R-001 | [observable success] | [test or reproducible check] | [CI/calibrated gate, or manual: steps/result location] |
+| S-002 | R-001 | [relevant failure path] | [check] | [gate/manual check] |
+| S-003 | R-001 | [unlisted input and expected behavior] | [check] | [gate/manual check] |
 
-| ID | Criterion | Verified by | Gate |
-|---|---|---|---|
-| S-001 | [given, when, then] | [test or scripted check] | [CI check name, anti-dark-code capability ID or exact gate] |
-| S-002 | [error path: given a failure at step N, the user sees ...] | [test] | [gate] |
-| S-003 | [unlisted input: an input the brief never mentions that the slice must still survive, with the expected behavior] | [test] | [gate] |
+Use EDD 4.1 R-IDs; each selected requirement has an S-row and each implementation item serves one. Empty checks are pending. Record results here or link canonical evidence.
 
-The Gate column is what binds a pull request's checks to these IDs. A row with an empty Gate is a criterion nobody can prove mechanically; say so or fill it.
-
-For a slice with users, the relevant obligations from EDD section 4.4 appear here as rows: truthful status, a recoverable mistake, a dignified refusal, an ownership or correction path, an honest default. A principle that does not apply to this slice is named as such in one line.
+For user-facing work, apply EDD 4.4 obligations; explain any not applicable.
 
 ## 9. Verification evidence required
 
-Per EDD section 11. Before this slice is called done, the following exist and are linked:
-
-- [ ] Automated tests covering each acceptance criterion, passing in CI or a recorded run.
-- [ ] The core walkthrough executed against a clean environment, result recorded.
-- [ ] Error paths exercised, at minimum: [the top two failures from ADD section 13].
-- [ ] EDD section 17 per-change checklist satisfied for every change in the slice.
-- [ ] Verification effort stayed inside EDD section 11's bound: any harness, campaign or observer built for this slice has its own requirement ID, and none of them is the slice.
-
-An agent's statement that the slice works is a claim. This list is the evidence.
+Link EDD 11/17 checks to executed S-ID results, counts, skips and limits. Trivial prose may use inspection; summaries are not execution. New verification infrastructure needs an R-ID.
 
 ## 10. Agent guardrails for this build
 
-- **Boundary:** only the modules in section 6, only the data in section 7.
-- **Stop and ask before:** schema changes beyond section 7, new dependencies, deletions, deploys. Per EDD section 12.
-- **Mode separation:** discovery, then implementation, then verification. No single prompt spans all three.
-- **Step-level planning:** the brief is the boundary, not the plan. Implementation planning for a milestone may use a step-level planner (for example a writing-plans skill); the plan cites the S-IDs it satisfies and stays inside sections 6 and 7.
-- **Conflicts:** if reality contradicts these documents, stop and surface it. Update through the Decision Log, then continue.
+Follow EDD 12 modes and approved paths/effects. Approve new scope; reconcile contradictions with evidence, IDs and options in DECISION-LOG.md before resuming.
 
 ## 11. Slice definition of done
 
-- [ ] All acceptance criteria pass with linked evidence.
-- [ ] All EDD guardrails hold. No unlabeled shortcuts inside the boundary.
-- [ ] Documents updated: statuses, unknowns, log entries for anything learned.
-- [ ] Human walkthrough completed and approved by [name].
+- [ ] Checks pass; diff/behavior match intent, including approved retirement.
+- [ ] Docs, unknowns and pointers are current; consequential lessons recorded.
+- [ ] Human acceptance: [name]; retain cited evidence before scratch cleanup.
 
 ## 12. What this unlocks
 
-[The next one or two candidate slices, one line each, connecting at the extension points named in ADD section 10. Not a commitment. A direction. The expansion loop in the Conductor picks the next one from here.]
+[Next candidate, or none; invent no work.]
 
----
+*Approved for build by: [name], [date], brief version [version]. Approval of the idea is not approval of this brief.*
 
-*Approved for build by: [name], [date]. Until then, this brief is a proposal, and no implementation starts: approval of the idea is not approval of the brief. When section 11 closes with evidence, mark the status Done and update ADD section 15 before opening the next brief.*
+Evidence updates preserve intent. At completion, mark Done with evidence; update ADD 15 and host pointers before another brief.
