@@ -23,12 +23,14 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--html", required=True)
     parser.add_argument("--out", required=True)
+    parser.add_argument("--color-scheme", choices=("light", "dark"), default="light",
+                        help="Explicit PDF palette; the HTML follows the reader's system preference")
     args = parser.parse_args()
     html = Path(args.html).resolve()
     out = Path(args.out).resolve()
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch(headless=True)
-        page = browser.new_page()
+        page = browser.new_page(color_scheme=args.color_scheme)
         page.goto(html.as_uri(), wait_until="load")
         page.emulate_media(media="print")
         page.pdf(
@@ -45,6 +47,7 @@ def main() -> int:
     )
     print(json.dumps({
         "generator": generator,
+        "color_scheme": args.color_scheme,
         "pdf_sha256": hashlib.sha256(out.read_bytes()).hexdigest(),
         "bytes": out.stat().st_size,
     }))
