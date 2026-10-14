@@ -23,6 +23,8 @@ class ChannelTests(unittest.TestCase):
                 self.assertRegex(sha, r"^[0-9a-f]{40}$")
                 self.assertNotEqual(sha, stable[plugin["name"]])
                 self.assertNotIn("ref", source)
+                self.assertEqual(source["source"], "url")
+                self.assertTrue(source["url"].startswith("https://github.com/"))
                 selected[plugin["name"]] = sha
             selections.append(selected)
         self.assertEqual(*selections)

@@ -13,6 +13,8 @@ class PluginListingTests(unittest.TestCase):
             source = catalog["plugins"][0]["source"]
             self.assertEqual(source["sha"], "d6783f8f51db0b6c74f001f425666225d7e79220")
             self.assertNotIn("ref", source)
+            self.assertEqual(source["source"], "url")
+            self.assertEqual(source["url"], "https://github.com/LynxTWO/scaffold-kit.git")
 
     def test_host_versions_and_listing_are_consistent(self):
         portable = json.loads((ROOT / "plugin.json").read_text())

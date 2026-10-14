@@ -8,17 +8,17 @@
     {
       "name": "scaffold-kit",
       "source": {
-        "source": "github",
-        "repo": "LynxTWO/scaffold-kit",
-        "sha": "8805ba46f9044711324ca1cbd1dcb76890351f55"
+        "source": "url",
+        "sha": "8805ba46f9044711324ca1cbd1dcb76890351f55",
+        "url": "https://github.com/LynxTWO/scaffold-kit.git"
       }
     },
     {
       "name": "anti-dark-code",
       "source": {
-        "source": "github",
-        "repo": "LynxTWO/anti-dark-code-skill",
-        "sha": "41a2bbab85b437abe62097348c2c4e5250663701"
+        "source": "url",
+        "sha": "41a2bbab85b437abe62097348c2c4e5250663701",
+        "url": "https://github.com/LynxTWO/anti-dark-code-skill.git"
       }
     }
   ]
