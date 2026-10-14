@@ -29,6 +29,8 @@ Install either kit or both, then use a fresh chat. To roll back, uninstall/remov
 the preview copy and re-enable or reinstall the copy from your original stable
 catalog. Removing a marketplace in Claude also removes its installed plugins;
 keep project documents and calibration outside host caches.
+If an earlier unpinned checkout installed a preview under a stable catalog name,
+remove that copy and reinstall from the corrected stable catalog.
 
 Maintainers advance preview pins only after validation. Each changed public
 preview payload needs a new plugin version so hosts detect the update. Stable

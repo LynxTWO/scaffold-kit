@@ -9,7 +9,7 @@
   "normalized_pdf_sha256": "ca74277ea19b841daa32ef0a2225701aac88030fa0fd27bdf2b7d5091c610865",
   "source_facts_checked_against": {
     "plugin.json": "295aca2d7aaaa42c41164ee609969b1d02917b93d9888698f7d58938f5baa5c0",
-    "README.md": "10beb47a3792f6d4bf60e7abd5909a23369d91a66009466651994aa002b72b83",
+    "README.md": "9e2feb969e2956bfe2afd68515b455c3195f29162c7608eb845c7ffbeb232491",
     "skills/scaffold-kit/SKILL.md": "c33c17ec604b3165c2df02ccb4864729f857721f0316a5b9cf69daa5029a76b5",
     "skills/scaffold-kit/references/conductor.md": "eec1a6299923bcda3da09e6af7200b8038ed490817d34fb841a362b87d6b2bf9",
     "skills/scaffold-kit/references/working-with-anti-dark-code.md": "0cbac253909ea802407e5dc27b9ed117bac91822d6234484676af09b1a1816c2",

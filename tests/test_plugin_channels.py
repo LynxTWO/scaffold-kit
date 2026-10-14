@@ -18,6 +18,8 @@ class ChannelTests(unittest.TestCase):
             self.assertEqual({p["name"] for p in catalog["plugins"]}, set(stable))
             selected = {}
             for plugin in catalog["plugins"]:
+                if "policy" in plugin:
+                    self.assertEqual(plugin["policy"]["installation"], "AVAILABLE")
                 source = plugin["source"]
                 sha = source["sha"]
                 self.assertRegex(sha, r"^[0-9a-f]{40}$")
@@ -25,6 +27,6 @@ class ChannelTests(unittest.TestCase):
                 self.assertNotIn("ref", source)
                 self.assertEqual(source["source"], "url")
                 self.assertTrue(source["url"].startswith("https://github.com/"))
-                selected[plugin["name"]] = sha
+                selected[plugin["name"]] = (source["url"], sha)
             selections.append(selected)
         self.assertEqual(*selections)
