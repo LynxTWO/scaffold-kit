@@ -3,10 +3,10 @@
   "version": "0.4.1",
   "publication": "Plugin publication on hold; source and documentation proposed for GitHub review.",
   "generator": "Playwright 1.62.0 / Chromium 151.0.7922.34 on Darwin arm64, design/render-brief-pdf.py",
-  "source_sha256": "8c61e9ae8ffc81a506fd205b4674b3b5bf5d3505ffc64b4ecfe384d9bb03326b",
+  "source_sha256": "4f439d57bd6a078ab683f01c7ba373c905ab1ff0a225d30c711936f1945601bd",
   "renderer_sha256": "d5725f2f6371caaa0f1de86ef594d7b7d766c970d8f9eafbd003c79c70fce514",
-  "pdf_sha256": "55982cb9a88c0a4a3bb8800ba4f1c58cae6bad6b15f8ec78c47663ebe35a9ce8",
-  "normalized_pdf_sha256": "1c166c50296fdaab5f98cb14827f1218612029e88c9cc2cdb14d872d01151f9d",
+  "pdf_sha256": "a2e7235119975277847a6f9633f8afb1008497ce2e7caa0b79ca421f5d03253f",
+  "normalized_pdf_sha256": "a113a8dd34effadc73d950319a4df6abb36c89d84857da9829069538303b81f7",
   "source_facts_checked_against": {
     "plugin.json": "295aca2d7aaaa42c41164ee609969b1d02917b93d9888698f7d58938f5baa5c0",
     "README.md": "9e2feb969e2956bfe2afd68515b455c3195f29162c7608eb845c7ffbeb232491",
@@ -34,98 +34,86 @@
       "/start"
     ],
     "two_fresh_renders_match_after_timestamp_normalization": true,
-    "normalization": "Generation timestamps only, using the existing Anti-Dark-Code normalize_pdf_bytes helper; it does not alter body content.",
+    "normalization": "Generation timestamps only, using existing Anti-Dark-Code normalize_pdf_bytes helper.",
+    "ordered_html_main_wording_and_all_links_exact": true,
+    "original_text_blocks_and_page_character_inventory_retained": true,
     "screen_checks": [
       {
-        "viewport": [
-          1200,
-          950
-        ],
         "theme": "light",
         "width": 1200,
-        "scroll": 1200,
-        "missingImages": 0,
-        "brokenAnchors": [],
-        "remoteAssets": []
+        "overflow": false
       },
       {
-        "viewport": [
-          1200,
-          950
-        ],
-        "theme": "dark",
-        "width": 1200,
-        "scroll": 1200,
-        "missingImages": 0,
-        "brokenAnchors": [],
-        "remoteAssets": []
+        "theme": "light",
+        "width": 768,
+        "overflow": false
       },
       {
-        "viewport": [
-          375,
-          900
-        ],
         "theme": "light",
         "width": 375,
-        "scroll": 375,
-        "missingImages": 0,
-        "brokenAnchors": [],
-        "remoteAssets": []
+        "overflow": false
       },
       {
-        "viewport": [
-          375,
-          900
-        ],
-        "theme": "dark",
-        "width": 375,
-        "scroll": 375,
-        "missingImages": 0,
-        "brokenAnchors": [],
-        "remoteAssets": []
+        "theme": "light",
+        "width": 320,
+        "overflow": false
       }
     ],
     "print_content_avoids_footer": [
       {
         "id": "overview",
-        "contentBottom": 920.75,
-        "footerTop": 1058.453125,
-        "overlap": false
+        "height": 1122.515625,
+        "footerTop": 1062.484375,
+        "contentBottom": 1009.90625,
+        "gap": 52.578125,
+        "scroll": 1123,
+        "client": 1123
       },
       {
         "id": "documents",
-        "contentBottom": 2111.703125,
-        "footerTop": 2180.96875,
-        "overlap": false
+        "height": 1122.515625,
+        "footerTop": 1062.484375,
+        "contentBottom": 1004.625,
+        "gap": 57.859375,
+        "scroll": 1123,
+        "client": 1123
       },
       {
         "id": "workflow",
-        "contentBottom": 3231.5625,
-        "footerTop": 3303.484375,
-        "overlap": false
+        "height": 1122.515625,
+        "footerTop": 1062.484375,
+        "contentBottom": 897.421875,
+        "gap": 165.0625,
+        "scroll": 1123,
+        "client": 1123
       },
       {
         "id": "permission",
-        "contentBottom": 4276.390625,
-        "footerTop": 4426,
-        "overlap": false
+        "height": 1122.515625,
+        "footerTop": 1062.484375,
+        "contentBottom": 926.9375,
+        "gap": 135.546875,
+        "scroll": 1123,
+        "client": 1123
       },
       {
         "id": "start",
-        "contentBottom": 5503.5625,
-        "footerTop": 5548.515625,
-        "overlap": false
+        "height": 1122.515625,
+        "footerTop": 1062.484375,
+        "contentBottom": 999.234375,
+        "gap": 63.25,
+        "scroll": 1123,
+        "client": 1123
       }
     ],
-    "visual_review": "All five final Poppler page renders inspected, including a final contact sheet after plain-language edits; mobile dark view also inspected. No clipping, overlapping text or footer collision observed.",
+    "visual_review": "All five final pages in both palettes inspected from Poppler renders. No clipping, overlap or footer collision observed.",
     "scaffold_runtime_core_byte_identical": true,
     "anti_dark_code_files_byte_identical": true,
-    "human_comprehension": "Not tested; editorial and automated checks do not establish human comprehension.",
+    "human_comprehension": "Not tested for this visual revision; automated checks do not establish human comprehension.",
     "light_dark_page_text_identical": true,
     "theme_command": "--color-scheme light",
-    "light_pdf_bytes_retained": true
+    "evidence": "evals/scaffold-v1/evidence-2026-10-14-brief-design.json"
   },
   "color_scheme": "light",
-  "original_renderer_sha256": "c54faf118f5e17155091946fa9c656b703af95ed3f461004a0176a17457fd471",
   "source_path": "docs/brief/scaffold-kit-brief.html"
 }
