@@ -16,7 +16,7 @@ You do not build the whole product first. You design the whole puzzle, then buil
 
 Scaffold Kit turns a project description into four planning documents: architecture, engineering rules, decisions, and one active slice brief. It writes documents first. Product code starts only after the owner approves the slice brief.
 
-Read the [overview and starter example](https://lynxtwo.github.io/scaffold-kit/) or the plain-language field brief ([light PDF](brief/scaffold-kit-brief.pdf), [dark PDF](brief/scaffold-kit-brief-dark.pdf), [HTML](brief/scaffold-kit-brief.html)), or use the files directly:
+Read the [overview and starter example](https://lynxtwo.github.io/scaffold-kit/) or the plain-language field brief ([light PDF](brief/scaffold-kit-brief.pdf), [dark PDF](brief/scaffold-kit-brief-dark.pdf), [HTML](https://lynxtwo.github.io/scaffold-kit/brief/scaffold-kit-brief.html)), or use the files directly:
 
 1. Review this source and the [FSL-1.1-MIT license](LICENSE.md). Version 0.4 is a draft, not a claim of universal host compatibility.
 2. Give your assistant [the Conductor](skills/scaffold-kit/references/conductor.md) and load each of the [four templates](skills/scaffold-kit/assets/templates/) as its phase starts. Rough project descriptions are welcome.
@@ -27,7 +27,7 @@ At first setup/use, choose **plain language**, **balanced**, or **developer shor
 
 This reading-list prompt is an illustrative starter, not an evaluation result. For existing code, [Anti-Dark-Code](https://github.com/LynxTWO/anti-dark-code-skill) provides codebase mapping and verification evidence; Scaffold Kit turns that evidence into planning decisions and a build boundary.
 
-Local installation checks passed for both Claude Code and Codex using the final bundles; [the current evidence](evals/scaffold-v1/evidence-2026-10-14-packaging.json) records versions, hashes and limits. Codex resolves the new icon; its visual rendering has not been independently observed. Claude Code lists the plugin but uses a generic symbol. The [September verification record](design/codex-verification-2026-09-26.md) retains earlier failed checks. These observations do not establish compatibility with every host.
+Local installation checks passed for both Claude Code and Codex using the final bundles; [the current evidence](evals/scaffold-v1/evidence-2026-10-14-catalog-isolation.json) records versions, hashes and limits. Codex resolves the new icon; its visual rendering has not been independently observed. Claude Code lists the plugin but uses a generic symbol. The [September verification record](design/codex-verification-2026-09-26.md) retains earlier failed checks. These observations do not establish compatibility with every host.
 
 ## Revision note: v0.4 (Draft)
 
@@ -65,7 +65,7 @@ As a Claude Code plugin: `claude plugin marketplace add LynxTWO/scaffold-kit`, t
 
 As a Codex plugin: clone this repository, run `codex plugin marketplace add /absolute/path/to/scaffold-kit`, then `codex plugin add scaffold-kit@lynxtwo`. In a new local chat, select Scaffold Kit through `@` or ask Codex to use it by name.
 
-Preview releases use a separate `lynxtwo-preview` marketplace supplied with the preview bundle. Install them only by opting into that catalog; a version suffix alone does not select a channel. Keep one active copy of each plugin. To return to stable, remove the preview copy and reinstall from the stable catalog. Preview source is prepared for review; no plugin release or directory submission has been published.
+The existing `lynxtwo` catalog pins the reviewed 0.4.0 source commit, independently of development on `main`. The separate [preview catalog](preview/) contains both kits and requires explicit opt-in. Keep one active copy per kit; its instructions cover testing and rollback. A version string or GitHub prerelease label does not select a host channel. Plugin releases and directory submissions remain on hold.
 
 As a standalone skill: install only `skills/scaffold-kit/` where your host reads skills (`.agents/skills/scaffold-kit/` for Codex, Cursor, Copilot and Gemini; `.claude/skills/scaffold-kit/` for Claude Code). Choose either the plugin or standalone installation to avoid duplicate discovery. Rough project descriptions are welcome.
 

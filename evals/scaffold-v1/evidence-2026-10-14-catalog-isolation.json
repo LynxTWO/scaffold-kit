@@ -1,0 +1,165 @@
+{
+  "scope": "Local catalog-isolation validation before PR CI; no plugin publication. CI receipts belong to the PR head separately.",
+  "recorded_at": "2026-10-14T23:36:47.707646+00:00",
+  "plugin": "scaffold-kit",
+  "stable_source": "d6783f8f51db0b6c74f001f425666225d7e79220",
+  "preview_source": "9d1b46066576cee8b64bc783cf7d0474946a1e49",
+  "instruction_markdown_changes": [],
+  "native_hosts": {
+    "codex": {
+      "initial": {
+        "version": "0.4.0",
+        "source_files_checked": 42,
+        "all_source_file_hashes_match": true,
+        "core_inventory_exact": true,
+        "receipt_sha256": "51c4856bca57beea0d10d31e05c1ea71811549477dbbfbc1b16e94d4579bc3b0"
+      },
+      "stable-after-preview-advance": {
+        "version": "0.4.0",
+        "source_files_checked": 42,
+        "all_source_file_hashes_match": true,
+        "core_inventory_exact": true,
+        "receipt_sha256": "51c4856bca57beea0d10d31e05c1ea71811549477dbbfbc1b16e94d4579bc3b0"
+      },
+      "explicit-preview": {
+        "version": "0.4.1",
+        "source_files_checked": 56,
+        "all_source_file_hashes_match": true,
+        "core_inventory_exact": true,
+        "receipt_sha256": "1f6dbe2cb567d78d1278adca257fc0054dd577b0a899342985e3b63bbcd76422"
+      },
+      "rollback": {
+        "version": "0.4.0",
+        "source_files_checked": 42,
+        "all_source_file_hashes_match": true,
+        "core_inventory_exact": true,
+        "receipt_sha256": "51c4856bca57beea0d10d31e05c1ea71811549477dbbfbc1b16e94d4579bc3b0"
+      },
+      "no_preview_plugin_installed_after_stable_refresh": true
+    },
+    "claude": {
+      "initial": {
+        "version": "0.4.0",
+        "source_files_checked": 42,
+        "all_source_file_hashes_match": true,
+        "core_inventory_exact": true,
+        "receipt_sha256": "51c4856bca57beea0d10d31e05c1ea71811549477dbbfbc1b16e94d4579bc3b0"
+      },
+      "stable-after-preview-advance": {
+        "version": "0.4.0",
+        "source_files_checked": 42,
+        "all_source_file_hashes_match": true,
+        "core_inventory_exact": true,
+        "receipt_sha256": "51c4856bca57beea0d10d31e05c1ea71811549477dbbfbc1b16e94d4579bc3b0"
+      },
+      "explicit-preview": {
+        "version": "0.4.1",
+        "source_files_checked": 56,
+        "all_source_file_hashes_match": true,
+        "core_inventory_exact": true,
+        "receipt_sha256": "1f6dbe2cb567d78d1278adca257fc0054dd577b0a899342985e3b63bbcd76422"
+      },
+      "rollback": {
+        "version": "0.4.0",
+        "source_files_checked": 42,
+        "all_source_file_hashes_match": true,
+        "core_inventory_exact": true,
+        "receipt_sha256": "51c4856bca57beea0d10d31e05c1ea71811549477dbbfbc1b16e94d4579bc3b0"
+      },
+      "no_preview_plugin_installed_after_stable_refresh": true
+    }
+  },
+  "retained_failure": {
+    "first_attempt": "Claude plugin update selected SSH for a github source and failed host-key verification.",
+    "correction": "Use explicit HTTPS url sources in both hosts; no SSH configuration was changed.",
+    "first_attempt_receipt_sha256": "0b172ce896b94533bfe07412536cd4b47f9db2ec4dfc61b0d8d473f5fae0ea77",
+    "rerun": "Full cycle passed in both hosts."
+  },
+  "restoration": {
+    "original_configuration_bytes_match": true,
+    "original_stable_cache_bytes_match": true
+  },
+  "limits": [
+    "Forced native refresh/update commands exercised; Claude autoUpdate was configured true for the temporary stable catalogs. No background timer was observed.",
+    "Native checks ran on macOS; native Windows/Linux installs were not exercised.",
+    "Direct development-source installs bypass stable catalogs. Earlier unpinned preview installs may need removal and reinstall from the corrected stable catalog.",
+    "No live Pages deployment or plugin release is claimed by this pre-merge evidence."
+  ],
+  "html": {
+    "canonical_html_bytes_retained": true,
+    "both_pdf_bytes_retained": true,
+    "live_github_pages": "Not deployed; the source PR must be merged first.",
+    "screen_checks": [
+      {
+        "viewport": [
+          1200,
+          950
+        ],
+        "theme": "light",
+        "http_status": 200,
+        "content_type": "text/html",
+        "width": 1200,
+        "scroll": 1200,
+        "missingImages": 0,
+        "brokenAnchors": [],
+        "remoteAssets": [],
+        "background": "rgb(237, 240, 241)",
+        "sheets": 5
+      },
+      {
+        "viewport": [
+          1200,
+          950
+        ],
+        "theme": "dark",
+        "http_status": 200,
+        "content_type": "text/html",
+        "width": 1200,
+        "scroll": 1200,
+        "missingImages": 0,
+        "brokenAnchors": [],
+        "remoteAssets": [],
+        "background": "rgb(16, 22, 25)",
+        "sheets": 5
+      },
+      {
+        "viewport": [
+          375,
+          900
+        ],
+        "theme": "light",
+        "http_status": 200,
+        "content_type": "text/html",
+        "width": 375,
+        "scroll": 375,
+        "missingImages": 0,
+        "brokenAnchors": [],
+        "remoteAssets": [],
+        "background": "rgb(237, 240, 241)",
+        "sheets": 5
+      },
+      {
+        "viewport": [
+          375,
+          900
+        ],
+        "theme": "dark",
+        "http_status": 200,
+        "content_type": "text/html",
+        "width": 375,
+        "scroll": 375,
+        "missingImages": 0,
+        "brokenAnchors": [],
+        "remoteAssets": [],
+        "background": "rgb(16, 22, 25)",
+        "sheets": 5
+      }
+    ],
+    "visual_review": "All four local HTTP desktop/mobile light/dark views inspected; no observed layout defects."
+  },
+  "local_tests": {
+    "audit_listing": 55,
+    "brief_and_channels": 3,
+    "interpreters": "Python 3.9 and 3.14 (CI repeats both)."
+  }
+}

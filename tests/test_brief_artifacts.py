@@ -21,16 +21,20 @@ class BriefArtifactTests(unittest.TestCase):
                 self.assertTrue(pdf.read_bytes().startswith(b"%PDF-"))
                 self.assertEqual(digest(pdf), record["pdf_sha256"])
                 self.assertEqual(record["color_scheme"], theme)
-                self.assertEqual(digest(ROOT / "brief/scaffold-kit-brief.html"), record["source_sha256"])
+                self.assertEqual(record["source_path"], "docs/brief/scaffold-kit-brief.html")
+                self.assertEqual(digest(ROOT / record["source_path"]), record["source_sha256"])
                 self.assertEqual(digest(ROOT / "design/render-brief-pdf.py"), record["renderer_sha256"])
                 for name, expected in record["source_facts_checked_against"].items():
                     self.assertEqual(digest(ROOT / name), expected, name)
 
     def test_readme_links_both_pdfs_and_the_responsive_html(self):
         readme = (ROOT / "README.md").read_text()
-        for name in ("scaffold-kit-brief.pdf", "scaffold-kit-brief-dark.pdf", "scaffold-kit-brief.html"):
+        for name in ("scaffold-kit-brief.pdf", "scaffold-kit-brief-dark.pdf"):
             self.assertIn("brief/" + name, readme)
             self.assertTrue((ROOT / "brief" / name).is_file())
+        self.assertIn("https://lynxtwo.github.io/scaffold-kit/brief/scaffold-kit-brief.html", readme)
+        self.assertTrue((ROOT / "docs/brief/scaffold-kit-brief.html").is_file())
+        self.assertFalse((ROOT / "brief/scaffold-kit-brief.html").exists())
 
 
 if __name__ == "__main__":

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Render the field brief to PDF the way its provenance record describes.
 
-Usage: python render-brief-pdf.py --html brief/scaffold-kit-brief.html --out /tmp/brief.pdf
+Usage: python render-brief-pdf.py --html docs/brief/scaffold-kit-brief.html --out /tmp/brief.pdf
 
 Uses Playwright Chromium in print media with the page size the brief's own
 @page rule declares. Prints a JSON line with the generator string, the raw

@@ -6,6 +6,16 @@ import unittest
 ROOT = Path(__file__).resolve().parents[3]
 
 class PluginListingTests(unittest.TestCase):
+    def test_stable_catalogs_pin_the_reviewed_stable_source(self):
+        for host in (".agents/plugins/marketplace.json", ".claude-plugin/marketplace.json"):
+            catalog = json.loads((ROOT / host).read_text())
+            self.assertEqual(catalog["name"], "lynxtwo")
+            source = catalog["plugins"][0]["source"]
+            self.assertEqual(source["sha"], "d6783f8f51db0b6c74f001f425666225d7e79220")
+            self.assertNotIn("ref", source)
+            self.assertEqual(source["source"], "url")
+            self.assertEqual(source["url"], "https://github.com/LynxTWO/scaffold-kit.git")
+
     def test_host_versions_and_listing_are_consistent(self):
         portable = json.loads((ROOT / "plugin.json").read_text())
         codex = json.loads((ROOT / ".codex-plugin/plugin.json").read_text())

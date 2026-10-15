@@ -1,0 +1,25 @@
+{
+  "name": "lynxtwo-preview",
+  "owner": {
+    "name": "Daniel Boyd (LynxTWO)"
+  },
+  "description": "Opt-in preview candidates; install only for testing.",
+  "plugins": [
+    {
+      "name": "scaffold-kit",
+      "source": {
+        "source": "url",
+        "sha": "9d1b46066576cee8b64bc783cf7d0474946a1e49",
+        "url": "https://github.com/LynxTWO/scaffold-kit.git"
+      }
+    },
+    {
+      "name": "anti-dark-code",
+      "source": {
+        "source": "url",
+        "sha": "ac4c5895e7cf42d4bb2d86c29d8528bcafae6992",
+        "url": "https://github.com/LynxTWO/anti-dark-code-skill.git"
+      }
+    }
+  ]
+}
