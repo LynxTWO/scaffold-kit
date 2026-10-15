@@ -1,6 +1,6 @@
 # The Scaffold Kit
 
-Version 0.4.2 (Preview candidate). October 15, 2026.
+Version 0.4.3 (Preview candidate). October 15, 2026.
 
 ![Scaffold Kit](assets/brand/scaffold-kit.png)
 
@@ -27,7 +27,7 @@ At first setup/use, choose **plain language**, **balanced**, or **developer shor
 
 This reading-list prompt is an illustrative starter, not an evaluation result. For existing code, [Anti-Dark-Code](https://github.com/LynxTWO/anti-dark-code-skill) provides codebase mapping and verification evidence; Scaffold Kit turns that evidence into planning decisions and a build boundary.
 
-Local installation checks passed for both Claude Code and Codex using the final bundles; [the current evidence](evals/scaffold-v1/evidence-2026-10-14-catalog-isolation.json) records versions, hashes and limits. Codex resolves the new icon; its visual rendering has not been independently observed. Claude Code lists the plugin but uses a generic symbol. The [September verification record](design/codex-verification-2026-09-26.md) retains earlier failed checks. These observations do not establish compatibility with every host.
+Local installation checks passed for both Claude Code and Codex using the final bundles; [the October 14 installation evidence](evals/scaffold-v1/evidence-2026-10-14-catalog-isolation.json) records versions, hashes and limits. Codex resolves the new icon; its visual rendering has not been independently observed. Claude Code lists the plugin but uses a generic symbol. The [September verification record](design/codex-verification-2026-09-26.md) retains earlier failed checks. These observations do not establish compatibility with every host.
 
 ## Revision note: v0.4 (Draft)
 

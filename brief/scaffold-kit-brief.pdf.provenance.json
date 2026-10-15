@@ -1,22 +1,22 @@
 {
   "schema_version": 1,
-  "version": "0.4.2",
-  "publication": "Unpublished preview candidate; no remote tag, release or directory submission.",
+  "version": "0.4.3",
+  "publication": "Preview candidate; publication is a separate owner action.",
   "generator": "Playwright 1.62.0 / Chromium 151.0.7922.34 on Darwin arm64, design/render-brief-pdf.py",
   "source_path": "docs/brief/scaffold-kit-brief.html",
-  "source_sha256": "d1f30cc57303521aac56e8f313cba3c37cec49b70668442496c9ef00644ab970",
+  "source_sha256": "f51d54e6935e572dd542910d7424faf564765d9e470ecdb0482470bb4ad8338d",
   "renderer_sha256": "d5725f2f6371caaa0f1de86ef594d7b7d766c970d8f9eafbd003c79c70fce514",
   "color_scheme": "light",
-  "pdf_sha256": "9570b6a9d77437e8d96c93718dd8bb45780e53c0db83db3ab8ee3f2c02fa7096",
-  "normalized_pdf_sha256": "6b54d14ba88223164df459fe8123b6ca9d98a744bd51beb9ab646b05ad32262a",
+  "pdf_sha256": "34748aec13b20d2582cf35f5c5fab6738e05b70505e4040a47e24d81c220e692",
+  "normalized_pdf_sha256": "57dc823cf4e31a035e9a3e2bf227d14ca57f4e0be34ac34fff44b572f76f1435",
   "validated_with": {
     "page_count": 5,
     "page_words": [
-      232,
+      231,
       325,
       281,
       281,
-      315
+      310
     ],
     "named_destinations": [
       "/overview",
@@ -25,10 +25,10 @@
       "/permission",
       "/start"
     ],
-    "approved_html_and_pdf_body_unchanged_except_version_and_date": true,
+    "approved_body_and_safeguards_unchanged_except_declared_publication_copy_and_version": true,
     "declared_substitutions": {
-      "0.4.1": "0.4.2",
-      "date": "2026-10-14 to 2026-10-15"
+      "0.4.2": "0.4.3",
+      "publication_copy": "Scaffold cover drops unpublished; final preview paragraph drops only the publishing-hold sentence. ADC body unchanged. Dates unchanged."
     },
     "two_fresh_renders_match_after_timestamp_normalization": true,
     "screen_checks": {
@@ -75,13 +75,13 @@
         "client": 1123
       }
     ],
-    "visual_review": "Final Poppler contact sheets inspected; version/date label changes only.",
+    "visual_review": "Final Poppler contact sheets inspected; Version labels and the two approved Scaffold publication-copy deletions only.",
     "human_comprehension": "Not tested for this packaging revision; automated checks do not prove comprehension.",
     "pdf_ua_and_screen_reader_reading_order": "Not audited."
   },
   "source_facts_checked_against": {
-    "plugin.json": "70c9ae6f077cd36d3cc0e5f103ccdb3f97fade9ed745a973fc7218fecab8f97f",
-    "README.md": "8c414f6aa61b3aa1a67a3dff6a8db9ac2a007bf40d985a176834e842591526e1",
+    "plugin.json": "cdd0b74967f5d4cb91b39a92e7d42a9835b76789970779dea521d96af31b4d0f",
+    "README.md": "693057170b44c6019c618d55eb164acfbbe783eeca356a701459acee073d1752",
     "skills/scaffold-kit/SKILL.md": "c33c17ec604b3165c2df02ccb4864729f857721f0316a5b9cf69daa5029a76b5",
     "skills/scaffold-kit/references/conductor.md": "eec1a6299923bcda3da09e6af7200b8038ed490817d34fb841a362b87d6b2bf9",
     "skills/scaffold-kit/references/working-with-anti-dark-code.md": "0cbac253909ea802407e5dc27b9ed117bac91822d6234484676af09b1a1816c2",

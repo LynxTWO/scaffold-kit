@@ -9,7 +9,7 @@
       "source": {
         "source": "url",
         "url": "https://github.com/LynxTWO/scaffold-kit.git",
-        "sha": "1b019d8cb2981d18aae7af4949e1463f68023672"
+        "sha": "db84b392efc35136e6ba68710dce23ba651ce681"
       },
       "policy": {
         "installation": "AVAILABLE",
@@ -22,7 +22,7 @@
       "source": {
         "source": "url",
         "url": "https://github.com/LynxTWO/anti-dark-code-skill.git",
-        "sha": "8c34f35514630b3abb6121cb9acf3d1826beb78e"
+        "sha": "205d03c88da2c550647dcfad733abe953a847b26"
       },
       "policy": {
         "installation": "AVAILABLE",

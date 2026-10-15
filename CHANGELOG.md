@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.4.3 (preview candidate)
+
+- Remove temporary publication-state claims from the field brief and preview guide. Preserve all compatibility limits, technical safeguards and approval rules.
+- Refresh versioned packages, both PDF palettes and source-bound provenance; advance only preview pins and check cached updates. Dated historical evidence retains its original publication state.
+
 ## 0.4.2 (unpublished preview candidate)
 
 - Include the approved Living Blueprint brief in light and dark; refresh version labels and PDF provenance. Instructions, templates, safeguards and stable catalog pins are unchanged.
