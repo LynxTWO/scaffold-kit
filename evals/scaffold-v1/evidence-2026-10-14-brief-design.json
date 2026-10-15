@@ -1,0 +1,211 @@
+{
+  "recorded_at": "2026-10-15T02:28:08.354782+00:00",
+  "scope": "Approved Living Blueprint field-brief presentation only; puzzle cover plus recipe boundary layout.",
+  "baseline_source_sha256": "8c61e9ae8ffc81a506fd205b4674b3b5bf5d3505ffc64b4ecfe384d9bb03326b",
+  "source_sha256": "4f439d57bd6a078ab683f01c7ba373c905ab1ff0a225d30c711936f1945601bd",
+  "wording_and_all_links": "exact ordered HTML main text and unchanged href/text; verified against pre-design source",
+  "pdfs": [
+    {
+      "theme": "light",
+      "pages": 5,
+      "all_original_blocks_present_verbatim": true,
+      "page_character_inventory_exact": true,
+      "normalization": "Unicode NFKC and whitespace removal only",
+      "pdf_content_stream_order_note": "Positioned paper panels paint after normal flow; block text and visual reading order checked separately.",
+      "bytes": 265221,
+      "sha256": "a2e7235119975277847a6f9633f8afb1008497ce2e7caa0b79ca421f5d03253f"
+    },
+    {
+      "theme": "dark",
+      "pages": 5,
+      "all_original_blocks_present_verbatim": true,
+      "page_character_inventory_exact": true,
+      "normalization": "Unicode NFKC and whitespace removal only",
+      "pdf_content_stream_order_note": "Positioned paper panels paint after normal flow; block text and visual reading order checked separately.",
+      "bytes": 265271,
+      "sha256": "efbc8a26f187fae39d9dfd5a1acb6ca1f37d61815f028d6b7084b175c3b52712"
+    }
+  ],
+  "responsive_views": [
+    {
+      "theme": "light",
+      "width": 1200,
+      "overflow": false
+    },
+    {
+      "theme": "light",
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "theme": "light",
+      "width": 375,
+      "overflow": false
+    },
+    {
+      "theme": "light",
+      "width": 320,
+      "overflow": false
+    },
+    {
+      "theme": "dark",
+      "width": 1200,
+      "overflow": false
+    },
+    {
+      "theme": "dark",
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "theme": "dark",
+      "width": 375,
+      "overflow": false
+    },
+    {
+      "theme": "dark",
+      "width": 320,
+      "overflow": false
+    }
+  ],
+  "print_layout": [
+    {
+      "theme": "light",
+      "print_layout": [
+        {
+          "id": "overview",
+          "height": 1122.515625,
+          "footerTop": 1062.484375,
+          "contentBottom": 1009.90625,
+          "gap": 52.578125,
+          "scroll": 1123,
+          "client": 1123
+        },
+        {
+          "id": "documents",
+          "height": 1122.515625,
+          "footerTop": 1062.484375,
+          "contentBottom": 1004.625,
+          "gap": 57.859375,
+          "scroll": 1123,
+          "client": 1123
+        },
+        {
+          "id": "workflow",
+          "height": 1122.515625,
+          "footerTop": 1062.484375,
+          "contentBottom": 897.421875,
+          "gap": 165.0625,
+          "scroll": 1123,
+          "client": 1123
+        },
+        {
+          "id": "permission",
+          "height": 1122.515625,
+          "footerTop": 1062.484375,
+          "contentBottom": 926.9375,
+          "gap": 135.546875,
+          "scroll": 1123,
+          "client": 1123
+        },
+        {
+          "id": "start",
+          "height": 1122.515625,
+          "footerTop": 1062.484375,
+          "contentBottom": 999.234375,
+          "gap": 63.25,
+          "scroll": 1123,
+          "client": 1123
+        }
+      ]
+    },
+    {
+      "theme": "dark",
+      "print_layout": [
+        {
+          "id": "overview",
+          "height": 1122.515625,
+          "footerTop": 1062.484375,
+          "contentBottom": 1009.90625,
+          "gap": 52.578125,
+          "scroll": 1123,
+          "client": 1123
+        },
+        {
+          "id": "documents",
+          "height": 1122.515625,
+          "footerTop": 1062.484375,
+          "contentBottom": 1004.625,
+          "gap": 57.859375,
+          "scroll": 1123,
+          "client": 1123
+        },
+        {
+          "id": "workflow",
+          "height": 1122.515625,
+          "footerTop": 1062.484375,
+          "contentBottom": 897.421875,
+          "gap": 165.0625,
+          "scroll": 1123,
+          "client": 1123
+        },
+        {
+          "id": "permission",
+          "height": 1122.515625,
+          "footerTop": 1062.484375,
+          "contentBottom": 926.9375,
+          "gap": 135.546875,
+          "scroll": 1123,
+          "client": 1123
+        },
+        {
+          "id": "start",
+          "height": 1122.515625,
+          "footerTop": 1062.484375,
+          "contentBottom": 999.234375,
+          "gap": 63.25,
+          "scroll": 1123,
+          "client": 1123
+        }
+      ]
+    }
+  ],
+  "visual_review": "All 10 final PDF pages inspected; phone layouts also inspected.",
+  "limits": [
+    "This visual revision has no new human comprehension results.",
+    "PDF content-stream order can differ from visual reading order; complete blocks and per-page text inventory checked separately.",
+    "PDF/UA and screen-reader reading order not audited."
+  ],
+  "runtime_core": "unchanged",
+  "anti_dark_code_repository": "unchanged",
+  "plugin_publishing": "on hold",
+  "github_scope": "Scaffold Kit documentation PR only; no merge or site deployment authorized in this turn.",
+  "regressions": [
+    {
+      "runtime": "Python 3.9.6",
+      "audit_and_listing": {
+        "passed": 55,
+        "failed": 0,
+        "skipped": 0
+      },
+      "brief_artifact_and_channel": {
+        "passed": 3,
+        "failed": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "runtime": "Python 3.14.7",
+      "audit_and_listing": {
+        "passed": 55,
+        "failed": 0,
+        "skipped": 0
+      },
+      "brief_artifact_and_channel": {
+        "passed": 3,
+        "failed": 0,
+        "skipped": 0
+      }
+    }
+  ]
+}
