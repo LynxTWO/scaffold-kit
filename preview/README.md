@@ -3,7 +3,7 @@
 This is the single preview catalog for both kits. Its two host manifests pin the
 same candidate commits. The existing `lynxtwo` and `anti-dark-code` catalogs stay
 on reviewed stable commits; development on `main` does not promote a release.
-Plugin publishing remains on hold.
+Current candidates: Scaffold Kit **0.4.2** and Anti-Dark-Code **2026.10.15-unified.20**, including the reviewed light and dark briefs. Plugin publishing remains on hold.
 
 From a reviewed checkout containing this folder, register **this folder**, not
 the repository root. First disable or remove the current copy of each kit you
@@ -25,7 +25,7 @@ codex plugin add scaffold-kit@lynxtwo-preview
 codex plugin add anti-dark-code@lynxtwo-preview
 ```
 
-Install either kit or both, then use a fresh chat. To roll back, uninstall/remove
+Install either kit or both, then use a fresh chat. To update an existing preview, first replace this local catalog with the reviewed newer copy. Claude: `claude plugin marketplace update lynxtwo-preview`, then `claude plugin update <kit>@lynxtwo-preview`. Codex reads the local catalog directly: repeat `codex plugin add <kit>@lynxtwo-preview`. Repeat for each installed kit. To roll back, uninstall/remove
 the preview copy and re-enable or reinstall the copy from your original stable
 catalog. Removing a marketplace in Claude also removes its installed plugins;
 keep project documents and calibration outside host caches.
