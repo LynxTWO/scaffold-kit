@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.4.2 (unpublished preview candidate)
+
+- Include the approved Living Blueprint brief in light and dark; refresh version labels and PDF provenance. Instructions, templates, safeguards and stable catalog pins are unchanged.
+- Advance only the separate opt-in preview catalog after final package checks. No remote tag, release, asset upload or directory submission is authorized by this preparation.
+
 ## Unreleased improvements to 0.4
 
 - Apply guided depth in generated compact briefs, explain identifiers and pending owner questions in existing sections, retain legacy check-header compatibility, and report unsupported dependencies without inventing reasons. Preserve status vocabulary, exact approval requirements and compact length limits.
