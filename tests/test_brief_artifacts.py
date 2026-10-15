@@ -12,6 +12,14 @@ def digest(path):
 
 
 class BriefArtifactTests(unittest.TestCase):
+    def test_current_publication_copy_has_no_temporary_status_claims(self):
+        for relative in ('README.md', 'docs/brief/scaffold-kit-brief.html', 'preview/README.md'):
+            with self.subTest(path=relative):
+                text = (ROOT / relative).read_text(encoding="utf-8").casefold()
+                self.assertNotIn("for the unpublished", text)
+                self.assertNotIn("unpublished preview candidate", text)
+                self.assertNotIn("publishing remains on hold", text)
+
     def test_both_reviewed_palettes_match_their_provenance(self):
         for theme in ("light", "dark"):
             with self.subTest(theme=theme):

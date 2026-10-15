@@ -3,7 +3,6 @@
 This is the single preview catalog for both kits. Its two host manifests pin the
 same candidate commits. The existing `lynxtwo` and `anti-dark-code` catalogs stay
 on reviewed stable commits; development on `main` does not promote a release.
-Current candidates: Scaffold Kit **0.4.2** and Anti-Dark-Code **2026.10.15-unified.20**, including the reviewed light and dark briefs. Plugin publishing remains on hold.
 
 From a reviewed checkout containing this folder, register **this folder**, not
 the repository root. First disable or remove the current copy of each kit you
