@@ -1,6 +1,6 @@
 # The Scaffold Kit
 
-Version 0.4.1 (Preview candidate). October 14, 2026.
+Version 0.4.2 (Preview candidate). October 15, 2026.
 
 ![Scaffold Kit](assets/brand/scaffold-kit.png)
 

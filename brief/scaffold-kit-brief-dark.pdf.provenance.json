@@ -1,22 +1,14 @@
 {
   "schema_version": 1,
-  "version": "0.4.1",
-  "publication": "Plugin publication on hold; source and documentation proposed for GitHub review.",
+  "version": "0.4.2",
+  "publication": "Unpublished preview candidate; no remote tag, release or directory submission.",
   "generator": "Playwright 1.62.0 / Chromium 151.0.7922.34 on Darwin arm64, design/render-brief-pdf.py",
-  "source_sha256": "4f439d57bd6a078ab683f01c7ba373c905ab1ff0a225d30c711936f1945601bd",
+  "source_path": "docs/brief/scaffold-kit-brief.html",
+  "source_sha256": "d1f30cc57303521aac56e8f313cba3c37cec49b70668442496c9ef00644ab970",
   "renderer_sha256": "d5725f2f6371caaa0f1de86ef594d7b7d766c970d8f9eafbd003c79c70fce514",
-  "pdf_sha256": "efbc8a26f187fae39d9dfd5a1acb6ca1f37d61815f028d6b7084b175c3b52712",
-  "normalized_pdf_sha256": "45ca8c216c4b57670ebb26d089ec9a47be6a814153e228a89e92562e6c5a9183",
-  "source_facts_checked_against": {
-    "plugin.json": "295aca2d7aaaa42c41164ee609969b1d02917b93d9888698f7d58938f5baa5c0",
-    "README.md": "9e2feb969e2956bfe2afd68515b455c3195f29162c7608eb845c7ffbeb232491",
-    "skills/scaffold-kit/SKILL.md": "c33c17ec604b3165c2df02ccb4864729f857721f0316a5b9cf69daa5029a76b5",
-    "skills/scaffold-kit/references/conductor.md": "eec1a6299923bcda3da09e6af7200b8038ed490817d34fb841a362b87d6b2bf9",
-    "skills/scaffold-kit/references/working-with-anti-dark-code.md": "0cbac253909ea802407e5dc27b9ed117bac91822d6234484676af09b1a1816c2",
-    "skills/scaffold-kit/assets/templates/DECISION-LOG.md": "7e5637519436e1f7e7b1cc99635b8c4bf3a2bb01af06240ddf80eafedd66331e",
-    "skills/scaffold-kit/assets/templates/SLICE-BRIEF.md": "0a82b7c2e726ffeaf9084fe67e7be2ab0f062e02671fb85157c4f2a86ec2e5f9",
-    "evals/scaffold-v1/evidence-2026-10-14-prerelease.json": "98d453b7f79a6f179a8b50873406ec52a60673f9e61e42e82bfa0883c2e9c61e"
-  },
+  "color_scheme": "dark",
+  "pdf_sha256": "c5277356c26ac32834450ffff158964ee27cbab0142e673ce4674ee3add29367",
+  "normalized_pdf_sha256": "6ae09d893a01d61a7d8dbd6e00b94c34bd2567ba665df558ab215849c50665e7",
   "validated_with": {
     "page_count": 5,
     "page_words": [
@@ -33,87 +25,68 @@
       "/permission",
       "/start"
     ],
+    "approved_html_and_pdf_body_unchanged_except_version_and_date": true,
+    "declared_substitutions": {
+      "0.4.1": "0.4.2",
+      "date": "2026-10-14 to 2026-10-15"
+    },
     "two_fresh_renders_match_after_timestamp_normalization": true,
-    "normalization": "Generation timestamps only, using existing Anti-Dark-Code normalize_pdf_bytes helper.",
-    "ordered_html_main_wording_and_all_links_exact": true,
-    "original_text_blocks_and_page_character_inventory_retained": true,
-    "screen_checks": [
-      {
-        "theme": "dark",
-        "width": 1200,
-        "overflow": false
-      },
-      {
-        "theme": "dark",
-        "width": 768,
-        "overflow": false
-      },
-      {
-        "theme": "dark",
-        "width": 375,
-        "overflow": false
-      },
-      {
-        "theme": "dark",
-        "width": 320,
-        "overflow": false
-      }
-    ],
-    "print_content_avoids_footer": [
+    "screen_checks": {
+      "themes": "dark",
+      "widths": [
+        1200,
+        768,
+        375,
+        320
+      ],
+      "horizontal_overflow": false,
+      "broken_images_or_anchors": false,
+      "runtime_errors": []
+    },
+    "print_layout": [
       {
         "id": "overview",
-        "height": 1122.515625,
-        "footerTop": 1062.484375,
-        "contentBottom": 1009.90625,
         "gap": 52.578125,
         "scroll": 1123,
         "client": 1123
       },
       {
         "id": "documents",
-        "height": 1122.515625,
-        "footerTop": 1062.484375,
-        "contentBottom": 1004.625,
         "gap": 57.859375,
         "scroll": 1123,
         "client": 1123
       },
       {
         "id": "workflow",
-        "height": 1122.515625,
-        "footerTop": 1062.484375,
-        "contentBottom": 897.421875,
         "gap": 165.0625,
         "scroll": 1123,
         "client": 1123
       },
       {
         "id": "permission",
-        "height": 1122.515625,
-        "footerTop": 1062.484375,
-        "contentBottom": 926.9375,
         "gap": 135.546875,
         "scroll": 1123,
         "client": 1123
       },
       {
         "id": "start",
-        "height": 1122.515625,
-        "footerTop": 1062.484375,
-        "contentBottom": 999.234375,
         "gap": 63.25,
         "scroll": 1123,
         "client": 1123
       }
     ],
-    "visual_review": "All five final pages in both palettes inspected from Poppler renders. No clipping, overlap or footer collision observed.",
-    "scaffold_runtime_core_byte_identical": true,
-    "anti_dark_code_files_byte_identical": true,
-    "human_comprehension": "Not tested for this visual revision; automated checks do not establish human comprehension.",
-    "light_dark_page_text_identical": true,
-    "theme_command": "--color-scheme dark",
-    "evidence": "evals/scaffold-v1/evidence-2026-10-14-brief-design.json"
+    "visual_review": "Final Poppler contact sheets inspected; version/date label changes only.",
+    "human_comprehension": "Not tested for this packaging revision; automated checks do not prove comprehension.",
+    "pdf_ua_and_screen_reader_reading_order": "Not audited."
   },
-  "color_scheme": "dark",
-  "source_path": "docs/brief/scaffold-kit-brief.html"
+  "source_facts_checked_against": {
+    "plugin.json": "70c9ae6f077cd36d3cc0e5f103ccdb3f97fade9ed745a973fc7218fecab8f97f",
+    "README.md": "8c414f6aa61b3aa1a67a3dff6a8db9ac2a007bf40d985a176834e842591526e1",
+    "skills/scaffold-kit/SKILL.md": "c33c17ec604b3165c2df02ccb4864729f857721f0316a5b9cf69daa5029a76b5",
+    "skills/scaffold-kit/references/conductor.md": "eec1a6299923bcda3da09e6af7200b8038ed490817d34fb841a362b87d6b2bf9",
+    "skills/scaffold-kit/references/working-with-anti-dark-code.md": "0cbac253909ea802407e5dc27b9ed117bac91822d6234484676af09b1a1816c2",
+    "skills/scaffold-kit/assets/templates/DECISION-LOG.md": "7e5637519436e1f7e7b1cc99635b8c4bf3a2bb01af06240ddf80eafedd66331e",
+    "skills/scaffold-kit/assets/templates/SLICE-BRIEF.md": "0a82b7c2e726ffeaf9084fe67e7be2ab0f062e02671fb85157c4f2a86ec2e5f9",
+    "evals/scaffold-v1/evidence-2026-10-14-prerelease.json": "98d453b7f79a6f179a8b50873406ec52a60673f9e61e42e82bfa0883c2e9c61e"
+  }
 }
