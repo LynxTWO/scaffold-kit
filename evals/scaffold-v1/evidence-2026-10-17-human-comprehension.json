@@ -1,0 +1,48 @@
+{
+  "recorded_on": "2026-10-17",
+  "status": "Owner-reported human comprehension review passed for all three participants.",
+  "source": {
+    "type": "Direct owner report in the project conversation",
+    "summary": "The owner reported that the owner and two other participants all passed the trial comprehension review.",
+    "scope_question": "Which materials did all three of you review?",
+    "scope_answer": "Both the samples and field briefs"
+  },
+  "reported_results": {
+    "participant_count": 3,
+    "passed_count": 3,
+    "failed_count": 0,
+    "materials": [
+      "Previously supplied trial samples",
+      "The Scaffold Kit and Anti-dark-code field briefs"
+    ],
+    "basis": "Owner report; individual answers and scoring sheets were not supplied."
+  },
+  "source_binding": {
+    "sample_references": [
+      "evidence-2026-10-13-validator.json#human_comprehension"
+    ],
+    "sample_revision": "The report does not identify exact sample variants or hashes. Earlier sample records retain their own source bindings.",
+    "field_brief_reference": {
+      "plugin_version": "0.4.3",
+      "reviewed_payload_commit": "db84b392efc35136e6ba68710dce23ba651ce681",
+      "files": {
+        "docs/brief/scaffold-kit-brief.html": "f51d54e6935e572dd542910d7424faf564765d9e470ecdb0482470bb4ad8338d",
+        "brief/scaffold-kit-brief.pdf": "34748aec13b20d2582cf35f5c5fab6738e05b70505e4040a47e24d81c220e692",
+        "brief/scaffold-kit-brief-dark.pdf": "c262be69b0e3211f7cc3c7ca0677b3df33033b294682dc60bf46512b83b43695"
+      }
+    },
+    "binding_limit": "These hashes identify the existing prerelease field briefs for reference; the report did not independently identify the exact bytes each participant read. No new source qualification is inferred."
+  },
+  "limits": [
+    "This is a three-person descriptive comprehension review reported by the owner, not a controlled study or population success estimate.",
+    "Review completion date, individual responses, rubric and scoring records were not supplied. The recorded date is the date the report was received.",
+    "The result is human feedback, not a conclusion inferred from automated checks. It does not qualify unseen future outputs or establish host compatibility.",
+    "Project statuses, implementation approvals, pending decisions and authorization boundaries are unchanged."
+  ],
+  "preservation": {
+    "historical_evidence": "Earlier pending/untested statements remain as recorded at their original dates. This entry supplies the later result.",
+    "published_prereleases": "Existing release tags, package bytes and checksums remain unchanged.",
+    "stable_and_preview_pins": "Unchanged.",
+    "runtime_instructions": "Unchanged."
+  }
+}

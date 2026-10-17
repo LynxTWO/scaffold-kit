@@ -1,5 +1,7 @@
 # Scaffold evaluation set v1
 
+Current human feedback: [`evidence-2026-10-17-human-comprehension.json`](evidence-2026-10-17-human-comprehension.json) records the owner’s October 17 report that all three participants passed the trial comprehension review of the samples and both field briefs. This is owner-reported descriptive feedback; individual answers and exact reviewed revisions were not supplied. Earlier pending/untested statements below and in dated records describe the evidence available then. Automated checks do not establish human comprehension.
+
 One case prompt in `cases.json`, a yes/no rubric on the outputs that distinguish the kit from a generic planning pack, and dated evidence files holding every trial that ran.
 
 Trials are behavioral: a fresh agent receives the prompt (with the skill path for treated trials), cannot run tools beyond reading files, cannot ask a live person, and writes the planning output it would hand over. A reviewer scores it against the rubric and quotes the sentence that earned each yes. Record the model, the date, the skill state (git ref and the SHA-256 of `SKILL.md`, the Conductor and the templates), the working directory's own instruction files if any were in context, and who scored.
