@@ -9,7 +9,7 @@
       "name": "scaffold-kit",
       "source": {
         "source": "url",
-        "sha": "d6783f8f51db0b6c74f001f425666225d7e79220",
+        "sha": "6095fad4215e6192bfb331e7b51e671a977ca1d6",
         "url": "https://github.com/LynxTWO/scaffold-kit.git"
       },
       "description": "Plan broadly, build narrowly, test reality, expand deliberately: planning documents that bound what an AI agent may build.",
