@@ -1,0 +1,202 @@
+{
+  "recorded_on": "2026-10-17",
+  "status": "Owner-authorized Scaffold Kit stable promotion; final PR and post-merge CI are recorded separately.",
+  "version": "0.4.4",
+  "payload_commit": "6095fad4215e6192bfb331e7b51e671a977ca1d6",
+  "prior_release": {
+    "version": "0.4.3",
+    "retained_as": "Opt-in prerelease; tag and package bytes unchanged.",
+    "reason_for_new_patch_version": "Published 0.4.3 snapshots explicitly identify themselves as preview candidates. A new patch version replaces those labels without overwriting published files or reusing cached version identities."
+  },
+  "scope": [
+    "Stable-release metadata and public labels, matching light/dark PDFs and homepage.",
+    "Both stable host catalogs pin the exact frozen 0.4.4 payload. Preview catalog pins remain unchanged.",
+    "Existing channel regression reads the actual current stable catalogs and rejects stable/preview aliasing and stable host drift.",
+    "Owner-reported three-person comprehension feedback is in evidence-2026-10-17-human-comprehension.json."
+  ],
+  "preservation": {
+    "runtime_instructions_templates_scripts_artwork": "Byte-identical to 0.4.3. Only the listing test fixture SHA changes under skills/.",
+    "anti_dark_code_stable_and_preview_pins": "Unchanged.",
+    "preview_catalogs_and_guide": "Byte-identical to the prior merged source.",
+    "statuses_traceability_approval_and_length_constraints": "Unchanged."
+  },
+  "checks": {
+    "audit_and_listing_tests": {
+      "python_3_14": "55 passed",
+      "python_3_9": "55 passed"
+    },
+    "outer_artifact_and_channel_tests": {
+      "python_3_14": "4 passed",
+      "python_3_9": "4 passed"
+    },
+    "available_validators": {
+      "reference-skill-validator": "passed",
+      "claude-plugin-manifest": "passed",
+      "claude-stable-catalog": "passed",
+      "claude-preview-catalog": "passed",
+      "github-skill-dry-run": "passed",
+      "whitespace": "passed"
+    },
+    "validator_advisories": "Claude installation-line advice and GitHub dry-run repository advisories are retained in the local logs; no settings were changed in response.",
+    "channel_negative_controls": "Current channels pass; aliased preview and diverging stable-host pins fail as expected.",
+    "pdf_checks": [
+      {
+        "theme": "light",
+        "sha256": "990d656cb3aa29bfe8eca46cf91cdb3c9f5935e25f37a37907eda0d3c11d99f0",
+        "page_count": 5,
+        "named_destinations": [
+          "/overview",
+          "/documents",
+          "/workflow",
+          "/permission",
+          "/start"
+        ],
+        "declared_copy_changes": {
+          "For the 0.4.3 preview candidate.": "For the 0.4.4 stable release.",
+          "Updated October 15, 2026.": "Updated October 17, 2026.",
+          "0.4.3 PREVIEW": "0.4.4 STABLE",
+          "Field brief / 0.4.3": "Field brief / 0.4.4",
+          "FIELD BRIEF / 0.4.3": "FIELD BRIEF / 0.4.4",
+          "Preview, not a compatibility promise": "Compatibility has limits",
+          "That does not establish every platform's compatibility or human comprehension of this new brief.": "That does not establish every platform's compatibility."
+        },
+        "body_and_safeguards_unchanged_except_declared_release_labels_and_compatibility_copy": true,
+        "two_renders_match_after_timestamp_normalization": true,
+        "responsive_widths": [
+          1200,
+          768,
+          375,
+          320
+        ],
+        "horizontal_overflow": false,
+        "broken_images_or_anchors": false,
+        "runtime_errors": [],
+        "print_layout": [
+          {
+            "id": "overview",
+            "gap": 52.578125,
+            "scroll": 1123,
+            "client": 1123
+          },
+          {
+            "id": "documents",
+            "gap": 57.859375,
+            "scroll": 1123,
+            "client": 1123
+          },
+          {
+            "id": "workflow",
+            "gap": 165.0625,
+            "scroll": 1123,
+            "client": 1123
+          },
+          {
+            "id": "permission",
+            "gap": 135.546875,
+            "scroll": 1123,
+            "client": 1123
+          },
+          {
+            "id": "start",
+            "gap": 83.96875,
+            "scroll": 1123,
+            "client": 1123
+          }
+        ],
+        "visual_review": "Final light/dark Poppler contact sheets inspected; all ten pages pass.",
+        "human_comprehension": "Owner reported all three participants passed samples and field briefs on October 17; exact participant-read byte revisions and individual answers were not supplied. See evidence-2026-10-17-human-comprehension.json. This packaging-only wording update has no separate human trial.",
+        "pdf_ua_and_screen_reader_reading_order": "Not audited."
+      },
+      {
+        "theme": "dark",
+        "sha256": "d08062c1af141093ed9ed588f53d66aac5ddd99be5b007a974fd0fe7bb139cd6",
+        "page_count": 5,
+        "named_destinations": [
+          "/overview",
+          "/documents",
+          "/workflow",
+          "/permission",
+          "/start"
+        ],
+        "declared_copy_changes": {
+          "For the 0.4.3 preview candidate.": "For the 0.4.4 stable release.",
+          "Updated October 15, 2026.": "Updated October 17, 2026.",
+          "0.4.3 PREVIEW": "0.4.4 STABLE",
+          "Field brief / 0.4.3": "Field brief / 0.4.4",
+          "FIELD BRIEF / 0.4.3": "FIELD BRIEF / 0.4.4",
+          "Preview, not a compatibility promise": "Compatibility has limits",
+          "That does not establish every platform's compatibility or human comprehension of this new brief.": "That does not establish every platform's compatibility."
+        },
+        "body_and_safeguards_unchanged_except_declared_release_labels_and_compatibility_copy": true,
+        "two_renders_match_after_timestamp_normalization": true,
+        "responsive_widths": [
+          1200,
+          768,
+          375,
+          320
+        ],
+        "horizontal_overflow": false,
+        "broken_images_or_anchors": false,
+        "runtime_errors": [],
+        "print_layout": [
+          {
+            "id": "overview",
+            "gap": 52.578125,
+            "scroll": 1123,
+            "client": 1123
+          },
+          {
+            "id": "documents",
+            "gap": 57.859375,
+            "scroll": 1123,
+            "client": 1123
+          },
+          {
+            "id": "workflow",
+            "gap": 165.0625,
+            "scroll": 1123,
+            "client": 1123
+          },
+          {
+            "id": "permission",
+            "gap": 135.546875,
+            "scroll": 1123,
+            "client": 1123
+          },
+          {
+            "id": "start",
+            "gap": 83.96875,
+            "scroll": 1123,
+            "client": 1123
+          }
+        ],
+        "visual_review": "Final light/dark Poppler contact sheets inspected; all ten pages pass.",
+        "human_comprehension": "Owner reported all three participants passed samples and field briefs on October 17; exact participant-read byte revisions and individual answers were not supplied. See evidence-2026-10-17-human-comprehension.json. This packaging-only wording update has no separate human trial.",
+        "pdf_ua_and_screen_reader_reading_order": "Not audited."
+      }
+    ],
+    "native_hosts": {
+      "platform": "macOS arm64",
+      "stable_install_0_4_0": "passed",
+      "stable_update_0_4_0_to_0_4_4": "passed",
+      "fresh_stable_install_0_4_4": "passed",
+      "rollback_to_0_4_0": "passed",
+      "all_source_file_hashes_and_core_inventory": "matched at every checkpoint",
+      "original_host_configuration_and_permanent_caches": "byte-restored",
+      "anti_dark_code_installation": "not changed"
+    }
+  },
+  "limits": [
+    "Native Windows/Linux host installations and timed background update behavior remain untested.",
+    "No new model-planning trials: operating instructions are byte-identical.",
+    "Human outcomes are owner-reported descriptive feedback, not a conclusion from automated tests. The new stable-label packaging revision has no separate human trial.",
+    "PDF/UA and screen-reader reading order were not audited."
+  ],
+  "branch_protections": {
+    "main_requires_pr_and_up_to_date_actions_ci": true,
+    "checks_apply_to_administrators": true,
+    "force_push_and_deletion_blocked": true,
+    "conversations_must_be_resolved": true,
+    "required_reviewer_approvals": 0
+  }
+}

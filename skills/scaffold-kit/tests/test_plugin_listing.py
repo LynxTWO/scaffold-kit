@@ -11,7 +11,7 @@ class PluginListingTests(unittest.TestCase):
             catalog = json.loads((ROOT / host).read_text())
             self.assertEqual(catalog["name"], "lynxtwo")
             source = catalog["plugins"][0]["source"]
-            self.assertEqual(source["sha"], "d6783f8f51db0b6c74f001f425666225d7e79220")
+            self.assertEqual(source["sha"], "6095fad4215e6192bfb331e7b51e671a977ca1d6")
             self.assertNotIn("ref", source)
             self.assertEqual(source["source"], "url")
             self.assertEqual(source["url"], "https://github.com/LynxTWO/scaffold-kit.git")
