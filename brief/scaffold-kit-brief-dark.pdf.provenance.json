@@ -1,23 +1,16 @@
 {
   "schema_version": 1,
-  "version": "0.4.3",
-  "publication": "Preview candidate; publication is a separate owner action.",
+  "version": "0.4.4",
+  "publication": "Stable release preparation authorized by the owner on October 17, 2026.",
   "generator": "Playwright 1.62.0 / Chromium 151.0.7922.34 on Darwin arm64, design/render-brief-pdf.py",
   "source_path": "docs/brief/scaffold-kit-brief.html",
-  "source_sha256": "f51d54e6935e572dd542910d7424faf564765d9e470ecdb0482470bb4ad8338d",
+  "source_sha256": "f63e0828fb50eef1f76a6d19c91a674ad7a648cd1674e32b1377146d3e99c725",
   "renderer_sha256": "d5725f2f6371caaa0f1de86ef594d7b7d766c970d8f9eafbd003c79c70fce514",
   "color_scheme": "dark",
-  "pdf_sha256": "c262be69b0e3211f7cc3c7ca0677b3df33033b294682dc60bf46512b83b43695",
-  "normalized_pdf_sha256": "b4d49627fe8c2a0f348a1f0e3a6282a3486cd05afa681d78a4b89591559d01e9",
+  "pdf_sha256": "d08062c1af141093ed9ed588f53d66aac5ddd99be5b007a974fd0fe7bb139cd6",
+  "normalized_pdf_sha256": "42f0928413ccae5173a602197afdd2e85dd45dd1f0952a272cbf6480bc08ce1e",
   "validated_with": {
     "page_count": 5,
-    "page_words": [
-      231,
-      325,
-      281,
-      281,
-      310
-    ],
     "named_destinations": [
       "/overview",
       "/documents",
@@ -25,24 +18,26 @@
       "/permission",
       "/start"
     ],
-    "approved_body_and_safeguards_unchanged_except_declared_publication_copy_and_version": true,
-    "declared_substitutions": {
-      "0.4.2": "0.4.3",
-      "publication_copy": "Scaffold cover drops unpublished; final preview paragraph drops only the publishing-hold sentence. ADC body unchanged. Dates unchanged."
+    "declared_copy_changes": {
+      "For the 0.4.3 preview candidate.": "For the 0.4.4 stable release.",
+      "Updated October 15, 2026.": "Updated October 17, 2026.",
+      "0.4.3 PREVIEW": "0.4.4 STABLE",
+      "Field brief / 0.4.3": "Field brief / 0.4.4",
+      "FIELD BRIEF / 0.4.3": "FIELD BRIEF / 0.4.4",
+      "Preview, not a compatibility promise": "Compatibility has limits",
+      "That does not establish every platform's compatibility or human comprehension of this new brief.": "That does not establish every platform's compatibility."
     },
-    "two_fresh_renders_match_after_timestamp_normalization": true,
-    "screen_checks": {
-      "themes": "dark",
-      "widths": [
-        1200,
-        768,
-        375,
-        320
-      ],
-      "horizontal_overflow": false,
-      "broken_images_or_anchors": false,
-      "runtime_errors": []
-    },
+    "body_and_safeguards_unchanged_except_declared_release_labels_and_compatibility_copy": true,
+    "two_renders_match_after_timestamp_normalization": true,
+    "responsive_widths": [
+      1200,
+      768,
+      375,
+      320
+    ],
+    "horizontal_overflow": false,
+    "broken_images_or_anchors": false,
+    "runtime_errors": [],
     "print_layout": [
       {
         "id": "overview",
@@ -70,18 +65,18 @@
       },
       {
         "id": "start",
-        "gap": 63.25,
+        "gap": 83.96875,
         "scroll": 1123,
         "client": 1123
       }
     ],
-    "visual_review": "Final Poppler contact sheets inspected; Version labels and the two approved Scaffold publication-copy deletions only.",
-    "human_comprehension": "Not tested for this packaging revision; automated checks do not prove comprehension.",
+    "visual_review": "Final light/dark Poppler contact sheets inspected: all ten pages, version labels, headings, footer spacing and compatibility copy pass.",
+    "human_comprehension": "Owner reported all three participants passed samples and field briefs on October 17; exact participant-read byte revisions and individual answers were not supplied. See evidence-2026-10-17-human-comprehension.json. This packaging-only wording update has no separate human trial.",
     "pdf_ua_and_screen_reader_reading_order": "Not audited."
   },
   "source_facts_checked_against": {
-    "plugin.json": "cdd0b74967f5d4cb91b39a92e7d42a9835b76789970779dea521d96af31b4d0f",
-    "README.md": "693057170b44c6019c618d55eb164acfbbe783eeca356a701459acee073d1752",
+    "plugin.json": "bc1a04c0511b457d2d7e3482e2bace42118a21d3b0aee4848a9eadbafeec2d21",
+    "README.md": "9052870bc7e657d683649528cb51db9af9d7fba7e76df253532aa5b41f5a74c6",
     "skills/scaffold-kit/SKILL.md": "c33c17ec604b3165c2df02ccb4864729f857721f0316a5b9cf69daa5029a76b5",
     "skills/scaffold-kit/references/conductor.md": "eec1a6299923bcda3da09e6af7200b8038ed490817d34fb841a362b87d6b2bf9",
     "skills/scaffold-kit/references/working-with-anti-dark-code.md": "0cbac253909ea802407e5dc27b9ed117bac91822d6234484676af09b1a1816c2",

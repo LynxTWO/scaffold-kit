@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.4 (stable), 2026-10-17
+
+- Promote Scaffold Kit to the default stable catalog with immutable source pins; keep the 0.4.3 preview and Anti-dark-code pins unchanged.
+- Replace current preview labels with stable release wording in the README and matching light/dark field briefs. Preserve runtime instructions, safeguards, approval rules and historical records.
+- Record the owner-reported three-person comprehension result and retain its scope and limits.
+
 ## 0.4.3 (preview candidate)
 
 - Remove temporary publication-state claims from the field brief and preview guide. Preserve all compatibility limits, technical safeguards and approval rules.
@@ -10,7 +16,7 @@
 - Include the approved Living Blueprint brief in light and dark; refresh version labels and PDF provenance. Instructions, templates, safeguards and stable catalog pins are unchanged.
 - Advance only the separate opt-in preview catalog after final package checks. No remote tag, release, asset upload or directory submission is authorized by this preparation.
 
-## Unreleased improvements to 0.4
+## Changes incorporated into the 0.4.x releases
 
 - Apply guided depth in generated compact briefs, explain identifiers and pending owner questions in existing sections, retain legacy check-header compatibility, and report unsupported dependencies without inventing reasons. Preserve status vocabulary, exact approval requirements and compact length limits.
 - Clarify storage choices, recipe exclusions/recovery tradeoffs and closeout evidence; fix the skill validator's unsupported frontmatter without adding instructions. Source-bound trials, failures, repairs and scoped owner feedback remain in the dated evaluation records.
@@ -29,7 +35,7 @@
 
 - Open-choice follow-up: use plain benefit/cost clauses in the existing log for significant unresolved choices, with owner questions and blockers linked. The entry template and its shorter Open example keep owner choices unresolved. Evaluation rubric revision 2 requires labeled stubs/payback only when needed; previous scores remain recorded. See `evals/scaffold-v1/evidence-2026-10-12-choices.json`.
 
-These are unreleased source changes. Local consumer installation was checked; no public release or directory submission has been made.
+These changes were incorporated into the 0.4.x plugin packages. Dated evidence retains the original source and publication state; public directory submission is separate.
 
 ## 0.4.0 (Draft)
 

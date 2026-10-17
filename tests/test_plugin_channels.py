@@ -10,7 +10,19 @@ class ChannelTests(unittest.TestCase):
     def test_both_hosts_select_the_same_explicit_preview_commits(self):
         catalogs = [json.loads((ROOT / "preview" / path).read_text()) for path in
                     (".agents/plugins/marketplace.json", ".claude-plugin/marketplace.json")]
-        stable = {"scaffold-kit": "d6783f8f51db0b6c74f001f425666225d7e79220",
+        stable_catalogs = [json.loads((ROOT / path).read_text()) for path in
+                           (".agents/plugins/marketplace.json", ".claude-plugin/marketplace.json")]
+        stable_selections = []
+        for catalog in stable_catalogs:
+            self.assertEqual(catalog["name"], "lynxtwo")
+            self.assertEqual([p["name"] for p in catalog["plugins"]], ["scaffold-kit"])
+            source = catalog["plugins"][0]["source"]
+            self.assertRegex(source["sha"], r"^[0-9a-f]{40}$")
+            self.assertNotIn("ref", source)
+            self.assertEqual(source["source"], "url")
+            stable_selections.append((source["url"], source["sha"]))
+        self.assertEqual(*stable_selections)
+        stable = {"scaffold-kit": stable_selections[0][1],
                   "anti-dark-code": "f3bb47904a9eb4d75e19cc84dcdbb62039feac46"}
         selections = []
         for catalog in catalogs:

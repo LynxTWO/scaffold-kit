@@ -1,6 +1,6 @@
 # The Scaffold Kit
 
-Version 0.4.3 (Preview candidate). October 15, 2026.
+Version 0.4.4 (Stable). October 17, 2026.
 
 ![Scaffold Kit](assets/brand/scaffold-kit.png)
 
@@ -18,7 +18,7 @@ Scaffold Kit turns a project description into four planning documents: architect
 
 Read the [overview and starter example](https://lynxtwo.github.io/scaffold-kit/) or the plain-language field brief ([light PDF](brief/scaffold-kit-brief.pdf), [dark PDF](brief/scaffold-kit-brief-dark.pdf), [HTML](https://lynxtwo.github.io/scaffold-kit/brief/scaffold-kit-brief.html)), or use the files directly:
 
-1. Review this source and the [FSL-1.1-MIT license](LICENSE.md). Version 0.4 is a draft, not a claim of universal host compatibility.
+1. Review this source and the [FSL-1.1-MIT license](LICENSE.md). Version 0.4.4 is the current stable release; compatibility remains limited to the recorded host checks.
 2. Give your assistant [the Conductor](skills/scaffold-kit/references/conductor.md) and load each of the [four templates](skills/scaffold-kit/assets/templates/) as its phase starts. Rough project descriptions are welcome.
 3. Ask: “Use Scaffold Kit 0.4 to plan a small reading-list app. Start with triage and questions. Write planning documents only; do not build product code.”
 4. Review the decisions, assumptions, and first slice. Build only after the active brief records your approval.
@@ -28,6 +28,8 @@ At first setup/use, choose **plain language**, **balanced**, or **developer shor
 This reading-list prompt is an illustrative starter, not an evaluation result. For existing code, [Anti-Dark-Code](https://github.com/LynxTWO/anti-dark-code-skill) provides codebase mapping and verification evidence; Scaffold Kit turns that evidence into planning decisions and a build boundary.
 
 Local installation checks passed for both Claude Code and Codex using the final bundles; [the October 14 installation evidence](evals/scaffold-v1/evidence-2026-10-14-catalog-isolation.json) records versions, hashes and limits. Codex resolves the new icon; its visual rendering has not been independently observed. Claude Code lists the plugin but uses a generic symbol. The [September verification record](design/codex-verification-2026-09-26.md) retains earlier failed checks. These observations do not establish compatibility with every host.
+
+The owner reports that all three participants passed the comprehension review of the trial samples and both field briefs; [the October 17 record](evals/scaffold-v1/evidence-2026-10-17-human-comprehension.json) retains the scope and limits. For a version-pinned installation, use this repository’s stable catalog or the stable catalog ZIP on the [0.4.4 release](https://github.com/LynxTWO/scaffold-kit/releases/tag/v0.4.4). The separate `lynxtwo-preview` catalog remains opt-in for preview releases.
 
 ## Revision note: v0.4 (Draft)
 
