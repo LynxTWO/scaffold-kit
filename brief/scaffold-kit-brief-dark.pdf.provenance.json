@@ -79,9 +79,26 @@
     "README.md": "9052870bc7e657d683649528cb51db9af9d7fba7e76df253532aa5b41f5a74c6",
     "skills/scaffold-kit/SKILL.md": "c33c17ec604b3165c2df02ccb4864729f857721f0316a5b9cf69daa5029a76b5",
     "skills/scaffold-kit/references/conductor.md": "eec1a6299923bcda3da09e6af7200b8038ed490817d34fb841a362b87d6b2bf9",
-    "skills/scaffold-kit/references/working-with-anti-dark-code.md": "0cbac253909ea802407e5dc27b9ed117bac91822d6234484676af09b1a1816c2",
+    "skills/scaffold-kit/references/working-with-anti-dark-code.md": "c4b2b088990a16eadd049af4c6d5d75e5dba09f6ed84108c4d2c0c70724a57a0",
     "skills/scaffold-kit/assets/templates/DECISION-LOG.md": "7e5637519436e1f7e7b1cc99635b8c4bf3a2bb01af06240ddf80eafedd66331e",
     "skills/scaffold-kit/assets/templates/SLICE-BRIEF.md": "0a82b7c2e726ffeaf9084fe67e7be2ab0f062e02671fb85157c4f2a86ec2e5f9",
     "evals/scaffold-v1/evidence-2026-10-14-prerelease.json": "98d453b7f79a6f179a8b50873406ec52a60673f9e61e42e82bfa0883c2e9c61e"
+  },
+  "source_facts_revalidation": {
+    "date": "2026-10-17",
+    "reason": "Unreleased interoperability correction; the 0.4.4 field brief still describes the revised rules accurately.",
+    "changed_source": {
+      "path": "skills/scaffold-kit/references/working-with-anti-dark-code.md",
+      "previous_sha256": "0cbac253909ea802407e5dc27b9ed117bac91822d6234484676af09b1a1816c2",
+      "checked_sha256": "c4b2b088990a16eadd049af4c6d5d75e5dba09f6ed84108c4d2c0c70724a57a0"
+    },
+    "method": "Manual comparison of the reference diff with the existing HTML companion, route and approval explanations; existing HTML/PDF hashes verified unchanged.",
+    "reviewed_claims": [
+      "Existing systems require a relevant map; using Anti-dark-code is optional.",
+      "Anti-dark-code examines code and records evidence; its work is not an unconditional proof.",
+      "Build approval remains bound to reviewed targets and effects; additional protected effects require their own approval."
+    ],
+    "html_pdf_and_renderer_unchanged": true,
+    "new_render_visual_or_human_trial_performed": false
   }
 }
