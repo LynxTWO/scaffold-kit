@@ -1,15 +1,68 @@
 {
   "schema_version": 1,
-  "version": "0.4.4",
+  "version": "0.4.5",
   "publication": "Stable release preparation authorized by the owner on October 17, 2026.",
   "generator": "Playwright 1.62.0 / Chromium 151.0.7922.34 on Darwin arm64, design/render-brief-pdf.py",
   "source_path": "docs/brief/scaffold-kit-brief.html",
-  "source_sha256": "f63e0828fb50eef1f76a6d19c91a674ad7a648cd1674e32b1377146d3e99c725",
+  "source_sha256": "46b49967a64ceeadc837334265153da6cd047287e4e4ce0cbec7189661de2539",
   "renderer_sha256": "d5725f2f6371caaa0f1de86ef594d7b7d766c970d8f9eafbd003c79c70fce514",
   "color_scheme": "dark",
-  "pdf_sha256": "d08062c1af141093ed9ed588f53d66aac5ddd99be5b007a974fd0fe7bb139cd6",
-  "normalized_pdf_sha256": "42f0928413ccae5173a602197afdd2e85dd45dd1f0952a272cbf6480bc08ce1e",
+  "pdf_sha256": "ad8a777d435e3b8bec5f83acb8b753d3f4dab70613ab945b76c9540d2b961c4c",
+  "normalized_pdf_sha256": "12589e4a34df132b71dfcf0cdb6166459edfe30b1270a0105695a5d21cb5df4c",
   "validated_with": {
+    "version_update": "Only version/date labels changed; compared extracted PDF text with those substitutions normalized.",
+    "human_comprehension": "Earlier owner-reported review retained with original scope; no new participant study.",
+    "pdf_ua_and_screen_reader_reading_order": "Not audited.",
+    "pdf_pages": 5,
+    "visual_review": "All pages reviewed as Poppler contact sheets on 2026-10-22; no clipping or overlap observed. Existing layout and body preserved."
+  },
+  "source_facts_checked_against": {
+    "plugin.json": "93775f4968b85cac07f48ba673f87a73e6b3b70e10af210d13131c22dc7c6a0f",
+    "README.md": "1e0f65c8fb706d5220a70ed41a0426213b50c69fa6f1782e682390fdbb780f4c",
+    "skills/scaffold-kit/SKILL.md": "c33c17ec604b3165c2df02ccb4864729f857721f0316a5b9cf69daa5029a76b5",
+    "skills/scaffold-kit/references/conductor.md": "eec1a6299923bcda3da09e6af7200b8038ed490817d34fb841a362b87d6b2bf9",
+    "skills/scaffold-kit/references/working-with-anti-dark-code.md": "c4b2b088990a16eadd049af4c6d5d75e5dba09f6ed84108c4d2c0c70724a57a0",
+    "skills/scaffold-kit/assets/templates/DECISION-LOG.md": "7e5637519436e1f7e7b1cc99635b8c4bf3a2bb01af06240ddf80eafedd66331e",
+    "skills/scaffold-kit/assets/templates/SLICE-BRIEF.md": "0a82b7c2e726ffeaf9084fe67e7be2ab0f062e02671fb85157c4f2a86ec2e5f9",
+    "evals/scaffold-v1/evidence-2026-10-14-prerelease.json": "98d453b7f79a6f179a8b50873406ec52a60673f9e61e42e82bfa0883c2e9c61e"
+  },
+  "source_facts_revalidation": {
+    "date": "2026-10-22",
+    "reason": "README now states the optional auditor minimum explicitly and describes the expanded CI targets; no planning or approval rule changed.",
+    "changed_source": {
+      "path": "README.md",
+      "previous_sha256": "9052870bc7e657d683649528cb51db9af9d7fba7e76df253532aa5b41f5a74c6",
+      "checked_sha256": "35a3a98bd4782e9c1d6df5e13bb3bc89ee324159d56ca8b5b6b1f6c59072dd60"
+    },
+    "method": "Compared the exact README diff with the existing HTML brief: optional mechanical audit, required human approval, scoped checks and compatibility limits still match. Verified unchanged HTML/PDF/renderer bytes against their recorded hashes.",
+    "reviewed_claims": [
+      "The optional auditor checks document structure; it does not establish approval, human comprehension or passing software tests.",
+      "Minimum Python compatibility and configured CI targets do not establish passing results on every host.",
+      "Instructions remain independent of a Python runtime."
+    ],
+    "html_pdf_and_renderer_unchanged": true,
+    "new_render_visual_or_human_trial_performed": false
+  },
+  "source_facts_revalidation_history": [
+    {
+      "date": "2026-10-17",
+      "reason": "Unreleased interoperability correction; the 0.4.4 field brief still describes the revised rules accurately.",
+      "changed_source": {
+        "path": "skills/scaffold-kit/references/working-with-anti-dark-code.md",
+        "previous_sha256": "0cbac253909ea802407e5dc27b9ed117bac91822d6234484676af09b1a1816c2",
+        "checked_sha256": "c4b2b088990a16eadd049af4c6d5d75e5dba09f6ed84108c4d2c0c70724a57a0"
+      },
+      "method": "Manual comparison of the reference diff with the existing HTML companion, route and approval explanations; existing HTML/PDF hashes verified unchanged.",
+      "reviewed_claims": [
+        "Existing systems require a relevant map; using Anti-dark-code is optional.",
+        "Anti-dark-code examines code and records evidence; its work is not an unconditional proof.",
+        "Build approval remains bound to reviewed targets and effects; additional protected effects require their own approval."
+      ],
+      "html_pdf_and_renderer_unchanged": true,
+      "new_render_visual_or_human_trial_performed": false
+    }
+  ],
+  "prior_render_validation": {
     "page_count": 5,
     "named_destinations": [
       "/overview",
@@ -73,51 +126,5 @@
     "visual_review": "Final light/dark Poppler contact sheets inspected: all ten pages, version labels, headings, footer spacing and compatibility copy pass.",
     "human_comprehension": "Owner reported all three participants passed samples and field briefs on October 17; exact participant-read byte revisions and individual answers were not supplied. See evidence-2026-10-17-human-comprehension.json. This packaging-only wording update has no separate human trial.",
     "pdf_ua_and_screen_reader_reading_order": "Not audited."
-  },
-  "source_facts_checked_against": {
-    "plugin.json": "bc1a04c0511b457d2d7e3482e2bace42118a21d3b0aee4848a9eadbafeec2d21",
-    "README.md": "35a3a98bd4782e9c1d6df5e13bb3bc89ee324159d56ca8b5b6b1f6c59072dd60",
-    "skills/scaffold-kit/SKILL.md": "c33c17ec604b3165c2df02ccb4864729f857721f0316a5b9cf69daa5029a76b5",
-    "skills/scaffold-kit/references/conductor.md": "eec1a6299923bcda3da09e6af7200b8038ed490817d34fb841a362b87d6b2bf9",
-    "skills/scaffold-kit/references/working-with-anti-dark-code.md": "c4b2b088990a16eadd049af4c6d5d75e5dba09f6ed84108c4d2c0c70724a57a0",
-    "skills/scaffold-kit/assets/templates/DECISION-LOG.md": "7e5637519436e1f7e7b1cc99635b8c4bf3a2bb01af06240ddf80eafedd66331e",
-    "skills/scaffold-kit/assets/templates/SLICE-BRIEF.md": "0a82b7c2e726ffeaf9084fe67e7be2ab0f062e02671fb85157c4f2a86ec2e5f9",
-    "evals/scaffold-v1/evidence-2026-10-14-prerelease.json": "98d453b7f79a6f179a8b50873406ec52a60673f9e61e42e82bfa0883c2e9c61e"
-  },
-  "source_facts_revalidation": {
-    "date": "2026-10-22",
-    "reason": "README now states the optional auditor minimum explicitly and describes the expanded CI targets; no planning or approval rule changed.",
-    "changed_source": {
-      "path": "README.md",
-      "previous_sha256": "9052870bc7e657d683649528cb51db9af9d7fba7e76df253532aa5b41f5a74c6",
-      "checked_sha256": "35a3a98bd4782e9c1d6df5e13bb3bc89ee324159d56ca8b5b6b1f6c59072dd60"
-    },
-    "method": "Compared the exact README diff with the existing HTML brief: optional mechanical audit, required human approval, scoped checks and compatibility limits still match. Verified unchanged HTML/PDF/renderer bytes against their recorded hashes.",
-    "reviewed_claims": [
-      "The optional auditor checks document structure; it does not establish approval, human comprehension or passing software tests.",
-      "Minimum Python compatibility and configured CI targets do not establish passing results on every host.",
-      "Instructions remain independent of a Python runtime."
-    ],
-    "html_pdf_and_renderer_unchanged": true,
-    "new_render_visual_or_human_trial_performed": false
-  },
-  "source_facts_revalidation_history": [
-    {
-      "date": "2026-10-17",
-      "reason": "Unreleased interoperability correction; the 0.4.4 field brief still describes the revised rules accurately.",
-      "changed_source": {
-        "path": "skills/scaffold-kit/references/working-with-anti-dark-code.md",
-        "previous_sha256": "0cbac253909ea802407e5dc27b9ed117bac91822d6234484676af09b1a1816c2",
-        "checked_sha256": "c4b2b088990a16eadd049af4c6d5d75e5dba09f6ed84108c4d2c0c70724a57a0"
-      },
-      "method": "Manual comparison of the reference diff with the existing HTML companion, route and approval explanations; existing HTML/PDF hashes verified unchanged.",
-      "reviewed_claims": [
-        "Existing systems require a relevant map; using Anti-dark-code is optional.",
-        "Anti-dark-code examines code and records evidence; its work is not an unconditional proof.",
-        "Build approval remains bound to reviewed targets and effects; additional protected effects require their own approval."
-      ],
-      "html_pdf_and_renderer_unchanged": true,
-      "new_render_visual_or_human_trial_performed": false
-    }
-  ]
+  }
 }

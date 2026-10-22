@@ -1,6 +1,8 @@
 # The Scaffold Kit
 
-Version 0.4.4 (Stable). October 17, 2026.
+Version 0.4.5. October 22, 2026.
+
+Packages the reviewed interoperability fixes and Python 3.9–3.15 compatibility updates. Planning instructions, approval requirements and stored statuses are unchanged; see GitHub Releases for publication status.
 
 ![Scaffold Kit](assets/brand/scaffold-kit.png)
 
@@ -67,7 +69,7 @@ As a Claude Code plugin: `claude plugin marketplace add LynxTWO/scaffold-kit`, t
 
 As a Codex plugin: clone this repository, run `codex plugin marketplace add /absolute/path/to/scaffold-kit`, then `codex plugin add scaffold-kit@lynxtwo`. In a new local chat, select Scaffold Kit through `@` or ask Codex to use it by name.
 
-The existing `lynxtwo` catalog pins the reviewed 0.4.0 source commit, independently of development on `main`. The separate [preview catalog](preview/) contains both kits and requires explicit opt-in. Keep one active copy per kit; its instructions cover testing and rollback. A version string or GitHub prerelease label does not select a host channel. Plugin releases and directory submissions remain on hold.
+The existing `lynxtwo` catalog pins the published 0.4.4 source commit, independently of development on `main`. The separate [preview catalog](preview/) contains both kits and requires explicit opt-in. Keep one active copy per kit; its instructions cover testing and rollback. A version string or GitHub prerelease label does not select a host channel. Public directory submissions are separate from GitHub releases.
 
 As a standalone skill: install only `skills/scaffold-kit/` where your host reads skills (`.agents/skills/scaffold-kit/` for Codex, Cursor, Copilot and Gemini; `.claude/skills/scaffold-kit/` for Claude Code). Choose either the plugin or standalone installation to avoid duplicate discovery. Rough project descriptions are welcome.
 
