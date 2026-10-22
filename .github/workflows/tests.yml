@@ -10,12 +10,27 @@ permissions:
 
 jobs:
   suite:
-    name: Python ${{ matrix.python-version }}
-    runs-on: ubuntu-24.04
+    # Preserve the existing required-check names on Linux.
+    name: Python ${{ matrix.python-version }}${{ matrix.platform-label }}
+    runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
-        python-version: ["3.9", "3.14"]
+        os: [ubuntu-24.04]
+        python-version: ["3.9", "3.10", "3.11", "3.12", "3.13", "3.14", "3.15"]
+        include:
+          - os: macos-latest
+            python-version: "3.9"
+            platform-label: " (macOS)"
+          - os: macos-latest
+            python-version: "3.15"
+            platform-label: " (macOS)"
+          - os: windows-latest
+            python-version: "3.9"
+            platform-label: " (Windows)"
+          - os: windows-latest
+            python-version: "3.15"
+            platform-label: " (Windows)"
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:

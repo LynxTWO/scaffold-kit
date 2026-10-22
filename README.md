@@ -120,6 +120,13 @@ Documents produced by this kit start at v0.1 Draft. When a document survives a f
 
 ## Tests and audit
 
+Python 3.9 is the minimum only for the optional document auditor, not a required
+exact version. Newer compatible versions can be used without downgrading; the
+planning instructions need no Python. CI targets 3.9 through 3.15 on Linux and
+the minimum/latest on macOS and Windows. Check run results for verified versions.
+Prefer an upstream-maintained Python release; older compatibility coverage is
+not a recommendation to install an unsupported interpreter.
+
 `python3 -m unittest discover -s skills/scaffold-kit/tests` exercises the audit script. `python3 skills/scaffold-kit/scripts/kit_audit.py --docs <your docs dir>` audits partial/interview documents; add `--ready` for companions, one active slice and requirement/check bindings before the build readback. Readiness is a structural check, not owner approval or proof that the build works. `evals/` holds behavioral trial prompts and evidence.
 
 ## License
