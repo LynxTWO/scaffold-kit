@@ -25,7 +25,7 @@ class BriefArtifactTests(unittest.TestCase):
             with self.subTest(theme=theme):
                 name = "scaffold-kit-brief" + ("-dark" if theme == "dark" else "") + ".pdf"
                 pdf = ROOT / "brief" / name
-                record = json.loads(pdf.with_suffix(".pdf.provenance.json").read_text())
+                record = json.loads(pdf.with_suffix(".pdf.provenance.json").read_text(encoding="utf-8"))
                 self.assertTrue(pdf.read_bytes().startswith(b"%PDF-"))
                 self.assertEqual(digest(pdf), record["pdf_sha256"])
                 self.assertEqual(record["color_scheme"], theme)
@@ -36,7 +36,7 @@ class BriefArtifactTests(unittest.TestCase):
                     self.assertEqual(digest(ROOT / name), expected, name)
 
     def test_readme_links_both_pdfs_and_the_responsive_html(self):
-        readme = (ROOT / "README.md").read_text()
+        readme = (ROOT / "README.md").read_text(encoding="utf-8")
         for name in ("scaffold-kit-brief.pdf", "scaffold-kit-brief-dark.pdf"):
             self.assertIn("brief/" + name, readme)
             self.assertTrue((ROOT / "brief" / name).is_file())
