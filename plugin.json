@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "scaffold-kit",
-  "version": "0.4.4",
+  "version": "0.4.5",
   "description": "Plan broadly, build narrowly, test reality, expand deliberately. A planning interview that produces an Architecture Document, an Engineering Document, a Decision Log and one active Slice Brief that bounds what an AI agent may build.",
   "author": {
     "name": "Daniel Boyd (LynxTWO)"
