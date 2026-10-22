@@ -1,6 +1,6 @@
 # The Scaffold Kit
 
-Version 0.4.5. October 22, 2026.
+Version 0.4.5 (Stable). October 22, 2026.
 
 Packages the reviewed interoperability fixes and Python 3.9–3.15 compatibility updates. Planning instructions, approval requirements and stored statuses are unchanged; see GitHub Releases for publication status.
 
@@ -20,7 +20,7 @@ Scaffold Kit turns a project description into four planning documents: architect
 
 Read the [overview and starter example](https://lynxtwo.github.io/scaffold-kit/) or the plain-language field brief ([light PDF](brief/scaffold-kit-brief.pdf), [dark PDF](brief/scaffold-kit-brief-dark.pdf), [HTML](https://lynxtwo.github.io/scaffold-kit/brief/scaffold-kit-brief.html)), or use the files directly:
 
-1. Review this source and the [FSL-1.1-MIT license](LICENSE.md). Version 0.4.4 is the current stable release; compatibility remains limited to the recorded host checks.
+1. Review this source and the [FSL-1.1-MIT license](LICENSE.md). Version 0.4.5 is the current stable release; compatibility remains limited to the recorded host checks.
 2. Give your assistant [the Conductor](skills/scaffold-kit/references/conductor.md) and load each of the [four templates](skills/scaffold-kit/assets/templates/) as its phase starts. Rough project descriptions are welcome.
 3. Ask: “Use Scaffold Kit 0.4 to plan a small reading-list app. Start with triage and questions. Write planning documents only; do not build product code.”
 4. Review the decisions, assumptions, and first slice. Build only after the active brief records your approval.
@@ -31,7 +31,7 @@ This reading-list prompt is an illustrative starter, not an evaluation result. F
 
 Local installation checks passed for both Claude Code and Codex using the final bundles; [the October 14 installation evidence](evals/scaffold-v1/evidence-2026-10-14-catalog-isolation.json) records versions, hashes and limits. Codex resolves the new icon; its visual rendering has not been independently observed. Claude Code lists the plugin but uses a generic symbol. The [September verification record](design/codex-verification-2026-09-26.md) retains earlier failed checks. These observations do not establish compatibility with every host.
 
-The owner reports that all three participants passed the comprehension review of the trial samples and both field briefs; [the October 17 record](evals/scaffold-v1/evidence-2026-10-17-human-comprehension.json) retains the scope and limits. For a version-pinned installation, use this repository’s stable catalog or the stable catalog ZIP on the [0.4.4 release](https://github.com/LynxTWO/scaffold-kit/releases/tag/v0.4.4). The separate `lynxtwo-preview` catalog remains opt-in for preview releases.
+The owner reports that all three participants passed the comprehension review of the trial samples and both field briefs; [the October 17 record](evals/scaffold-v1/evidence-2026-10-17-human-comprehension.json) retains the scope and limits. For a version-pinned installation, use this repository’s stable catalog or the stable catalog ZIP on the [0.4.5 release](https://github.com/LynxTWO/scaffold-kit/releases/tag/v0.4.5). The separate `lynxtwo-preview` catalog remains opt-in for preview releases.
 
 ## Revision note: v0.4 (Draft)
 
@@ -69,7 +69,7 @@ As a Claude Code plugin: `claude plugin marketplace add LynxTWO/scaffold-kit`, t
 
 As a Codex plugin: clone this repository, run `codex plugin marketplace add /absolute/path/to/scaffold-kit`, then `codex plugin add scaffold-kit@lynxtwo`. In a new local chat, select Scaffold Kit through `@` or ask Codex to use it by name.
 
-The existing `lynxtwo` catalog pins the published 0.4.4 source commit, independently of development on `main`. The separate [preview catalog](preview/) contains both kits and requires explicit opt-in. Keep one active copy per kit; its instructions cover testing and rollback. A version string or GitHub prerelease label does not select a host channel. Public directory submissions are separate from GitHub releases.
+The existing `lynxtwo` catalog pins the published 0.4.5 source commit, independently of development on `main`. The separate [preview catalog](preview/) contains both kits and requires explicit opt-in. Keep one active copy per kit; its instructions cover testing and rollback. A version string or GitHub prerelease label does not select a host channel. Public directory submissions are separate from GitHub releases.
 
 As a standalone skill: install only `skills/scaffold-kit/` where your host reads skills (`.agents/skills/scaffold-kit/` for Codex, Cursor, Copilot and Gemini; `.claude/skills/scaffold-kit/` for Claude Code). Choose either the plugin or standalone installation to avoid duplicate discovery. Rough project descriptions are welcome.
 

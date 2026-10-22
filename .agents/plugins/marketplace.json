@@ -9,7 +9,7 @@
       "source": {
         "source": "url",
         "url": "https://github.com/LynxTWO/scaffold-kit.git",
-        "sha": "6095fad4215e6192bfb331e7b51e671a977ca1d6"
+        "sha": "6acdf283459d3cdd3d8a2820a3265467306b2ed2"
       },
       "policy": {
         "installation": "AVAILABLE",
