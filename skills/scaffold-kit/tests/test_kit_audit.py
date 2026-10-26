@@ -103,7 +103,7 @@ def ready_docs():
 def write_docs(directory: Path, **files: str) -> Path:
     directory.mkdir(parents=True, exist_ok=True)
     for name, text in files.items():
-        (directory / name.replace("_", "-")).write_text(text, encoding="utf-8")
+        (directory / name.replace("_", "-")).write_bytes(text.encode("utf-8"))
     return directory
 
 
