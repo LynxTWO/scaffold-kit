@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Add an optional repository scan for extra document sets and a fenced-code-aware brief length check with named expansion support.
+
 ## 0.4.4 (stable), 2026-10-17
 
 - Promote Scaffold Kit to the default stable catalog with immutable source pins; keep the 0.4.3 preview and Anti-dark-code pins unchanged.

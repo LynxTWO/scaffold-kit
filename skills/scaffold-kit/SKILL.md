@@ -55,6 +55,7 @@ When code already exists, or when anti-dark-code is installed in the repository,
 Instructions only. The optional audit script needs Python 3.9 or newer and no packages.
 
 `python3 scripts/kit_audit.py --docs docs` audits partial/interview documents. Empty input fails. Add `--ready` before the build readback to require companions, one active slice, R/S/check bindings without placeholders such as TBD, and an approver's name and date on an approved or in-progress brief. Both modes check statuses, duplicate decision IDs, exact section references and writing hygiene. Exit code 1 means findings, 2 means usage/read error. Attach the output. Mechanical readiness does not establish owner approval, semantic completeness or passing implementation checks.
+Add `--repo .` to scan for extra document sets, either on its own or with `--docs` and `--ready`.
 
 ## Manual use without a host that loads skills
 
