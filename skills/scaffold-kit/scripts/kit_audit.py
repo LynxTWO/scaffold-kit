@@ -15,6 +15,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import sys
 from pathlib import Path
@@ -44,6 +45,12 @@ DOC_ROLES = {"ARCHITECTURE.md": "ADD", "ENGINEERING.md": "EDD"}
 
 
 KIT_DOCS = ("ARCHITECTURE.md", "ENGINEERING.md", "DECISION-LOG.md")
+SCAN_EXCLUDED = {".git", "node_modules", "vendor"}
+ONE_SET_RULE = ("one document set per project (SKILL.md: Keep one document set) "
+                "[instruction line](https://github.com/LynxTWO/scaffold-kit/blob/8d6316b040136142890548a06a1d3e5d96be63b0/skills/scaffold-kit/SKILL.md#L30)")
+BRIEF_LENGTH_RULE = ("compact form max 500 unless a named risk needs essential decision detail "
+                     "(assets/templates/SLICE-BRIEF.md:20) "
+                     "[instruction line](https://github.com/LynxTWO/scaffold-kit/blob/8d6316b040136142890548a06a1d3e5d96be63b0/skills/scaffold-kit/assets/templates/SLICE-BRIEF.md#L20)")
 
 
 def is_kit_doc(name: str) -> bool:
@@ -59,11 +66,21 @@ def read_docs(root: Path, everything: bool = False) -> dict[str, str]:
     return docs
 
 
-def fenced_lines(text: str):
-    """Yield each line with its ordinary Markdown fence identity, if any."""
+def fenced_lines(text: str, blockquotes: bool = False):
+    """Yield lines and fence identities; word counting can unwrap blockquotes."""
     fence = None
     region = None
+    depth = 0
     for index, line in enumerate(text.splitlines(keepends=True)):
+        containers = [line]
+        if blockquotes:
+            while re.match(r"^ {0,3}>[ \t]?", containers[-1]):
+                containers.append(re.sub(r"^ {0,3}>[ \t]?", "", containers[-1], count=1))
+            if fence is not None and len(containers) <= depth and line.strip():
+                # Leaving the quote also ends a fence inside that container.
+                fence = None
+                region = None
+            line = containers[depth] if fence is not None and len(containers) > depth else containers[-1]
         marker = re.match(r"^ {0,3}(`{3,}|~{3,})([^\r\n]*)", line)
         current = region
         if fence is not None:
@@ -72,6 +89,7 @@ def fenced_lines(text: str):
                 region = None
         elif marker and not (marker.group(1)[0] == "`" and "`" in marker.group(2)):
             fence = (marker.group(1)[0], len(marker.group(1)))
+            depth = len(containers) - 1
             region = current = index
         yield line, current
 
@@ -80,6 +98,70 @@ def strip_fences(text: str) -> str:
     """Mask fenced examples without changing character/line offsets."""
     return "".join(re.sub(r"[^\r\n]", " ", line) if region is not None else line
                    for line, region in fenced_lines(text))
+
+
+def slice_state_regions(lines: list) -> set:
+    return {region for index, (line, region) in enumerate(lines)
+            if line.strip() == "SLICE STATE" and region == index - 1
+            and re.fullmatch(r"(?:`{3,}|~{3,})(?:text|plaintext)?", lines[region][0].strip())}
+
+
+def scan_document_sets(root: Path) -> list[dict]:
+    """Inventory sets without following symlinks or reading repository code."""
+    parts = root.absolute().parts
+    if (root.is_symlink() or any(part in SCAN_EXCLUDED for part in parts)
+            or any(pair == ("assets", "templates") for pair in zip(parts, parts[1:]))):
+        return []
+    sets = []
+
+    def read_error(error):
+        raise error
+
+    for directory, children, filenames in os.walk(root, followlinks=False, onerror=read_error):
+        path = Path(directory)
+        if any(pair == ("assets", "templates") for pair in zip(path.parts, path.parts[1:])):
+            children[:] = []
+            continue
+        children[:] = sorted(child for child in children
+                             if child not in SCAN_EXCLUDED and not (path / child).is_symlink())
+        companions = {name for name in KIT_DOCS if name in filenames
+                      and not (path / name).is_symlink() and (path / name).is_file()}
+        if len(companions) < 2:
+            continue
+        archived = False
+        if "ARCHITECTURE.md" in companions:
+            text = strip_fences((path / "ARCHITECTURE.md").read_text(encoding="utf-8"))
+            status = re.search(r"^(?:Version:[^\r\n]*?[ \t]+)?Status:[ \t]*([^\r\n]*)", text, re.M)
+            archived = bool(status and re.search(r"\b(?:Superseded|Archived)\b", status.group(1)))
+        sets.append({"path": path.relative_to(root).as_posix(), "archived": archived})
+    return sorted(sets, key=lambda item: item["path"])
+
+
+def check_document_sets(root: Path, sets: list[dict]) -> list[dict]:
+    if sum(not item["archived"] for item in sets) <= 1:
+        return []
+    paths = ", ".join(f"{item['path']} ({'archived' if item['archived'] else 'current'})" for item in sets)
+    return [{"check": "document-set", "file": str(root), "message": f"{ONE_SET_RULE}; sets: {paths}"}]
+
+
+def check_brief_length(name: str, text: str) -> list[dict]:
+    lines = list(fenced_lines(text, blockquotes=True))
+    words = sum(len(line.split()) for line, region in lines if region is None)
+    states = slice_state_regions(lines)
+    for index, (line, region) in enumerate(lines):
+        if region not in states or index == region:
+            continue
+        # SLICE STATE is metadata, so its content counts but its delimiters do not.
+        opening = re.match(r"\s*(`{3,}|~{3,})", lines[region][0]).group(1)
+        closing = re.fullmatch(r" {0,3}(`{3,}|~{3,})[ \t]*", line.rstrip("\r\n"))
+        if closing and closing.group(1)[0] == opening[0] and len(closing.group(1)) >= len(opening):
+            continue
+        words += len(line.split())
+    expanded = any(region is None and re.match(r"^Expanded for:[^\S\r\n]*\S", line)
+                   for line, (_, region) in zip(text.splitlines(keepends=True), lines))
+    if words <= 500 or expanded:
+        return []
+    return [{"check": "brief-length", "file": name, "message": f"{words} words; {BRIEF_LENGTH_RULE}"}]
 
 
 def table_cells(line: str) -> list[str]:
@@ -381,9 +463,7 @@ def check_omissions(name: str, text: str) -> list[dict]:
 def brief_reader_prose(text: str, keep_literals: bool = True, keep_state: bool = False) -> str:
     """Mask common Markdown destinations/literals while retaining source lines."""
     lines = list(fenced_lines(text))
-    states = {region for index, (line, region) in enumerate(lines)
-              if keep_state and line.strip() == "SLICE STATE" and region == index - 1
-              and re.fullmatch(r"(?:`{3,}|~{3,})(?:text|plaintext)?", lines[region][0].strip())}
+    states = slice_state_regions(lines) if keep_state else set()
     body = "".join(line if region is None or (region in states and index != region)
                    else re.sub(r"[^\r\n]", " ", line)
                    for index, (line, region) in enumerate(lines)).replace("\r\n", "\n")
@@ -475,6 +555,7 @@ def audit(root: Path, everything: bool = False, ready: bool = False) -> list[dic
         if name == "DECISION-LOG.md":
             findings.extend(check_decision_log(name, text))
         if name.startswith("SLICE-") and name.endswith(".md"):
+            findings.extend(check_brief_length(name, text))
             findings.extend(check_omissions(name, text))
             findings.extend(check_brief_recommendations(name, text))
             if slice_status(text) not in SLICE_STATUSES:
@@ -488,24 +569,39 @@ def audit(root: Path, everything: bool = False, ready: bool = False) -> list[dic
 
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description="Mechanical audit for Scaffold Kit documents.")
-    parser.add_argument("--docs", default="docs", help="directory holding ARCHITECTURE.md, ENGINEERING.md, DECISION-LOG.md and SLICE-*.md")
+    parser.add_argument("--docs", help="directory holding ARCHITECTURE.md, ENGINEERING.md, DECISION-LOG.md and SLICE-*.md (default: docs; omitted for a standalone --repo scan)")
+    parser.add_argument("--repo", help="scan a repository for extra document sets, skipping templates, .git, node_modules and vendor")
     parser.add_argument("--json", action="store_true", help="print findings as JSON")
     parser.add_argument("--all", action="store_true", help="audit every Markdown file in the directory, not only the kit's documents")
     parser.add_argument("--ready", action="store_true", help="require companions, one active slice and acceptance/check bindings; does not grant approval")
     args = parser.parse_args(argv)
-    root = Path(args.docs)
-    if not root.is_dir():
+    root = Path(args.docs if args.docs is not None else "docs")
+    audit_docs = args.docs is not None or args.ready or args.all or args.repo is None
+    repo = Path(args.repo) if args.repo is not None else None
+    if audit_docs and not root.is_dir():
         print(f"not a directory: {root}", file=sys.stderr)
         return 2
+    if repo is not None and not repo.is_dir():
+        print(f"not a directory: {repo}", file=sys.stderr)
+        return 2
     try:
-        audited = sorted(read_docs(root, args.all))
-        findings = audit(root, args.all, args.ready)
+        audited = sorted(read_docs(root, args.all)) if audit_docs else []
+        findings = audit(root, args.all, args.ready) if audit_docs else []
+        sets = scan_document_sets(repo) if repo is not None else []
+        if repo is not None:
+            findings.extend(check_document_sets(repo, sets))
     except (OSError, UnicodeError) as error:
         print(f"cannot read documents: {error}", file=sys.stderr)
         return 2
     if args.json:
-        print(json.dumps({"docs": audited, "mode": "ready" if args.ready else "partial", "findings": findings}, indent=2))
+        result = {"docs": audited, "mode": "ready" if args.ready else "partial", "findings": findings}
+        if repo is not None:
+            result["document_sets"] = sets
+        print(json.dumps(result, indent=2))
     else:
+        if repo is not None:
+            for item in sets:
+                print(f"document set: {item['path']} ({'archived' if item['archived'] else 'current'})")
         for finding in findings:
             where = f"{finding['file']}:{finding['line']}" if "line" in finding else finding["file"]
             print(f"{finding['check']}: {where}: {finding['message']}")

@@ -103,8 +103,13 @@ def ready_docs():
 def write_docs(directory: Path, **files: str) -> Path:
     directory.mkdir(parents=True, exist_ok=True)
     for name, text in files.items():
-        (directory / name.replace("_", "-")).write_text(text, encoding="utf-8")
+        (directory / name.replace("_", "-")).write_bytes(text.encode("utf-8"))
     return directory
+
+
+def sized_brief(words: int, extra: str = "") -> str:
+    text = CLEAN_SLICE + extra
+    return text + "\n" + "word " * (words - len(text.split()))
 
 
 class KitAuditTests(unittest.TestCase):
@@ -120,6 +125,249 @@ class KitAuditTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             root = write_docs(Path(tmp) / "docs", **(ready_docs() if files is None else files))
             return kit_audit.audit(root, ready=True)
+
+    def run_cli(self, *args):
+        output, errors = io.StringIO(), io.StringIO()
+        with contextlib.redirect_stdout(output), contextlib.redirect_stderr(errors):
+            code = kit_audit.main(list(args))
+        return code, output.getvalue(), errors.getvalue()
+
+    def test_repo_one_document_set_passes(self):
+        for names in (("ARCHITECTURE.md", "ENGINEERING.md"),
+                      ("ENGINEERING.md", "DECISION-LOG.md"), tuple(ready_docs())):
+            with self.subTest(names=names), tempfile.TemporaryDirectory() as tmp:
+                root = Path(tmp)
+                write_docs(root, **{name: ready_docs()[name] for name in names})
+                write_docs(root / "notes", **{"ARCHITECTURE.md": CLEAN_ADD})
+                code, output, errors = self.run_cli("--repo", str(root), "--json")
+                self.assertEqual(0, code)
+                self.assertEqual("", errors)
+                result = json.loads(output)
+                self.assertEqual([{"path": ".", "archived": False}], result["document_sets"])
+                self.assertEqual([], result["findings"])
+
+    def test_repo_two_document_sets_fail_and_list_every_set(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            write_docs(root / "docs", **ready_docs())
+            write_docs(root / "plans" / "current", **ready_docs())
+            write_docs(root / "history", **{
+                "ARCHITECTURE.md": CLEAN_ADD.replace("Status: Audited.", "Status: Archived."),
+                "ENGINEERING.md": CLEAN_EDD})
+            code, output, errors = self.run_cli("--repo", str(root), "--json")
+            self.assertEqual(1, code)
+            self.assertEqual("", errors)
+            result = json.loads(output)
+            self.assertEqual([{"path": "docs", "archived": False},
+                              {"path": "history", "archived": True},
+                              {"path": "plans/current", "archived": False}], result["document_sets"])
+            self.assertEqual(1, len(result["findings"]))
+            message = result["findings"][0]["message"]
+            self.assertIn("one document set per project (SKILL.md: Keep one document set)", message)
+            self.assertIn("skills/scaffold-kit/SKILL.md#L30", message)
+            for path in ("docs (current)", "history (archived)", "plans/current (current)"):
+                self.assertIn(path, message)
+
+    def test_repo_archived_second_set_is_listed_but_not_counted(self):
+        for status in ("Status: Archived.", "Version: 0.2. Status: Superseded by the current set."):
+            with self.subTest(status=status), tempfile.TemporaryDirectory() as tmp:
+                root = Path(tmp)
+                write_docs(root / "docs", **ready_docs())
+                write_docs(root / "history", **{"ARCHITECTURE.md": status, "ENGINEERING.md": CLEAN_EDD})
+                code, output, errors = self.run_cli("--repo", str(root))
+                self.assertEqual(0, code)
+                self.assertEqual("", errors)
+                self.assertIn("document set: docs (current)", output)
+                self.assertIn("document set: history (archived)", output)
+                self.assertIn("0 finding(s)", output)
+
+    def test_repo_archive_marker_must_be_in_architecture_status(self):
+        for text in (CLEAN_ADD + "\nArchived notes follow.\n",
+                     CLEAN_ADD + "\n```\nStatus: Archived\n```\n",
+                     "```\nStatus: Archived\n```\n" + CLEAN_ADD):
+            with self.subTest(text=text), tempfile.TemporaryDirectory() as tmp:
+                root = Path(tmp)
+                write_docs(root / "docs", **ready_docs())
+                write_docs(root / "archived", **{"ARCHITECTURE.md": text, "ENGINEERING.md": CLEAN_EDD})
+                code, output, _ = self.run_cli("--repo", str(root), "--json")
+                self.assertEqual(1, code)
+                self.assertEqual(2, sum(not item["archived"] for item in json.loads(output)["document_sets"]))
+
+    def test_repo_templates_and_dependency_directories_are_ignored(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            write_docs(root / "docs", **ready_docs())
+            for relative in ("assets/templates", "skills/example/assets/templates/nested",
+                             ".git/objects", "node_modules/example", "nested/vendor/example"):
+                write_docs(root / relative, **ready_docs())
+            code, output, _ = self.run_cli("--repo", str(root), "--json")
+            self.assertEqual(0, code)
+            self.assertEqual([{"path": "docs", "archived": False}], json.loads(output)["document_sets"])
+            self.assertEqual([], kit_audit.scan_document_sets(root / "assets" / "templates"))
+
+    def test_repo_explicit_excluded_roots_are_not_scanned(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            for name in (".git", "node_modules", "vendor"):
+                root = Path(tmp) / name
+                nested = write_docs(root / "nested", **ready_docs())
+                (nested / "ARCHITECTURE.md").write_bytes(b"\xff")
+                for excluded in (root, nested):
+                    with self.subTest(root=excluded):
+                        self.assertEqual([], kit_audit.scan_document_sets(excluded))
+                        code, output, errors = self.run_cli("--repo", str(excluded), "--json")
+                        self.assertEqual(0, code)
+                        self.assertEqual("", errors)
+                        self.assertEqual([], json.loads(output)["document_sets"])
+
+    def test_repo_explicit_symlink_root_is_not_followed(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            outside = write_docs(Path(tmp) / "outside", **ready_docs())
+            linked = Path(tmp) / "linked"
+            try:
+                linked.symlink_to(outside, target_is_directory=True)
+            except OSError as error:
+                self.skipTest(f"symbolic links unavailable: {error}")
+            (outside / "ARCHITECTURE.md").write_bytes(b"\xff")
+            self.assertEqual([], kit_audit.scan_document_sets(linked))
+            code, output, errors = self.run_cli("--repo", str(linked), "--json")
+            self.assertEqual(0, code)
+            self.assertEqual("", errors)
+            self.assertEqual([], json.loads(output)["document_sets"])
+
+    def test_repo_does_not_follow_symbolic_links(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp) / "repo"
+            write_docs(root / "docs", **ready_docs())
+            outside = write_docs(Path(tmp) / "outside", **ready_docs())
+            linked = root / "linked"
+            try:
+                linked.symlink_to(outside, target_is_directory=True)
+                (root / "ARCHITECTURE.md").symlink_to(outside / "ARCHITECTURE.md")
+                (root / "ENGINEERING.md").symlink_to(outside / "ENGINEERING.md")
+            except OSError as error:
+                self.skipTest(f"symbolic links unavailable: {error}")
+            (outside / "ARCHITECTURE.md").write_bytes(b"\xff")
+            code, output, _ = self.run_cli("--repo", str(root), "--json")
+            self.assertEqual(0, code)
+            self.assertEqual([{"path": "docs", "archived": False}], json.loads(output)["document_sets"])
+
+    def test_repo_combines_with_docs_and_ready(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            docs = write_docs(root / "docs", **ready_docs())
+            for flags in ((), ("--ready",)):
+                code, output, _ = self.run_cli("--repo", str(root), "--docs", str(docs), "--json", *flags)
+                self.assertEqual(0, code)
+                result = json.loads(output)
+                self.assertEqual("ready" if flags else "partial", result["mode"])
+                self.assertEqual(sorted(ready_docs()), result["docs"])
+            (docs / "SLICE-001-demo.md").write_text(sized_brief(501), encoding="utf-8")
+            write_docs(root / "other", **ready_docs())
+            code, output, _ = self.run_cli("--repo", str(root), "--docs", str(docs), "--ready", "--json")
+            self.assertEqual(1, code)
+            self.assertEqual({"document-set", "brief-length"}, {f["check"] for f in json.loads(output)["findings"]})
+
+    def test_repo_usage_and_read_errors_keep_exit_code_two(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            code, _, errors = self.run_cli("--repo", str(root / "missing"))
+            self.assertEqual(2, code)
+            self.assertIn("not a directory", errors)
+            docs = write_docs(root / "docs", **ready_docs())
+            (docs / "ARCHITECTURE.md").write_bytes(b"\xff")
+            code, _, errors = self.run_cli("--repo", str(root))
+            self.assertEqual(2, code)
+            self.assertIn("cannot read documents", errors)
+
+    def test_without_repo_existing_fixtures_and_json_are_unchanged(self):
+        for ready in (False, True):
+            with self.subTest(ready=ready), tempfile.TemporaryDirectory() as tmp:
+                root = Path(tmp)
+                files = ready_docs() if ready else {"ARCHITECTURE.md": CLEAN_ADD, "ENGINEERING.md": CLEAN_EDD,
+                                                  "DECISION-LOG.md": CLEAN_LOG}
+                docs = write_docs(root / "docs", **files)
+                write_docs(root / "other", **ready_docs())
+                code, output, errors = self.run_cli("--docs", str(docs), "--json", *(("--ready",) if ready else ()))
+                self.assertEqual(0, code)
+                self.assertEqual("", errors)
+                self.assertEqual({"docs": sorted(files), "mode": "ready" if ready else "partial", "findings": []},
+                                 json.loads(output))
+                (docs / "ARCHITECTURE.md").write_text(CLEAN_ADD + "\nrobust\n", encoding="utf-8")
+                self.assertEqual([{"check": "hygiene", "file": "ARCHITECTURE.md", "line": 21,
+                                   "message": "banned word: robust"}], kit_audit.audit(docs))
+
+    def test_brief_500_words_passes_and_501_fails(self):
+        self.assertEqual([], self.run_audit(**{"SLICE-001-demo.md": sized_brief(500)}))
+        findings = self.run_audit(**{"SLICE-001-demo.md": sized_brief(501)})
+        self.assertEqual(["brief-length"], [f["check"] for f in findings])
+        self.assertEqual("SLICE-001-demo.md", findings[0]["file"])
+        self.assertIn("501 words", findings[0]["message"])
+        self.assertIn("compact form max 500", findings[0]["message"])
+        self.assertIn("assets/templates/SLICE-BRIEF.md#L20", findings[0]["message"])
+
+    def test_brief_900_words_with_named_expansion_passes(self):
+        text = sized_brief(900, "\nExpanded for: payment rollback\n")
+        self.assertEqual(900, len(text.split()))
+        self.assertEqual([], self.run_audit(**{"SLICE-001-demo.md": text}))
+        for extra in ("\nExpanded for:\n", "\nExpanded for:   \n", "\nExpanded for:\npayment rollback\n",
+                      "\nMention Expanded for: payment rollback\n", "\n```\nExpanded for: payment rollback\n```\n"):
+            self.assertEqual(["brief-length"], [f["check"] for f in self.run_audit(**{
+                "SLICE-001-demo.md": sized_brief(900, extra)})], extra)
+
+    def test_brief_fenced_code_is_not_counted(self):
+        for opening, interior, closing in (("```python", "", "```"), ("~~~text", "", "~~~"),
+                                            ("````", "```\n", "````"), ("   ```", "", "   ```")):
+            for newline in ("\n", "\r\n"):
+                with self.subTest(opening=opening, newline=newline):
+                    text = sized_brief(500) + "\n" + opening + "\n" + interior + "code " * 900 + "\n" + closing + "\n"
+                    self.assertEqual([], self.run_audit(**{"SLICE-001-demo.md": text.replace("\n", newline)}))
+                    self.assertEqual(["brief-length"], [f["check"] for f in self.run_audit(**{
+                        "SLICE-001-demo.md": text + "outside\n"})])
+
+    def test_brief_blockquoted_fenced_code_is_not_counted(self):
+        for prefix in ("> ", ">> ", "   > > "):
+            for opening, closing in (("```python", "```"), ("~~~text", "~~~"), ("````", "````")):
+                for newline in ("\n", "\r\n"):
+                    with self.subTest(prefix=prefix, opening=opening, newline=newline):
+                        code = prefix + opening + "\n" + prefix + "code " * 900 + "\n" + prefix + closing + "\n"
+                        text = (sized_brief(500) + "\n" + code).replace("\n", newline)
+                        self.assertEqual([], self.run_audit(**{"SLICE-001-demo.md": text}))
+                        findings = self.run_audit(**{"SLICE-001-demo.md": text + "outside\n"})
+                        self.assertEqual(["brief-length"], [f["check"] for f in findings])
+                        self.assertIn("501 words", findings[0]["message"])
+        # A quote boundary ends its code fence; top-level code can contain quote markers.
+        for code in ("> ```python\n> code\noutside\n", "```python\n> code\n```\noutside\n"):
+            findings = self.run_audit(**{"SLICE-001-demo.md": sized_brief(500) + "\n" + code})
+            self.assertEqual(["brief-length"], [f["check"] for f in findings])
+            self.assertIn("501 words", findings[0]["message"])
+        for marker in ("> ```text\n> Expanded for: payment rollback\n> ```\n",
+                       "> Expanded for: payment rollback\n"):
+            self.assertTrue(kit_audit.check_brief_length("SLICE-001-demo.md", sized_brief(900) + "\n" + marker))
+
+    def test_brief_length_counts_slice_state_metadata(self):
+        state = "SLICE STATE\nNext action: " + "word " * 97 + "\n"
+        self.assertEqual(101, len(state.split()))
+        for opening, closing in (("```", "```"), ("```text", "```"), ("~~~plaintext", "~~~"),
+                                  ("   ````text", "   ````")):
+            for newline in ("\n", "\r\n"):
+                with self.subTest(opening=opening, newline=newline):
+                    metadata = "\n" + opening + "\n" + state + closing + "\n"
+                    self.assertEqual([], self.run_audit(**{
+                        "SLICE-001-demo.md": (sized_brief(399) + metadata).replace("\n", newline)}))
+                    findings = self.run_audit(**{
+                        "SLICE-001-demo.md": (sized_brief(400) + metadata).replace("\n", newline)})
+                    self.assertEqual(["brief-length"], [f["check"] for f in findings])
+                    self.assertIn("501 words", findings[0]["message"])
+        for code in ("```python\n" + state + "```\n",
+                     "````python\n```text\n" + state + "```\n````\n"):
+            self.assertEqual([], self.run_audit(**{"SLICE-001-demo.md": sized_brief(500) + "\n" + code}))
+
+    def test_brief_length_applies_to_every_read_slice_including_completed(self):
+        for status in ("Proposed", "Done", "Done with evidence"):
+            files = {"SLICE-001-demo.md": sized_brief(501).replace("Proposed", status),
+                     "SLICE-002-other.md": sized_brief(501)}
+            findings = self.run_audit(**files)
+            self.assertEqual(set(files), {f["file"] for f in findings if f["check"] == "brief-length"})
 
     def test_empty_and_unselected_directories_fail(self):
         for files in ({}, {"README.md": "Notes"}):

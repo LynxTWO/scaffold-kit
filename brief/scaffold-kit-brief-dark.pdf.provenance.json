@@ -18,8 +18,8 @@
   },
   "source_facts_checked_against": {
     "plugin.json": "93775f4968b85cac07f48ba673f87a73e6b3b70e10af210d13131c22dc7c6a0f",
-    "README.md": "af27b4cf0b845650261fe7eb94150ca6c3565f4bf5439ca2f7ee3416f918b732",
-    "skills/scaffold-kit/SKILL.md": "c33c17ec604b3165c2df02ccb4864729f857721f0316a5b9cf69daa5029a76b5",
+    "README.md": "9189932476e31071804d6ea45889fcc992802ac58c5125006cf3112ec089a4d9",
+    "skills/scaffold-kit/SKILL.md": "28e7e79f8e55d49a3ea236968d20f60d2f1e59367c13cde22f7e18c37cf2b184",
     "skills/scaffold-kit/references/conductor.md": "eec1a6299923bcda3da09e6af7200b8038ed490817d34fb841a362b87d6b2bf9",
     "skills/scaffold-kit/references/working-with-anti-dark-code.md": "c4b2b088990a16eadd049af4c6d5d75e5dba09f6ed84108c4d2c0c70724a57a0",
     "skills/scaffold-kit/assets/templates/DECISION-LOG.md": "7e5637519436e1f7e7b1cc99635b8c4bf3a2bb01af06240ddf80eafedd66331e",
@@ -65,6 +65,23 @@
       "date": "2026-10-22",
       "scope": "Stable publication/catalog wording in README only; existing brief facts, layout and safeguard text remain consistent.",
       "method": "Reviewed README promotion diff against unchanged brief body; existing PDF/source/renderer bytes retained."
+    },
+    {
+      "date": "2026-10-26",
+      "scope": "Read-only repository document-set inventory and brief-length audit; README and SKILL name --repo.",
+      "changed_sources": {
+        "README.md": {
+          "previous_sha256": "af27b4cf0b845650261fe7eb94150ca6c3565f4bf5439ca2f7ee3416f918b732",
+          "checked_sha256": "9189932476e31071804d6ea45889fcc992802ac58c5125006cf3112ec089a4d9"
+        },
+        "skills/scaffold-kit/SKILL.md": {
+          "previous_sha256": "c33c17ec604b3165c2df02ccb4864729f857721f0316a5b9cf69daa5029a76b5",
+          "checked_sha256": "28e7e79f8e55d49a3ea236968d20f60d2f1e59367c13cde22f7e18c37cf2b184"
+        }
+      },
+      "method": "Reviewed the two added audit sentences against unchanged field-brief claims about one planning set, mechanical checks, approval and scoped evidence. Verified original HTML, PDF and renderer digests.",
+      "html_pdf_and_renderer_unchanged": true,
+      "new_render_visual_or_human_trial_performed": false
     }
   ],
   "prior_render_validation": {

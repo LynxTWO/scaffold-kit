@@ -130,6 +130,7 @@ Prefer an upstream-maintained Python release; older compatibility coverage is
 not a recommendation to install an unsupported interpreter.
 
 `python3 -m unittest discover -s skills/scaffold-kit/tests` exercises the audit script. `python3 skills/scaffold-kit/scripts/kit_audit.py --docs <your docs dir>` audits partial/interview documents; add `--ready` for companions, one active slice and requirement/check bindings before the build readback. Readiness is a structural check, not owner approval or proof that the build works. `evals/` holds behavioral trial prompts and evidence.
+Add `--repo <project root>` to scan for extra document sets, either on its own or with `--docs` and `--ready`.
 
 ## License
 
