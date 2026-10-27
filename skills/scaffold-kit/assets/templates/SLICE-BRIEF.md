@@ -88,4 +88,4 @@ Follow EDD 12 modes and approved paths/effects. Approve new scope; reconcile con
 
 *Approved for build by: [name], [date], brief version [version]. Approval of the idea is not approval of this brief.*
 
-Evidence updates preserve intent. At completion, mark Done with evidence; update ADD 15 and host pointers before another brief.
+Evidence updates preserve intent. At completion, mark Done with evidence, then follow Conductor expansion step 3.
