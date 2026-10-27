@@ -432,6 +432,82 @@ class KitAuditTests(unittest.TestCase):
             files["SLICE-001-demo.md"] = CLEAN_SLICE.replace("Proposed.", done)
             self.assertIn("completed slice cannot be the current build boundary", self.messages(self.run_ready(files)))
 
+    def test_ready_reports_noncurrent_completed_briefs(self):
+        files = ready_docs()
+        files["SLICE-000-old.md"] = CLEAN_SLICE.replace("Proposed.", "Done.")
+        files["SLICE-002-finished.md"] = CLEAN_SLICE.replace("Proposed.", "Done with evidence.")
+        findings = self.run_ready(files)
+        self.assertEqual({"SLICE-000-old.md", "SLICE-002-finished.md"}, {f["file"] for f in findings})
+        self.assertEqual(["readiness", "readiness"], [f["check"] for f in findings])
+        for finding in findings:
+            self.assertIn("completed slice is not the current build boundary", finding["message"])
+            self.assertIn("retire finished briefs", finding["message"])
+            self.assertIn("references/conductor.md: expansion loop step 3", finding["message"])
+            self.assertIn("references/conductor.md#L179", finding["message"])
+
+    def test_ready_current_completed_keeps_only_legacy_rejection(self):
+        for status in ("Done", "Done with evidence"):
+            with self.subTest(status=status):
+                files = ready_docs()
+                files["SLICE-001-demo.md"] = CLEAN_SLICE.replace("Proposed", status)
+                self.assertEqual(["completed slice cannot be the current build boundary"],
+                                 self.messages(self.run_ready(files)))
+
+    def test_ready_retirement_survives_invalid_current_pointer(self):
+        for status in ("Done", "Done with evidence"):
+            for pointer in (None, "", "SLICE-999-missing.md",
+                            "SLICE-001-demo.md\n- **Current slice:** SLICE-002-other.md"):
+                with self.subTest(status=status, pointer=pointer):
+                    files = ready_docs()
+                    files["SLICE-000-old.md"] = CLEAN_SLICE.replace("Proposed", status)
+                    if pointer is None:
+                        del files["ARCHITECTURE.md"]
+                    else:
+                        files["ARCHITECTURE.md"] = READY_ADD.replace("SLICE-001-demo.md", pointer)
+                    findings = self.run_ready(files)
+                    self.assertTrue(any("active slice file is missing" in f["message"] or
+                                        "must name one Current slice" in f["message"] for f in findings))
+                    retirement = [f for f in findings if "retire finished briefs" in f["message"]]
+                    self.assertEqual(["SLICE-000-old.md"], [f["file"] for f in retirement])
+
+    def test_ready_ambiguous_pointer_does_not_choose_a_completed_candidate(self):
+        files = ready_docs()
+        files["SLICE-001-demo.md"] = CLEAN_SLICE.replace("Proposed", "Done")
+        files["SLICE-002-other.md"] = CLEAN_SLICE.replace("Proposed", "Done with evidence")
+        files["ARCHITECTURE.md"] = READY_ADD.replace(
+            "SLICE-001-demo.md", "SLICE-001-demo.md\n- **Current slice:** SLICE-002-other.md")
+        findings = self.run_ready(files)
+        self.assertTrue(any("must name one Current slice" in f["message"] for f in findings))
+        self.assertFalse(any("retire finished briefs" in f["message"] for f in findings))
+
+    def test_ready_noncurrent_statuses_keep_existing_behavior(self):
+        for status, messages in (("Proposed", []), ("Approved for build", ["another slice is active"]),
+                                 ("In progress", ["another slice is active"]),
+                                 ("Finished", ["invalid slice status: 'Finished'"])):
+            with self.subTest(status=status):
+                files = ready_docs()
+                files["SLICE-000-old.md"] = CLEAN_SLICE.replace("Proposed", status)
+                self.assertEqual(messages, self.messages(self.run_ready(files)))
+
+    def test_completed_history_remains_valid_in_partial_mode_and_audit_is_read_only(self):
+        for status in ("Done", "Done with evidence"):
+            with self.subTest(status=status), tempfile.TemporaryDirectory() as tmp:
+                files = ready_docs()
+                files["SLICE-000-old.md"] = CLEAN_SLICE.replace("Proposed", status)
+                docs = write_docs(Path(tmp) / "docs", **files)
+                before = {path.name: path.read_bytes() for path in docs.iterdir()}
+                code, output, errors = self.run_cli("--docs", str(docs), "--json")
+                self.assertEqual(0, code)
+                self.assertEqual("", errors)
+                self.assertEqual([], json.loads(output)["findings"])
+                code, output, errors = self.run_cli("--docs", str(docs), "--ready", "--json")
+                self.assertEqual(1, code)
+                self.assertEqual("", errors)
+                findings = json.loads(output)["findings"]
+                self.assertEqual(["SLICE-000-old.md"], [f["file"] for f in findings])
+                self.assertIn("retire finished briefs", findings[0]["message"])
+                self.assertEqual(before, {path.name: path.read_bytes() for path in docs.iterdir()})
+
     def test_ready_approved_status_needs_a_named_approver(self):
         for status in ("Approved for build.", "In progress."):
             for footer in ("", "\n*Approved for build by: [name], [date], brief version [version].*\n",
@@ -465,7 +541,8 @@ class KitAuditTests(unittest.TestCase):
         self.assertTrue(any("followed by a name and date" in m for m in self.messages(self.run_ready(files))))
         files = ready_docs()
         files["SLICE-000-old.md"] = CLEAN_SLICE.replace("Proposed.", "Done.")
-        self.assertEqual([], self.run_ready(files))
+        self.assertTrue(any("completed slice is not the current build boundary" in m
+                            for m in self.messages(self.run_ready(files))))
 
     def test_approval_must_name_the_current_brief_version(self):
         approved = CLEAN_SLICE.replace("Proposed.", "Approved for build.")

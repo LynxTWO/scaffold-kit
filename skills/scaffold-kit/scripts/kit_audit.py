@@ -51,6 +51,8 @@ ONE_SET_RULE = ("one document set per project (SKILL.md: Keep one document set) 
 BRIEF_LENGTH_RULE = ("compact form max 500 unless a named risk needs essential decision detail "
                      "(assets/templates/SLICE-BRIEF.md:20) "
                      "[instruction line](https://github.com/LynxTWO/scaffold-kit/blob/8d6316b040136142890548a06a1d3e5d96be63b0/skills/scaffold-kit/assets/templates/SLICE-BRIEF.md#L20)")
+BRIEF_RETIREMENT_RULE = ("retire finished briefs (references/conductor.md: expansion loop step 3) "
+                         "[instruction line](https://github.com/LynxTWO/scaffold-kit/blob/conductor/retire-finished-briefs/skills/scaffold-kit/references/conductor.md#L179)")
 
 
 def is_kit_doc(name: str) -> bool:
@@ -386,6 +388,9 @@ def check_readiness(docs: dict[str, str]) -> list[dict]:
             fail(name, "still in interview")
     boundary = section(docs.get("ARCHITECTURE.md", ""), "15")
     pointers = [match.group(2) for match in CURRENT_SLICE.finditer(boundary)]
+    for name, text in docs.items():
+        if name not in pointers and name.startswith("SLICE-") and name.endswith(".md") and slice_status(text) in COMPLETED_SLICE:
+            fail(name, f"completed slice is not the current build boundary; {BRIEF_RETIREMENT_RULE}")
     if len(pointers) != 1:
         fail("ARCHITECTURE.md", "section 15 must name one Current slice filename (SLICE-*.md)")
         return findings

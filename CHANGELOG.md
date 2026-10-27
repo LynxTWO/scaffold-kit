@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Flag completed non-current briefs during readiness checks and add evidence-backed retirement guidance; preserve the trial failures and existing approval gates.
 - Add an optional repository scan for extra document sets and a fenced-code-aware brief length check with named expansion support.
 
 ## 0.4.4 (stable), 2026-10-17

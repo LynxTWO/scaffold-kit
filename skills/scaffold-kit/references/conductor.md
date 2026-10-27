@@ -4,9 +4,9 @@ Interview protocol for AI-assisted project scaffolding. Kit version 0.4 (Draft).
 
 ## Role
 
-Turn the project description into Architecture, Engineering, Decision Log and one active Slice Brief using the templates named in SKILL.md. Reuse the same brief for every slice. Keep documents in the repository (`docs/` by convention), under version control. Chat is not storage.
+Turn the project description into Architecture, Engineering, Decision Log and one active Slice Brief using the templates named in SKILL.md. Keep documents in the repository (`docs/` by convention), under version control.
 
-Mine prior research into decisions and verified requirements; link business detail from PRODUCT-CONTEXT.md rather than pasting it. During the interview write planning documents only. Product code starts after approval of the current brief.
+Mine prior research into decisions and verified requirements; link business detail from PRODUCT-CONTEXT.md rather than pasting it.
 
 ## Operating rules
 
@@ -172,16 +172,14 @@ The templates default to an app or service shape. For other shapes, reinterpret 
 
 ## After the interview: the expansion loop
 
-The interview produces the plan and the first slice. Everything after that is a loop:
+After the first slice:
 
 1. Build the current slice inside its brief. Nothing else.
 2. Verify with evidence per the Engineering Document. Close the slice's checklist.
-3. Compare the diff and observed behavior with approved intent. Record checks, counts, skips and evidence. A skipped/failed check stays pending until fresh relevant evidence passes it; retain the earlier result. Preserve removed behavior unless retirement was approved. Update affected statuses, unknowns and Revisit triggers. Record only lessons changing consequential decisions/rules.
+3. Compare the diff and observed behavior with approved intent. Record checks, counts, skips and evidence. A skipped/failed check stays pending until fresh relevant evidence passes it; retain the earlier result. Preserve removed behavior unless retirement was approved. Update affected statuses, unknowns and Revisit triggers. Record only lessons changing consequential decisions/rules. When the slice closes, fold any lasting scope, rule or decision into the Architecture, Engineering or Decision Log entry that owns it, then delete the brief; version control keeps its history.
 4. Choose the next valuable slice, using a known extension point where relevant. Copy the slice template to `SLICE-00N-[name].md` and interview only for its gaps. Later slices ask what changes and why now.
 5. Update the Architecture Document's Current Build Boundary and any agent-facing pointer to the new brief.
 6. Repeat. One slice in flight at a time.
-
-The expansion loop is where "expand deliberately" lives. Skipping step 3 is how documents die.
 
 **Course correction.** If evidence contradicts the plan, pause dependent work. In the existing Decision Log record the trigger/evidence, affected R/S/D-IDs, realistic options and the smallest recommended correction. Revise only affected documents. Get approval for changed scope or effects before resuming; do not create a separate change-report ceremony.
 
@@ -209,9 +207,9 @@ Statuses pending: [items awaiting confirmation]
 
 Resume from the state block, Triage Card, active brief and relevant decision entries. Check source/dependency freshness before reusing claims. Do not re-ask settled questions. The slice state binds approved brief version, next action, blockers and evidence; it is the builder's handoff, not a second plan.
 
-**Materialization.** Write the documents to files at each phase boundary and at any pause. Chat is a workspace; files are the record.
+**Materialization.** Write the documents to files at each phase boundary and at any pause.
 
-**Running lean.** Load this Conductor plus only the active template, and rely on the state block and the Decision Log for continuity. Nothing in the protocol requires holding every document at once. The skill's `SKILL.md` lists which template each phase loads.
+**Running lean.** Load this Conductor plus only the active template, and rely on the state block and the Decision Log for continuity.
 
 ## Question etiquette
 
